@@ -2,15 +2,15 @@ Robolucha system architecture
 
 # Components 
 - Client
-- Api
-- CMS-Api
+- API
+- CMS-API
 - Mask-Generator
 - Publisher
-- Match-runner
-- Match-scheduler
-- Events-tracker
+- Match-Runner
+- Match-Scheduler
+- Match-Runner-API
+- Events-Tracker
 
-> Every component should have its own docker machine 
 > All necessary configuration should be read from environment variables
 > All logging level should be changeable with the application running
 
@@ -18,7 +18,7 @@ Robolucha system architecture
 Main client, should offer the following features:
 - login with facebook account
 - navigate on the latest news
-- choose one arena to play
+- choose one arena to play 
 - navigate on the robolucha luchador API 
 - edit code of one luchador
 - watch a game live
@@ -27,16 +27,16 @@ Main client, should offer the following features:
 
 > technology: angular-cli + typescript
 
-## Api
+## API
 Backend application to support Client features that persists information 
 on the database
-Is should publish changes to the code on the cache
+Notify match runner of changes to the code by publishing luchador updates
 
 > technology: playframework + postgredb + redis
 
-## CMS-Api
+## CMS-API
 Content Management System, provides latest news and the API documentation to the site
-- reads folder from google drive with .md files
+- reads .md files from folder at google drive
 - publishes the files as html to the site
 - use folders to create category of posts: main-page, archive
 
@@ -46,27 +46,30 @@ Content Management System, provides latest news and the API documentation to the
 ## Mask-Generator
 Webservice endpoint to generate the mask image for the luchador based 
 on the image specification, it should return in different sizes based on parameters
-- It should use the cache to keep the last generated masks in memory
+- keep the last generated masks in cache
 
 > technology: playframework + java
 
 ## Publisher
 Websocket application to update a client with the current state of an Match.
-It should read the state from the cache and send the updated match state to 
+Read the state from the cache and send the updated match state to 
 each client that is connected.
 
 > technology: nodejs + redis
 
 ## Match-Runner 
 Runs the game itself using the robolucha API definition in Lua
-It should be able to receive update events from the cache about luchador code updates
-It should update each match state in the cache at every game cycle.
-It should publish to the cache all the events from the match
-It should publish final scores when each match ends
+Receives update events from the cache about luchador code updates
+Update each match state in the cache at every game cycle
+Publish to the cache all the events from the match
+Publish final scores when each match ends
 
-> technology: java + redis + Lua VM
+## Match-Runner-API
+Make all the Database calls to store and read data for the MatchRunner
 
-## Events-tracker
+> technology: java + redis + Lua VM 
+
+## Events-Tracker
 Consumes the match events and save to a database
 Saves final scores for each match as well
 
@@ -74,5 +77,5 @@ Saves final scores for each match as well
 
 ## TBD
 - document cache and message system usage on Redis
-- document mapdefinition files 
-- define how to monitor the Components
+- document map definition files for the match-runner
+- define how to monitor the components
