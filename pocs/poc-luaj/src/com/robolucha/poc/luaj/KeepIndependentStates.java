@@ -17,7 +17,7 @@ public class KeepIndependentStates {
 	}
 	
 	@Test
-	public void testInt() {
+	public void testInt() throws Exception {
 		vm1.exec("a = 10");
 		vm2.exec("a = 20");
 	
@@ -27,7 +27,7 @@ public class KeepIndependentStates {
 	}
 
 	@Test
-	public void testString() {
+	public void testString() throws Exception {
 		vm1.exec("a = 'foo' ");
 		vm2.exec("a = 'bar' ");
 	
