@@ -27,6 +27,7 @@ export class AnimatedBox {
 
         // u is the ratio of the image width, between 0 and 1
         // V is the ratio of the image height, between 0 and 1
+        // see http://doc.babylonjs.com/tutorials/createbox_per_face_textures_and_colors
 
         let u = 1 / width;
         let v = 1 / height;
