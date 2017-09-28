@@ -14,6 +14,6 @@ export class Bullet extends Component {
 }
 
 export class GameState {
-    luchadors:Array<Luchador> = [];
+    luchadores:Array<Luchador> = [];
     bullets: Array<Bullet> = [];
 }

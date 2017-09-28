@@ -39,7 +39,7 @@ export class RandomGameState extends ServerPlugin {
         this.input = input;
         this.output = output;
         this.gameState = new GameState();
-        this.gameState.luchadors.push(this.createLuchador());
+        this.gameState.luchadores.push(this.createLuchador());
 
         input.subscribe((message) => {
             console.log(this.name, 'message received', JSON.stringify(message));
@@ -56,7 +56,7 @@ export class RandomGameState extends ServerPlugin {
 
     update(){
 
-        this.gameState.luchadors.forEach((luchador)=>{
+        this.gameState.luchadores.forEach((luchador)=>{
             this.move(luchador);
             this.tag2Remove(luchador);
         });
@@ -66,15 +66,15 @@ export class RandomGameState extends ServerPlugin {
             this.tag2Remove(bullet);
         });
 
-        if( this.gameState.luchadors.length < MAX_LUCHADORES ){
-            this.gameState.luchadors.push( this.createLuchador() );
+        if( this.gameState.luchadores.length < MAX_LUCHADORES ){
+            this.gameState.luchadores.push( this.createLuchador() );
         }
 
         if( this.gameState.bullets.length < MAX_BULLETS ){
             this.gameState.bullets.push( this.createBullet() );
         }
 
-        this.gameState.luchadors = this.gameState.luchadors.filter(this.filterNotOutside);
+        this.gameState.luchadores = this.gameState.luchadores.filter(this.filterNotOutside);
         this.gameState.bullets = this.gameState.bullets.filter(this.filterNotOutside);
 
     }
