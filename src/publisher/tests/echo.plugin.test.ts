@@ -1,3 +1,4 @@
+import { GameState } from './../models/gamestate.model';
 import { Message } from './../models/message.model';
 import { Subject } from 'rxjs/Subject';
 import { EchoPlugin } from '../plugins/echo.plugin';
@@ -15,16 +16,16 @@ describe('Echo plugin', () => {
 
   it('should build with the correct name', () => {
     let echo = new EchoPlugin();
-    expect(echo.name).to.equal('echo-plugin');
+    expect(echo.name).to.equal('echo');
   });
 
   it('should send message correctly', (done) => {
-    let original = 'foo.bar';
-    let updated = 'foo.bar=ECHO';
+    let original = new GameState();
 
     // check if echo plugin updated the message
     server.default.output.subscribe((message) => {
-      expect(message.data).to.equal(updated);
+      expect(JSON.stringify(message.data)).to.equal(JSON.stringify(original));
+      expect(message.type).to.equal('echo');
       done();
     });
 

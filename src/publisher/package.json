@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register tests/**.test.ts --reporter mocha-multi-reporters --reporter-options configFile=tests/multi.config.json",
+    "test": "mocha -r ts-node/register tests/**.test.ts --reporter mochawesome",
     "start": "node index.js"
   },
   "author": "",
