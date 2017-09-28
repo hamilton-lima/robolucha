@@ -13,8 +13,8 @@ const MAX_X: number = 50;
 const MAX_Y: number = 50;
 const MAX_ROTATION: number = 360;
 
-const SPEED: number = 5; 
-const BULLET_SPEED: number = 15;
+const SPEED: number = 20; 
+const BULLET_SPEED: number = 60;
 
 const MAX_LUCHADORES: number = 3;
 const MAX_BULLETS: number = 5;
@@ -91,8 +91,8 @@ export class RandomGameState extends ServerPlugin {
 
     move(component:Component){
         let radians = (Math.PI / 180) * component.rotation;
-        let x = Math.cos(radians) * SPEED * DELTA;
-        let y = Math.sin(radians) * SPEED * DELTA;
+        let x = Math.sin(radians) * SPEED * DELTA;
+        let y = Math.cos(radians) * SPEED * DELTA;
 
         component.x += x; 
         component.y += y;  

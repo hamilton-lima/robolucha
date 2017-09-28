@@ -1,3 +1,12 @@
-<pre>
-  {{state | json }}
-</pre>
+
+<div>
+  <canvas #game width="1024" height="768" id="renderCanvas"></canvas>
+</div>
+
+<div>
+  camera1:  {{camera1.position | json }}, {{camera1.rotation | json }}
+</div>
+
+<div>
+  luchadores:  {{luchadores.entries | json }}
+</div>
