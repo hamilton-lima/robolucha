@@ -1,3 +1,4 @@
+import { Bullet3D } from './bullet.3d';
 import { Subscription } from 'rxjs/Rx';
 import { GameState } from './../../models/gamestate.model';
 import { GameStateService } from '../../services/gamestate.service';
@@ -25,12 +26,11 @@ export class GameArenaComponent implements OnInit, OnDestroy {
   private light2: BABYLON.Light;
 
   private luchadores: Map<string, Luchador3D>;
-  //private bullets: Map<string,Luchador3D>;
+  private bullets: Map<string, Bullet3D>;
 
   constructor(private service: GameStateService) {
     this.luchadores = new Map<string, Luchador3D>();
-    //   this.bullets = new Map<string,Bullerts3D>();
-
+    this.bullets = new Map<string, Bullet3D>();
   }
 
   ngOnInit() {
@@ -83,6 +83,7 @@ export class GameArenaComponent implements OnInit, OnDestroy {
   }
 
   update(state: GameState) {
+    this.state = state;
 
     state.luchadores.forEach((luchador) => {
       if (!this.luchadores.has(luchador.id)) {
@@ -92,6 +93,26 @@ export class GameArenaComponent implements OnInit, OnDestroy {
         this.luchadores.get(luchador.id).update(luchador);
       }
 
+    });
+
+    state.bullets.forEach((bullet) => {
+      if (!this.bullets.has(bullet.id)) {
+        let add = new Bullet3D(this.scene, bullet);
+        this.bullets.set(bullet.id, add);
+      } else {
+        this.bullets.get(bullet.id).update(bullet);
+      }
+    });
+
+    // remove 
+    this.bullets.forEach((existing) => {
+      let found = state.bullets.find((fromServer) => {
+        return fromServer.id == existing.id;
+      });
+      if (!found) {
+        this.bullets.get(existing.id).dispose();
+        this.bullets.delete(existing.id);
+      }
     });
   }
 

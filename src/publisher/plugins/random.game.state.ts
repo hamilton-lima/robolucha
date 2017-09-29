@@ -12,12 +12,16 @@ const DELTA: number = INTERVAL / 1000;
 const MAX_X: number = 50;
 const MAX_Y: number = 50;
 const MAX_ROTATION: number = 360;
+const ROTATION_ON_HITWALL = 10;
 
-const SPEED: number = 20; 
+const ROTATION_SPEED: number = 280;
+const SPEED: number = 20;
 const BULLET_SPEED: number = 60;
 
-const MAX_LUCHADORES: number = 3;
-const MAX_BULLETS: number = 5;
+const MAX_LUCHADORES: number = 10;
+const MAX_BULLETS: number = 20;
+const BORDER = 15;
+const BULLET_INTERVAL = 2000;
 
 export class RandomGameState extends ServerPlugin {
 
@@ -54,48 +58,62 @@ export class RandomGameState extends ServerPlugin {
         });
     }
 
-    update(){
+    update() {
 
-        this.gameState.luchadores.forEach((luchador)=>{
-            this.move(luchador);
-            this.tag2Remove(luchador);
+        this.gameState.luchadores.forEach((luchador) => {
+            if (luchador.toRotate > 0) {
+                this.rotate(luchador);
+            }
+            this.move(luchador, SPEED);
+
+            if (this.isOutside(luchador) && luchador.toRotate <= 0) {
+                luchador.toRotate = ROTATION_ON_HITWALL + (ROTATION_ON_HITWALL * Math.random());
+            }
+            
+            let elapsed = new Date().getTime() - luchador.lastBullet;
+            if( elapsed > BULLET_INTERVAL ){
+                this.gameState.bullets.push(this.createBullet(luchador));
+                luchador.lastBullet = new Date().getTime();
+            }
+
         });
 
-        this.gameState.bullets.forEach((bullet)=>{
-            this.move(bullet);
-            this.tag2Remove(bullet);
+        this.gameState.bullets.forEach((bullet) => {
+            this.move(bullet, BULLET_SPEED);
+            if (this.isOutside(bullet)) {
+                bullet.tag = 'remove';
+            }
         });
 
-        if( this.gameState.luchadores.length < MAX_LUCHADORES ){
-            this.gameState.luchadores.push( this.createLuchador() );
-        }
-
-        if( this.gameState.bullets.length < MAX_BULLETS ){
-            this.gameState.bullets.push( this.createBullet() );
+        if (this.gameState.luchadores.length < MAX_LUCHADORES) {
+            this.gameState.luchadores.push(this.createLuchador());
         }
 
         this.gameState.luchadores = this.gameState.luchadores.filter(this.filterNotOutside);
         this.gameState.bullets = this.gameState.bullets.filter(this.filterNotOutside);
-
     }
 
-    filterNotOutside(component:Component) {
-        return component.tag != 'outside';
+    filterNotOutside(component: Component) {
+        return component.tag != 'remove';
     }
 
-    tag2Remove(component:Component){
-        if( Math.abs(component.x) > MAX_X || Math.abs(component.y) > MAX_Y ){
-            component.tag = 'outside';
-        }
+    isOutside(component: Component) {
+        return Math.abs(component.x) + BORDER > MAX_X || Math.abs(component.y) + BORDER > MAX_Y;
     }
 
-    move(component:Component){
+    rotate(component: Component) {
+        let rotation = ROTATION_SPEED * DELTA;
+        component.toRotate -= rotation;
+        component.rotation += rotation;
+    }
+
+    move(component: Component, speed: number) {
         let radians = (Math.PI / 180) * component.rotation;
-        let x = Math.sin(radians) * SPEED * DELTA;
-        let y = Math.cos(radians) * SPEED * DELTA;
+        let x = Math.sin(radians) * speed * DELTA;
+        let y = Math.cos(radians) * speed * DELTA;
 
-        component.x += x; 
-        component.y += y;  
+        component.x += x;
+        component.y += y;
     }
 
     createLuchador(): Luchador {
@@ -104,8 +122,13 @@ export class RandomGameState extends ServerPlugin {
         return result;
     }
 
-    createBullet(): Bullet {
-        return this.addComponentRandomData(new Bullet());
+    createBullet(luchador:Luchador): Bullet {
+        let result: Bullet = new Bullet();
+        result.x = luchador.x;
+        result.y = luchador.y;
+        result.rotation = luchador.rotation;
+        result.id = RandomGameState.getComponentId();
+        return result;
     }
 
     addComponentRandomData(object: Component): Component {

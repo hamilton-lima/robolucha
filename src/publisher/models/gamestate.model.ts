@@ -4,6 +4,8 @@ export class Component {
     y: number;
     rotation: number;
     tag: string;
+    toRotate: number = 0;
+    lastBullet: number = 0;
 }
 
 export class Luchador extends Component {

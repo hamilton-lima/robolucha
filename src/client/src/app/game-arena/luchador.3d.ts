@@ -4,7 +4,6 @@ import { SharedConstants } from '../../models/shared.constants';
 
 import * as BABYLON from 'babylonjs';
 
-const TO_RADIANS = (Math.PI / 180);
 const SIZE = 3;
 const HALF = SIZE / 2;
 
@@ -60,7 +59,7 @@ export class Luchador3D {
         this.mesh.position.x = source.x - HALF;
         this.mesh.position.z = source.y - HALF;
 
-        this.mesh.rotation.y = TO_RADIANS * source.rotation;
+        this.mesh.rotation.y = SharedConstants.TO_RADIANS * source.rotation;
     }
 
 }

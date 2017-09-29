@@ -53,7 +53,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ffffff"
+       style="fill:#ef2929"
        id="rect4138"
        width="200"
        height="200"
@@ -88,12 +88,12 @@
        height="200"
        width="200"
        id="rect4144"
-       style="fill:#fce94f"
+       style="fill:#ffffff"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        inkscape:export-filename="texture6.png" />
     <rect
-       style="fill:#ef2929"
+       style="fill:#fce94f"
        id="rect4146"
        width="200"
        height="200"
