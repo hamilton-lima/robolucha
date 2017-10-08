@@ -19,7 +19,7 @@ export class Bullet3D {
         let material = new BABYLON.StandardMaterial("bullet-material" , this.scene);
         material.diffuseColor = BABYLON.Color3.FromHexString('#FFFFFF'); 
         
-        this.mesh = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: SIZE}, scene);
+        this.mesh = BABYLON.MeshBuilder.CreateSphere("sphere", {segments: 8, diameter: SIZE}, scene);
         this.mesh.material = material;
 
         this.scene = scene;
