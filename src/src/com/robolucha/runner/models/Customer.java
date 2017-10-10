@@ -1,70 +1,25 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
+public class Customer {
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("customer")
-@SaramagoColumn(description = "clientes autorizados a acessar o jogo")
-public class Customer extends Bean implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@Column(unique = false, nullable = false)
+	private long id;
 	private String name;
-
-	@Column(unique = false, nullable = true)
 	private String email;
-
-	@Column(unique = false, nullable = true)
 	private String locale;
-
-	@Column(unique = true, nullable = true)
 	private String facebookID;
-	
-	@Column(unique = false, nullable = true)
 	private String profilePic;
-
-	public String getProfilePic() {
-		return profilePic;
-	}
-
-	public void setProfilePic(String profilePic) {
-		this.profilePic = profilePic;
-	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", email=" + email
-				+ ", locale=" + locale + ", facebookID=" + facebookID
-				+ ", profilePic=" + profilePic + "]";
+		return "Customer [id=" + id + ", name=" + name + ", email=" + email + ", locale=" + locale + ", facebookID="
+				+ facebookID + ", profilePic=" + profilePic + "]";
 	}
 
-	public String getLocale() {
-		return locale;
-	}
-
-	public void setLocale(String locale) {
-		this.locale = locale;
-	}
-
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -84,12 +39,28 @@ public class Customer extends Bean implements Serializable {
 		this.email = email;
 	}
 
+	public String getLocale() {
+		return locale;
+	}
+
+	public void setLocale(String locale) {
+		this.locale = locale;
+	}
+
 	public String getFacebookID() {
 		return facebookID;
 	}
 
 	public void setFacebookID(String facebookID) {
 		this.facebookID = facebookID;
+	}
+
+	public String getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
 	}
 
 }

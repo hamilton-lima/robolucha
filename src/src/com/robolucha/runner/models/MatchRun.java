@@ -1,59 +1,17 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
+import com.robolucha.shared.Const;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.athanazio.saramago.shared.Const;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("match")
-@SaramagoColumn(description = "execução de um jogo")
-public class MatchRun extends Bean implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
+public class MatchRun {
 	private Long id;
-
-	@ManyToOne(optional = false)
 	private Game game;
-
-	@Column(unique = false, nullable = true)
-	private Double timeStart = 0.0;
-
-	@Column(unique = false, nullable = true)
-	private Double timeEnd = 0.0;
-
-	@Column(unique = false, nullable = true)
-	private String published = Const.NAO;
-
-	@Column(unique = false, nullable = true, length = 10)
-	private String rankingCalculated = Const.NAO;
-
-	@Column(unique = false, nullable = true)
-	private Double lastTimeAlive = 0.0;
-
-	@Column(unique = false, nullable = true)
-	private Double gameServerOwnerPID = 0.0;
-
-	// indica que a partida foi encerrada manualmente se diferente de zero
-	@Column(unique = false, nullable = true)
+	private long timeStart = 0;
+	private long timeEnd = 0;
+	private String published = Const.NO;
+	private String rankingCalculated = Const.NO;
+	private long lastTimeAlive = 0;
+	private long gameServerOwnerPID = 0;
 	private Integer manual = 0;
-
-	public String getName() {
-		return game.getGameDefinition().getName() + " " + timeStart + "-" + timeEnd;
-	}
-
-	public void setName(String name) {
-	}
 
 	@Override
 	public String toString() {
@@ -78,19 +36,19 @@ public class MatchRun extends Bean implements Serializable {
 		this.game = game;
 	}
 
-	public Double getTimeStart() {
+	public long getTimeStart() {
 		return timeStart;
 	}
 
-	public void setTimeStart(Double timeStart) {
+	public void setTimeStart(long timeStart) {
 		this.timeStart = timeStart;
 	}
 
-	public Double getTimeEnd() {
+	public long getTimeEnd() {
 		return timeEnd;
 	}
 
-	public void setTimeEnd(Double timeEnd) {
+	public void setTimeEnd(long timeEnd) {
 		this.timeEnd = timeEnd;
 	}
 
@@ -110,19 +68,19 @@ public class MatchRun extends Bean implements Serializable {
 		this.rankingCalculated = rankingCalculated;
 	}
 
-	public Double getLastTimeAlive() {
+	public long getLastTimeAlive() {
 		return lastTimeAlive;
 	}
 
-	public void setLastTimeAlive(Double lastTimeAlive) {
+	public void setLastTimeAlive(long lastTimeAlive) {
 		this.lastTimeAlive = lastTimeAlive;
 	}
 
-	public Double getGameServerOwnerPID() {
+	public long getGameServerOwnerPID() {
 		return gameServerOwnerPID;
 	}
 
-	public void setGameServerOwnerPID(Double gameServerOwnerPID) {
+	public void setGameServerOwnerPID(long gameServerOwnerPID) {
 		this.gameServerOwnerPID = gameServerOwnerPID;
 	}
 

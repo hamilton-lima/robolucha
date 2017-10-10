@@ -1,34 +1,13 @@
 package com.robolucha.runner.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import com.robolucha.shared.Const;
 
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.athanazio.saramago.shared.Const;
-import com.fasterxml.jackson.annotation.JsonRootName;
+public class CustomerFlags {
 
-@Entity
-@JsonRootName("customerFlags")
-@SaramagoColumn(description = "dados de controle de clientes")
-public class CustomerFlags extends Bean {
-
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@ManyToOne(optional = true)
-	@SaramagoColumn(description = "o cliente")
+	private long id;
 	private Customer customer;
-
-	@Column(unique = false, nullable = true)
-	private String watchTutorial = Const.NAO;
-
-	@Column(unique = false, nullable = true)
-	private String internalCustomer = Const.NAO;
+	private String watchTutorial = Const.NO;
+	private String internalCustomer = Const.NO;
 
 	@Override
 	public String toString() {
@@ -36,12 +15,12 @@ public class CustomerFlags extends Bean {
 				+ ", internalCustomer=" + internalCustomer + "]";
 	}
 
-	public String getWatchTutorial() {
-		return watchTutorial;
+	public long getId() {
+		return id;
 	}
 
-	public void setWatchTutorial(String watchTutorial) {
-		this.watchTutorial = watchTutorial;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public Customer getCustomer() {
@@ -52,18 +31,12 @@ public class CustomerFlags extends Bean {
 		this.customer = customer;
 	}
 
-	public Long getId() {
-		return id;
+	public String getWatchTutorial() {
+		return watchTutorial;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setWatchTutorial(String watchTutorial) {
+		this.watchTutorial = watchTutorial;
 	}
 
 	public String getInternalCustomer() {
@@ -72,10 +45,6 @@ public class CustomerFlags extends Bean {
 
 	public void setInternalCustomer(String internalCustomer) {
 		this.internalCustomer = internalCustomer;
-	}
-
-	@Override
-	public void setName(String name) {
 	}
 
 }

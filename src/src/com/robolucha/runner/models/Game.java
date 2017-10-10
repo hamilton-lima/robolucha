@@ -1,75 +1,31 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.bean.SystemServerNode;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("game")
-@SaramagoColumn(description = "instância do game")
-public class Game extends Bean implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@Column(unique = true, nullable = false)
+public class Game {
+	private long id;
 	private String name;
-
-	@Column(unique = false, nullable = true)
 	private Date startTime;
-
-	@Column(unique = false, nullable = true)
 	private Date endTime;
-
-	@Column(unique = false, nullable = true)
-	@SaramagoColumn(description = "valor minimo do ranking validate para entrada na arena")
-	private Integer minRankingValidate;
-
-	@ManyToOne(optional = true)
-	@SaramagoColumn(description = "ranking para validar entrada na arena")
+	private int minRankingValidate;
 	private Ranking rankingValidate;
-
-	@ManyToOne(optional = true)
-	@SaramagoColumn(description = "ranking gerado a partir desta partida")
 	private Ranking rankingGenerate;
-
-	@ManyToOne(optional = true)
-	@SaramagoColumn(description = "dono do game")
 	private Customer customer;
-
-	@ManyToOne(optional = false)
-	@SaramagoColumn(description = "definicao do game")
 	private GameDefinition gameDefinition;
-
-	@ManyToOne(optional = false)
-	@SaramagoColumn(description = "servidor onde jogo sera executado")
-	private SystemServerNode node;
 
 	@Override
 	public String toString() {
 		return "Game [id=" + id + ", name=" + name + ", startTime=" + startTime + ", endTime=" + endTime
 				+ ", minRankingValidate=" + minRankingValidate + ", rankingValidate=" + rankingValidate
 				+ ", rankingGenerate=" + rankingGenerate + ", customer=" + customer + ", gameDefinition="
-				+ gameDefinition + ", node=" + node + "]";
+				+ gameDefinition + "]";
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -97,11 +53,11 @@ public class Game extends Bean implements Serializable {
 		this.endTime = endTime;
 	}
 
-	public Integer getMinRankingValidate() {
+	public int getMinRankingValidate() {
 		return minRankingValidate;
 	}
 
-	public void setMinRankingValidate(Integer minRankingValidate) {
+	public void setMinRankingValidate(int minRankingValidate) {
 		this.minRankingValidate = minRankingValidate;
 	}
 
@@ -135,14 +91,6 @@ public class Game extends Bean implements Serializable {
 
 	public void setGameDefinition(GameDefinition gameDefinition) {
 		this.gameDefinition = gameDefinition;
-	}
-
-	public SystemServerNode getNode() {
-		return node;
-	}
-
-	public void setNode(SystemServerNode node) {
-		this.node = node;
 	}
 
 }

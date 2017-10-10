@@ -1,41 +1,13 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
+public class MatchRunScore {
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("matchrunscore")
-@SaramagoColumn(description = "placar final de uma partida")
-public class MatchRunScore extends Bean implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@ManyToOne(optional = false)
+	private long id;
 	private MatchRun matchRun;
-
-	@ManyToOne(optional = false)
 	private GameComponent gameComponent;
-
-	@Column(unique = false, nullable = false)
-	private Integer kills;
-
-	@Column(unique = false, nullable = false)
-	private Integer deaths;
-
-	@Column(unique = false, nullable = false)
-	private Integer score;
+	private int kills;
+	private int deaths;
+	private int score;
 
 	@Override
 	public String toString() {
@@ -49,24 +21,16 @@ public class MatchRunScore extends Bean implements Serializable {
 			matchRunId = matchRun.getId();
 		}
 
-		return "MatchRunScore [id=" + id + ", matchRun="
-				+ matchRunId + ", luchador=" + luchadorId + ", kills=" + kills
+		return "MatchRunScore [id=" + id + ", matchRun=" + matchRunId + ", luchador=" + luchadorId + ", kills=" + kills
 				+ ", deaths=" + deaths + ", score=" + score + "]";
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return matchRun.getLabel() + " "+ gameComponent.getName();
-	}
-
-	public void setName(String name) {
 	}
 
 	public MatchRun getMatchRun() {
@@ -85,27 +49,27 @@ public class MatchRunScore extends Bean implements Serializable {
 		this.gameComponent = gameComponent;
 	}
 
-	public Integer getKills() {
+	public int getKills() {
 		return kills;
 	}
 
-	public void setKills(Integer kills) {
+	public void setKills(int kills) {
 		this.kills = kills;
 	}
 
-	public Integer getDeaths() {
+	public int getDeaths() {
 		return deaths;
 	}
 
-	public void setDeaths(Integer deaths) {
+	public void setDeaths(int deaths) {
 		this.deaths = deaths;
 	}
 
-	public Integer getScore() {
+	public int getScore() {
 		return score;
 	}
 
-	public void setScore(Integer score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 

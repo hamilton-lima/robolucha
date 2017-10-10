@@ -1,31 +1,9 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
+public class Ranking {
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("ranking")
-@SaramagoColumn(description = "nome de ranking")
-public class Ranking extends Bean implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@Column(unique = true, nullable = false)
+	private long id;
 	private String name;
-
-	@Column(unique = true, nullable = false)
 	private String shortName;
 
 	@Override
@@ -33,11 +11,11 @@ public class Ranking extends Bean implements Serializable {
 		return "Ranking [id=" + id + ", name=" + name + ", shortName=" + shortName + "]";
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

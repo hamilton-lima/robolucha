@@ -1,80 +1,23 @@
 package com.robolucha.runner.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+public class MaskConfig {
 
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.athanazio.saramago.shared.Const;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("maskconfig")
-@SaramagoColumn(description = "configuracao da mascara do luchador")
-public class MaskConfig extends Bean {
-
-	@Id
-	@GeneratedValue
 	private Long id;
-
-	@ManyToOne(optional = false)
-	@SaramagoColumn(description = "O Luchador")
 	private GameComponent gameComponent;
-
-	@Column(unique = false, nullable = true)
 	private String name;
-
-	public GameComponent getGameComponent() {
-		return gameComponent;
-	}
-
-	public void setGameComponent(GameComponent gameComponent) {
-		this.gameComponent = gameComponent;
-	}
-
-	@Column(unique = false, nullable = false)
 	private String background;
-
-	@Column(unique = false, nullable = false)
 	private String backgroundColor;
-
-	@Column(unique = false, nullable = false)
 	private String background2;
-
-	@Column(unique = false, nullable = false)
 	private String background2Color;
-
-	@Column(unique = false, nullable = false)
 	private String ornamentTop;
-
-	@Column(unique = false, nullable = false)
 	private String ornamentTopColor;
-
-	@Column(unique = false, nullable = false)
 	private String ornamentBottom;
-
-	@Column(unique = false, nullable = false)
 	private String ornamentBottomColor;
-
-	@Column(unique = false, nullable = false)
 	private String face;
-
-	@Column(unique = false, nullable = false)
 	private String faceColor;
-
-	@Column(unique = false, nullable = false)
 	private String mouth;
-
-	@Column(unique = false, nullable = false)
 	private String mouthColor;
-
-	@Column(unique = false, nullable = false)
 	private String eye;
-
-	@Column(unique = false, nullable = false)
 	private String eyeColor;
 
 	@Override
@@ -93,6 +36,14 @@ public class MaskConfig extends Bean {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public GameComponent getGameComponent() {
+		return gameComponent;
+	}
+
+	public void setGameComponent(GameComponent gameComponent) {
+		this.gameComponent = gameComponent;
 	}
 
 	public String getName() {

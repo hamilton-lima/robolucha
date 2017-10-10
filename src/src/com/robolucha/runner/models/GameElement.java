@@ -1,22 +1,15 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
+import com.robolucha.shared.Const;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+public class GameElement  {
 
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.athanazio.saramago.shared.Const;
-import com.fasterxml.jackson.annotation.JsonRootName;
+	private String canShow = Const.YES;
 
-@Entity
-@JsonRootName("gameelement")
-@SaramagoColumn(description = "definicoes de elementos no mapa")
-public class GameElement extends GameComponent implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	@Column(unique = false, nullable = true, length = 10)
-	private String canShow = Const.SIM;
+	@Override
+	public String toString() {
+		return "GameElement [canShow=" + canShow + "]";
+	}
 
 	public String getCanShow() {
 		return canShow;
@@ -25,5 +18,6 @@ public class GameElement extends GameComponent implements Serializable {
 	public void setCanShow(String canShow) {
 		this.canShow = canShow;
 	}
+
 
 }

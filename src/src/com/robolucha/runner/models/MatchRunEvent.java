@@ -1,59 +1,26 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("matchevent")
-@SaramagoColumn(description = "eventos ocorridos em uma partida")
-public class MatchRunEvent extends Bean implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@ManyToOne(optional = false)
+public class MatchRunEvent {
+	private long id;
 	private MatchRun matchRun;
-
-	@ManyToOne(optional = false)
 	private GameComponent luchadorA;
-
-	@ManyToOne(optional = false)
 	private GameComponent luchadorB;
-
-	@Column(unique = false, nullable = false)
-	private Double timeStart;
-
-	@Column(unique = false, nullable = false)
+	private long timeStart;
 	private String event;
+	private double amount;
 
-	@Column(unique = false, nullable = false)
-	private Double amount;
+	@Override
+	public String toString() {
+		return "MatchRunEvent [id=" + id + ", matchRun=" + matchRun + ", luchadorA=" + luchadorA + ", luchadorB="
+				+ luchadorB + ", timeStart=" + timeStart + ", event=" + event + ", amount=" + amount + "]";
+	}
 
-
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return matchRun.getLabel() + " "+ luchadorA.getName() + " " + event + " " + luchadorB.getName();
-	}
-
-	public void setName(String name) {
 	}
 
 	public MatchRun getMatchRun() {
@@ -80,11 +47,11 @@ public class MatchRunEvent extends Bean implements Serializable {
 		this.luchadorB = luchadorB;
 	}
 
-	public Double getTimeStart() {
+	public long getTimeStart() {
 		return timeStart;
 	}
 
-	public void setTimeStart(Double timeStart) {
+	public void setTimeStart(long timeStart) {
 		this.timeStart = timeStart;
 	}
 
@@ -96,12 +63,12 @@ public class MatchRunEvent extends Bean implements Serializable {
 		this.event = event;
 	}
 
-	public Double getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	
+
 }

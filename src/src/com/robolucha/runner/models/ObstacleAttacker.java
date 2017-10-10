@@ -1,30 +1,24 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
+public class ObstacleAttacker extends Obstacle {
 
-import javax.persistence.Entity;
-
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("obstacle_attacker")
-@SaramagoColumn(description = "definicoes do obstaculo")
-public class ObstacleAttacker extends Obstacle implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	Integer dmg;
-	public ObstacleAttacker(double x, double y,int dmg) {
+	public ObstacleAttacker(int x, int y) {
 		super(x, y);
-		this.dmg = dmg;
 	}
-	public Integer getDmg() {
+
+	private int dmg;
+
+	@Override
+	public String toString() {
+		return "ObstacleAttacker [dmg=" + dmg + "]";
+	}
+
+	public int getDmg() {
 		return dmg;
 	}
-	public void setDmg(Integer dmg) {
+
+	public void setDmg(int dmg) {
 		this.dmg = dmg;
 	}
-	
+
 }

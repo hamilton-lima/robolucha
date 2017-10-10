@@ -1,36 +1,35 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
+public class Obstacle extends GameComponent {
 
-import javax.persistence.Entity;
-
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("obstacle")
-@SaramagoColumn(description = "definicoes do obstaculo")
-public class Obstacle extends GameComponent implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	protected Double x,y;
-	public Obstacle(double x, double y)
-	{
+	private int x;
+	private int y;
+	
+	public Obstacle(int x, int y) {
+		super();
 		this.x = x;
 		this.y = y;
 	}
-	public Double getX() {
+
+	@Override
+	public String toString() {
+		return "Obstacle [x=" + x + ", y=" + y + "]";
+	}
+
+	public int getX() {
 		return x;
 	}
-	public void setX(Double x) {
+
+	public void setX(int x) {
 		this.x = x;
 	}
-	public Double getY() {
+
+	public int getY() {
 		return y;
 	}
-	public void setY(Double y) {
+
+	public void setY(int y) {
 		this.y = y;
 	}
+
 }

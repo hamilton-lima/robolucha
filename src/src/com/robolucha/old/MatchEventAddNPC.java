@@ -6,12 +6,11 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.athanazio.saramago.server.dao.GenericDAO;
-import com.athanazio.saramago.server.util.BeanUtil;
 import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.runner.LuchadorRunner;
+import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.models.GameDefinition;
 import com.robolucha.runner.models.GameDefinitionNPC;
-import com.robolucha.service.GameDefinitionNPCCrudService;
 
 public class MatchEventAddNPC implements MatchEventListener {
 

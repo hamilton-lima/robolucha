@@ -1,45 +1,12 @@
 package com.robolucha.runner.models;
 
-import java.io.Serializable;
+public class Code {
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.athanazio.saramago.client.Bean;
-import com.athanazio.saramago.server.dao.SaramagoColumn;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-@Entity
-@JsonRootName("code")
-@SaramagoColumn(description = "definicoes do codigo de um lutchador para um evento")
-public class Code extends Bean implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@Column(unique = false, nullable = false)
+	private long id;
 	private String event;
-
-	@Column(unique = false, nullable = false)
-	private Long version = 1L;
-
-	@Column(unique = false, nullable = true, length = 90000)
+	private long version = 1L;
 	private String script;
-
-	@SaramagoColumn(description = "texto do erro de compilacao se houver algum")
-	@Column(unique = false, nullable = true)
 	private String exception;
-
-	public Long getId() {
-		return id;
-	}
 
 	@Override
 	public String toString() {
@@ -47,7 +14,11 @@ public class Code extends Bean implements Serializable {
 				+ exception + "]";
 	}
 
-	public void setId(Long id) {
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -59,11 +30,11 @@ public class Code extends Bean implements Serializable {
 		this.event = event;
 	}
 
-	public Long getVersion() {
+	public long getVersion() {
 		return version;
 	}
 
-	public void setVersion(Long version) {
+	public void setVersion(long version) {
 		this.version = version;
 	}
 
@@ -83,22 +54,5 @@ public class Code extends Bean implements Serializable {
 		this.exception = exception;
 	}
 
-	@JsonIgnore
-	public String getName() {
-		return event + ":" + version;
-	}
-
-	@JsonIgnore
-	public void setName(String name) {
-
-	}
-
-//	public CodePackage getCodePackage() {
-//		return codePackage;
-//	}
-//
-//	public void setCodePackage(CodePackage codePackage) {
-//		this.codePackage = codePackage;
-//	}
-
+	
 }
