@@ -2,7 +2,7 @@ package com.robolucha.runner.models;
 
 import com.robolucha.shared.Const;
 
-public class MatchRun {
+public class Match {
 	private Long id;
 	private Game game;
 	private long timeStart = 0;

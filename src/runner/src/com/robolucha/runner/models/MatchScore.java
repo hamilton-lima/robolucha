@@ -1,9 +1,9 @@
 package com.robolucha.runner.models;
 
-public class MatchRunScore {
+public class MatchScore {
 
 	private long id;
-	private MatchRun matchRun;
+	private Match matchRun;
 	private GameComponent gameComponent;
 	private int kills;
 	private int deaths;
@@ -33,11 +33,11 @@ public class MatchRunScore {
 		this.id = id;
 	}
 
-	public MatchRun getMatchRun() {
+	public Match getMatchRun() {
 		return matchRun;
 	}
 
-	public void setMatchRun(MatchRun matchRun) {
+	public void setMatchRun(Match matchRun) {
 		this.matchRun = matchRun;
 	}
 

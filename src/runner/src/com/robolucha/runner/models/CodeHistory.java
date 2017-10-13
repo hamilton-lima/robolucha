@@ -1,30 +1,21 @@
 package com.robolucha.runner.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class CodePackage {
+public class CodeHistory {
 
 	private long id;
 	private String name;
-	private long version = 1L;
+	private Date created;
 	private List<Code> codes = new ArrayList<Code>();
 	private GameComponent gameComponent;
 
 	@Override
 	public String toString() {
-
-		String string = null;
-		if (gameComponent != null) {
-			if (gameComponent.getId() != null) {
-				string = gameComponent.getClass().getName() + ":" + gameComponent.getId().toString();
-			} else {
-				string = gameComponent.getClass().getName();
-			}
-		}
-
-		return "CodePackage [id=" + id + ", name=" + name + ", version=" + version + ", codes=" + codes
-				+ ", gameComponent=" + string + "]";
+		return "CodeHistory [id=" + id + ", name=" + name + ", created=" + created + ", codes=" + codes
+				+ ", gameComponent=" + gameComponent + "]";
 	}
 
 	public long getId() {
@@ -43,12 +34,12 @@ public class CodePackage {
 		this.name = name;
 	}
 
-	public long getVersion() {
-		return version;
+	public Date getCreated() {
+		return created;
 	}
 
-	public void setVersion(long version) {
-		this.version = version;
+	public void setCreated(Date created) {
+		this.created = created;
 	}
 
 	public List<Code> getCodes() {

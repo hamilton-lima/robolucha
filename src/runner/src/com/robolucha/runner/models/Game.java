@@ -10,7 +10,7 @@ public class Game {
 	private int minRankingValidate;
 	private Ranking rankingValidate;
 	private Ranking rankingGenerate;
-	private Customer customer;
+	private LuchadorCoach customer;
 	private GameDefinition gameDefinition;
 
 	@Override
@@ -77,11 +77,11 @@ public class Game {
 		this.rankingGenerate = rankingGenerate;
 	}
 
-	public Customer getCustomer() {
+	public LuchadorCoach getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(LuchadorCoach customer) {
 		this.customer = customer;
 	}
 

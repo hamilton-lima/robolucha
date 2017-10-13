@@ -3,7 +3,7 @@ package com.robolucha.runner.models;
 public class RankingData {
 
 	private Long id;
-	private MatchRun matchRun;
+	private Match matchRun;
 	private GameComponent gameComponent;
 	private Ranking ranking;
 	private Integer points;
@@ -28,11 +28,11 @@ public class RankingData {
 		this.id = id;
 	}
 
-	public MatchRun getMatchRun() {
+	public Match getMatchRun() {
 		return matchRun;
 	}
 
-	public void setMatchRun(MatchRun matchRun) {
+	public void setMatchRun(Match matchRun) {
 		this.matchRun = matchRun;
 	}
 

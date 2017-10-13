@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.robolucha.runner.models.GameComponent;
 import com.robolucha.runner.models.MatchParticipant;
-import com.robolucha.runner.models.MatchRun;
+import com.robolucha.runner.models.Match;
 
 public class MatchRunnerValidationHelper {
 	private static MatchRunnerValidationHelper instance;
@@ -26,7 +26,7 @@ public class MatchRunnerValidationHelper {
 	 * @param component
 	 * @return
 	 */
-	public MatchRun currentMatchFromLuchador(GameComponent component) {
+	public Match currentMatchFromLuchador(GameComponent component) {
 		if( component == null){
 			return null;
 		}

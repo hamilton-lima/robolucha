@@ -1,6 +1,6 @@
 package com.robolucha.runner.models;
 
-public class MaskConfig {
+public class LuchadorMask {
 
 	private Long id;
 	private GameComponent gameComponent;

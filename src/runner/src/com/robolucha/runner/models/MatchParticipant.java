@@ -5,9 +5,9 @@ import java.util.List;
 
 public class MatchParticipant {
 	private long id;
-	private MatchRun matchRun;
+	private Match matchRun;
 	private Luchador luchador;
-	private List<CodePackage> codePackages = new ArrayList<CodePackage>();
+	private List<CodeHistory> codePackages = new ArrayList<CodeHistory>();
 	private long timeStart;
 
 	@Override
@@ -24,11 +24,11 @@ public class MatchParticipant {
 		this.id = id;
 	}
 
-	public MatchRun getMatchRun() {
+	public Match getMatchRun() {
 		return matchRun;
 	}
 
-	public void setMatchRun(MatchRun matchRun) {
+	public void setMatchRun(Match matchRun) {
 		this.matchRun = matchRun;
 	}
 
@@ -40,11 +40,11 @@ public class MatchParticipant {
 		this.luchador = luchador;
 	}
 
-	public List<CodePackage> getCodePackages() {
+	public List<CodeHistory> getCodePackages() {
 		return codePackages;
 	}
 
-	public void setCodePackages(List<CodePackage> codePackages) {
+	public void setCodePackages(List<CodeHistory> codePackages) {
 		this.codePackages = codePackages;
 	}
 

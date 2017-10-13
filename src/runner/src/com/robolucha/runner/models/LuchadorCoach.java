@@ -1,6 +1,6 @@
 package com.robolucha.runner.models;
 
-public class Customer {
+public class LuchadorCoach {
 
 	private long id;
 	private String name;

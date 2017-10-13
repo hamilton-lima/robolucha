@@ -10,18 +10,18 @@ import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.runner.models.MatchRun;
-import com.robolucha.runner.models.MatchRunEvent;
-import com.robolucha.runner.models.MatchRunScore;
+import com.robolucha.runner.models.Match;
+import com.robolucha.runner.models.MatchEvent;
+import com.robolucha.runner.models.MatchScore;
 import com.robolucha.service.MatchRunCrudService;
 import com.robolucha.service.MatchRunEventCrudService;
 
 public class MatchEventStorage implements MatchEventListener {
 
 	private Logger logger = Logger.getLogger(MatchEventStorage.class);
-	private MatchRun match;
+	private Match match;
 
-	public MatchEventStorage(MatchRun match) {
+	public MatchEventStorage(Match match) {
 		this.match = match;
 	}
 
@@ -68,10 +68,10 @@ public class MatchEventStorage implements MatchEventListener {
 		logger.debug("match onDamage : " + runner.getThreadName());
 		Response response = new Response();
 
-		MatchRun match = (MatchRun) MatchRunCrudService.getInstance().findById(runner.getMatch().getId());
+		Match match = (Match) MatchRunCrudService.getInstance().findById(runner.getMatch().getId());
 
 		// cria evento
-		MatchRunEvent event = new MatchRunEvent();
+		MatchEvent event = new MatchEvent();
 		event.setMatchRun(match);
 		event.setAmount(amount);
 		event.setLuchadorA(luchadorA.getGameComponent());
@@ -103,10 +103,10 @@ public class MatchEventStorage implements MatchEventListener {
 		logger.debug("match onKill : " + runner.getThreadName());
 		Response response = new Response();
 
-		MatchRun match = (MatchRun) MatchRunCrudService.getInstance().findById(runner.getMatch().getId());
+		Match match = (Match) MatchRunCrudService.getInstance().findById(runner.getMatch().getId());
 
 		// cria evento
-		MatchRunEvent event = new MatchRunEvent();
+		MatchEvent event = new MatchEvent();
 		event.setMatchRun(match);
 		event.setLuchadorA(luchadorA.getGameComponent());
 		event.setLuchadorB(luchadorB.getGameComponent());
@@ -145,13 +145,13 @@ public class MatchEventStorage implements MatchEventListener {
 			logger.info("update score=" + luchadorRunner.getScoreVO());
 		}
 
-		MatchRunScore score = (MatchRunScore) new MatchRunScore().clear();
+		MatchScore score = (MatchScore) new MatchScore().clear();
 		score.setMatchRun(runner.getMatch());
 		score.setGameComponent(luchadorRunner.getGameComponent());
 
-		score = (MatchRunScore) GenericDAO.getInstance().findExactOne(score);
+		score = (MatchScore) GenericDAO.getInstance().findExactOne(score);
 		if (score == null) {
-			score = new MatchRunScore();
+			score = new MatchScore();
 			score.setMatchRun(runner.getMatch());
 			score.setGameComponent(luchadorRunner.getGameComponent());
 			score.setKills(luchadorRunner.getScoreVO().getK());
@@ -169,7 +169,7 @@ public class MatchEventStorage implements MatchEventListener {
 	}
 
 	public void onAlive(MatchRunner runner) {
-		MatchRun match = runner.getMatch();
+		Match match = runner.getMatch();
 		match.setLastTimeAlive((double) System.currentTimeMillis());
 		Response response = MatchRunCrudService.getInstance().doSaramagoUpdate(match, new Response());
 		if (response.getErrors().size() > 0) {

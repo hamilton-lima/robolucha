@@ -12,7 +12,7 @@ import com.robolucha.game.vo.MaskConfigVO;
 import com.robolucha.helper.BuildDefaultCustomerHelper;
 import com.robolucha.runner.models.GameComponent;
 import com.robolucha.runner.models.Luchador;
-import com.robolucha.runner.models.MaskConfig;
+import com.robolucha.runner.models.LuchadorMask;
 import com.robolucha.runner.models.MatchParticipant;
 import com.robolucha.service.MatchParticipantCrudService;
 
@@ -136,9 +136,9 @@ public class LutchadorRunnerCreator implements Runnable {
 
 	protected MaskConfigVO getMask(GameComponent gameComponent) {
 		MaskConfigVO mask;
-		MaskConfig filter = new MaskConfig();
+		LuchadorMask filter = new LuchadorMask();
 		filter.setGameComponent(gameComponent);
-		MaskConfig found = (MaskConfig) GenericDAO.getInstance().findOne(filter);
+		LuchadorMask found = (LuchadorMask) GenericDAO.getInstance().findOne(filter);
 		if (found == null) {
 			found = BuildDefaultCustomerHelper.addRandomMaskToGameComponent(gameComponent);
 		}
@@ -147,7 +147,7 @@ public class LutchadorRunnerCreator implements Runnable {
 		return mask;
 	}
 
-	private MaskConfigVO maskVOBuild(MaskConfig found) {
+	private MaskConfigVO maskVOBuild(LuchadorMask found) {
 		MaskConfigVO result = new MaskConfigVO();
 		result.background = found.getBackground();
 		result.backgroundColor = found.getBackgroundColor();

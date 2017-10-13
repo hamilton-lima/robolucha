@@ -9,17 +9,17 @@ import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.game.vo.EventVO;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.runner.models.MatchRun;
+import com.robolucha.runner.models.Match;
 
 public class MatchEventToPublish implements MatchEventListener {
 	public static final String DAMAGE = "DAMAGE";
 	public static final String KILL = "KILL";
 
 	private Logger logger = Logger.getLogger(MatchEventToPublish.class);
-	private MatchRun match;
+	private Match match;
 	private Queue<EventVO> events;
 
-	public MatchEventToPublish(MatchRun match) {
+	public MatchEventToPublish(Match match) {
 		this.match = match;
 		events = new LinkedList<EventVO>();
 	}

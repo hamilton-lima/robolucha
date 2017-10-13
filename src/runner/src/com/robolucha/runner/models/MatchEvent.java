@@ -1,8 +1,8 @@
 package com.robolucha.runner.models;
 
-public class MatchRunEvent {
+public class MatchEvent {
 	private long id;
-	private MatchRun matchRun;
+	private Match matchRun;
 	private GameComponent luchadorA;
 	private GameComponent luchadorB;
 	private long timeStart;
@@ -23,11 +23,11 @@ public class MatchRunEvent {
 		this.id = id;
 	}
 
-	public MatchRun getMatchRun() {
+	public Match getMatchRun() {
 		return matchRun;
 	}
 
-	public void setMatchRun(MatchRun matchRun) {
+	public void setMatchRun(Match matchRun) {
 		this.matchRun = matchRun;
 	}
 
