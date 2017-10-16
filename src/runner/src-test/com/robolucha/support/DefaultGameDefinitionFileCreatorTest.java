@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import org.junit.Test;
 
 import com.google.gson.Gson;
-import com.robolucha.runner.models.GameDefinition;
+import com.robolucha.models.GameDefinition;
 
 public class DefaultGameDefinitionFileCreatorTest {
 

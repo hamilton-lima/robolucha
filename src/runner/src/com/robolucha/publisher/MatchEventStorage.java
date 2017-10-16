@@ -7,12 +7,12 @@ import org.apache.log4j.Logger;
 import com.athanazio.saramago.server.dao.GenericDAO;
 import com.athanazio.saramago.service.Response;
 import com.robolucha.game.event.MatchEventListener;
+import com.robolucha.models.Match;
+import com.robolucha.models.MatchEvent;
+import com.robolucha.models.MatchScore;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.runner.models.Match;
-import com.robolucha.runner.models.MatchEvent;
-import com.robolucha.runner.models.MatchScore;
 import com.robolucha.service.MatchRunCrudService;
 import com.robolucha.service.MatchRunEventCrudService;
 

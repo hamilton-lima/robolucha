@@ -1,7 +1,7 @@
 package com.robolucha.runner;
 
 /**
- * Mantem o estado do jogador durante a partida
+ * player state during the game
  * 
  * @author hamiltonlima
  *

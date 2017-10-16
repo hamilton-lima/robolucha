@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import org.apache.log4j.Logger;
 
 import com.robolucha.runner.LuchadorRunner;
-import com.robolucha.shared.MethodNames;
+import com.robolucha.runner.MethodNames;
 
 /**
   * @author hamiltonlima

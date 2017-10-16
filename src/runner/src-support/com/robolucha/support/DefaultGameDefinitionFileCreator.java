@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.robolucha.runner.models.GameDefinition;
+import com.robolucha.models.GameDefinition;
 
 /**
  * Create a json file with the default Game definition values to be used as

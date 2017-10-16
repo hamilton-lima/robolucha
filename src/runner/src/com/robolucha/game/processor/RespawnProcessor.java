@@ -7,9 +7,9 @@ import java.util.Random;
 import org.apache.log4j.Logger;
 
 import com.robolucha.old.RespawnPoint;
+import com.robolucha.runner.Calc;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.shared.Calc;
 
 public class RespawnProcessor {
 	

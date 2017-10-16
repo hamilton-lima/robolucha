@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import com.robolucha.game.action.CheckPunchHitAction;
 import com.robolucha.old.Punch;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.shared.SafeList;
+import com.robolucha.runner.SafeList;
 
 public class PunchesProcessor {
 

@@ -7,9 +7,9 @@ import org.apache.log4j.Logger;
 
 import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.game.vo.EventVO;
+import com.robolucha.models.Match;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.runner.models.Match;
 
 public class MatchEventToPublish implements MatchEventListener {
 	public static final String DAMAGE = "DAMAGE";

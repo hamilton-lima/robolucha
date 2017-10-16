@@ -3,10 +3,10 @@ package com.robolucha.game.processor;
 import org.apache.log4j.Logger;
 
 import com.robolucha.game.action.CheckBulletHitAction;
+import com.robolucha.models.Bullet;
+import com.robolucha.runner.Calc;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.runner.models.Bullet;
-import com.robolucha.shared.Calc;
-import com.robolucha.shared.SafeList;
+import com.robolucha.runner.SafeList;
 
 public class BulletsProcessor {
 

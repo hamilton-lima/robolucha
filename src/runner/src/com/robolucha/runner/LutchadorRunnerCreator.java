@@ -10,10 +10,10 @@ import com.athanazio.saramago.server.util.JSONUtil;
 import com.athanazio.saramago.service.Response;
 import com.robolucha.game.vo.MaskConfigVO;
 import com.robolucha.helper.BuildDefaultCustomerHelper;
-import com.robolucha.runner.models.GameComponent;
-import com.robolucha.runner.models.Luchador;
-import com.robolucha.runner.models.LuchadorMask;
-import com.robolucha.runner.models.MatchParticipant;
+import com.robolucha.models.GameComponent;
+import com.robolucha.models.Luchador;
+import com.robolucha.models.LuchadorMask;
+import com.robolucha.models.MatchParticipant;
 import com.robolucha.service.MatchParticipantCrudService;
 
 /**

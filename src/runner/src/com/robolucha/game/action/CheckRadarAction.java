@@ -6,9 +6,9 @@ import java.util.LinkedHashMap;
 import org.apache.log4j.Logger;
 
 import com.robolucha.game.event.OnFoundEvent;
+import com.robolucha.runner.Calc;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.shared.Calc;
 
 public class CheckRadarAction implements GameAction {
 

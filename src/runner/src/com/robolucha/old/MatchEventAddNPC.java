@@ -7,10 +7,10 @@ import org.apache.log4j.Logger;
 
 import com.athanazio.saramago.server.dao.GenericDAO;
 import com.robolucha.game.event.MatchEventListener;
+import com.robolucha.models.GameDefinition;
+import com.robolucha.models.GameDefinitionNPC;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.runner.models.GameDefinition;
-import com.robolucha.runner.models.GameDefinitionNPC;
 
 public class MatchEventAddNPC implements MatchEventListener {
 

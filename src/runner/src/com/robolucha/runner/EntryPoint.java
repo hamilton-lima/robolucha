@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 import com.google.gson.Gson;
-import com.robolucha.runner.models.GameDefinition;
+import com.robolucha.models.GameDefinition;
 
 /*
  * Runs a Match based on the input MatchDefinition ID

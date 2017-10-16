@@ -3,9 +3,9 @@ package com.robolucha.runner;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.robolucha.runner.models.GameComponent;
-import com.robolucha.runner.models.MatchParticipant;
-import com.robolucha.runner.models.Match;
+import com.robolucha.models.GameComponent;
+import com.robolucha.models.Match;
+import com.robolucha.models.MatchParticipant;
 
 public class MatchRunnerValidationHelper {
 	private static MatchRunnerValidationHelper instance;

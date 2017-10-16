@@ -24,6 +24,11 @@ import com.robolucha.game.event.OnHitWallEvent;
 import com.robolucha.game.vo.MaskConfigVO;
 import com.robolucha.game.vo.MessageVO;
 import com.robolucha.game.vo.ScoreVO;
+import com.robolucha.models.Bullet;
+import com.robolucha.models.Code;
+import com.robolucha.models.GameComponent;
+import com.robolucha.models.Luchador;
+import com.robolucha.models.MatchStateProvider;
 import com.robolucha.old.JavascriptFacade;
 import com.robolucha.old.LuchadorCodeChangeListener;
 import com.robolucha.old.LuchadorCommand;
@@ -31,13 +36,7 @@ import com.robolucha.old.LuchadorCommandAction;
 import com.robolucha.old.MethodBuilder;
 import com.robolucha.old.RespawnPoint;
 import com.robolucha.old.RhinoWhiteList;
-import com.robolucha.runner.models.Bullet;
-import com.robolucha.runner.models.Code;
-import com.robolucha.runner.models.GameComponent;
-import com.robolucha.runner.models.Luchador;
 import com.robolucha.service.CodeCrudService;
-import com.robolucha.shared.Calc;
-import com.robolucha.shared.MethodNames;
 
 /**
  * Representa a execucao de um lutchador em uma partida
@@ -45,7 +44,7 @@ import com.robolucha.shared.MethodNames;
  * @author hamiltonlima
  *
  */
-public class LuchadorRunner implements GeneralEventHandler {
+public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	// TODO esta informacao precisa vir da configuracao do jogo
 	public static final int DEFAULT_LIFE = 20;

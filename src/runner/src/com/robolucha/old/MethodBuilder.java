@@ -8,9 +8,9 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.mozilla.javascript.Context;
 
+import com.robolucha.models.Code;
 import com.robolucha.runner.LuchadorRunner;
-import com.robolucha.runner.models.Code;
-import com.robolucha.shared.MethodNames;
+import com.robolucha.runner.MethodNames;
 
 /**
  * Gera assinatura de metodos javascript padrao, combinando com codigo fornecido

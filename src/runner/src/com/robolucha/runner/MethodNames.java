@@ -1,4 +1,4 @@
-package com.robolucha.shared;
+package com.robolucha.runner;
 
 public interface MethodNames {
 

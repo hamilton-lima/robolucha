@@ -1,7 +1,7 @@
 package com.robolucha.game.event;
 
 import com.robolucha.runner.LuchadorPublicState;
-import com.robolucha.shared.MethodNames;
+import com.robolucha.runner.MethodNames;
 
 public class OnHitWallEvent extends LuchadorEvent {
 

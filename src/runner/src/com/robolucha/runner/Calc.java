@@ -1,11 +1,9 @@
-package com.robolucha.shared;
+package com.robolucha.runner;
 
 import org.apache.log4j.Logger;
 
-import com.robolucha.runner.LuchadorMatchState;
-import com.robolucha.runner.LuchadorRunner;
-import com.robolucha.runner.models.Bullet;
-import com.robolucha.runner.models.GameDefinition;
+import com.robolucha.models.Bullet;
+import com.robolucha.models.GameDefinition;
 
 public class Calc {
 
