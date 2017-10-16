@@ -31,10 +31,31 @@
 List<code> codes
 name -> can be null
 
+- SceneComponent extends GameComponent
+energy, speed, restoreEnergyperSecond, recycledLuchadorEnergyRestore
+
+x,y,
+width,height
+rotation
+respawn:boolean
+colider: boolean 
+showinRadar: boolean
+blockMovement: boolean
+life: int
+damage: int -> amount of damage that does
+type: string -> to the radar
+
+
+// TODO: remove all, use SceneComponent
+
 - GameComponentAttributes, created to support the map editor, x,y, width and height 
 	TODO: should be used in the super class of NPC and static gamecomponents
+
 - GameDefinitionNPC, association of GameDefinition and NPC
 	TODO: move this to an array of NPC in the json file
+	
+	
+	
 	
 - GameElement, static elements in the game
 	TODO: create a class child of GameComponent that is not an NPC
@@ -49,16 +70,5 @@ name -> can be null
 - ObstacleAttacker, child of Obstacle with damage set
 - ObstacleDestroyable, child of Obstacle with life set	
 
-TODO: Create this class to define NPC and other scene elements
-- SceneComponent extends GameComponent
-x,y,
-width,height
-rotation
-respawn:boolean
-colider: boolean 
-showinRadar: boolean
-blockMovement: boolean
-life: int
-damage: int -> amount of damage that does
-type: string -> to the radar
+
 

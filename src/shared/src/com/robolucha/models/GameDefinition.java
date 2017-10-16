@@ -1,5 +1,8 @@
 package com.robolucha.models;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class GameDefinition {
 
 	private long id = 1;
@@ -27,6 +30,169 @@ public class GameDefinition {
 	private int maxFireCooldown = 10;
 	private int minFireDamage = 1;
 	private int maxFireDamage = 10;
+
+	// how fast energy is restored to the luchador
+	private int restoreEnergyperSecond = 3;
+
+	// how much energy is restored when collecting luchador parts
+	private int recycledLuchadorEnergyRestore = 6;
+
+	// how much energy will cost to increase speed
+	private int increaseSpeedEnergyCost = 10;
+
+	// percentage of speed increase
+	private int increaseSpeedPercentage = 20;
+
+	// how much energy cost to fire
+	private int fireEnergyCost = 2;
+
+	// predefined luchadores that will join the match
+	private List<GameComponent> gameComponents;
+
+	// predefined scene elements
+	private List<SceneComponent> sceneComponents;
+
+	public GameDefinition() {
+		gameComponents = new LinkedList<GameComponent>();
+		sceneComponents = new LinkedList<SceneComponent>();
+	}
+
+	@Override
+	public String toString() {
+		return "GameDefinition [id=" + id + ", name=" + name + ", duration=" + duration + ", minParticipants="
+				+ minParticipants + ", maxParticipants=" + maxParticipants + ", radarAngle=" + radarAngle
+				+ ", radarRadius=" + radarRadius + ", punchAngle=" + punchAngle + ", arenaWidth=" + arenaWidth
+				+ ", arenaHeight=" + arenaHeight + ", bulletSize=" + bulletSize + ", luchadorSize=" + luchadorSize
+				+ ", fps=" + fps + ", buletSpeed=" + buletSpeed + ", life=" + life + ", punchDamage=" + punchDamage
+				+ ", punchCoolDown=" + punchCoolDown + ", moveSpeed=" + moveSpeed + ", turnSpeed=" + turnSpeed
+				+ ", turnGunSpeed=" + turnGunSpeed + ", respawnCooldown=" + respawnCooldown + ", maxFireCooldown="
+				+ maxFireCooldown + ", minFireDamage=" + minFireDamage + ", maxFireDamage=" + maxFireDamage
+				+ ", restoreEnergyperSecond=" + restoreEnergyperSecond + ", recycledLuchadorEnergyRestore="
+				+ recycledLuchadorEnergyRestore + ", increaseSpeedEnergyCost=" + increaseSpeedEnergyCost
+				+ ", increaseSpeedPercentage=" + increaseSpeedPercentage + ", fireEnergyCost=" + fireEnergyCost
+				+ ", gameComponents=" + gameComponents + ", sceneComponents=" + sceneComponents + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + arenaHeight;
+		result = prime * result + arenaWidth;
+		result = prime * result + buletSpeed;
+		result = prime * result + bulletSize;
+		result = prime * result + (int) (duration ^ (duration >>> 32));
+		result = prime * result + fireEnergyCost;
+		result = prime * result + fps;
+		result = prime * result + ((gameComponents == null) ? 0 : gameComponents.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + increaseSpeedEnergyCost;
+		result = prime * result + increaseSpeedPercentage;
+		result = prime * result + life;
+		result = prime * result + luchadorSize;
+		result = prime * result + maxFireCooldown;
+		result = prime * result + maxFireDamage;
+		result = prime * result + maxParticipants;
+		result = prime * result + minFireDamage;
+		result = prime * result + minParticipants;
+		result = prime * result + moveSpeed;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + punchAngle;
+		result = prime * result + punchCoolDown;
+		result = prime * result + punchDamage;
+		result = prime * result + radarAngle;
+		result = prime * result + radarRadius;
+		result = prime * result + recycledLuchadorEnergyRestore;
+		result = prime * result + respawnCooldown;
+		result = prime * result + restoreEnergyperSecond;
+		result = prime * result + ((sceneComponents == null) ? 0 : sceneComponents.hashCode());
+		result = prime * result + turnGunSpeed;
+		result = prime * result + turnSpeed;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GameDefinition other = (GameDefinition) obj;
+		if (arenaHeight != other.arenaHeight)
+			return false;
+		if (arenaWidth != other.arenaWidth)
+			return false;
+		if (buletSpeed != other.buletSpeed)
+			return false;
+		if (bulletSize != other.bulletSize)
+			return false;
+		if (duration != other.duration)
+			return false;
+		if (fireEnergyCost != other.fireEnergyCost)
+			return false;
+		if (fps != other.fps)
+			return false;
+		if (gameComponents == null) {
+			if (other.gameComponents != null)
+				return false;
+		} else if (!gameComponents.equals(other.gameComponents))
+			return false;
+		if (id != other.id)
+			return false;
+		if (increaseSpeedEnergyCost != other.increaseSpeedEnergyCost)
+			return false;
+		if (increaseSpeedPercentage != other.increaseSpeedPercentage)
+			return false;
+		if (life != other.life)
+			return false;
+		if (luchadorSize != other.luchadorSize)
+			return false;
+		if (maxFireCooldown != other.maxFireCooldown)
+			return false;
+		if (maxFireDamage != other.maxFireDamage)
+			return false;
+		if (maxParticipants != other.maxParticipants)
+			return false;
+		if (minFireDamage != other.minFireDamage)
+			return false;
+		if (minParticipants != other.minParticipants)
+			return false;
+		if (moveSpeed != other.moveSpeed)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (punchAngle != other.punchAngle)
+			return false;
+		if (punchCoolDown != other.punchCoolDown)
+			return false;
+		if (punchDamage != other.punchDamage)
+			return false;
+		if (radarAngle != other.radarAngle)
+			return false;
+		if (radarRadius != other.radarRadius)
+			return false;
+		if (recycledLuchadorEnergyRestore != other.recycledLuchadorEnergyRestore)
+			return false;
+		if (respawnCooldown != other.respawnCooldown)
+			return false;
+		if (restoreEnergyperSecond != other.restoreEnergyperSecond)
+			return false;
+		if (sceneComponents == null) {
+			if (other.sceneComponents != null)
+				return false;
+		} else if (!sceneComponents.equals(other.sceneComponents))
+			return false;
+		if (turnGunSpeed != other.turnGunSpeed)
+			return false;
+		if (turnSpeed != other.turnSpeed)
+			return false;
+		return true;
+	}
 
 	public long getId() {
 		return id;
@@ -220,110 +386,60 @@ public class GameDefinition {
 		this.maxFireDamage = maxFireDamage;
 	}
 
-	@Override
-	public String toString() {
-		return "GameDefinition [id=" + id + ", name=" + name + ", duration=" + duration + ", minParticipants="
-				+ minParticipants + ", maxParticipants=" + maxParticipants + ", radarAngle=" + radarAngle
-				+ ", radarRadius=" + radarRadius + ", punchAngle=" + punchAngle + ", arenaWidth=" + arenaWidth
-				+ ", arenaHeight=" + arenaHeight + ", bulletSize=" + bulletSize + ", luchadorSize=" + luchadorSize
-				+ ", fps=" + fps + ", buletSpeed=" + buletSpeed + ", life=" + life + ", punchDamage=" + punchDamage
-				+ ", punchCoolDown=" + punchCoolDown + ", moveSpeed=" + moveSpeed + ", turnSpeed=" + turnSpeed
-				+ ", turnGunSpeed=" + turnGunSpeed + ", respawnCooldown=" + respawnCooldown + ", maxFireCooldown="
-				+ maxFireCooldown + ", minFireDamage=" + minFireDamage + ", maxFireDamage=" + maxFireDamage + "]";
+	public int getRestoreEnergyperSecond() {
+		return restoreEnergyperSecond;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + arenaHeight;
-		result = prime * result + arenaWidth;
-		result = prime * result + buletSpeed;
-		result = prime * result + bulletSize;
-		result = prime * result + (int) (duration ^ (duration >>> 32));
-		result = prime * result + fps;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + life;
-		result = prime * result + luchadorSize;
-		result = prime * result + maxFireCooldown;
-		result = prime * result + maxFireDamage;
-		result = prime * result + maxParticipants;
-		result = prime * result + minFireDamage;
-		result = prime * result + minParticipants;
-		result = prime * result + moveSpeed;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + punchAngle;
-		result = prime * result + punchCoolDown;
-		result = prime * result + punchDamage;
-		result = prime * result + radarAngle;
-		result = prime * result + radarRadius;
-		result = prime * result + respawnCooldown;
-		result = prime * result + turnGunSpeed;
-		result = prime * result + turnSpeed;
-		return result;
+	public void setRestoreEnergyperSecond(int restoreEnergyperSecond) {
+		this.restoreEnergyperSecond = restoreEnergyperSecond;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		GameDefinition other = (GameDefinition) obj;
-		if (arenaHeight != other.arenaHeight)
-			return false;
-		if (arenaWidth != other.arenaWidth)
-			return false;
-		if (buletSpeed != other.buletSpeed)
-			return false;
-		if (bulletSize != other.bulletSize)
-			return false;
-		if (duration != other.duration)
-			return false;
-		if (fps != other.fps)
-			return false;
-		if (id != other.id)
-			return false;
-		if (life != other.life)
-			return false;
-		if (luchadorSize != other.luchadorSize)
-			return false;
-		if (maxFireCooldown != other.maxFireCooldown)
-			return false;
-		if (maxFireDamage != other.maxFireDamage)
-			return false;
-		if (maxParticipants != other.maxParticipants)
-			return false;
-		if (minFireDamage != other.minFireDamage)
-			return false;
-		if (minParticipants != other.minParticipants)
-			return false;
-		if (moveSpeed != other.moveSpeed)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (punchAngle != other.punchAngle)
-			return false;
-		if (punchCoolDown != other.punchCoolDown)
-			return false;
-		if (punchDamage != other.punchDamage)
-			return false;
-		if (radarAngle != other.radarAngle)
-			return false;
-		if (radarRadius != other.radarRadius)
-			return false;
-		if (respawnCooldown != other.respawnCooldown)
-			return false;
-		if (turnGunSpeed != other.turnGunSpeed)
-			return false;
-		if (turnSpeed != other.turnSpeed)
-			return false;
-		return true;
+	public int getRecycledLuchadorEnergyRestore() {
+		return recycledLuchadorEnergyRestore;
+	}
+
+	public void setRecycledLuchadorEnergyRestore(int recycledLuchadorEnergyRestore) {
+		this.recycledLuchadorEnergyRestore = recycledLuchadorEnergyRestore;
+	}
+
+	public int getIncreaseSpeedEnergyCost() {
+		return increaseSpeedEnergyCost;
+	}
+
+	public void setIncreaseSpeedEnergyCost(int increaseSpeedEnergyCost) {
+		this.increaseSpeedEnergyCost = increaseSpeedEnergyCost;
+	}
+
+	public int getIncreaseSpeedPercentage() {
+		return increaseSpeedPercentage;
+	}
+
+	public void setIncreaseSpeedPercentage(int increaseSpeedPercentage) {
+		this.increaseSpeedPercentage = increaseSpeedPercentage;
+	}
+
+	public int getFireEnergyCost() {
+		return fireEnergyCost;
+	}
+
+	public void setFireEnergyCost(int fireEnergyCost) {
+		this.fireEnergyCost = fireEnergyCost;
+	}
+
+	public List<GameComponent> getGameComponents() {
+		return gameComponents;
+	}
+
+	public void setGameComponents(List<GameComponent> gameComponents) {
+		this.gameComponents = gameComponents;
+	}
+
+	public List<SceneComponent> getSceneComponents() {
+		return sceneComponents;
+	}
+
+	public void setSceneComponents(List<SceneComponent> sceneComponents) {
+		this.sceneComponents = sceneComponents;
 	}
 
 }
