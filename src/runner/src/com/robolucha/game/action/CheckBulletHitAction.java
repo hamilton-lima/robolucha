@@ -32,7 +32,7 @@ public class CheckBulletHitAction implements GameAction {
 
 		if (bullet.isActive()) {
 
-			if (!bullet.getOwner().getGameComponent().getId().equals(runner.getGameComponent().getId())) {
+			if (bullet.getOwner().getId() != runner.getGameComponent().getId()) {
 
 				if (logger.isDebugEnabled()) {
 					logger.debug("checkbullethit, conferindo com outro luchador=" + runner);

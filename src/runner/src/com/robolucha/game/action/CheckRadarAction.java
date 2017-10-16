@@ -33,8 +33,8 @@ public class CheckRadarAction implements GameAction {
 		double myPosY = runner.getState().getY();
 		double myRadarAngle = runner.getState().getGunAngle();
 		
-		double myRadarRangeAngle = matchRunner.getGameDefinition().getRadarAngle();
-		double myRadarRadius = matchRunner.getGameDefinition().getRadarRadius();
+		double myRadarRangeAngle = runner.getGameComponent().getRadarAngle();
+		double myRadarRadius = runner.getGameComponent().getRadarRadius();
 		
 		LuchadorRunner current = null;
 

@@ -1076,4 +1076,15 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		return mask;
 	}
 
+	@Override
+	public com.robolucha.models.LuchadorMatchState getState() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getId() {
+		return gameComponent.getId();
+	}
+
 }

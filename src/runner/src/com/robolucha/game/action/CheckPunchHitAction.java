@@ -28,15 +28,15 @@ public class CheckPunchHitAction implements GameAction {
 
 		if (punch.isActive()) {
 
-			if (!punch.getOwner().getGameComponent().getId().equals(runner.getGameComponent().getId())) {
+			if (punch.getOwner().getId() != runner.getGameComponent().getId()) {
 
 				LuchadorMatchState current = punch.getOwner().getState();
 
 				double myPosX = current.getX();
 				double myPosY = current.getY();
 				double myRadarAngle = current.getAngle();
-				double myRadarRangeAngle = matchRunner.getGameDefinition().getPunchAngle();
-
+				double myRadarRangeAngle = punch.getOwner().getGameComponent().getPunchAngle();
+				
 				// o alcance do soco eh o mesmo tamanho do lutchador
 				int myRadarRadius = (int) (punch.getOwner().getSize() * 1.5);
 
