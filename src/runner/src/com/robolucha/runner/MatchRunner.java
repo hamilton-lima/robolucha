@@ -28,6 +28,7 @@ import com.robolucha.game.vo.MessageVO;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.GameDefinition;
+import com.robolucha.monitor.ThreadStatus;
 import com.robolucha.publisher.MatchEventToPublish;
 import com.robolucha.publisher.MatchRunStateKeeper;
 
@@ -38,7 +39,7 @@ import com.robolucha.publisher.MatchRunStateKeeper;
  * @see http://gameprogrammingpatterns.com/game-loop.html
  *
  */
-public class MatchRunner implements Runnable {
+public class MatchRunner implements Runnable, ThreadStatus {
 
 	private static final long SMALL_SLEEP = 5;
 	private SafeList bullets;
@@ -50,16 +51,12 @@ public class MatchRunner implements Runnable {
 	private double delta;
 
 	private GameDefinition gameDefinition;
-	// private Game game;
 
 	private List<LuchadorEventListener> eventListeners;
 	private List<MatchEventListener> matchEventListeners;
 	private MatchEventToPublish eventToPublish;
 
 	static Logger logger = Logger.getLogger(MatchRunner.class);
-
-	//
-	// allow acces to the list to the test code
 
 	LinkedHashMap<Long, LuchadorRunner> runners;
 	boolean alive;
@@ -121,7 +118,7 @@ public class MatchRunner implements Runnable {
 	/**
 	 * 
 	 * @param gameComponent
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void add(final GameComponent component) throws Exception {
 
@@ -134,15 +131,21 @@ public class MatchRunner implements Runnable {
 			throw new Exception("trying to add luchador beyond the limit");
 		}
 
+		logger.info("new luchador added to the match: " + component);
+		luchadorCreator.add(component);
+
+	}
+	
+	public void addLuchador(final GameComponent component) throws Exception {
+
 		// verifica se jah esta em outra arena if (component instanceof Luchador) {
 		if (MatchRunnerValidationHelper.getInstance().currentMatchFromLuchador(component) != null) {
 			throw new RuntimeException("luchador jah esta em outra partida em andamento");
 		}
 
-		logger.info("new luchador added to the match: " + component);
-		luchadorCreator.add(component);
-
+		add(component);
 	}
+
 
 	public void fire(Bullet bullet) {
 
@@ -315,7 +318,7 @@ public class MatchRunner implements Runnable {
 
 	private void cleanupActions() {
 		logger.info("matchmonitor remove (7)");
-		
+
 		logger.info("matchrun shutdown (8) luchador runners cleanup");
 		LuchadorRunner[] localRunners = new LuchadorRunner[runners.values().size()];
 		localRunners = runners.values().toArray(localRunners);
@@ -396,7 +399,7 @@ public class MatchRunner implements Runnable {
 
 	}
 
-	//TODO: merge with runallactive
+	// TODO: merge with runallactive
 	void runAll(GameAction action) {
 
 		LuchadorRunner runner = null;
@@ -471,7 +474,7 @@ public class MatchRunner implements Runnable {
 			}
 
 			if (target != null && target.isActive()
-					&& !source.getGameComponent().getId().equals(target.getGameComponent().getId())) {
+					&& source.getGameComponent().getId() != target.getGameComponent().getId()) {
 
 				if (logger.isDebugEnabled()) {
 					boolean colide = Calc.intersectRobot(x, y, source, target);
@@ -550,7 +553,6 @@ public class MatchRunner implements Runnable {
 		return matchEventListeners;
 	}
 
-
 	public SafeList getBullets() {
 		return bullets;
 	}
@@ -574,7 +576,6 @@ public class MatchRunner implements Runnable {
 		return alive;
 	}
 
-
 	public void kill() {
 		alive = false;
 	}
@@ -593,9 +594,21 @@ public class MatchRunner implements Runnable {
 		return eventToPublish;
 	}
 
-
 	public long getTimeElapsed() {
 		return timeElapsed;
+	}
+
+
+	private long lastTimeAlive;
+
+	@Override
+	public void setLastAlive(long lastTimeAlive) {
+		this.lastTimeAlive = lastTimeAlive;
+	}
+
+	@Override
+	public long getLastAlive() {
+		return lastTimeAlive;
 	}
 
 }

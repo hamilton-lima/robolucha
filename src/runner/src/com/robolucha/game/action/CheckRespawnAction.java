@@ -4,9 +4,9 @@ import java.util.LinkedHashMap;
 
 import org.apache.log4j.Logger;
 
-import com.robolucha.old.RespawnPoint;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.RespawnPoint;
 
 public class CheckRespawnAction implements GameAction {
 

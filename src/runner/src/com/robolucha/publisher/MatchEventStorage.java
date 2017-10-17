@@ -6,9 +6,9 @@ import org.apache.log4j.Logger;
 
 import com.athanazio.saramago.server.dao.GenericDAO;
 import com.athanazio.saramago.service.Response;
+import com.robolucha.event.MatchEvent;
 import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.models.Match;
-import com.robolucha.models.MatchEvent;
 import com.robolucha.models.MatchScore;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.runner.LuchadorRunner;
@@ -17,6 +17,8 @@ import com.robolucha.service.MatchRunCrudService;
 import com.robolucha.service.MatchRunEventCrudService;
 
 public class MatchEventStorage implements MatchEventListener {
+	public static final String DAMAGE = "DAMAGE";
+	public static final String KILL = "KILL";
 
 	private Logger logger = Logger.getLogger(MatchEventStorage.class);
 	private Match match;
@@ -33,9 +35,9 @@ public class MatchEventStorage implements MatchEventListener {
 	
 	public void onStart(MatchRunner runner) {
 		logger.debug("match START : " + runner.getThreadName());
-
-		match.setTimeStart((double) System.currentTimeMillis());
-		match.setLastTimeAlive((double) System.currentTimeMillis());
+		long timestamp = System.currentTimeMillis();
+		match.setTimeStart(timestamp);
+		match.setLastTimeAlive(timestamp);
 		Response response = MatchRunCrudService.getInstance().doSaramagoUpdate(match, new Response());
 
 		reportErrors(runner, response, "ERROR, atualizando START MatchRun :");
@@ -44,9 +46,10 @@ public class MatchEventStorage implements MatchEventListener {
 	
 	public void onEnd(MatchRunner runner) {
 		logger.debug("match END : " + runner.getThreadName());
-
-		match.setTimeEnd((double) System.currentTimeMillis());
-		match.setLastTimeAlive((double) System.currentTimeMillis());
+		long timestamp = System.currentTimeMillis();
+		match.setTimeEnd(timestamp);
+		match.setLastTimeAlive(timestamp);
+		
 		Response response = MatchRunCrudService.getInstance().doSaramagoUpdate(match, new Response());
 
 		logger.info("Match END salvando score");
@@ -76,8 +79,8 @@ public class MatchEventStorage implements MatchEventListener {
 		event.setAmount(amount);
 		event.setLuchadorA(luchadorA.getGameComponent());
 		event.setLuchadorB(luchadorB.getGameComponent());
-		event.setTimeStart((double) System.currentTimeMillis());
-		event.setEvent(MatchRunEventCrudService.DAMAGE);
+		event.setTimeStart(System.currentTimeMillis());
+		event.setEvent(DAMAGE);
 
 		if (logger.isInfoEnabled()) {
 			logger.info("matchrunner.id=" + runner.getMatch().getId() + " DAMAGE event=" + event.getEvent()
@@ -112,7 +115,7 @@ public class MatchEventStorage implements MatchEventListener {
 		event.setLuchadorB(luchadorB.getGameComponent());
 		event.setAmount(0.0);
 		event.setTimeStart((double) System.currentTimeMillis());
-		event.setEvent(MatchRunEventCrudService.KILL);
+		event.setEvent(KILL);
 
 		logger.info("matchrunner.id=" + runner.getMatch().getId() + " KILL event=" + event.getEvent() + " luchadorA="
 				+ event.getLuchadorA().getId() + " luchadorB=" + event.getLuchadorB().getId());
