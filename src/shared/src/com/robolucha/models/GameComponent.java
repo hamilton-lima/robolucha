@@ -15,7 +15,6 @@ public class GameComponent {
 	private int radarAngle = 45;
 	private int radarRadius = 200;
 	private int punchAngle = 90;
-	private int luchadorSize = 60;
 	private int life = 20;
 	private int energy = 30;
 	private int punchDamage = 2;
@@ -42,20 +41,6 @@ public class GameComponent {
 
 	// how much energy cost to fire
 	private int fireEnergyCost = 2;
-
-	@Override
-	public String toString() {
-		return "GameComponent [id=" + id + ", name=" + name + ", calculateRanking=" + calculateRanking + ", codes="
-				+ codes + ", radarAngle=" + radarAngle + ", radarRadius=" + radarRadius + ", punchAngle=" + punchAngle
-				+ ", luchadorSize=" + luchadorSize + ", life=" + life + ", energy=" + energy + ", punchDamage="
-				+ punchDamage + ", punchCoolDown=" + punchCoolDown + ", moveSpeed=" + moveSpeed + ", turnSpeed="
-				+ turnSpeed + ", turnGunSpeed=" + turnGunSpeed + ", respawnCooldown=" + respawnCooldown
-				+ ", maxFireCooldown=" + maxFireCooldown + ", minFireDamage=" + minFireDamage + ", maxFireDamage="
-				+ maxFireDamage + ", restoreEnergyperSecond=" + restoreEnergyperSecond
-				+ ", recycledLuchadorEnergyRestore=" + recycledLuchadorEnergyRestore + ", increaseSpeedEnergyCost="
-				+ increaseSpeedEnergyCost + ", increaseSpeedPercentage=" + increaseSpeedPercentage + ", fireEnergyCost="
-				+ fireEnergyCost + "]";
-	}
 
 	public long getId() {
 		return id;
@@ -111,14 +96,6 @@ public class GameComponent {
 
 	public void setPunchAngle(int punchAngle) {
 		this.punchAngle = punchAngle;
-	}
-
-	public int getLuchadorSize() {
-		return luchadorSize;
-	}
-
-	public void setLuchadorSize(int luchadorSize) {
-		this.luchadorSize = luchadorSize;
 	}
 
 	public int getLife() {

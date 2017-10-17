@@ -4,12 +4,13 @@ import java.util.LinkedHashMap;
 
 import org.apache.log4j.Logger;
 
+import com.robolucha.game.ArenaDefinition;
 import com.robolucha.game.event.OnGotDamageEvent;
-import com.robolucha.old.Punch;
-import com.robolucha.runner.Calc;
-import com.robolucha.runner.LuchadorMatchState;
+import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.Punch;
+import com.robolucha.shared.Calc;
 
 public class CheckPunchHitAction implements GameAction {
 
@@ -28,15 +29,15 @@ public class CheckPunchHitAction implements GameAction {
 
 		if (punch.isActive()) {
 
-			if (punch.getOwner().getId() != runner.getGameComponent().getId()) {
+			if (!punch.getOwner().getGameComponent().getId().equals(runner.getGameComponent().getId())) {
 
 				LuchadorMatchState current = punch.getOwner().getState();
 
 				double myPosX = current.getX();
 				double myPosY = current.getY();
 				double myRadarAngle = current.getAngle();
-				double myRadarRangeAngle = punch.getOwner().getGameComponent().getPunchAngle();
-				
+				double myRadarRangeAngle = ArenaDefinition.DEFAULT_PUNCH_ANGLE;
+
 				// o alcance do soco eh o mesmo tamanho do lutchador
 				int myRadarRadius = (int) (punch.getOwner().getSize() * 1.5);
 
@@ -70,8 +71,9 @@ public class CheckPunchHitAction implements GameAction {
 
 	}
 
+	@Override
 	public String getName() {
-		return "checkPunchHit";
+		return "checkBulletHit";
 	}
 
 }

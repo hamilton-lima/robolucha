@@ -3,8 +3,8 @@ package com.robolucha.game.processor;
 import org.apache.log4j.Logger;
 
 import com.robolucha.game.action.CheckPunchHitAction;
-import com.robolucha.old.Punch;
 import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.Punch;
 import com.robolucha.runner.SafeList;
 
 public class PunchesProcessor {
@@ -18,18 +18,15 @@ public class PunchesProcessor {
 		this.runner = runner;
 		this.punches = punches2;
 	}
-	
-	public void cleanup(){
+
+	public void cleanup() {
 		this.runner = null;
 		this.punches = null;
 	}
 
-	/**
-	 * testa colisao do soco somente uma vez apos isto remove da lista.
-	 */
+	// check for colision only once and remove from the list
 	public void process() {
-		logger.debug("----- punches process(), punches.size()="
-				+ punches.size());
+		logger.debug("----- punches process(), punches.size()=" + punches.size());
 
 		synchronized (punches) {
 
@@ -71,7 +68,7 @@ public class PunchesProcessor {
 			if (!punch.isActive()) {
 				punches.remove(pos);
 			}
-			
+
 			pos++;
 		}
 	}

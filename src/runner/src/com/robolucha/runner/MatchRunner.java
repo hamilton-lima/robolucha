@@ -28,10 +28,6 @@ import com.robolucha.game.vo.MessageVO;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.GameDefinition;
-import com.robolucha.old.MatchEventHandler;
-import com.robolucha.old.Punch;
-import com.robolucha.old.RespawnPoint;
-import com.robolucha.old.RunAfterThisTask;
 import com.robolucha.publisher.MatchEventToPublish;
 import com.robolucha.publisher.MatchRunStateKeeper;
 
