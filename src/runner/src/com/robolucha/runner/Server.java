@@ -50,6 +50,7 @@ public class Server {
 	
 	public static Thread buildRunner(MatchRunner runner) {
 		ThreadMonitor.getInstance().register(runner);
+		
 		GameSubscription.getInstance().addBroadCast(runner.getMatch().getId(), runner);
 
 		// listener para gravar eventos da partida

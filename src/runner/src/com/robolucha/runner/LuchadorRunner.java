@@ -28,13 +28,13 @@ import com.robolucha.models.Bullet;
 import com.robolucha.models.Code;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
+import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.models.MatchStateProvider;
 import com.robolucha.old.JavascriptFacade;
 import com.robolucha.old.LuchadorCodeChangeListener;
 import com.robolucha.old.LuchadorCommand;
 import com.robolucha.old.LuchadorCommandAction;
 import com.robolucha.old.MethodBuilder;
-import com.robolucha.old.RespawnPoint;
 import com.robolucha.old.RhinoWhiteList;
 import com.robolucha.service.CodeCrudService;
 

@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 
 import org.apache.log4j.Logger;
 
-import com.robolucha.game.ArenaDefinition;
 import com.robolucha.game.event.OnGotDamageEvent;
 import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.runner.LuchadorRunner;
@@ -29,15 +28,15 @@ public class CheckPunchHitAction implements GameAction {
 
 		if (punch.isActive()) {
 
-			if (!punch.getOwner().getGameComponent().getId().equals(runner.getGameComponent().getId())) {
+			if (punch.getOwner().getId() != runner.getGameComponent().getId()) {
 
 				LuchadorMatchState current = punch.getOwner().getState();
 
 				double myPosX = current.getX();
 				double myPosY = current.getY();
 				double myRadarAngle = current.getAngle();
-				double myRadarRangeAngle = ArenaDefinition.DEFAULT_PUNCH_ANGLE;
-
+				double myRadarRangeAngle = punch.getOwner().getGameComponent().getPunchAngle();
+						
 				// o alcance do soco eh o mesmo tamanho do lutchador
 				int myRadarRadius = (int) (punch.getOwner().getSize() * 1.5);
 
