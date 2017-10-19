@@ -12,10 +12,7 @@ import javax.naming.Context;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.mozilla.javascript.Scriptable;
 
-import com.athanazio.saramago.server.util.JavascriptUtil;
-import com.athanazio.saramago.service.Response;
 import com.robolucha.event.GeneralEventHandler;
 import com.robolucha.event.GeneralEventManager;
 import com.robolucha.event.GeneralEventNames;
@@ -30,13 +27,7 @@ import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.models.MatchStateProvider;
-import com.robolucha.old.JavascriptFacade;
-import com.robolucha.old.LuchadorCodeChangeListener;
-import com.robolucha.old.LuchadorCommand;
-import com.robolucha.old.LuchadorCommandAction;
-import com.robolucha.old.MethodBuilder;
-import com.robolucha.old.RhinoWhiteList;
-import com.robolucha.service.CodeCrudService;
+
 
 /**
  * Representa a execucao de um lutchador em uma partida
@@ -134,7 +125,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 		try {
 			setDefaultState(matchRunner.getRespawnPoint(this));
-			createCodeEngine(gameComponent.getCodePackage().getCodes());
+			createCodeEngine(gameComponent.getCodes());
 			LuchadorCodeChangeListener.getInstance().register(this);
 			this.active = true;
 		} catch (Exception e) {
@@ -190,7 +181,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 			if (data != null && this.gameComponent != null) {
 				Luchador changed = (Luchador) data;
-				if (changed.getId().equals(this.gameComponent.getId())) {
+				if (changed.getId() == this.gameComponent.getId()) {
 					if (logger.isDebugEnabled()) {
 						logger.debug("*** mesmo id, modificar ScoreVO");
 					}
@@ -232,8 +223,8 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	@Override
 	public String toString() {
 		String g = "null";
-		if (gameComponent != null && gameComponent.getId() != null) {
-			g = gameComponent.getId().toString();
+		if (gameComponent != null ) {
+			g = Long.toString(gameComponent.getId());
 		}
 
 		return "LutchadorRunner [lutchador=" + g + ", active=" + active + ", start=" + start + ", elapsed=" + elapsed
@@ -276,8 +267,8 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 			addVariableToJS("me", this.state.getPublicState());
 			addVariableToJS("ARENA_WIDTH", this.matchRunner.getGameDefinition().getArenaWidth());
 			addVariableToJS("ARENA_HEIGHT", this.matchRunner.getGameDefinition().getArenaHeight());
-			addVariableToJS("RADAR_ANGLE", this.matchRunner.getGameDefinition().getRadarAngle());
-			addVariableToJS("RADAR_RADIUS", this.matchRunner.getGameDefinition().getRadarRadius());
+			addVariableToJS("RADAR_ANGLE", this.getGameComponent().getRadarAngle());
+			addVariableToJS("RADAR_RADIUS", this.getGameComponent().getRadarRadius());
 			addVariableToJS("LUCHADOR_WIDTH", this.getSize());
 			addVariableToJS("LUCHADOR_HEIGHT", this.getSize());
 
@@ -1076,11 +1067,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		return mask;
 	}
 
-	@Override
-	public com.robolucha.models.LuchadorMatchState getState() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public long getId() {

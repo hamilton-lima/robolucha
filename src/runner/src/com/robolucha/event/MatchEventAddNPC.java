@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.GameDefinition;
+import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
 
@@ -54,22 +55,24 @@ public class MatchEventAddNPC implements MatchEventListener {
 
 	}
 
-	@Override
-	public void onKill(MatchRunner runner, LuchadorRunner lutchadorA, LuchadorRunner lutchadorB) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onDamage(MatchRunner runner, LuchadorRunner lutchadorA, LuchadorRunner lutchadorB, Double amount) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void onAlive(MatchRunner matchRunner) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void onKill(MatchRunner runner, LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDamage(MatchRunner runner, LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB,
+			Double amount) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

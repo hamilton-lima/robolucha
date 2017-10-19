@@ -1,6 +1,6 @@
 package com.robolucha.game.vo;
 
-import com.robolucha.runner.LuchadorPublicState;
+import com.robolucha.models.LuchadorPublicState;
 
 public class LuchadorPublicStateVO {
 

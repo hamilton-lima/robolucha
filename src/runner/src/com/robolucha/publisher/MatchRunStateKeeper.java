@@ -17,7 +17,7 @@ import com.robolucha.game.vo.MessageVO;
 import com.robolucha.game.vo.PunchVO;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.Luchador;
-import com.robolucha.runner.LuchadorPublicState;
+import com.robolucha.models.LuchadorPublicState;
 import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.Punch;
@@ -100,7 +100,7 @@ public class MatchRunStateKeeper {
 					String name = runner.getGameComponent().getName();
 					LuchadorPublicState publicState = runner.getState().getPublicState();
 					MaskConfigVO mask = runner.getMask();
-					
+
 					// dados do proprietario do luchador
 					Long ownerId = null;
 					if (runner.getGameComponent() instanceof Luchador) {
@@ -211,8 +211,8 @@ public class MatchRunStateKeeper {
 
 		if (logger.isDebugEnabled()) {
 			String matchRunnerId = matchRunner == null ? "NULL" : matchRunner.getMatch().getId().toString();
-			String luchadorRunnerId = luchadorRunner == null ? "NULL" : luchadorRunner.getGameComponent().getId()
-					.toString();
+			String luchadorRunnerId = luchadorRunner == null ? "NULL"
+					: Long.toString(luchadorRunner.getGameComponent().getId());
 			logger.debug(String.format("matchrunner=%s, luchadorrunner=%s", matchRunnerId, luchadorRunnerId));
 		}
 
