@@ -36,7 +36,7 @@ public class CheckPunchHitAction implements GameAction {
 				double myPosY = current.getY();
 				double myRadarAngle = current.getAngle();
 				double myRadarRangeAngle = punch.getOwner().getGameComponent().getPunchAngle();
-						
+
 				// o alcance do soco eh o mesmo tamanho do lutchador
 				int myRadarRadius = (int) (punch.getOwner().getSize() * 1.5);
 
@@ -57,13 +57,14 @@ public class CheckPunchHitAction implements GameAction {
 					// notifica o gerenciador de eventos que o robo faleceu ...
 					// tadimmm :D e morreu de soco !!!
 					if (runner.getState().getLife() <= 0) {
-						matchRunner.getEventHandler().kill(punch.getOwner(), runner);
+						matchRunner.getEventHandler().kill(punch.getOwner().getState(), runner.getState());
 					}
 
-					runner.addEvent(new OnGotDamageEvent(punch.getOwner().getState().getPublicState(), runner
-							.getState().getPublicState(), punch.getAmount()));
+					runner.addEvent(new OnGotDamageEvent(punch.getOwner().getState().getPublicState(),
+							runner.getState().getPublicState(), punch.getAmount()));
 
-					matchRunner.getEventHandler().damage(punch.getOwner(), runner, punch.getAmount());
+					matchRunner.getEventHandler().damage(punch.getOwner().getState(), runner.getState(),
+							punch.getAmount());
 				}
 			}
 		}

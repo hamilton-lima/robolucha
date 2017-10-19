@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import org.apache.log4j.Logger;
 
 import com.robolucha.game.event.OnListenEvent;
-import com.robolucha.runner.LuchadorPublicState;
+import com.robolucha.models.LuchadorPublicState;
 import com.robolucha.runner.LuchadorRunner;
 
 /**

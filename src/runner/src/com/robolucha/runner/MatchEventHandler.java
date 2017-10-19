@@ -3,9 +3,9 @@ package com.robolucha.runner;
 import org.apache.log4j.Logger;
 
 import com.robolucha.event.MatchEvent;
+import com.robolucha.models.LuchadorMatchState;
 
 /**
- * Uma instancia eh criada para cada MatchRunner
  * 
  * @author hamiltonlima
  */
@@ -18,7 +18,7 @@ public class MatchEventHandler {
 
 	public MatchEventHandler(MatchRunner runner, String ownerThreadName) {
 		this.runner = runner;
-		logger.info("match event handler iniciado : ");
+		logger.info("match event handler started : ");
 
 		handlerThread = new MatchEventHandlerThread(this, "MatchEventHandler-" + ownerThreadName);
 		thread = new Thread(handlerThread);
@@ -38,7 +38,7 @@ public class MatchEventHandler {
 	}
 
 	public void add(MatchEvent event) {
-		logger.info("evento adicionado : " + event);
+		logger.info("event add: " + event);
 		handlerThread.add(event);
 		// handlerThread.wakeup();
 	}
@@ -63,13 +63,13 @@ public class MatchEventHandler {
 		add(event);
 	}
 
-	public void damage(LuchadorRunner lutchadorA, LuchadorRunner lutchadorB, double amount,
+	public void damage(LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, double amount,
 			RunAfterThisTask... runAfterThis) {
 		MatchEvent event = new MatchEvent(MatchEvent.ACTION_DAMAGE, lutchadorA, lutchadorB, amount, runAfterThis);
 		add(event);
 	}
 
-	public void kill(LuchadorRunner lutchadorA, LuchadorRunner lutchadorB, RunAfterThisTask... runAfterThis) {
+	public void kill(LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, RunAfterThisTask... runAfterThis) {
 		MatchEvent event = new MatchEvent(MatchEvent.ACTION_KILL, lutchadorA, lutchadorB, runAfterThis);
 		add(event);
 	}

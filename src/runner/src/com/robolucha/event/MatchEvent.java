@@ -2,7 +2,7 @@ package com.robolucha.event;
 
 import java.util.Arrays;
 
-import com.robolucha.runner.LuchadorRunner;
+import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.runner.RunAfterThisTask;
 
 public class MatchEvent {
@@ -16,8 +16,8 @@ public class MatchEvent {
 
 	private int action;
 	private Double amount;
-	private LuchadorRunner lutchadorA;
-	private LuchadorRunner lutchadorB;
+	private LuchadorMatchState lutchadorA;
+	private LuchadorMatchState lutchadorB;
 	private RunAfterThisTask[] runAfterThis;
 
 	@Override
@@ -25,12 +25,12 @@ public class MatchEvent {
 		String a = "null";
 		String b = "null";
 
-		if (lutchadorA != null && lutchadorA.getGameComponent() != null) {
-			a = Long.toString(lutchadorA.getGameComponent().getId());
+		if (lutchadorA != null) {
+			a = Long.toString(lutchadorA.getId());
 		}
 
-		if (lutchadorB != null && lutchadorB.getGameComponent() != null) {
-			b = Long.toString(lutchadorB.getGameComponent().getId());
+		if (lutchadorB != null ) {
+			b = Long.toString(lutchadorB.getId());
 		}
 
 		return "MatchEvent [action=" + action + ", amount=" + amount + ", lutchadorA=" + a + ", lutchadorB=" + b
@@ -42,7 +42,7 @@ public class MatchEvent {
 		this.runAfterThis = runAfterThis;
 	}
 
-	public MatchEvent(int action, LuchadorRunner lutchadorA, LuchadorRunner lutchadorB, double amount,
+	public MatchEvent(int action, LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, double amount,
 			RunAfterThisTask... runAfterThis) {
 
 		this(action, runAfterThis);
@@ -51,7 +51,7 @@ public class MatchEvent {
 		this.amount = amount;
 	}
 
-	public MatchEvent(int action, LuchadorRunner lutchadorA, LuchadorRunner lutchadorB,
+	public MatchEvent(int action, LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB,
 			RunAfterThisTask... runAfterThis) {
 
 		this(action, runAfterThis);
@@ -75,19 +75,19 @@ public class MatchEvent {
 		this.amount = amount;
 	}
 
-	public LuchadorRunner getLutchadorA() {
+	public LuchadorMatchState getLutchadorA() {
 		return lutchadorA;
 	}
 
-	public void setLutchadorA(LuchadorRunner lutchadorA) {
+	public void setLutchadorA(LuchadorMatchState lutchadorA) {
 		this.lutchadorA = lutchadorA;
 	}
 
-	public LuchadorRunner getLutchadorB() {
+	public LuchadorMatchState getLutchadorB() {
 		return lutchadorB;
 	}
 
-	public void setLutchadorB(LuchadorRunner lutchadorB) {
+	public void setLutchadorB(LuchadorMatchState lutchadorB) {
 		this.lutchadorB = lutchadorB;
 	}
 

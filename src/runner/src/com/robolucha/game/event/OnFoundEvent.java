@@ -1,7 +1,7 @@
 package com.robolucha.game.event;
 
+import com.robolucha.models.LuchadorPublicState;
 import com.robolucha.runner.Calc;
-import com.robolucha.runner.LuchadorPublicState;
 
 public class OnFoundEvent extends LuchadorEvent {
 

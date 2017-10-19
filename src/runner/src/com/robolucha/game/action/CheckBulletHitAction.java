@@ -56,13 +56,14 @@ public class CheckBulletHitAction implements GameAction {
 							logger.debug("checkbullethit, luchador MORREU !! = " + runner);
 						}
 
-						matchRunner.getEventHandler().kill(bullet.getOwner(), runner);
+						matchRunner.getEventHandler().kill(bullet.getOwner().getState(), runner.getState());
 					}
 
-					runner.addEvent(new OnGotDamageEvent(bullet.getOwner().getState().getPublicState(), runner
-							.getState().getPublicState(), bullet.getAmount()));
+					runner.addEvent(new OnGotDamageEvent(bullet.getOwner().getState().getPublicState(),
+							runner.getState().getPublicState(), bullet.getAmount()));
 
-					matchRunner.getEventHandler().damage(bullet.getOwner(), runner, bullet.getAmount());
+					matchRunner.getEventHandler().damage(bullet.getOwner().getState(), runner.getState(),
+							bullet.getAmount());
 				}
 			}
 		}
