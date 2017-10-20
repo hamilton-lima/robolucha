@@ -27,6 +27,7 @@ import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.models.MatchStateProvider;
+import com.robolucha.poc.luaj.LuaVM;
 import com.robolucha.runner.Calc;
 import com.robolucha.runner.LuchadorCodeChangeListener;
 import com.robolucha.runner.MatchRunner;
@@ -91,14 +92,10 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	private int size;
 	private int halfSize;
-
-	private Context cx;
-	private Scriptable scope;
+	
+	//TODO: Create interface to enable usage of multiple languages
+	private LuaVM vm;
 	private int exceptionCounter;
-
-	// static {
-	// Context.enter().setClassShutter(new RhinoWhiteList());
-	// }
 
 	private LuchadorMatchState state;
 
@@ -110,7 +107,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	ScriptRunner currentRunner;
 	private MaskConfigVO mask;
 
-	JavascriptFacade facade;
+	LuaFacade facade;
 
 	public LuchadorRunner(GameComponent gameComponent, MatchRunner matchRunner, MaskConfigVO mask) {
 		this.gameComponent = gameComponent;
@@ -133,7 +130,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 			LuchadorCodeChangeListener.getInstance().register(this);
 			this.active = true;
 		} catch (Exception e) {
-			logger.error("erro inicializando lutchador=" + gameComponent, e);
+			logger.error("error on luchador constructor: " + gameComponent, e);
 		}
 
 		// registra para saber que nome de luchador mudou
@@ -142,7 +139,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	// used for tests only
 	void updateCodeEngine() throws Exception {
-		createCodeEngine(gameComponent.getCodePackage().getCodes());
+		createCodeEngine(gameComponent.getCodes());
 	}
 
 	public void cleanup() {
@@ -151,8 +148,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		LuchadorCodeChangeListener.getInstance().remove(this);
 
 		this.active = false;
-		this.cx = null;
-		this.scope = null;
 		this.state = null;
 
 		this.gameComponent = null;
@@ -187,7 +182,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 				Luchador changed = (Luchador) data;
 				if (changed.getId() == this.gameComponent.getId()) {
 					if (logger.isDebugEnabled()) {
-						logger.debug("*** mesmo id, modificar ScoreVO");
+						logger.debug("*** same id, change ScoreVO");
 					}
 					this.score = new ScoreVO(this.score, changed.getName());
 					this.gameComponent.setName(changed.getName());
@@ -215,27 +210,31 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		try {
 			this.gameComponent = luchador;
 			this.messages.clear();
-			updateCodeEngine(luchador.getCodePackage().getCodes());
+			updateCodeEngine(luchador.getCodes());
 
 		} catch (Exception e) {
 			this.active = false;
-			logger.warn("erro atualizando codigo, " + luchador);
-			// TODO: responder feedback para usuario
+			logger.warn("error updating code: " + luchador);
+			// TODO: send feedback to the user
 		}
 	}
-
+	
 	@Override
 	public String toString() {
+
 		String g = "null";
 		if (gameComponent != null ) {
 			g = Long.toString(gameComponent.getId());
 		}
 
-		return "LutchadorRunner [lutchador=" + g + ", active=" + active + ", start=" + start + ", elapsed=" + elapsed
-				+ ", lastRunningError=" + lastRunningError + ", commands=" + commands + ", events=" + events
-				+ ", size=" + size + ", halfSize=" + halfSize + ", cx=" + cx + ", scope=" + scope + ", state=" + state
-				+ ", currentJavascriptRunningName=" + currentJavascriptRunningName + ", matchRunner.match.id="
-				+ matchRunner.getMatch().getId() + ", fireCoolDown=" + fireCoolDown + "]";
+		return "LuchadorRunner [gameComponent=" + g + ", score=" + score + ", active=" + active + ", start="
+		+ start + ", elapsed=" + elapsed + ", lastRunningError=" + lastRunningError + ", commands=" + commands
+		+ ", events=" + events + ", messages=" + messages + ", size=" + size + ", halfSize=" + halfSize
+		+ ", vm=" + vm + ", exceptionCounter=" + exceptionCounter + ", state=" + state
+		+ ", currentJavascriptRunningName=" + currentJavascriptRunningName + ", matchRunner=" + matchRunner
+		+ ", fireCoolDown=" + fireCoolDown + ", punchCoolDown=" + punchCoolDown + ", respawnCoolDown="
+		+ respawnCoolDown + ", currentRunner=" + currentRunner + ", mask=" + mask + ", facade=" + facade + "]";
+
 	}
 
 	private static String defaultMethodsCache;
@@ -276,7 +275,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 			addVariableToJS("LUCHADOR_WIDTH", this.getSize());
 			addVariableToJS("LUCHADOR_HEIGHT", this.getSize());
 
-			this.facade = new JavascriptFacade(this);
+			this.facade = new LuaFacade(this);
 			addVariableToJS("__internal", facade);
 			String js = getDefaultMethods();
 			eval(DEFAULT_METHODS_FILE, js);
