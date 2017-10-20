@@ -1,4 +1,4 @@
-package com.robolucha.runner;
+package com.robolucha.runner.luchador;
 
 import java.util.Iterator;
 import java.util.LinkedList;

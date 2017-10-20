@@ -31,6 +31,8 @@ import com.robolucha.models.GameDefinition;
 import com.robolucha.monitor.ThreadStatus;
 import com.robolucha.publisher.MatchEventToPublish;
 import com.robolucha.publisher.MatchRunStateKeeper;
+import com.robolucha.runner.luchador.LuchadorRunner;
+import com.robolucha.runner.luchador.LutchadorRunnerCreator;
 
 /**
  * main game logic

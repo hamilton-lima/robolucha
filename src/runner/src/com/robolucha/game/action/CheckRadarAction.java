@@ -7,8 +7,8 @@ import org.apache.log4j.Logger;
 
 import com.robolucha.game.event.OnFoundEvent;
 import com.robolucha.runner.Calc;
-import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 public class CheckRadarAction implements GameAction {
 

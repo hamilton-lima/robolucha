@@ -1,4 +1,4 @@
-package com.robolucha.runner;
+package com.robolucha.runner.luchador;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -27,6 +27,10 @@ import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.models.MatchStateProvider;
+import com.robolucha.runner.Calc;
+import com.robolucha.runner.LuchadorCodeChangeListener;
+import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.RespawnPoint;
 
 
 /**

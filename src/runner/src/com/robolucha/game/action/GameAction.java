@@ -2,7 +2,7 @@ package com.robolucha.game.action;
 
 import java.util.LinkedHashMap;
 
-import com.robolucha.runner.LuchadorRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 public interface GameAction {
 

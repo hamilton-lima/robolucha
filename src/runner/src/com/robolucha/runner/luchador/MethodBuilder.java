@@ -1,4 +1,4 @@
-package com.robolucha.runner;
+package com.robolucha.runner.luchador;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,6 +24,7 @@ public class MethodBuilder {
 
 	private static Logger logger = Logger.getLogger(MethodBuilder.class);
 
+	//TODO: create default code in lua
 	private MethodBuilder() {
 		methods = new HashMap<String, MethodDefinition>();
 		add(MethodNames.START, "", "");

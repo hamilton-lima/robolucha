@@ -1,5 +1,6 @@
 package com.robolucha.runner;
 
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 public class Punch {
 

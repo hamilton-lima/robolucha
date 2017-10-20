@@ -11,8 +11,8 @@ import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.models.Match;
 import com.robolucha.models.MatchScore;
 import com.robolucha.monitor.ThreadMonitor;
-import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.service.MatchRunCrudService;
 import com.robolucha.service.MatchRunEventCrudService;
 

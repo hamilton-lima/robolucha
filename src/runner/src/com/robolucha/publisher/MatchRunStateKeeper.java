@@ -18,10 +18,10 @@ import com.robolucha.game.vo.PunchVO;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorPublicState;
-import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.Punch;
 import com.robolucha.runner.RunAfterThisTask;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 public class MatchRunStateKeeper {
 

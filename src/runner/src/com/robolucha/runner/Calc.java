@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.GameDefinition;
 import com.robolucha.models.LuchadorMatchState;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 public class Calc {
 

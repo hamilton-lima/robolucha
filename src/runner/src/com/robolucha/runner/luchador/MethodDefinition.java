@@ -1,4 +1,4 @@
-package com.robolucha.runner;
+package com.robolucha.runner.luchador;
 
 public class MethodDefinition {
 

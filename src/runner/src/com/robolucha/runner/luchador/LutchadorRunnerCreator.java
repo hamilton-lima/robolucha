@@ -1,4 +1,4 @@
-package com.robolucha.runner;
+package com.robolucha.runner.luchador;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -14,6 +14,7 @@ import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorMask;
 import com.robolucha.models.MatchParticipant;
+import com.robolucha.runner.MatchRunner;
 import com.robolucha.service.MatchParticipantCrudService;
 
 /**

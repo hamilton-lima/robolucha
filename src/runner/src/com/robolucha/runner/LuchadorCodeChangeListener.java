@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.robolucha.models.Luchador;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 public class LuchadorCodeChangeListener {
 

@@ -8,8 +8,8 @@ import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.GameDefinition;
 import com.robolucha.models.LuchadorMatchState;
-import com.robolucha.runner.LuchadorRunner;
 import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 public class MatchEventAddNPC implements MatchEventListener {
 

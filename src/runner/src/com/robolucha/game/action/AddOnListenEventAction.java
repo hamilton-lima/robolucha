@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 import com.robolucha.game.event.OnListenEvent;
 import com.robolucha.models.LuchadorPublicState;
-import com.robolucha.runner.LuchadorRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 /**
  * @author hamiltonlima

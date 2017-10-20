@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 
 import org.apache.log4j.Logger;
 
-import com.robolucha.runner.LuchadorRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 public class TriggerEventsAction implements GameAction {
 
