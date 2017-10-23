@@ -95,8 +95,6 @@ public class LutchadorRunnerCreator implements Runnable {
 			matchParticipant.setTimeStart(System.currentTimeMillis());
 			matchParticipant.setLuchador((Luchador) gameComponent);
 			matchParticipant.setMatchRun(owner.getMatch());
-			// TODO how to keep history??
-			matchParticipant.getCodePackages().add(gameComponent.getCodes());
 
 			if (matchParticipant.getMatchRun().getId() != null) {
 
