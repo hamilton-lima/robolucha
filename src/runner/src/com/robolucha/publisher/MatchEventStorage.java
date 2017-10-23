@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 import com.athanazio.saramago.server.dao.GenericDAO;
 import com.athanazio.saramago.service.Response;
-import com.robolucha.event.MatchEvent;
+import com.robolucha.event.GeneralEvent;
 import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.models.Match;
 import com.robolucha.models.MatchScore;
@@ -74,7 +74,7 @@ public class MatchEventStorage implements MatchEventListener {
 		Match match = (Match) MatchRunCrudService.getInstance().findById(runner.getMatch().getId());
 
 		// cria evento
-		MatchEvent event = new MatchEvent();
+		GeneralEvent event = new GeneralEvent();
 		event.setMatchRun(match);
 		event.setAmount(amount);
 		event.setLuchadorA(luchadorA.getGameComponent());
@@ -109,7 +109,7 @@ public class MatchEventStorage implements MatchEventListener {
 		Match match = (Match) MatchRunCrudService.getInstance().findById(runner.getMatch().getId());
 
 		// cria evento
-		MatchEvent event = new MatchEvent();
+		GeneralEvent event = new GeneralEvent();
 		event.setMatchRun(match);
 		event.setLuchadorA(luchadorA.getGameComponent());
 		event.setLuchadorB(luchadorB.getGameComponent());

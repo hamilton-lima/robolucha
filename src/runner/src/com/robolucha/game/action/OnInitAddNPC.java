@@ -1,4 +1,4 @@
-package com.robolucha.event;
+package com.robolucha.game.action;
 
 import java.util.Iterator;
 
@@ -11,9 +11,9 @@ import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
 
-public class MatchEventAddNPC implements MatchEventListener {
+public class OnInitAddNPC implements MatchEventListener {
 
-	private Logger logger = Logger.getLogger(MatchEventAddNPC.class);
+	private Logger logger = Logger.getLogger(OnInitAddNPC.class);
 
 	/**
 	 * procura por NPC relacionados a gamedefinition em questao

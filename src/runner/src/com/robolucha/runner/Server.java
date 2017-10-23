@@ -4,8 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 import com.google.gson.Gson;
-import com.robolucha.event.MatchEventAddNPC;
+import com.robolucha.game.action.OnInitAddNPC;
 import com.robolucha.models.GameDefinition;
+import com.robolucha.models.Match;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.publisher.MatchEventStorage;
 import com.robolucha.publisher.MatchEventToPublish;
@@ -20,8 +21,9 @@ public class Server {
 			throw new RuntimeException("Invalid use, must provide GameDefinition json file name");
 		}
 		
-		GameDefinition gamedefinition = loadGameDefinition(args[0]);
-		MatchRunner runner = new MatchRunner(gamedefinition);
+		GameDefinition gameDefinition = loadGameDefinition(args[0]);
+		Match match = createMatch(gameDefinition);
+		MatchRunner runner = new MatchRunner(gameDefinition, match);
 		Thread thread = buildRunner(runner);
 		thread.start();
 		
@@ -55,7 +57,7 @@ public class Server {
 		runner.addListener(new MatchEventStorage(runner.getMatch()));
 
 		// listener para adicionar NPC a partida
-		runner.addListener(new MatchEventAddNPC());
+		runner.addListener(new OnInitAddNPC());
 
 		// listener para transmitir eventos da partida
 		MatchEventToPublish eventPublisher = new MatchEventToPublish(runner.getMatch());

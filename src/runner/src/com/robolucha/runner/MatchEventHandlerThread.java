@@ -5,7 +5,7 @@ import java.util.Queue;
 
 import org.apache.log4j.Logger;
 
-import com.robolucha.event.MatchEvent;
+import com.robolucha.event.GeneralEvent;
 import com.robolucha.game.event.MatchEventListener;
 
 public class MatchEventHandlerThread implements Runnable {
@@ -15,14 +15,14 @@ public class MatchEventHandlerThread implements Runnable {
 	static Logger logger = Logger.getLogger(MatchEventHandlerThread.class);
 
 	private MatchEventHandler matchEventHandler;
-	private Queue<MatchEvent> events;
+	private Queue<GeneralEvent> events;
 	private String name;
 	private boolean alive;
 	private Object[] eventListeners;
 
 	public MatchEventHandlerThread(MatchEventHandler matchEventHandler, String name) {
 		this.matchEventHandler = matchEventHandler;
-		this.events = new LinkedList<MatchEvent>();
+		this.events = new LinkedList<GeneralEvent>();
 		this.name = name;
 		this.alive = true;
 	}
@@ -33,7 +33,7 @@ public class MatchEventHandlerThread implements Runnable {
 		this.alive = false;
 	}
 
-	public void add(MatchEvent event) {
+	public void add(GeneralEvent event) {
 		logger.info("evento adicionado : " + event);
 
 		if (this.alive) {
@@ -61,7 +61,7 @@ public class MatchEventHandlerThread implements Runnable {
 
 		while (alive | this.events.size() > 0) {
 
-			MatchEvent event = this.events.poll();
+			GeneralEvent event = this.events.poll();
 
 			if (event != null) {
 				MatchEventHandler.logger.info("--- novo evento : " + event);
@@ -101,7 +101,7 @@ public class MatchEventHandlerThread implements Runnable {
 		this.eventListeners = null;
 	}
 
-	private void consume(MatchEvent event) {
+	private void consume(GeneralEvent event) {
 		this.eventListeners = this.matchEventHandler.runner.getMatchEventListeners().toArray();
 		logger.info("START consumindo evento : " + event);
 		logger.info("== listeners : " + eventListeners.length);
@@ -109,28 +109,28 @@ public class MatchEventHandlerThread implements Runnable {
 		for (int i = 0; i < eventListeners.length; i++) {
 			MatchEventListener listener = (MatchEventListener) eventListeners[i];
 
-			if (event.getAction() == MatchEvent.ACTION_DAMAGE) {
+			if (event.getAction() == GeneralEvent.ACTION_DAMAGE) {
 				listener.onDamage(this.matchEventHandler.runner, event.getLutchadorA(), event.getLutchadorB(),
 						event.getAmount());
 			}
 
-			if (event.getAction() == MatchEvent.ACTION_KILL) {
+			if (event.getAction() == GeneralEvent.ACTION_KILL) {
 				listener.onKill(this.matchEventHandler.runner, event.getLutchadorA(), event.getLutchadorB());
 			}
 
-			if (event.getAction() == MatchEvent.ACTION_INIT) {
+			if (event.getAction() == GeneralEvent.ACTION_INIT) {
 				listener.onInit(this.matchEventHandler.runner);
 			}
 
-			if (event.getAction() == MatchEvent.ACTION_START) {
+			if (event.getAction() == GeneralEvent.ACTION_START) {
 				listener.onStart(this.matchEventHandler.runner);
 			}
 
-			if (event.getAction() == MatchEvent.ACTION_END) {
+			if (event.getAction() == GeneralEvent.ACTION_END) {
 				listener.onEnd(this.matchEventHandler.runner);
 			}
 
-			if (event.getAction() == MatchEvent.ACTION_ALIVE) {
+			if (event.getAction() == GeneralEvent.ACTION_ALIVE) {
 				listener.onAlive(this.matchEventHandler.runner);
 			}
 		}

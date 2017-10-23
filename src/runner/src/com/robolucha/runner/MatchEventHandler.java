@@ -2,7 +2,7 @@ package com.robolucha.runner;
 
 import org.apache.log4j.Logger;
 
-import com.robolucha.event.MatchEvent;
+import com.robolucha.event.GeneralEvent;
 import com.robolucha.models.LuchadorMatchState;
 
 /**
@@ -37,40 +37,40 @@ public class MatchEventHandler {
 		thread = null;
 	}
 
-	public void add(MatchEvent event) {
+	public void add(GeneralEvent event) {
 		logger.info("event add: " + event);
 		handlerThread.add(event);
 		// handlerThread.wakeup();
 	}
 
 	public void init(RunAfterThisTask... runAfterThis) {
-		MatchEvent event = new MatchEvent(MatchEvent.ACTION_INIT, runAfterThis);
+		GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_INIT, runAfterThis);
 		add(event);
 	}
 
 	public void start(RunAfterThisTask... runAfterThis) {
-		MatchEvent event = new MatchEvent(MatchEvent.ACTION_START, runAfterThis);
+		GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_START, runAfterThis);
 		add(event);
 	}
 
 	public void alive(RunAfterThisTask... runAfterThis) {
-		MatchEvent event = new MatchEvent(MatchEvent.ACTION_ALIVE, runAfterThis);
+		GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_ALIVE, runAfterThis);
 		add(event);
 	}
 
 	public void end(RunAfterThisTask... runAfterThis) {
-		MatchEvent event = new MatchEvent(MatchEvent.ACTION_END, runAfterThis);
+		GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_END, runAfterThis);
 		add(event);
 	}
 
 	public void damage(LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, double amount,
 			RunAfterThisTask... runAfterThis) {
-		MatchEvent event = new MatchEvent(MatchEvent.ACTION_DAMAGE, lutchadorA, lutchadorB, amount, runAfterThis);
+		GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_DAMAGE, lutchadorA, lutchadorB, amount, runAfterThis);
 		add(event);
 	}
 
 	public void kill(LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, RunAfterThisTask... runAfterThis) {
-		MatchEvent event = new MatchEvent(MatchEvent.ACTION_KILL, lutchadorA, lutchadorB, runAfterThis);
+		GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_KILL, lutchadorA, lutchadorB, runAfterThis);
 		add(event);
 	}
 

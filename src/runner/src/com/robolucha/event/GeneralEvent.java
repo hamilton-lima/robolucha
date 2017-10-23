@@ -5,7 +5,7 @@ import java.util.Arrays;
 import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.runner.RunAfterThisTask;
 
-public class MatchEvent {
+public class GeneralEvent {
 
 	public static final int ACTION_INIT = 0;
 	public static final int ACTION_START = 1;
@@ -37,12 +37,12 @@ public class MatchEvent {
 				+ ", runAfterThis=" + Arrays.toString(runAfterThis) + "]";
 	}
 
-	public MatchEvent(int action, RunAfterThisTask... runAfterThis) {
+	public GeneralEvent(int action, RunAfterThisTask... runAfterThis) {
 		this.action = action;
 		this.runAfterThis = runAfterThis;
 	}
 
-	public MatchEvent(int action, LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, double amount,
+	public GeneralEvent(int action, LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, double amount,
 			RunAfterThisTask... runAfterThis) {
 
 		this(action, runAfterThis);
@@ -51,7 +51,7 @@ public class MatchEvent {
 		this.amount = amount;
 	}
 
-	public MatchEvent(int action, LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB,
+	public GeneralEvent(int action, LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB,
 			RunAfterThisTask... runAfterThis) {
 
 		this(action, runAfterThis);

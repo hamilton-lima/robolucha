@@ -18,8 +18,6 @@ import com.robolucha.runner.MatchRunner;
 import com.robolucha.service.MatchParticipantCrudService;
 
 /**
- * evita que a criacao do novo luchador atrapalhe nos outros threads de
- * execucacao do jogo
  * 
  * @author Hamilton Lima
  *
@@ -97,7 +95,8 @@ public class LutchadorRunnerCreator implements Runnable {
 			matchParticipant.setTimeStart(System.currentTimeMillis());
 			matchParticipant.setLuchador((Luchador) gameComponent);
 			matchParticipant.setMatchRun(owner.getMatch());
-			matchParticipant.getCodePackages().add(gameComponent.getCodePackage());
+			// TODO how to keep history??
+			matchParticipant.getCodePackages().add(gameComponent.getCodes());
 
 			if (matchParticipant.getMatchRun().getId() != null) {
 

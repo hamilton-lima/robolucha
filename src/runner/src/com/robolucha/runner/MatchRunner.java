@@ -28,6 +28,8 @@ import com.robolucha.game.vo.MessageVO;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.GameDefinition;
+import com.robolucha.models.Match;
+import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.monitor.ThreadStatus;
 import com.robolucha.publisher.MatchEventToPublish;
 import com.robolucha.publisher.MatchRunStateKeeper;
@@ -73,26 +75,21 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
 	private MatchEventHandler eventHandler;
 	private LutchadorRunnerCreator luchadorCreator;
+	private Match match;
 
 	public MatchEventHandler getEventHandler() {
 		return eventHandler;
 	}
 
-	public MatchRunner(GameDefinition gamedefinition) {
-		// threadName = this.getClass().getName() + "-" + ThreadMonitor.getUID();
+	public MatchRunner(GameDefinition gamedefinition, Match match) {
+		threadName = this.getClass().getName() + "-" + ThreadMonitor.getUID();
 
-		// status = ThreadStatus.STARTING;
+		status = ThreadStatus.STARTING;
 		alive = true;
 		delta = 0.0;
 		this.gameDefinition = gamedefinition;
 
-		// this.match = match;
-
-		/*
-		 * if (match.getGame() != null) { this.game = match.getGame();
-		 * this.gameDefinition = match.getGame().getGameDefinition(); } else {
-		 * this.gameDefinition = new GameDefinition(); }
-		 */
+		this.match = match;
 
 		runOnActive = new LinkedList<GameAction>();
 		runOnActive.add(new RepeatAction());
@@ -115,6 +112,10 @@ public class MatchRunner implements Runnable, ThreadStatus {
 		luchadorCreator = new LutchadorRunnerCreator(this);
 
 		logger.info("MatchRunner created:" + this);
+	}
+
+	public Match getMatch() {
+		return match;
 	}
 
 	/**
@@ -140,9 +141,9 @@ public class MatchRunner implements Runnable, ThreadStatus {
 	
 	public void addLuchador(final GameComponent component) throws Exception {
 
-		// verifica se jah esta em outra arena if (component instanceof Luchador) {
+		// check if luchador is in another arena
 		if (MatchRunnerValidationHelper.getInstance().currentMatchFromLuchador(component) != null) {
-			throw new RuntimeException("luchador jah esta em outra partida em andamento");
+			throw new RuntimeException("luchador is already participating in another match");
 		}
 
 		add(component);
