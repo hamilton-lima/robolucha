@@ -15,18 +15,28 @@ import com.robolucha.publisher.MatchEventToPublish;
  * Runs a Match based on the input MatchDefinition ID
  */
 public class Server {
-	
+
 	public static void main(String[] args) throws Exception {
-		if(args.length < 1) {
+		addRunTimeHook();
+
+		if (args.length < 1) {
 			throw new RuntimeException("Invalid use, must provide GameDefinition json file name");
 		}
-		
+
 		GameDefinition gameDefinition = loadGameDefinition(args[0]);
 		Match match = createMatch(gameDefinition);
 		MatchRunner runner = new MatchRunner(gameDefinition, match);
 		Thread thread = buildRunner(runner);
 		thread.start();
-		
+
+	}
+
+	private static void addRunTimeHook() {
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				ThreadMonitor.getInstance().contextDestroyed();
+			}
+		});
 	}
 
 	static GameDefinition loadGameDefinition(String filename) throws Exception {
@@ -47,10 +57,10 @@ public class Server {
 		}
 		return buffer.toString();
 	}
-	
+
 	public static Thread buildRunner(MatchRunner runner) {
 		ThreadMonitor.getInstance().register(runner);
-		
+
 		GameSubscription.getInstance().addBroadCast(runner.getMatch().getId(), runner);
 
 		// listener para gravar eventos da partida

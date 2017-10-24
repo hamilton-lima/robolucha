@@ -37,21 +37,15 @@ public class ThreadMonitor  {
 		return instance;
 	}
 
-	/**
-	 * //TODO trocar para retornar lista
-	 */
+
 	public MatchRunner getMatch() {
 
-		Iterator iterator = threads.keySet().iterator();
+		Iterator<String> iterator = threads.keySet().iterator();
 		while (iterator.hasNext()) {
-			Object key = (Object) iterator.next();
+			String key = iterator.next();
 			Object one = threads.get(key);
 
 			if (one instanceof MatchRunner) {
-				MatchRunner runner = (MatchRunner) one;
-
-				// para retornar a atual assim evita o bug de transicao entre
-				// partidas
 				if (((MatchRunner) one).isAlive()) {
 					return (MatchRunner) one;
 				}
@@ -61,20 +55,15 @@ public class ThreadMonitor  {
 		return null;
 	}
 
-	/**
-	 * retorna o cenario atual dos threads em execucao
-	 * 
-	 * @return
-	 */
 	public ThreadStatusVO[] getStatus() {
 
 		ThreadStatusVO[] result = new ThreadStatusVO[threads.size()];
 		ThreadStatus one;
 		int pos = 0;
 
-		Iterator iterator = threads.keySet().iterator();
+		Iterator<String> iterator = threads.keySet().iterator();
 		while (iterator.hasNext()) {
-			Object key = (Object) iterator.next();
+			String key =  iterator.next();
 			one = threads.get(key);
 			result[pos] = new ThreadStatusVO(one.getThreadName(), one.getThreadStatus(), one.getThreadStartTime());
 			pos++;
@@ -90,20 +79,18 @@ public class ThreadMonitor  {
 		return Long.toString(counter);
 	}
 
-	// TODO adicionar ao objeto ThreadStatus e controlar ack dos erros
+	//TODO add to Threadstatus and control ack of errors
 	public void addException(String threadName, MessageList messageList) {
 		logger.error("addException, thread=" + threadName + " errors=" + messageList);
 	}
 
-	// TODO: add listener for the APP destroy
-	@Override
 	public void contextDestroyed() {
 		logger.debug("--- APP is exiting, time to shutdown all the threads.");
 
-		Iterator iterator = threads.entrySet().iterator();
+		Iterator<String> iterator = threads.keySet().iterator();
 		while (iterator.hasNext()) {
 
-			Object key = (Object) iterator.next();
+			String key = iterator.next();
 			ThreadStatus one = threads.get(key);
 
 			try {
