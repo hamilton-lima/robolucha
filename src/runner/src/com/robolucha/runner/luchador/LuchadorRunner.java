@@ -32,6 +32,8 @@ import com.robolucha.runner.Calc;
 import com.robolucha.runner.LuchadorCodeChangeListener;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.RespawnPoint;
+import com.robolucha.runner.luchador.lua.LuaFacade;
+import com.robolucha.runner.luchador.lua.MethodBuilder;
 
 
 /**

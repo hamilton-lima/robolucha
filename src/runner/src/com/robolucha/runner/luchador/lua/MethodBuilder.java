@@ -1,4 +1,4 @@
-package com.robolucha.runner.luchador;
+package com.robolucha.runner.luchador.lua;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,6 +10,9 @@ import javax.naming.Context;
 import org.apache.log4j.Logger;
 
 import com.robolucha.models.Code;
+import com.robolucha.runner.luchador.LuchadorRunner;
+import com.robolucha.runner.luchador.MethodDefinition;
+import com.robolucha.runner.luchador.MethodNames;
 
 /**
  * Gera assinatura de metodos javascript padrao, combinando com codigo fornecido

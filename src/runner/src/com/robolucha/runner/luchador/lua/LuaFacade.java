@@ -1,8 +1,9 @@
-package com.robolucha.runner.luchador;
+package com.robolucha.runner.luchador.lua;
 
 import org.apache.log4j.Logger;
 
 import com.robolucha.game.vo.MessageVO;
+import com.robolucha.runner.luchador.LuchadorRunner;
 
 /**
  * 
