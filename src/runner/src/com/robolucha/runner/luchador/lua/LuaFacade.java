@@ -25,7 +25,7 @@ public class LuaFacade {
 
 		if (logger.isDebugEnabled()) {
 			logger.debug(lastCall);
-			logger.debug(">> executando " + lastCall);
+			logger.debug(">> running " + lastCall);
 		}
 		owner.addMove(amount);
 	}

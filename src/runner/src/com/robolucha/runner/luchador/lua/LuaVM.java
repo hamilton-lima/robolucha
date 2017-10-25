@@ -16,6 +16,7 @@ import org.luaj.vm2.lib.PackageLib;
 import org.luaj.vm2.lib.StringLib;
 import org.luaj.vm2.lib.TableLib;
 import org.luaj.vm2.lib.ZeroArgFunction;
+import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 import org.luaj.vm2.lib.jse.JseBaseLib;
 import org.luaj.vm2.lib.jse.JseMathLib;
 
@@ -29,7 +30,7 @@ import org.luaj.vm2.lib.jse.JseMathLib;
 public class LuaVM {
 
 	private static final int DEFAULT_MAX_INSTRUCTIONS = 200;
-	
+
 	private static Globals compiler = setupCompilerGlobal();
 
 	private static Globals setupCompilerGlobal() {
@@ -87,7 +88,7 @@ public class LuaVM {
 
 		this.localState = getLocalCompiler();
 	}
-	
+
 	LuaVM(int maxInstructions) {
 		this();
 		this.maxInstructions = maxInstructions;
@@ -106,31 +107,51 @@ public class LuaVM {
 		// When we resume the thread, it will run up to 'instruction_count' instructions
 		// then call the hook function which will error out and stop the script.
 		Varargs result = thread.resume(LuaValue.NIL);
-		if( result.checkboolean(1) ) {
+		if (result.checkboolean(1)) {
 			return result;
 		} else {
 			throw new Exception(result.arg(2).toString());
 		}
 	}
-	
+
+	public LuaValue compile(String script) throws Exception {
+		LuaValue chunk = compiler.load(script, "main", localState);
+		return chunk;
+	}
+
 	Varargs run(String script) throws Exception {
 		LuaValue chunk = compiler.load(script, "main", localState);
 		return run(chunk);
 	}
 
+	public void eval(String string) throws Exception {
+		exec(string);
+	}
+
 	void exec(String script) throws Exception {
 		run(script);
 	}
-	
+
+	public void exec(LuaValue chunk) throws Exception {
+		run(chunk);
+	}
+
+	public void put(String name, Object value) {
+		localState.set(name, CoerceJavaToLua.coerce(value));
+	}
+
 	public Varargs runFromFile(String filename) throws Exception {
 		FileReader reader = new FileReader(filename);
 		LuaValue chunk = compiler.load(reader, "main", localState);
 		return run(chunk);
 	}
 
-
 	String getString(String script) throws Exception {
 		return run(script).arg(2).toString();
+	}
+
+	public float getFloat(String script) throws Exception {
+		return run(script).tofloat(2);
 	}
 
 	double getDouble(String script) throws Exception {
@@ -139,6 +160,10 @@ public class LuaVM {
 
 	int getInt(String script) throws Exception {
 		return run(script).toint(2);
+	}
+
+	long getLong(String script) throws Exception {
+		return run(script).tolong(2);
 	}
 
 	// Simple read-only table whose contents are initialized from another table.
@@ -173,5 +198,4 @@ public class LuaVM {
 		}
 	}
 
-	
 }

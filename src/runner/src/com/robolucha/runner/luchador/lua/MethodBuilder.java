@@ -31,12 +31,12 @@ public class MethodBuilder {
 	private MethodBuilder() {
 		methods = new HashMap<String, MethodDefinition>();
 		add(MethodNames.START, "", "");
-		add(MethodNames.REPEAT, "function repeat(){ //vazio\n", "\n}");
-		add(MethodNames.ON_HIT_WALL, "function onHitWall(){ //vazio\n", "\n}");
-		add(MethodNames.ON_HIT_OTHER, "function onHitOther(other){ //vazio\n", "\n}");
-		add(MethodNames.ON_FOUND, "function onFound(other,chance){ //vazio\n", "\n}");
-		add(MethodNames.ON_GOT_DAMAGE, "function onGotDamage(other,amount){ //vazio \n", "\n}");
-		add(MethodNames.ON_LISTEN, "function onListen(other,message){ //vazio \n", "\n}");
+		add(MethodNames.REPEAT, "function repeat(){ //empty\n", "\n}");
+		add(MethodNames.ON_HIT_WALL, "function onHitWall(){ //empty\n", "\n}");
+		add(MethodNames.ON_HIT_OTHER, "function onHitOther(other){ //empty\n", "\n}");
+		add(MethodNames.ON_FOUND, "function onFound(other,chance){ //empty\n", "\n}");
+		add(MethodNames.ON_GOT_DAMAGE, "function onGotDamage(other,amount){ //empty \n", "\n}");
+		add(MethodNames.ON_LISTEN, "function onListen(other,message){ //empty \n", "\n}");
 	}
 
 	private void add(String name, String start, String end) {
@@ -75,7 +75,7 @@ public class MethodBuilder {
 				codeId = code.getId();
 			}
 
-			logger.debug("definindo codigo : key=" + key + ", script=" + script);
+			logger.debug("defining code: key=" + key + ", script=" + script);
 			MethodDefinition definition = methods.get(key);
 
 			buffer.append(definition.getStart());
