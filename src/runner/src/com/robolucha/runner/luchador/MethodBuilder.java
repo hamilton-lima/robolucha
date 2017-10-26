@@ -1,56 +1,26 @@
-package com.robolucha.runner.luchador.lua;
+package com.robolucha.runner.luchador;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
-import javax.naming.Context;
 
 import org.apache.log4j.Logger;
 
 import com.robolucha.models.Code;
-import com.robolucha.runner.luchador.LuchadorRunner;
-import com.robolucha.runner.luchador.MethodDefinition;
-import com.robolucha.runner.luchador.MethodNames;
 
 /**
- * Gera assinatura de metodos javascript padrao, combinando com codigo fornecido
- * pelos programadores
  * 
  * @author hamiltonlima
  *
  */
 public class MethodBuilder {
 
-	private static MethodBuilder instance;
-
+	private static MethodBuilder instance = new MethodBuilder();
 	private static Logger logger = Logger.getLogger(MethodBuilder.class);
 
-	//TODO: create default code in lua
-	private MethodBuilder() {
-		methods = new HashMap<String, MethodDefinition>();
-		add(MethodNames.START, "", "");
-		add(MethodNames.REPEAT, "function repeat(){ //empty\n", "\n}");
-		add(MethodNames.ON_HIT_WALL, "function onHitWall(){ //empty\n", "\n}");
-		add(MethodNames.ON_HIT_OTHER, "function onHitOther(other){ //empty\n", "\n}");
-		add(MethodNames.ON_FOUND, "function onFound(other,chance){ //empty\n", "\n}");
-		add(MethodNames.ON_GOT_DAMAGE, "function onGotDamage(other,amount){ //empty \n", "\n}");
-		add(MethodNames.ON_LISTEN, "function onListen(other,message){ //empty \n", "\n}");
-	}
-
-	private void add(String name, String start, String end) {
-		methods.put(name, new MethodDefinition(name, start, end));
-	}
-
 	public static MethodBuilder getInstance() {
-		if (instance == null) {
-			instance = new MethodBuilder();
-		}
 		return instance;
 	}
-
-	private Map<String, MethodDefinition> methods;
 
 	public void buildAll(LuchadorRunner runner, List<Code> codes) {
 
@@ -58,15 +28,18 @@ public class MethodBuilder {
 		String script = "";
 		Long codeId = 0L;
 		String key = null;
+		
+		HashMap<String, MethodDefinition> methods = ScriptDefinitionFactory.getInstance().getDefault()
+				.getDefaultMethods();
 
-		Iterator iterator = methods.keySet().iterator();
+		Iterator<String> iterator = methods.keySet().iterator();
 		while (iterator.hasNext()) {
 			StringBuffer buffer = new StringBuffer();
 
 			key = (String) iterator.next();
 			script = "";
 			codeId = 0L;
-			
+
 			Code code = null;
 
 			if (local.containsKey(key)) {
@@ -82,23 +55,23 @@ public class MethodBuilder {
 			buffer.append(script);
 			buffer.append(definition.getEnd());
 
-			String js = buffer.toString();
+			String createdSourceCode = buffer.toString();
 			if (logger.isDebugEnabled()) {
-				logger.debug(js);
+				logger.debug(createdSourceCode);
 			}
 
 			try {
-				runner.eval(key, js);
+				runner.eval(key, createdSourceCode);
 			} catch (Exception e) {
-				String message = "erro interpretando codigo code.id=" + codeId + " gamecomponent.id="
+				String message = "error compiling code code.id=" + codeId + " gamecomponent.id="
 						+ runner.getGameComponent().getId();
 
-				if( logger.isDebugEnabled()){
-					logger.debug(">>>> code=" + code );
-					logger.debug(">>>> erro=" + e.getMessage());
+				if (logger.isDebugEnabled()) {
+					logger.debug(">>>> code=" + code);
+					logger.debug(">>>> error=" + e.getMessage());
 				}
 
-				if( code != null ){
+				if (code != null) {
 					runner.saveExceptionToCode(code.getEvent(), e.getMessage());
 				}
 
@@ -119,9 +92,9 @@ public class MethodBuilder {
 	private HashMap<String, Code> populateLocalHash(List<Code> codes) {
 		HashMap<String, Code> result = new HashMap<String, Code>();
 		if (codes != null) {
-			Iterator iterator = codes.iterator();
+			Iterator<Code> iterator = codes.iterator();
 			while (iterator.hasNext()) {
-				Code code = (Code) iterator.next();
+				Code code = iterator.next();
 				result.put(code.getEvent(), code);
 			}
 		}
@@ -130,7 +103,7 @@ public class MethodBuilder {
 
 	public void build(LuchadorRunner runner, Code code) {
 
-		logger.debug("definindo codigo : " + code);
+		logger.debug("building code: " + code);
 		if (code == null) {
 			return;
 		}
@@ -138,6 +111,9 @@ public class MethodBuilder {
 		String script = code.getScript();
 		Long codeId = code.getId();
 		String key = code.getEvent();
+		
+		ScriptDefinition scriptDef = ScriptDefinitionFactory.getInstance().getDefault();
+		HashMap<String, MethodDefinition> methods = scriptDef.getDefaultMethods();
 
 		MethodDefinition definition = methods.get(key);
 		StringBuffer buffer = new StringBuffer();
@@ -145,21 +121,18 @@ public class MethodBuilder {
 		buffer.append(script);
 		buffer.append(definition.getEnd());
 
-		String js = buffer.toString();
-		logger.debug(js);
+		String createdSourceCode = buffer.toString();
+		logger.debug(createdSourceCode);
 
 		try {
-			Context cx = Context.enter();
-			cx.setClassShutter(new RhinoWhiteList());
-
-			runner.eval(key, js);
+			runner.eval(key, createdSourceCode);
 		} catch (Exception e) {
-			logger.error("erro interpretando codigo " + codeId);
+			logger.error("error compiling code: " + codeId);
 			if (key != null) {
 				code.setException(e.getMessage());
 			}
 		} finally {
-			Context.exit();
+			scriptDef.afterCompile();
 		}
 
 	}

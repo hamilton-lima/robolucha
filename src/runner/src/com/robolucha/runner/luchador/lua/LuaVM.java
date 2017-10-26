@@ -4,6 +4,7 @@ import java.io.FileReader;
 
 import org.luaj.vm2.Globals;
 import org.luaj.vm2.LoadState;
+import org.luaj.vm2.LuaFunction;
 import org.luaj.vm2.LuaString;
 import org.luaj.vm2.LuaTable;
 import org.luaj.vm2.LuaThread;
@@ -196,6 +197,10 @@ public class LuaVM {
 		public LuaValue remove(int pos) {
 			return error("table is read-only");
 		}
+	}
+
+	public LuaFunction getFunction(String name) {
+		return (LuaFunction) localState.get(name);
 	}
 
 }
