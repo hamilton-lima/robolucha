@@ -39,7 +39,6 @@ import com.robolucha.runner.luchador.lua.LuaFacade;
  */
 public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
-
 	public static final double MAX_EVENTS_PER_TICK = 5;
 
 	public static final String EVENT_ONHITWALL = "onHitWall";
@@ -53,6 +52,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	public static final String ACTION_CHECK_RADAR = "checkRadar";
 	private static final double DOUBLE_MIN_THRESHOLD = 0.01;
+	private static final int MAX_COLOR_LENGTH = 7;
 
 	private static Logger logger = Logger.getLogger(LuchadorRunner.class);
 
@@ -238,7 +238,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 			scriptDefinition.set("RADAR_RADIUS", this.getGameComponent().getRadarRadius());
 			scriptDefinition.set("LUCHADOR_WIDTH", this.getSize());
 			scriptDefinition.set("LUCHADOR_HEIGHT", this.getSize());
-			
+
 			scriptDefinition.addFacade(this);
 			scriptDefinition.loadDefaultLibraries();
 
@@ -281,7 +281,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 		this.state.setX(point.x);
 		this.state.setY(point.y);
-		this.state.setLife(DEFAULT_LIFE);
+		this.state.setLife(gameComponent.getLife());
 		this.state.setAngle(0);
 		this.state.setGunAngle(0);
 		this.state.setFireCoolDown(0);
@@ -294,7 +294,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	void eval(String name, String script) throws Exception {
 		scriptDefinition.eval(script);
 	}
-
 
 	/**
 	 * persiste no banco de dados casos de Codigo com erro para outros servicos
@@ -317,13 +316,16 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 				addMessage(MessageVO.DANGER, code.getEvent(), code.getException());
 
-				Response response = CodeCrudService.getInstance().doSaramagoUpdate(code, new Response());
-
-				// se houve falha ao atualizar Code
-				if (response.getErrors().size() > 0) {
-					logger.error("erro atualizando CODE no banco de dados : " + response.getErrors().toString());
-					throw new Exception(response.getErrors().toString());
-				}
+				// TODO: add call to save the code errors< or trigger events?
+				/*
+				 * Response response = CodeCrudService.getInstance().doSaramagoUpdate(code, new
+				 * Response());
+				 * 
+				 * // se houve falha ao atualizar Code if (response.getErrors().size() > 0) {
+				 * logger.error("erro atualizando CODE no banco de dados : " +
+				 * response.getErrors().toString()); throw new
+				 * Exception(response.getErrors().toString()); }
+				 */
 			}
 
 		}
@@ -654,8 +656,8 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 				// somente usa o disparo se o cooldown acabou
 				if (fireCoolDown <= 0) {
 
-					Bullet bullet = new Bullet(this, command.getOriginalValue(), state.getX(), state.getY(),
-							state.getGunAngle());
+					Bullet bullet = new Bullet(matchRunner.getGameDefinition(), this, command.getOriginalValue(),
+							state.getX(), state.getY(), state.getGunAngle());
 
 					matchRunner.fire(bullet);
 
@@ -665,7 +667,8 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 					action.getCommands().removeFirst();
 
 					// starts the timer for the fircooldown
-					fireCoolDown = DEFAULT_MAX_FIRE_COOLDOWN * (bullet.getAmount() / DEFAULT_MAX_FIRE_AMOUNT);
+					fireCoolDown = gameComponent.getMaxFireCooldown()
+							* (bullet.getAmount() / gameComponent.getMaxFireAmount());
 				}
 			}
 		}
@@ -721,19 +724,18 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	}
 
 	/**
-	 * garante que valores de para disparo estejam dentro dos parametros de minimo e
-	 * maximo
+	 * keep the fire values in the correct range
 	 * 
 	 * @param amount
 	 * @return
 	 */
 	public int cleanUpAmount(int amount) {
 
-		if (amount > DEFAULT_MAX_FIRE_AMOUNT) {
-			amount = (int) DEFAULT_MAX_FIRE_AMOUNT;
+		if (amount > gameComponent.getMaxFireAmount()) {
+			amount = (int) gameComponent.getMaxFireAmount();
 		} else {
-			if (amount <= DEFAULT_MIN_FIRE_AMOUNT) {
-				amount = (int) DEFAULT_MIN_FIRE_AMOUNT;
+			if (amount <= gameComponent.getMinFireAmount()) {
+				amount = (int) gameComponent.getMinFireAmount();
 			}
 		}
 
@@ -771,9 +773,9 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	public void punch() {
 		if (punchCoolDown <= 0) {
-			matchRunner.punch(this, DEFAULT_PUNCH_AMOUNT, state.getX(), state.getY(), state.getAngle());
+			matchRunner.punch(this, gameComponent.getPunchDamage(), state.getX(), state.getY(), state.getAngle());
 
-			punchCoolDown = DEFAULT_PUNCH_COOLDOWN;
+			punchCoolDown = gameComponent.getPunchCoolDown();
 		}
 	}
 

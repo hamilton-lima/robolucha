@@ -24,8 +24,13 @@ public class GameComponent {
 	private int turnGunSpeed = 60;
 	private int respawnCooldown = 10;
 	private int maxFireCooldown = 10;
+	
+	//TODO: should merge these?
 	private int minFireDamage = 1;
 	private int maxFireDamage = 10;
+	
+	private int minFireAmount = 1;
+	private int maxFireAmount = 10;
 
 	// how fast energy is restored to the luchador
 	private int restoreEnergyperSecond = 3;
@@ -224,6 +229,22 @@ public class GameComponent {
 
 	public void setFireEnergyCost(int fireEnergyCost) {
 		this.fireEnergyCost = fireEnergyCost;
+	}
+
+	public int getMinFireAmount() {
+		return minFireAmount;
+	}
+
+	public void setMinFireAmount(int minFireAmount) {
+		this.minFireAmount = minFireAmount;
+	}
+
+	public int getMaxFireAmount() {
+		return maxFireAmount;
+	}
+
+	public void setMaxFireAmount(int maxFireAmount) {
+		this.maxFireAmount = maxFireAmount;
 	}
 
 }
