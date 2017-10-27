@@ -3,6 +3,7 @@ package com.robolucha.runner.luchador.lua;
 import java.util.HashMap;
 
 import org.luaj.vm2.LuaFunction;
+import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 
 import com.robolucha.runner.luchador.MethodDefinition;
@@ -22,18 +23,18 @@ public class LuaScriptDefinition implements ScriptDefinition {
 	public LuaScriptDefinition() {
 		methods = new HashMap<String, MethodDefinition>();
 
-		add(MethodNames.START, "", "");
-		add(MethodNames.REPEAT, "function repeat()\n   //empty\n", "\nend");
-		add(MethodNames.ON_HIT_WALL, "function onHitWall()\n   //empty\n", "\nend");
-		add(MethodNames.ON_HIT_OTHER, "function onHitOther(other)\n   //empty\n", "\nend");
-		add(MethodNames.ON_FOUND, "function onFound(other,chance)\n   //empty\n", "\nend");
-		add(MethodNames.ON_GOT_DAMAGE, "function onGotDamage(other,amount)\n   //empty \n", "\nend");
-		add(MethodNames.ON_LISTEN, "function onListen(other,message)\n   //empty \n", "\nend");
+		addMethod(MethodNames.START, "", "");
+		addMethod(MethodNames.REPEAT, "function repeat()\n   //empty\n", "\nend");
+		addMethod(MethodNames.ON_HIT_WALL, "function onHitWall()\n   //empty\n", "\nend");
+		addMethod(MethodNames.ON_HIT_OTHER, "function onHitOther(other)\n   //empty\n", "\nend");
+		addMethod(MethodNames.ON_FOUND, "function onFound(other,chance)\n   //empty\n", "\nend");
+		addMethod(MethodNames.ON_GOT_DAMAGE, "function onGotDamage(other,amount)\n   //empty \n", "\nend");
+		addMethod(MethodNames.ON_LISTEN, "function onListen(other,message)\n   //empty \n", "\nend");
 
 		lua = new LuaVM();
 	}
 
-	private void add(String name, String start, String end) {
+	private void addMethod(String name, String start, String end) {
 		methods.put(name, new MethodDefinition(name, start, end));
 	}
 
@@ -46,7 +47,7 @@ public class LuaScriptDefinition implements ScriptDefinition {
 	public void run(String name, Object... parameter) {
 
 		LuaFunction function = lua.getFunction(name);
-		if (parameter == null) {
+		if (parameter.length == 0) {
 			function.call();
 		} else {
 			if (parameter.length == 1) {
@@ -59,8 +60,29 @@ public class LuaScriptDefinition implements ScriptDefinition {
 				function.call(CoerceJavaToLua.coerce(parameter[0]), CoerceJavaToLua.coerce(parameter[1]),
 						CoerceJavaToLua.coerce(parameter[2]));
 			}
+
+			if (parameter.length > 3) {
+				throw new RuntimeException("Too many parameters in Lua function call: " + name);
+			}
+
 		}
 
+	}
+
+	public void eval(String script) throws Exception {
+		lua.eval(script);
+	}
+
+	public String getString(String script) throws Exception {
+		return lua.getString(script);
+	}
+
+	public int getInt(String script) throws Exception {
+		return lua.getInt(script);
+	}
+
+	public double getDouble(String script) throws Exception {
+		return lua.getDouble(script);
 	}
 
 }
