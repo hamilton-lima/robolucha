@@ -71,4 +71,8 @@ public class ScriptRunner implements Runnable {
 		this.runner = null;
 	}
 
+	public String getCurrentName() {
+		return currentName;
+	}
+
 }

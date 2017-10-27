@@ -18,4 +18,10 @@ public interface ScriptDefinition {
 
 	double getDouble(String script) throws Exception;
 
+	void set(String name, Object value) throws Exception;
+
+	void addFacade(LuchadorRunner luchadorRunner);
+
+	void loadDefaultLibraries() throws Exception;
+
 }

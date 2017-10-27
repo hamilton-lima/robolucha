@@ -39,26 +39,8 @@ import com.robolucha.runner.luchador.lua.LuaFacade;
  */
 public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
-	// TODO esta informacao precisa vir da configuracao do jogo
-	public static final int DEFAULT_LIFE = 20;
-	public static final int DEFAULT_PUNCH_AMOUNT = 2;
-	public static final int DEFAULT_PUNCH_COOLDOWN = 2;
-	private static final int MAX_COLOR_LENGTH = 7;
-
-	public static final int DEFAULT_MOVE_SPEED = 50;
-	public static final int DEFAULT_TURN_SPEED = 90;
-	public static final int DEFAULT_TURNGUN_SPEED = 60;
-
-	public static final double DEFAULT_RESPAWN_COOLDOWN = 10;
-
-	public static final double DEFAULT_MAX_FIRE_COOLDOWN = 10;
-	public static final double DEFAULT_MIN_FIRE_AMOUNT = 1;
-	public static final double DEFAULT_MAX_FIRE_AMOUNT = 10;
 
 	public static final double MAX_EVENTS_PER_TICK = 5;
-
-	private static final String DEFAULT_METHODS_FILE = "default-methods.js";
-	private static final String NMS_COLORS_FILE = "nmscolor.js";
 
 	public static final String EVENT_ONHITWALL = "onHitWall";
 
@@ -74,7 +56,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	private static Logger logger = Logger.getLogger(LuchadorRunner.class);
 
-	// classes de test podem alterar este objeto
+	// test classes can update this.
 	GameComponent gameComponent;
 
 	private ScoreVO score;
@@ -90,13 +72,20 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	private int size;
 	private int halfSize;
 
-	// TODO: Create interface to enable usage of multiple languages
 	private ScriptDefinition scriptDefinition;
 	int exceptionCounter;
 
 	private LuchadorMatchState state;
 
 	private String currentJavascriptRunningName;
+
+	private String getCurrentRunningCodeName() {
+		if (this.currentRunner != null) {
+			return this.currentRunner.getCurrentName();
+		}
+		return "";
+	}
+
 	private MatchRunner matchRunner;
 	private double fireCoolDown;
 	private double punchCoolDown;
@@ -230,31 +219,11 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		return "LuchadorRunner [gameComponent=" + g + ", score=" + score + ", active=" + active + ", start=" + start
 				+ ", elapsed=" + elapsed + ", lastRunningError=" + lastRunningError + ", commands=" + commands
 				+ ", events=" + events + ", messages=" + messages + ", size=" + size + ", halfSize=" + halfSize
-				+ ", exceptionCounter=" + exceptionCounter + ", state=" + state
-				+ ", currentJavascriptRunningName=" + currentJavascriptRunningName + ", matchRunner=" + matchRunner
-				+ ", fireCoolDown=" + fireCoolDown + ", punchCoolDown=" + punchCoolDown + ", respawnCoolDown="
-				+ respawnCoolDown + ", currentRunner=" + currentRunner + ", mask=" + mask + ", facade=" + facade + "]";
+				+ ", exceptionCounter=" + exceptionCounter + ", state=" + state + ", currentJavascriptRunningName="
+				+ currentJavascriptRunningName + ", matchRunner=" + matchRunner + ", fireCoolDown=" + fireCoolDown
+				+ ", punchCoolDown=" + punchCoolDown + ", respawnCoolDown=" + respawnCoolDown + ", currentRunner="
+				+ currentRunner + ", mask=" + mask + ", facade=" + facade + "]";
 
-	}
-
-	private static String defaultMethodsCache;
-	private static String nmsColorsCache;
-
-	public static String getNmsColors() {
-		if (nmsColorsCache == null) {
-			nmsColorsCache = JavascriptUtil.getInstance().readDefinitions(LuchadorRunner.class, NMS_COLORS_FILE);
-		}
-
-		return nmsColorsCache;
-	}
-
-	public static String getDefaultMethods() {
-		if (defaultMethodsCache == null) {
-			defaultMethodsCache = JavascriptUtil.getInstance().readDefinitions(LuchadorRunner.class,
-					DEFAULT_METHODS_FILE);
-		}
-
-		return defaultMethodsCache;
 	}
 
 	private void createCodeEngine(List<Code> codes) throws Exception {
@@ -262,26 +231,16 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		logger.debug("START createCodeEngine()");
 		start = System.currentTimeMillis();
 		try {
-			cx = Context.enter();
-			cx.setClassShutter(new RhinoWhiteList());
-
-			scope = cx.initStandardObjects();
-
-			addVariableToJS("me", this.state.getPublicState());
-			addVariableToJS("ARENA_WIDTH", this.matchRunner.getGameDefinition().getArenaWidth());
-			addVariableToJS("ARENA_HEIGHT", this.matchRunner.getGameDefinition().getArenaHeight());
-			addVariableToJS("RADAR_ANGLE", this.getGameComponent().getRadarAngle());
-			addVariableToJS("RADAR_RADIUS", this.getGameComponent().getRadarRadius());
-			addVariableToJS("LUCHADOR_WIDTH", this.getSize());
-			addVariableToJS("LUCHADOR_HEIGHT", this.getSize());
-
-			this.facade = new LuaFacade(this);
-			addVariableToJS("__internal", facade);
-			String js = getDefaultMethods();
-			eval(DEFAULT_METHODS_FILE, js);
-
-			String nmsColors = getNmsColors();
-			eval(NMS_COLORS_FILE, nmsColors);
+			scriptDefinition.set("me", this.state.getPublicState());
+			scriptDefinition.set("ARENA_WIDTH", this.matchRunner.getGameDefinition().getArenaWidth());
+			scriptDefinition.set("ARENA_HEIGHT", this.matchRunner.getGameDefinition().getArenaHeight());
+			scriptDefinition.set("RADAR_ANGLE", this.getGameComponent().getRadarAngle());
+			scriptDefinition.set("RADAR_RADIUS", this.getGameComponent().getRadarRadius());
+			scriptDefinition.set("LUCHADOR_WIDTH", this.getSize());
+			scriptDefinition.set("LUCHADOR_HEIGHT", this.getSize());
+			
+			scriptDefinition.addFacade(this);
+			scriptDefinition.loadDefaultLibraries();
 
 			MethodBuilder.getInstance().buildAll(this, codes);
 			updateInvalidCodes(codes);
@@ -290,9 +249,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 			logger.error("erro executando inicializacao de codigo", e);
 			throw e;
 		} finally {
-			Context.exit();
-			Context cx2 = Context.getCurrentContext();
-			logger.debug("cx2=" + cx2);
+			scriptDefinition.afterCompile();
 		}
 
 		elapsed = System.currentTimeMillis() - start;
@@ -334,35 +291,10 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		punchCoolDown = 0.0;
 	}
 
-	void eval(String name, String js) {
-		cx.evaluateString(scope, js, name, 0, null);
+	void eval(String name, String script) throws Exception {
+		scriptDefinition.eval(script);
 	}
 
-	String getFromJavascript(String name) {
-		String result = null;
-
-		try {
-			Context cx = Context.enter();
-			cx.setClassShutter(new RhinoWhiteList());
-
-			Object fromJs = cx.evaluateString(scope, name, "", 0, null);
-
-			if (fromJs != null) {
-				result = fromJs.toString();
-			}
-		} catch (Exception e) {
-			logger.warn("Erro recuperando valor de : [" + name + "], " + e.getMessage());
-		} finally {
-			Context.exit();
-		}
-
-		return result;
-	}
-
-	private void addVariableToJS(String name, Object object) {
-		Object wrappedOut = Context.javaToJS(object, scope);
-		scope.put(name, scope, wrappedOut);
-	}
 
 	/**
 	 * persiste no banco de dados casos de Codigo com erro para outros servicos
@@ -450,7 +382,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 			if (canRunCode) {
 				this.currentRunner = new ScriptRunner(this, name, parameter);
-				Thread thread = new Thread();
+				Thread thread = new Thread(this.currentRunner);
 				thread.start();
 			}
 		}
@@ -483,7 +415,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	public void kill() {
 		deactivate(DEAD);
-		this.respawnCoolDown = DEFAULT_RESPAWN_COOLDOWN;
+		this.respawnCoolDown = gameComponent.getRespawnCooldown();
 	}
 
 	public double getRespawnCoolDown() {
@@ -759,14 +691,14 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		}
 
 		// check if the action is already in the queue
-		LuchadorCommandAction action = commands.get(this.currentJavascriptRunningName);
+		LuchadorCommandAction action = commands.get(command.getCommand());
 		if (logger.isDebugEnabled()) {
 			logger.debug(String.format("+++ current command=%s", action));
 		}
 
 		if (action == null) {
-			action = new LuchadorCommandAction(this.currentJavascriptRunningName, this.start);
-			commands.put(this.currentJavascriptRunningName, action);
+			action = new LuchadorCommandAction(command.getCommand(), this.start);
+			commands.put(command.getCommand(), action);
 			action.getCommands().addLast(command);
 		} else {
 			// only add commands if the action is incomplete,
@@ -816,17 +748,12 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		this.state.setFireCoolDown(Calc.roundTo4Decimals(this.fireCoolDown));
 
 		try {
-			if (Context.getCurrentContext() == null) {
-				cx = Context.enter();
-				cx.setClassShutter(new RhinoWhiteList());
-			}
-
-			addVariableToJS("me", this.state.getPublicState());
+			scriptDefinition.set("me", this.state.getPublicState());
 		} catch (Exception e) {
-			logger.error("erro atualizando public state depois de mudar firecooldown", e);
+			logger.error("error update public state after changing firecooldown", e);
 
 		} finally {
-			Context.exit();
+			scriptDefinition.afterCompile();
 		}
 	}
 
@@ -948,22 +875,22 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	public void addFire(int amount) {
 		amount = cleanUpAmount(amount);
-		LuchadorCommand command = new LuchadorCommand(COMMAND_FIRE, amount, DEFAULT_MOVE_SPEED);
+		LuchadorCommand command = new LuchadorCommand(COMMAND_FIRE, amount, gameComponent.getMoveSpeed());
 		addCommand(command);
 	}
 
 	public void addMove(int amount) {
-		LuchadorCommand command = new LuchadorCommand(COMMAND_MOVE, amount, DEFAULT_MOVE_SPEED);
+		LuchadorCommand command = new LuchadorCommand(COMMAND_MOVE, amount, gameComponent.getMoveSpeed());
 		addCommand(command);
 	}
 
 	public void addTurn(int amount) {
-		LuchadorCommand command = new LuchadorCommand(COMMAND_TURN, amount, DEFAULT_TURN_SPEED);
+		LuchadorCommand command = new LuchadorCommand(COMMAND_TURN, amount, gameComponent.getTurnSpeed());
 		addCommand(command);
 	}
 
 	public void addTurnGun(int amount) {
-		LuchadorCommand command = new LuchadorCommand(COMMAND_TURNGUN, amount, DEFAULT_TURNGUN_SPEED);
+		LuchadorCommand command = new LuchadorCommand(COMMAND_TURNGUN, amount, gameComponent.getTurnGunSpeed());
 		addCommand(command);
 	}
 

@@ -6,6 +6,7 @@ import org.luaj.vm2.LuaFunction;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 
+import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.MethodDefinition;
 import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.runner.luchador.ScriptDefinition;
@@ -14,6 +15,7 @@ public class LuaScriptDefinition implements ScriptDefinition {
 
 	private HashMap<String, MethodDefinition> methods;
 	private LuaVM lua;
+	private LuaFacade facade;
 
 	@Override
 	public HashMap<String, MethodDefinition> getDefaultMethods() {
@@ -83,6 +85,30 @@ public class LuaScriptDefinition implements ScriptDefinition {
 
 	public double getDouble(String script) throws Exception {
 		return lua.getDouble(script);
+	}
+
+	@Override
+	public void set(String name, Object value) throws Exception {
+		lua.put(name, value);
+	}
+
+	@Override
+	public void addFacade(LuchadorRunner luchadorRunner) {
+		
+		this.facade = new LuaFacade(luchadorRunner);
+		lua.put("__internal", facade);
+
+	}
+
+	@Override
+	public void loadDefaultLibraries() throws Exception {
+		ScriptReader reader = new ScriptReader();
+		
+		String defaultMethods = reader.readDefinitions(this.getClass(), "default-methods.lua");
+		String nmsColors = reader.readDefinitions(this.getClass(), "nmscolor.lua");
+
+		lua.eval(defaultMethods);
+		lua.eval(nmsColors);
 	}
 
 }
