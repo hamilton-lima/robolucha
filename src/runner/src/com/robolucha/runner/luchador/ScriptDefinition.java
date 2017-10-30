@@ -2,6 +2,8 @@ package com.robolucha.runner.luchador;
 
 import java.util.HashMap;
 
+import com.robolucha.runner.luchador.lua.LuaFacade;
+
 public interface ScriptDefinition {
 
 	HashMap<String, MethodDefinition> getDefaultMethods();
@@ -20,8 +22,11 @@ public interface ScriptDefinition {
 
 	void set(String name, Object value) throws Exception;
 
-	void addFacade(LuchadorRunner luchadorRunner);
-
 	void loadDefaultLibraries() throws Exception;
+
+	void addFacade(LuaFacade facade);
+
+	//TODO: create interface for the Facade
+	LuaFacade buildFacade(LuchadorRunner luchadorRunner);
 
 }

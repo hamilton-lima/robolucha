@@ -239,7 +239,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 			scriptDefinition.set("LUCHADOR_WIDTH", this.getSize());
 			scriptDefinition.set("LUCHADOR_HEIGHT", this.getSize());
 
-			scriptDefinition.addFacade(this);
+			scriptDefinition.addFacade(scriptDefinition.buildFacade(this));
 			scriptDefinition.loadDefaultLibraries();
 
 			MethodBuilder.getInstance().buildAll(this, codes);

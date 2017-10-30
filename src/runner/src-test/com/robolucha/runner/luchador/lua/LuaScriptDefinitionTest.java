@@ -8,6 +8,7 @@ import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.MethodDefinition;
 import com.robolucha.runner.luchador.MethodNames;
 
@@ -22,27 +23,27 @@ public class LuaScriptDefinitionTest {
 
 	@Test
 	public void testGetDefaultMethods() throws IllegalArgumentException, IllegalAccessException {
-		
+
 		HashMap<String, MethodDefinition> methods = definition.getDefaultMethods();
 		Field[] fields = MethodNames.class.getFields();
 		for (Field field : fields) {
 			String name = field.getName();
 			String value = (String) field.get(null);
-			
-			System.out.println("checking for default methods of: " + name+ "=" + value);
+
+			System.out.println("checking for default methods of: " + name + "=" + value);
 			MethodDefinition methodDefinition = methods.get(value);
 			assertNotNull(methodDefinition);
 
-			if( value.equals("start")) {
-				assertTrue(methodDefinition.getStart().length() == 0 );
-				assertTrue(methodDefinition.getEnd().length() == 0 );
-				
+			if (value.equals("start")) {
+				assertTrue(methodDefinition.getStart().length() == 0);
+				assertTrue(methodDefinition.getEnd().length() == 0);
+
 			} else {
 				assertTrue(methodDefinition.getStart().startsWith("function "));
-				assertTrue(methodDefinition.getEnd().endsWith("end") );
+				assertTrue(methodDefinition.getEnd().endsWith("end"));
 			}
 		}
-		
+
 	}
 
 	@Test
@@ -141,15 +142,37 @@ public class LuaScriptDefinitionTest {
 		assertTrue(definition != null);
 	}
 
-	@Test
-	public void testAddFacade() {
-		fail("Not implemented");
+	private class LuaFacadeLocal extends LuaFacade {
+
+		private int amount;
+
+		public LuaFacadeLocal(LuchadorRunner owner) {
+			super(owner);
+		}
+
+		@Override
+		public void move(int amount) {
+			this.amount = amount;
+		}
+
 	}
 
 	@Test
-	public void testLoadDefaultLibraries() {
-		fail("Not implemented");
+	public void testAddFacade() throws Exception {
+		LuaFacadeLocal facade = new LuaFacadeLocal(null);
+		definition.loadDefaultLibraries();
+		definition.addFacade(facade);
+		definition.eval("move(10)");
+		assertEquals(10, facade.amount);
 	}
 
-	
+	@Test
+	public void testLoadDefaultLibraries() throws Exception {
+		LuaFacadeLocal facade = new LuaFacadeLocal(null);
+		definition.loadDefaultLibraries();
+		definition.addFacade(facade);
+		
+		assertEquals("#FAA21D", definition.getString("return NMSColor.TANGERINE"));
+	}
+
 }

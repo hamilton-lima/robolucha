@@ -93,9 +93,9 @@ public class LuaScriptDefinition implements ScriptDefinition {
 	}
 
 	@Override
-	public void addFacade(LuchadorRunner luchadorRunner) {
+	public void addFacade(LuaFacade facade) {
 		
-		this.facade = new LuaFacade(luchadorRunner);
+		this.facade = facade;
 		lua.put("__internal", facade);
 
 	}
@@ -109,6 +109,11 @@ public class LuaScriptDefinition implements ScriptDefinition {
 
 		lua.eval(defaultMethods);
 		lua.eval(nmsColors);
+	}
+
+	@Override
+	public LuaFacade buildFacade(LuchadorRunner luchadorRunner) {
+		return new LuaFacade(luchadorRunner);
 	}
 
 }
