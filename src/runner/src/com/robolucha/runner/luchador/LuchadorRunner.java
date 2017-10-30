@@ -32,7 +32,7 @@ import com.robolucha.runner.RespawnPoint;
 import com.robolucha.runner.luchador.lua.LuaFacade;
 
 /**
- * Representa a execucao de um lutchador em uma partida
+ * Represents one play thread during the match
  * 
  * @author hamiltonlima
  *
@@ -79,6 +79,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	private String currentJavascriptRunningName;
 
+	//TODO: remove this?
 	private String getCurrentRunningCodeName() {
 		if (this.currentRunner != null) {
 			return this.currentRunner.getCurrentName();
@@ -116,13 +117,15 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		try {
 			setDefaultState(matchRunner.getRespawnPoint(this));
 			createCodeEngine(gameComponent.getCodes());
+			
+			// TODO: add this to GeneralEventManager?
 			LuchadorCodeChangeListener.getInstance().register(this);
 			this.active = true;
 		} catch (Exception e) {
 			logger.error("error on luchador constructor: " + gameComponent, e);
 		}
 
-		// registra para saber que nome de luchador mudou
+		// listen to luchador name change
 		GeneralEventManager.getInstance().addHandler(GeneralEventNames.LUCHADOR_NAME_CHANGE, this);
 	}
 
@@ -154,7 +157,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	}
 
 	/**
-	 * recebe evento de mudanca de nome de luchador
+	 * handle name change events
 	 */
 	@Override
 	public void handle(String event, Object data) {
@@ -189,7 +192,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	}
 
 	/**
-	 * atualiza codigo com lutchador em execucao
+	 * updates luchador code change on the fly
 	 * 
 	 * @param luchador
 	 */
@@ -246,14 +249,14 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 			updateInvalidCodes(codes);
 
 		} catch (Exception e) {
-			logger.error("erro executando inicializacao de codigo", e);
+			logger.error("error running code initialization", e);
 			throw e;
 		} finally {
 			scriptDefinition.afterCompile();
 		}
 
 		elapsed = System.currentTimeMillis() - start;
-		logger.info("script executado em :" + elapsed + " ms.");
+		logger.info("script run in " + elapsed + " ms.");
 		logger.debug("END createCodeEngine()");
 	}
 
@@ -267,7 +270,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 			createCodeEngine(codes);
 			this.active = true;
 		} catch (Exception e) {
-			logger.error("erro executando inicializacao de codigo", e);
+			logger.error("error running code initialization", e);
 			throw e;
 		}
 
@@ -295,17 +298,10 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		scriptDefinition.eval(script);
 	}
 
-	/**
-	 * persiste no banco de dados casos de Codigo com erro para outros servicos
-	 * mostrarem ao usuario final que determinado codigo esta com erro
-	 * 
-	 * @param codes
-	 * @throws Exception
-	 */
 	private void updateInvalidCodes(List<Code> codes) throws Exception {
 
 		if (codes == null) {
-			logger.warn("lista de codigos vazia.");
+			logger.warn("list of codes is empty.");
 			return;
 		}
 
@@ -353,8 +349,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	}
 
 	/**
-	 * executa o codigo javascript definido para o lutchador, executa em thread
-	 * separado para garantir que um luchador nao para toda a execucao do servidor
+	 * Run the code in a separated thread
 	 * 
 	 * @param name
 	 * @param parameter
@@ -454,7 +449,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		}
 
 		if (logger.isDebugEnabled()) {
-			logger.debug(String.format("depois de verificar DOUBLE_MIN_THRESHOLD, angle=%s addX=%s addY=%s",
+			logger.debug(String.format("after check DOUBLE_MIN_THRESHOLD, angle=%s addX=%s addY=%s",
 					state.getAngle(), addX, addY));
 		}
 
@@ -472,8 +467,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	}
 
 	/**
-	 * verifica se lutchador esta nos limites do mapa e se tentar ultrapassar gera
-	 * evento de hitWall
+	 * check if luchador is inside the map limits, thigger onHitWall if necessary
 	 * 
 	 * @param x
 	 * @param y
@@ -483,7 +477,10 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 		if (!Calc.insideTheMapLimits(matchRunner.getGameDefinition(), x, y, halfSize)) {
 
-			logger.debug("nao esta dentro dos limites do mapa : x=" + x + ",y=" + y);
+			if( logger.isDebugEnabled() ) {
+				logger.debug("not inside the map limits: x=" + x + ",y=" + y);
+			}
+			
 			addEvent(new OnHitWallEvent(getState().getPublicState()));
 			return false;
 		}
@@ -492,7 +489,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	}
 
 	/**
-	 * adiciona evento se nao existir na lista de eventos
+	 * add event if is not in the event list
 	 * 
 	 * @param event
 	 *            .getKey()
@@ -505,8 +502,8 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	}
 
 	/**
-	 * permite o processador de eventos usar o primeiro da fila e remover da fila
-	 * 
+	 * Allow the event processor to get the first in the queue of events
+	 *  
 	 * @return
 	 */
 	private LuchadorEvent getTopEvent() {
@@ -535,17 +532,11 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 		logger.debug(String.format("execute turn gun, new angle : %s", newAngle));
 		newAngle = Calc.fixAngle(newAngle);
-		logger.debug(String.format("execute turn gun, depois da validacao, new angle : %s", newAngle));
+		logger.debug(String.format("execute turn gun, after validation, new angle : %s", newAngle));
 
 		this.getState().setGunAngle(newAngle);
 	}
 
-	/**
-	 * executa o evento do topo da pilha de eventos solicita ao objeto do evento o
-	 * nome do metodo javascript a ser executado e os parametros necessarios
-	 * 
-	 * @throws Exception
-	 */
 	public void triggerEvents() throws Exception {
 
 		int counter = 0;
@@ -558,9 +549,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		}
 	}
 
-	/**
-	 * executa o primeiro a ser encontrado com o nome de comando.
-	 */
 	public void consumeCommand() {
 		logger.debug("consumeCommand()");
 
@@ -653,20 +641,19 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 			if (command.getCommand().equals(COMMAND_FIRE)) {
 
-				// somente usa o disparo se o cooldown acabou
+				// only if the fire cooldown is over
 				if (fireCoolDown <= 0) {
 
 					Bullet bullet = new Bullet(matchRunner.getGameDefinition(), this, command.getOriginalValue(),
 							state.getX(), state.getY(), state.getGunAngle());
 
 					matchRunner.fire(bullet);
-
-					// remove disparo da lista de comandos, nao precisa
-					// consumir o comando o valor do amount eh aplicado
-					// total de uma soh vez
+					
+					// remove the fire from the command list, dont need to consume
+					// the command, the amount is aplied all at once
 					action.getCommands().removeFirst();
 
-					// starts the timer for the fircooldown
+					// starts the timer for the firecooldown
 					fireCoolDown = gameComponent.getMaxFireCooldown()
 							* (bullet.getAmount() / gameComponent.getMaxFireAmount());
 				}
@@ -791,18 +778,14 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		return size;
 	}
 
-	/**
-	 * atualiza vida do lutchador
-	 * 
-	 * @param amount
-	 */
 	public void damage(double amount) {
 		this.state.setLife(this.state.getLife() - amount);
 	}
 
 	public void respawn(RespawnPoint point) {
 		setDefaultState(point);
-		// garante que START sera executado no respawn
+		
+		// make sure start is runned when respawn
 		MethodBuilder.getInstance().build(this, getStartCode());
 
 		this.lastRunningError = "";
