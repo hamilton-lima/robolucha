@@ -15,6 +15,7 @@ import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorMask;
 import com.robolucha.models.MatchParticipant;
 import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.MatchRunnerAPI;
 import com.robolucha.service.MatchParticipantCrudService;
 
 /**
@@ -50,13 +51,13 @@ public class LutchadorRunnerCreator implements Runnable {
 	}
 
 	public void add(GameComponent component) {
-		logger.info("lutchador runner adicionado a fila para criacao : " + component);
+		logger.info("gamecomponent added to creation queue: " + component);
 		gameComponents.add(component);
 	}
 
 	public void run() {
 		Thread.currentThread().setName(name);
-		String message = name + " ainda vivo...";
+		String message = name + " still alive...";
 
 		long logStart = System.currentTimeMillis();
 		long logThreshold = 10000;
@@ -76,7 +77,7 @@ public class LutchadorRunnerCreator implements Runnable {
 			try {
 				Thread.sleep(SLEEP);
 			} catch (InterruptedException e) {
-				logger.error("interromperam este rapaz ocupado", e);
+				logger.error("I sense an interruption in the force...", e);
 			}
 
 		}
@@ -87,7 +88,7 @@ public class LutchadorRunnerCreator implements Runnable {
 
 	private void create(GameComponent gameComponent) {
 
-		logger.info("lutchador runner iniciado (run): " + gameComponent);
+		logger.info("gamecomponent started (run): " + gameComponent);
 		MaskConfigVO mask = null;
 
 		if (gameComponent instanceof Luchador) {
@@ -98,45 +99,33 @@ public class LutchadorRunnerCreator implements Runnable {
 
 			if (matchParticipant.getMatchRun().getId() != null) {
 
-				Response response = MatchParticipantCrudService.getInstance().doSaramagoAdd(matchParticipant,
-						new Response());
+				MatchRunnerAPI.getInstance().addMatchParticipant(matchParticipant);
 
-				logger.info("----response=" + response);
-
-				if (response.getErrors().size() > 0) {
-					try {
-						throw new Exception(JSONUtil.toJSON(response.getErrors()));
-					} catch (Exception e) {
-						logger.error("!!! erro gravando participante em partida", e);
-					}
-				} else {
-					// foi tudo bem vamos recuperar a mascara do luchador
-					mask = getMask(gameComponent);
-				}
+				mask = getMask(gameComponent);
 			} else {
-				logger.warn("!!! tentando gravar participante com MatchRun nao salvo em banco, em TESTE ?");
+				logger.warn("!!! trying to save match participation with unsaved MatchRun, is it running a TEST?");
 			}
 
 		} else {
-			// gerar mascaras para nao luchadores
+			// generate masks for gamecompoent that is not a luchador
 			mask = getMask(gameComponent);
 		}
 
 		LuchadorRunner runner = new LuchadorRunner(gameComponent, this.owner, mask);
-		logger.info(">>>>>>>>> LUCHADOR runner criado : " + runner.getGameComponent().getId());
+		logger.info(">>>>>>>>> LUCHADOR runner created: " + runner.getGameComponent().getId());
 
 		if (logger.isDebugEnabled()) {
 			logger.info(" runner=" + runner);
 		}
 
-		owner.runners.put(runner.getGameComponent().getId(), runner);
+		owner.getRunners().put(runner.getGameComponent().getId(), runner);
 	}
 
 	protected MaskConfigVO getMask(GameComponent gameComponent) {
+		
 		MaskConfigVO mask;
-		LuchadorMask filter = new LuchadorMask();
-		filter.setGameComponent(gameComponent);
-		LuchadorMask found = (LuchadorMask) GenericDAO.getInstance().findOne(filter);
+		LuchadorMask found = MatchRunnerAPI.getInstance().findMask(gameComponent);
+
 		if (found == null) {
 			found = BuildDefaultCustomerHelper.addRandomMaskToGameComponent(gameComponent);
 		}
