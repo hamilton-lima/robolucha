@@ -21,7 +21,7 @@ public class MatchRunnerAPI {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public Luchador addLuchador(String name, LuchadorCoach coach) {
+	public Luchador addLuchador(Luchador luchador) {
 		// TODO Auto-generated method stub
 		return null;
 	}

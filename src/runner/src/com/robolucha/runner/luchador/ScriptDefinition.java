@@ -1,7 +1,9 @@
 package com.robolucha.runner.luchador;
 
 import java.util.HashMap;
+import java.util.List;
 
+import com.robolucha.models.Code;
 import com.robolucha.runner.luchador.lua.LuaFacade;
 
 public interface ScriptDefinition {
@@ -28,5 +30,7 @@ public interface ScriptDefinition {
 
 	//TODO: create interface for the Facade
 	LuaFacade buildFacade(LuchadorRunner luchadorRunner);
+	
+	List<Code> getLuchadorFirstCode();
 
 }

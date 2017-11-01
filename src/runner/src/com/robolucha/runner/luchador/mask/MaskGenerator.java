@@ -5,10 +5,15 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Logger;
+
 import com.robolucha.models.MaskConfig;
+import com.robolucha.runner.luchador.BuildDefaultLuchadorCoachHelper;
 
 public class MaskGenerator {
-
+	
+	private static Logger logger = Logger.getLogger(MaskGenerator.class);
+	
 	public static final String[] background = { "background.png" };
 
 	public static final String[] background2 = { "background2_0001.png", "background2_0002.png", "background2_0003.png",
@@ -61,7 +66,7 @@ public class MaskGenerator {
 		return instance;
 	}
 
-	public MaskConfig random() throws Exception {
+	public MaskConfig random() {
 
 		MaskConfig result = new MaskConfig();
 		Iterator iterator = maskElements.entrySet().iterator();
@@ -80,9 +85,12 @@ public class MaskGenerator {
 
 			String color = randomColor();
 
-			// usa beanutil para atribuir valores dos campos
-			setValue(result, key, value);
-			setValue(result, key + "Color", color);
+			try {
+				setValue(result, key, value);
+				setValue(result, key + "Color", color);
+			} catch (Exception e) {
+				logger.error("Error setting random values for masks", e );
+			} 
 		}
 
 		return result;
