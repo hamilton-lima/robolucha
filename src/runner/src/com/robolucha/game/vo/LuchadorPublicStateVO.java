@@ -1,6 +1,7 @@
 package com.robolucha.game.vo;
 
 import com.robolucha.models.LuchadorPublicState;
+import com.robolucha.models.MaskConfigVO;
 
 public class LuchadorPublicStateVO {
 

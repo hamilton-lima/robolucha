@@ -1,6 +1,7 @@
-package com.robolucha.game.vo;
+package com.robolucha.models;
 
 
+// TODO: rename to remove VO suffix
 public class MaskConfigVO {
 
 	public String background;

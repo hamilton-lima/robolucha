@@ -5,18 +5,13 @@ import java.util.Queue;
 
 import org.apache.log4j.Logger;
 
-import com.athanazio.saramago.server.dao.GenericDAO;
-import com.athanazio.saramago.server.util.JSONUtil;
-import com.athanazio.saramago.service.Response;
-import com.robolucha.game.vo.MaskConfigVO;
-import com.robolucha.helper.BuildDefaultCustomerHelper;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
-import com.robolucha.models.LuchadorMask;
+import com.robolucha.models.MaskConfig;
+import com.robolucha.models.MaskConfigVO;
 import com.robolucha.models.MatchParticipant;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.MatchRunnerAPI;
-import com.robolucha.service.MatchParticipantCrudService;
 
 /**
  * 
@@ -123,35 +118,13 @@ public class LutchadorRunnerCreator implements Runnable {
 
 	protected MaskConfigVO getMask(GameComponent gameComponent) {
 		
-		MaskConfigVO mask;
-		LuchadorMask found = MatchRunnerAPI.getInstance().findMask(gameComponent);
+		MaskConfig mask = MatchRunnerAPI.getInstance().findMask(gameComponent);
 
-		if (found == null) {
-			found = BuildDefaultCustomerHelper.addRandomMaskToGameComponent(gameComponent);
+		if (mask == null) {
+			mask = BuildDefaultLuchadorCoachHelper.addRandomMaskToGameComponent(gameComponent);
 		}
 
-		mask = maskVOBuild(found);
 		return mask;
-	}
-
-	private MaskConfigVO maskVOBuild(LuchadorMask found) {
-		MaskConfigVO result = new MaskConfigVO();
-		result.background = found.getBackground();
-		result.backgroundColor = found.getBackgroundColor();
-		result.background2 = found.getBackground2();
-		result.background2Color = found.getBackground2Color();
-		result.ornamentTop = found.getOrnamentTop();
-		result.ornamentTopColor = found.getOrnamentTopColor();
-		result.ornamentBottom = found.getOrnamentBottom();
-		result.ornamentBottomColor = found.getOrnamentBottomColor();
-		result.face = found.getFace();
-		result.faceColor = found.getFaceColor();
-		result.mouth = found.getMouth();
-		result.mouthColor = found.getMouthColor();
-		result.eye = found.getEye();
-		result.eyeColor = found.getEyeColor();
-
-		return result;
 	}
 
 }

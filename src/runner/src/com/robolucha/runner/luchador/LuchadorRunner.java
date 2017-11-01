@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Queue;
 
-import javax.naming.Context;
-
 import org.apache.log4j.Logger;
 
 import com.robolucha.event.GeneralEventHandler;
@@ -16,7 +14,6 @@ import com.robolucha.event.GeneralEventManager;
 import com.robolucha.event.GeneralEventNames;
 import com.robolucha.game.event.LuchadorEvent;
 import com.robolucha.game.event.OnHitWallEvent;
-import com.robolucha.game.vo.MaskConfigVO;
 import com.robolucha.game.vo.MessageVO;
 import com.robolucha.game.vo.ScoreVO;
 import com.robolucha.models.Bullet;
@@ -24,6 +21,7 @@ import com.robolucha.models.Code;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorMatchState;
+import com.robolucha.models.MaskConfigVO;
 import com.robolucha.models.MatchStateProvider;
 import com.robolucha.runner.Calc;
 import com.robolucha.runner.LuchadorCodeChangeListener;

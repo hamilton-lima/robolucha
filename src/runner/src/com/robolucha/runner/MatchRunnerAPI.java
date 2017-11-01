@@ -3,7 +3,9 @@ package com.robolucha.runner;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorCoach;
+import com.robolucha.models.LuchadorMask;
 import com.robolucha.models.MaskConfig;
+import com.robolucha.models.MatchParticipant;
 
 //TODO: Implement the API calls!!!
 public class MatchRunnerAPI {
@@ -28,6 +30,14 @@ public class MatchRunnerAPI {
 	public void saveMask(GameComponent gameComponent, MaskConfig mask) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void addMatchParticipant(MatchParticipant matchParticipant) {
+		// TODO Auto-generated method stub
+		
+	}
+	public MaskConfig findMask(GameComponent gameComponent) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
