@@ -1,6 +1,6 @@
 package com.robolucha.publisher;
 
-import com.robolucha.game.vo.ScoreVO;
+import com.robolucha.models.ScoreVO;
 
 public class ScoreBuilder {
 

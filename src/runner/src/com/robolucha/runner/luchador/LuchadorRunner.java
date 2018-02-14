@@ -15,14 +15,15 @@ import com.robolucha.event.GeneralEventNames;
 import com.robolucha.game.event.LuchadorEvent;
 import com.robolucha.game.event.OnHitWallEvent;
 import com.robolucha.game.vo.MessageVO;
-import com.robolucha.game.vo.ScoreVO;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.Code;
 import com.robolucha.models.GameComponent;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorMatchState;
+import com.robolucha.models.LuchadorPublicState;
 import com.robolucha.models.MaskConfigVO;
 import com.robolucha.models.MatchStateProvider;
+import com.robolucha.models.ScoreVO;
 import com.robolucha.runner.Calc;
 import com.robolucha.runner.LuchadorCodeChangeListener;
 import com.robolucha.runner.MatchRunner;
@@ -57,7 +58,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	// test classes can update this.
 	GameComponent gameComponent;
 
-	private ScoreVO score;
 	private boolean active;
 	private long start;
 	private long elapsed;
@@ -77,7 +77,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	private String currentJavascriptRunningName;
 
-	//TODO: remove this?
+	// TODO: remove this?
 	private String getCurrentRunningCodeName() {
 		if (this.currentRunner != null) {
 			return this.currentRunner.getCurrentName();
@@ -103,7 +103,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		this.size = matchRunner.getGameDefinition().getLuchadorSize();
 		this.halfSize = this.size / 2;
 
-		this.score = new ScoreVO(gameComponent.getId(), gameComponent.getName());
 		this.active = false;
 		this.commands = new LinkedHashMap<String, LuchadorCommandAction>();
 		this.events = new LinkedHashMap<String, LuchadorEvent>();
@@ -112,10 +111,12 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		// TODO: add script type to the factory call to support multiple scripts
 		scriptDefinition = ScriptDefinitionFactory.getInstance().getDefault();
 
+		updateScore(gameComponent);
+
 		try {
 			setDefaultState(matchRunner.getRespawnPoint(this));
 			createCodeEngine(gameComponent.getCodes());
-			
+
 			// TODO: add this to GeneralEventManager?
 			LuchadorCodeChangeListener.getInstance().register(this);
 			this.active = true;
@@ -125,6 +126,10 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 		// listen to luchador name change
 		GeneralEventManager.getInstance().addHandler(GeneralEventNames.LUCHADOR_NAME_CHANGE, this);
+	}
+
+	private void updateScore(GameComponent gameComponent) {
+		this.state.score = new ScoreVO(gameComponent.getId(), gameComponent.getName());
 	}
 
 	// used for tests only
@@ -142,7 +147,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 		this.gameComponent = null;
 		this.matchRunner = null;
-		this.score = null;
+		this.state.score = null;
 
 		this.commands.clear();
 		this.events.clear();
@@ -174,19 +179,19 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 					if (logger.isDebugEnabled()) {
 						logger.debug("*** same id, change ScoreVO");
 					}
-					this.score = new ScoreVO(this.score, changed.getName());
+					this.state.setName(changed.getName());
 					this.gameComponent.setName(changed.getName());
 				}
 			}
 		}
 
 		if (logger.isDebugEnabled()) {
-			logger.debug("this.score=" + this.score);
+			logger.debug("this.score=" + this.state.score);
 		}
 	}
 
 	public ScoreVO getScoreVO() {
-		return this.score;
+		return this.state.score;
 	}
 
 	/**
@@ -209,30 +214,18 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		}
 	}
 
-	@Override
-	public String toString() {
-
-		String g = "null";
-		if (gameComponent != null) {
-			g = Long.toString(gameComponent.getId());
-		}
-
-		return "LuchadorRunner [gameComponent=" + g + ", score=" + score + ", active=" + active + ", start=" + start
-				+ ", elapsed=" + elapsed + ", lastRunningError=" + lastRunningError + ", commands=" + commands
-				+ ", events=" + events + ", messages=" + messages + ", size=" + size + ", halfSize=" + halfSize
-				+ ", exceptionCounter=" + exceptionCounter + ", state=" + state + ", currentJavascriptRunningName="
-				+ currentJavascriptRunningName + ", matchRunner=" + matchRunner + ", fireCoolDown=" + fireCoolDown
-				+ ", punchCoolDown=" + punchCoolDown + ", respawnCoolDown=" + respawnCoolDown + ", currentRunner="
-				+ currentRunner + ", mask=" + mask + ", facade=" + facade + "]";
-
+	private void updateScriptState(LuchadorPublicState state) throws Exception {
+		scriptDefinition.set("me", state);
 	}
-
+	
 	private void createCodeEngine(List<Code> codes) throws Exception {
 
 		logger.debug("START createCodeEngine()");
 		start = System.currentTimeMillis();
 		try {
-			scriptDefinition.set("me", this.state.getPublicState());
+
+			// TODO: REMOVE SCORE FROM STATE
+			updateScriptState(state.getPublicState());
 			scriptDefinition.set("ARENA_WIDTH", this.matchRunner.getGameDefinition().getArenaWidth());
 			scriptDefinition.set("ARENA_HEIGHT", this.matchRunner.getGameDefinition().getArenaHeight());
 			scriptDefinition.set("RADAR_ANGLE", this.getGameComponent().getRadarAngle());
@@ -447,8 +440,8 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		}
 
 		if (logger.isDebugEnabled()) {
-			logger.debug(String.format("after check DOUBLE_MIN_THRESHOLD, angle=%s addX=%s addY=%s",
-					state.getAngle(), addX, addY));
+			logger.debug(String.format("after check DOUBLE_MIN_THRESHOLD, angle=%s addX=%s addY=%s", state.getAngle(),
+					addX, addY));
 		}
 
 		double x = state.getX() + addX;
@@ -465,7 +458,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	}
 
 	/**
-	 * check if luchador is inside the map limits, thigger onHitWall if necessary
+	 * check if luchador is inside the map limits, trigger onHitWall if necessary
 	 * 
 	 * @param x
 	 * @param y
@@ -475,10 +468,10 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 		if (!Calc.insideTheMapLimits(matchRunner.getGameDefinition(), x, y, halfSize)) {
 
-			if( logger.isDebugEnabled() ) {
+			if (logger.isDebugEnabled()) {
 				logger.debug("not inside the map limits: x=" + x + ",y=" + y);
 			}
-			
+
 			addEvent(new OnHitWallEvent(getState().getPublicState()));
 			return false;
 		}
@@ -501,7 +494,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	/**
 	 * Allow the event processor to get the first in the queue of events
-	 *  
+	 * 
 	 * @return
 	 */
 	private LuchadorEvent getTopEvent() {
@@ -646,7 +639,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 							state.getX(), state.getY(), state.getGunAngle());
 
 					matchRunner.fire(bullet);
-					
+
 					// remove the fire from the command list, dont need to consume
 					// the command, the amount is aplied all at once
 					action.getCommands().removeFirst();
@@ -735,7 +728,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		this.state.setFireCoolDown(Calc.roundTo4Decimals(this.fireCoolDown));
 
 		try {
-			scriptDefinition.set("me", this.state.getPublicState());
+			updateScriptState(state.getPublicState());
 		} catch (Exception e) {
 			logger.error("error update public state after changing firecooldown", e);
 
@@ -782,7 +775,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	public void respawn(RespawnPoint point) {
 		setDefaultState(point);
-		
+
 		// make sure start is runned when respawn
 		MethodBuilder.getInstance().build(this, getStartCode());
 

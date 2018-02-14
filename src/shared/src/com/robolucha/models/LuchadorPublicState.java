@@ -6,9 +6,10 @@ package com.robolucha.models;
  * @author hamiltonlima
  *
  */
-public class LuchadorPublicState implements Cloneable {
-	public long id;
+public class LuchadorPublicState {
 
+	public long id;
+	public String name;
 	public int x;
 	public int y;
 
@@ -19,18 +20,9 @@ public class LuchadorPublicState implements Cloneable {
 	public double fireCoolDown;
 	public String headColor;
 	public String bodyColor;
-
-	@Override
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
-
-	@Override
-	public String toString() {
-		return "LuchadorPublicState [id=" + id + ", x=" + x + ", y=" + y
-				+ ", life=" + life + ", angle=" + angle + ", gunAngle="
-				+ gunAngle + ", fireCoolDown=" + fireCoolDown + ", headColor="
-				+ headColor + ", bodyColor=" + bodyColor + "]";
-	}
+	
+	public int k;
+	public int d;
+	public int score;
 
 }

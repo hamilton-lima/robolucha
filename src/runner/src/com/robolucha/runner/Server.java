@@ -8,8 +8,8 @@ import com.robolucha.game.action.OnInitAddNPC;
 import com.robolucha.models.GameDefinition;
 import com.robolucha.models.Match;
 import com.robolucha.monitor.ThreadMonitor;
-import com.robolucha.publisher.MatchEventStorage;
-import com.robolucha.publisher.MatchEventToPublish;
+import com.robolucha.publisher.MatchEventPublisher;
+import com.robolucha.publisher.ScoreUpdater;
 
 /*
  * Runs a Match based on the input MatchDefinition ID
@@ -24,7 +24,7 @@ public class Server {
 		}
 
 		GameDefinition gameDefinition = loadGameDefinition(args[0]);
-		Match match = createMatch(gameDefinition);
+		Match match = MatchRunnerAPI.getInstance().createMatch(gameDefinition);
 		MatchRunner runner = new MatchRunner(gameDefinition, match);
 		Thread thread = buildRunner(runner);
 		thread.start();
@@ -61,18 +61,17 @@ public class Server {
 	public static Thread buildRunner(MatchRunner runner) {
 		ThreadMonitor.getInstance().register(runner);
 
-		GameSubscription.getInstance().addBroadCast(runner.getMatch().getId(), runner);
-
-		// listener para gravar eventos da partida
-		runner.addListener(new MatchEventStorage(runner.getMatch()));
-
-		// listener para adicionar NPC a partida
+		//add NPC to the match
 		runner.addListener(new OnInitAddNPC());
+		
+		// listener para gravar eventos da partida
+		runner.addListener(new MatchEventPublisher(runner.getMatch()));
+
 
 		// listener para transmitir eventos da partida
-		MatchEventToPublish eventPublisher = new MatchEventToPublish(runner.getMatch());
+		ScoreUpdater eventPublisher = new ScoreUpdater(runner.getMatch());
 		runner.addListener(eventPublisher);
-		runner.setEventToPublish(eventPublisher);
+		runner.setScoreUpdater(eventPublisher);
 
 		// cria thread da partida
 		Thread t = new Thread(runner);

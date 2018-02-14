@@ -35,7 +35,7 @@ public class CheckBulletHitAction implements GameAction {
 			if (bullet.getOwner().getId() != runner.getGameComponent().getId()) {
 
 				if (logger.isDebugEnabled()) {
-					logger.debug("checkbullethit, conferindo com outro luchador=" + runner);
+					logger.debug("checkbullethit:" + runner);
 				}
 
 				// the bullet hit the target
@@ -48,8 +48,6 @@ public class CheckBulletHitAction implements GameAction {
 						logger.debug("checkbullethit, dano aplicado = " + bullet.getAmount());
 					}
 
-					// notifica o gerenciador de eventos que o robo faleceu ...
-					// tadimmm :D
 					if (runner.getState().getLife() <= 0) {
 
 						if (logger.isDebugEnabled()) {

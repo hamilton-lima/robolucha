@@ -4,8 +4,8 @@ public class MatchEvent {
 
 	private long id;
 	private Match match;
-	private GameComponent componentA;
-	private GameComponent componentB;
+	private long componentA;
+	private long componentB;
 	private long timeStart;
 	private String event;
 	private double amount;
@@ -32,19 +32,19 @@ public class MatchEvent {
 		this.match = match;
 	}
 
-	public GameComponent getComponentA() {
+	public long getComponentA() {
 		return componentA;
 	}
 
-	public void setComponentA(GameComponent componentA) {
+	public void setComponentA(long componentA) {
 		this.componentA = componentA;
 	}
 
-	public GameComponent getComponentB() {
+	public long getComponentB() {
 		return componentB;
 	}
 
-	public void setComponentB(GameComponent componentB) {
+	public void setComponentB(long componentB) {
 		this.componentB = componentB;
 	}
 

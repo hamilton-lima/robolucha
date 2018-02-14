@@ -31,8 +31,8 @@ import com.robolucha.models.GameDefinition;
 import com.robolucha.models.Match;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.monitor.ThreadStatus;
-import com.robolucha.publisher.MatchEventToPublish;
-import com.robolucha.publisher.MatchRunStateKeeper;
+import com.robolucha.publisher.ScoreUpdater;
+import com.robolucha.publisher.MatchStatePublisher;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.LutchadorRunnerCreator;
 
@@ -58,7 +58,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
 	private List<LuchadorEventListener> eventListeners;
 	private List<MatchEventListener> matchEventListeners;
-	private MatchEventToPublish eventToPublish;
+	private ScoreUpdater scoreUpdater;
 
 	static Logger logger = Logger.getLogger(MatchRunner.class);
 
@@ -274,7 +274,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 				// atualiza tempos de cooldown
 				runAll(ReduceCoolDownAction.getInstance());
 
-				MatchRunStateKeeper.getInstance().update(this);
+				MatchStatePublisher.getInstance().update(this);
 
 			} catch (Throwable e) {
 				logger.error("*** ERRO NO LOOP DO MATCHRUN", e);
@@ -301,7 +301,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
 		logger.info("matchrun shutdown (4)");
 
-		MatchRunStateKeeper.getInstance().end(this, new RunAfterThisTask(this) {
+		MatchStatePublisher.getInstance().end(this, new RunAfterThisTask(this) {
 			public void run() {
 				logger.info("matchrun shutdown (5)");
 				((MatchRunner) data).cleanup();
@@ -351,7 +351,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
 		eventListeners = null;
 		matchEventListeners = null;
-		eventToPublish = null;
+		scoreUpdater = null;
 		respawnProcessor = null;
 
 		gameDefinition = null;
@@ -589,12 +589,12 @@ public class MatchRunner implements Runnable, ThreadStatus {
 	 * 
 	 * @param eventToPublish
 	 */
-	public void setEventToPublish(MatchEventToPublish eventToPublish) {
-		this.eventToPublish = eventToPublish;
+	public void setScoreUpdater(ScoreUpdater eventToPublish) {
+		this.scoreUpdater = eventToPublish;
 	}
 
-	public MatchEventToPublish getEventToPublish() {
-		return eventToPublish;
+	public ScoreUpdater getScoreUpdater() {
+		return scoreUpdater;
 	}
 
 	public long getTimeElapsed() {

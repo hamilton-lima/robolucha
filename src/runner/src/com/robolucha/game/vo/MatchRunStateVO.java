@@ -3,6 +3,8 @@ package com.robolucha.game.vo;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.robolucha.models.ScoreVO;
+
 public class MatchRunStateVO {
 	
 	public static final MatchRunStateVO EMPTY = new MatchRunStateVO();

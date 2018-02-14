@@ -83,6 +83,11 @@ public class ThreadMonitor  {
 	public void addException(String threadName, MessageList messageList) {
 		logger.error("addException, thread=" + threadName + " errors=" + messageList);
 	}
+	
+	public void addException(String threadName, String message) {
+		logger.error("addException, thread=" + threadName + " errors=" + message);		
+	}
+
 
 	public void contextDestroyed() {
 		logger.debug("--- APP is exiting, time to shutdown all the threads.");
@@ -116,5 +121,6 @@ public class ThreadMonitor  {
 			}
 		}
 	}
+
 
 }
