@@ -4,3 +4,4 @@ test-results.xml
 xunit.xml
 *.vpp.bak_*
 *.lck
+package-lock.json
