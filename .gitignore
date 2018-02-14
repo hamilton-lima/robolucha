@@ -2,3 +2,5 @@ src/publisher/node_modules
 src/publisher/mochawesome-report
 test-results.xml
 xunit.xml
+*.vpp.bak_*
+*.lck
