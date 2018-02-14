@@ -1,6 +1,5 @@
 Robolucha system architecture
-
-![architecture diagram](https://raw.githubusercontent.com/hamilton-lima/robolucha/master/docs/system-architecture.jpg)
+#DEPRECATED
 
 # Components 
 - Client
