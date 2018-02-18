@@ -3,10 +3,16 @@
 ## Projects 
 
 ### Java publish and subscribe
-    Console Java application using Jedis library to publish and subscribe to multiple queues.
+Console Java application using Jedis library to publish and subscribe to multiple queues.
 
 ### Node publish and subscribe
-    NodeJs typescript application to publish and subscribe to multiple queues.
+NodeJs typescript application to publish and subscribe to multiple queues.
+Commands used to generate to started application
+````
+npm install -g yo
+npm install -g generator-node-typescript
+yo node-typescript
+```
 
 ## Redis docker commands
 
