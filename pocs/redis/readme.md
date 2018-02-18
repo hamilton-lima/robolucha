@@ -8,7 +8,8 @@ Console Java application using Jedis library to publish and subscribe to multipl
 ### Node publish and subscribe
 NodeJs typescript application to publish and subscribe to multiple queues.
 Commands used to generate to started application
-````
+
+```
 npm install -g yo
 npm install -g generator-node-typescript
 yo node-typescript
