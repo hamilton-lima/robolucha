@@ -5,3 +5,4 @@ xunit.xml
 *.vpp.bak_*
 *.lck
 package-lock.json
+pocs/redis/node-pubsub/.vscode
