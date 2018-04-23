@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="java-pubsub" />
+        <module name="poc-luaj" />
+        <module name="runner" />
+        <module name="shared" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java-pubsub" target="1.8" />
+      <module name="models" target="1.5" />
+      <module name="poc-luaj" target="1.8" />
+      <module name="runner" target="1.5" />
+      <module name="shared" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

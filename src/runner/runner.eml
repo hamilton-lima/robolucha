@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component LANGUAGE_LEVEL="JDK_1_5" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/target"/>
+	</contentEntry>
+	<lib name="Maven: luaj-jse:luaj-jse:3.0.1" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/src/runner/lib/luaj-jse-3.0.1.jar!/"/>
+	</lib>
+	<levels>
+		<level name="Maven: log4j:log4j:1.2.12" value="project"/>
+		<level name="Maven: com.google.code.gson:gson:2.8.1" value="project"/>
+	</levels>
+</component>

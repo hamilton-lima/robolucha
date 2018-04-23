@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/shared/pom.xml" />
+        <option value="$PROJECT_DIR$/src/runner/pom.xml" />
+        <option value="$PROJECT_DIR$/pocs/poc-luaj/pom.xml" />
+        <option value="$PROJECT_DIR$/src/models/pom.xml" />
+        <option value="$PROJECT_DIR$/pocs/redis/java-pubsub/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_10" project-jdk-name="10" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

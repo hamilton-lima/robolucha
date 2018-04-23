@@ -2,6 +2,7 @@ package com.robolucha.game.action;
 
 import java.util.LinkedHashMap;
 
+import com.robolucha.runner.models.Bullet;
 import org.apache.log4j.Logger;
 
 import com.robolucha.game.event.OnGotDamageEvent;
