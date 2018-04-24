@@ -16,7 +16,7 @@
       <module name="java-pubsub" target="1.8" />
       <module name="models" target="1.5" />
       <module name="poc-luaj" target="1.8" />
-      <module name="runner" target="1.5" />
+      <module name="runner" target="1.8" />
       <module name="shared" target="1.8" />
     </bytecodeTargetLevel>
   </component>

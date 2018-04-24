@@ -27,5 +27,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>luaj-jse</groupId>
+			<artifactId>luaj-jse</artifactId>
+			<version>3.0.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/luaj-jse-3.0.1.jar</systemPath>
+		</dependency>
+
 	</dependencies>
 </project>

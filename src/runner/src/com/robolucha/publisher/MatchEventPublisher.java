@@ -157,10 +157,11 @@ public class MatchEventPublisher implements MatchEventListener {
 
 		MatchRunnerAPI.getInstance().addMatchEvent(event);
 
-		updateScore(runner, luchadorA);
-		updateScore(runner, luchadorB);
+		// TODO: publish the events to the PUB/SUB
+		// updateScore(runner, luchadorA);
+		// updateScore(runner, luchadorB);
 
-		reportErrors(runner, "ERROR, atualizando onKill :");
+		// reportErrors(runner, "ERROR, atualizando onKill :");
 
 	}
 

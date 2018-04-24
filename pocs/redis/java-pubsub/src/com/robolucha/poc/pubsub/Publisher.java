@@ -1,11 +1,10 @@
 package com.robolucha.poc.pubsub;
 
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import redis.clients.jedis.JedisPool;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-
-import redis.clients.jedis.JedisPool;
 
 public class Publisher extends Main implements EndOfPublishingListener {
 

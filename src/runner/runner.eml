@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component LANGUAGE_LEVEL="JDK_1_5" inheritJdk="true">
+<component LANGUAGE_LEVEL="JDK_1_8" inheritJdk="true">
 	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
 	<contentEntry url="file://$MODULE_DIR$">
 		<excludeFolder url="file://$MODULE_DIR$/target"/>
 	</contentEntry>
-	<lib name="Maven: luaj-jse:luaj-jse:3.0.1" scope="COMPILE">
+	<lib name="luaj-jse-3.0.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/src/runner/lib/luaj-jse-3.0.1.jar!/"/>
+	</lib>
+	<lib name="lib/luaj-jse-3.0.1.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/src/runner/lib/luaj-jse-3.0.1.jar!/"/>
 	</lib>
 	<levels>
