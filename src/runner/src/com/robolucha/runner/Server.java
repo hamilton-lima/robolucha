@@ -1,15 +1,16 @@
 package com.robolucha.runner;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-
 import com.google.gson.Gson;
 import com.robolucha.game.action.OnInitAddNPC;
 import com.robolucha.models.GameDefinition;
 import com.robolucha.models.Match;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.publisher.MatchEventPublisher;
+import com.robolucha.publisher.MatchStatePublisher;
 import com.robolucha.publisher.ScoreUpdater;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /*
  * Runs a Match based on the input MatchDefinition ID
@@ -64,17 +65,16 @@ public class Server {
 		//add NPC to the match
 		runner.addListener(new OnInitAddNPC());
 		
-		// listener para gravar eventos da partida
+		// listener to record match events
 		runner.addListener(new MatchEventPublisher(runner.getMatch()));
 
+		// listener to the match state
+		runner.setPublisher(MatchStatePublisher.getInstance());
 
-		// listener para transmitir eventos da partida
 		ScoreUpdater eventPublisher = new ScoreUpdater(runner.getMatch());
 		runner.addListener(eventPublisher);
 		runner.setScoreUpdater(eventPublisher);
 
-		// cria thread da partida
-		Thread t = new Thread(runner);
-		return t;
+		return new Thread(runner);
 	}
 }

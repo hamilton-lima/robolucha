@@ -1,19 +1,6 @@
 package com.robolucha.publisher;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import org.apache.log4j.Logger;
-
-import com.robolucha.game.vo.BulletVO;
-import com.robolucha.game.vo.EventVO;
-import com.robolucha.game.vo.LuchadorPublicStateVO;
-import com.robolucha.game.vo.MatchRunStateVO;
-import com.robolucha.game.vo.MessageVO;
-import com.robolucha.game.vo.PunchVO;
+import com.robolucha.game.vo.*;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorPublicState;
@@ -22,6 +9,9 @@ import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.Punch;
 import com.robolucha.runner.RunAfterThisTask;
 import com.robolucha.runner.luchador.LuchadorRunner;
+import org.apache.log4j.Logger;
+
+import java.util.*;
 
 public class MatchStatePublisher {
 
@@ -44,64 +34,27 @@ public class MatchStatePublisher {
 		return instance;
 	}
 
-	/**
-	 * consome evento somente quando chama metodo get()
-	 * 
-	 * @param matchId
-	 * @return
-	 */
-	public MatchRunStateVO get(Long matchId) {
-		MatchRunStateVO state = matchStates.get(matchId);
-
-		if (state != null) {
-			// recupera um evento da frente da fila de eventos
-			//
-			EventVO event = null;
-			MatchRunner runner = matchRunners.get(matchId);
-			if (runner != null && runner.getScoreUpdater() != null) {
-				event = runner.getScoreUpdater().getEvent();
-			}
-			if (event != null) {
-				state.events.add(event);
-			}
-		}
-
-		return state;
-
-	}
-
-	public Map<Long, MatchRunStateVO> getMatchStates() {
-		return matchStates;
-	}
-
-	public Map<Long, MatchRunner> getMatchRunners() {
-		return matchRunners;
-	}
-
 	public void update(MatchRunner matchRunner) throws Exception {
 		Long matchId = matchRunner.getMatch().getId();
-
-		// recupera objeto que representa o estado da partida
 		MatchRunStateVO vo = new MatchRunStateVO();
 
-		// percorre lista de lutchadores
 		Iterator<Long> iterator = matchRunner.getRunners().keySet().iterator();
 		while (iterator.hasNext()) {
 			Object key = (Object) iterator.next();
 			LuchadorRunner runner = matchRunner.getRunners().get(key);
 
-			// adiciona placar na lista
+			// add score to the list
 			if (runner != null) {
 				vo.scores.add(runner.getScoreVO());
 
 				if (runner.isActive()) {
-					// recupera dados para atualizar estado
+					// read data to update the state
 					Long lutchadorId = runner.getGameComponent().getId();
 					String name = runner.getGameComponent().getName();
 					LuchadorPublicState publicState = runner.getState().getPublicState();
 					MaskConfigVO mask = runner.getMask();
 
-					// dados do proprietario do luchador
+					// luchador owner data
 					Long ownerId = null;
 					if (runner.getGameComponent() instanceof Luchador) {
 						Luchador luchador = (Luchador) runner.getGameComponent();
@@ -110,17 +63,18 @@ public class MatchStatePublisher {
 						}
 					}
 
-					// atualiza o estado do luchador no objeto
+					// update luchador data
 					vo.luchadores.add(new LuchadorPublicStateVO(publicState, name, ownerId, mask));
 				}
 			}
 
 		}
 
-		// ordena a lista baseado no comparable do ScoreVO
+		// TODO: move this to the data consumer.
+		// sort based on the score
 		Collections.sort(vo.scores);
 
-		// percorre bullets
+		// bullets
 		int pos = 0;
 		while (pos < matchRunner.getBullets().size()) {
 			Bullet bullet = (Bullet) matchRunner.getBullets().get(pos++);
@@ -137,7 +91,7 @@ public class MatchStatePublisher {
 			vo.bullets.add(foo);
 		}
 
-		// percorre punches
+		// punches
 		pos = 0;
 		while (pos < matchRunner.getPunches().size()) {
 			Punch punch = (Punch) matchRunner.getPunches().get(pos++);
@@ -154,43 +108,23 @@ public class MatchStatePublisher {
 
 		vo.clock = matchRunner.getGameDefinition().getDuration() - matchRunner.getTimeElapsed();
 
-		matchStates.put(matchId, vo);
-		
 		//TODO: MUST DO - send updates to REDIS
 
 	}
 
 	public void start(MatchRunner matchRunner) {
 		logger.debug("START " + matchRunner);
-		matchStates.put(matchRunner.getMatch().getId(), new MatchRunStateVO());
-		matchRunners.put(matchRunner.getMatch().getId(), matchRunner);
+		//TODO: MUST DO - send the start to REDIS
 	}
 
-	/**
-	 * a mudanca para finished fara com que o publicador de estado informe ao
-	 * cliente do novo estado e chame o metodo remove()
-	 * 
-	 * @see PublishServerStateRunner
-	 * @param matchRunner
-	 */
 	public void end(MatchRunner matchRunner, RunAfterThisTask... runAfterThis) {
 		logger.debug("END " + matchRunner);
-		MatchRunStateVO vo = matchStates.get(matchRunner.getMatch().getId());
-		if (vo != null) {
-			vo.clock = 0;
-		}
 
 		if (runAfterThis != null) {
 			for (int i = 0; i < runAfterThis.length; i++) {
 				runAfterThis[i].run();
 			}
 		}
-	}
-
-	public void remove(Long key) {
-		logger.debug("REMOVE " + key);
-		matchStates.remove(key);
-		matchRunners.remove(key);
 	}
 
 	/**

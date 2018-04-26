@@ -56,6 +56,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
 	private GameDefinition gameDefinition;
 
+	private MatchStatePublisher publisher;
+
 	private List<LuchadorEventListener> eventListeners;
 	private List<MatchEventListener> matchEventListeners;
 	private ScoreUpdater scoreUpdater;
@@ -118,11 +120,6 @@ public class MatchRunner implements Runnable, ThreadStatus {
 		return match;
 	}
 
-	/**
-	 * 
-	 * @param gameComponent
-	 * @throws Exception
-	 */
 	public void add(final GameComponent component) throws Exception {
 
 		if (runners.containsKey(component.getId())) {
@@ -274,7 +271,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 				// atualiza tempos de cooldown
 				runAll(ReduceCoolDownAction.getInstance());
 
-				MatchStatePublisher.getInstance().update(this);
+				publisher.update(this);
 
 			} catch (Throwable e) {
 				logger.error("*** ERRO NO LOOP DO MATCHRUN", e);
@@ -301,7 +298,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
 		logger.info("matchrun shutdown (4)");
 
-		MatchStatePublisher.getInstance().end(this, new RunAfterThisTask(this) {
+		publisher.end(this, new RunAfterThisTask(this) {
 			public void run() {
 				logger.info("matchrun shutdown (5)");
 				((MatchRunner) data).cleanup();
@@ -614,4 +611,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 		return lastTimeAlive;
 	}
 
+	public void setPublisher(MatchStatePublisher publisher) {
+		this.publisher = publisher;
+	}
 }
