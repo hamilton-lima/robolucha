@@ -2,16 +2,25 @@
 <component LANGUAGE_LEVEL="JDK_1_8" inheritJdk="true">
 	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
 	<contentEntry url="file://$MODULE_DIR$">
+		<testFolder url="file://$MODULE_DIR$/src-test"/>
 		<excludeFolder url="file://$MODULE_DIR$/target"/>
 	</contentEntry>
+	<lib name="junit4" scope="TEST"/>
 	<lib name="luaj-jse-3.0.1.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/src/runner/lib/luaj-jse-3.0.1.jar!/"/>
 	</lib>
 	<lib name="lib/luaj-jse-3.0.1.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/src/runner/lib/luaj-jse-3.0.1.jar!/"/>
 	</lib>
+	<lib name="Maven: luaj-jse:luaj-jse:3.0.1" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/src/runner/lib/luaj-jse-3.0.1.jar!/"/>
+	</lib>
+	<lib name="Maven: junit:junit:4.12" scope="TEST"/>
+	<lib name="Maven: org.hamcrest:hamcrest-core:1.3" scope="TEST"/>
 	<levels>
 		<level name="Maven: log4j:log4j:1.2.12" value="project"/>
 		<level name="Maven: com.google.code.gson:gson:2.8.1" value="project"/>
+		<level name="Maven: junit:junit:4.12" value="project"/>
+		<level name="Maven: org.hamcrest:hamcrest-core:1.3" value="project"/>
 	</levels>
 </component>
