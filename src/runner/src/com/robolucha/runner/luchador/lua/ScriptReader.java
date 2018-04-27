@@ -12,7 +12,7 @@ public class ScriptReader {
 	
 	private static Logger logger = Logger.getLogger(ScriptReader.class);
 
-	public String readDefinitions(Class clazz, String file) {
+	public String readDefinitions(Class clazz, String file) throws Exception {
 		StringBuffer buffer = new StringBuffer();
 
 		try {
@@ -32,6 +32,7 @@ public class ScriptReader {
 			}
 		} catch (Exception e) {
 			logger.error("error reading : " + file, e);
+			throw e;
 		}
 
 		return buffer.toString();

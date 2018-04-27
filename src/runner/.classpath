@@ -7,8 +7,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src-support"/>
-	<classpathentry kind="src" path="src-test"/>
 	<classpathentry kind="src" path="lua"/>
+	<classpathentry kind="src" path="src-test"/>
 	<classpathentry kind="src" path="data"/>
 	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
