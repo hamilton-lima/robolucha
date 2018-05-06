@@ -1,14 +1,13 @@
 package com.robolucha.runner.luchador.lua;
 
-import java.io.FileInputStream;
-import java.io.FileReader;
+import org.luaj.vm2.ast.Chunk;
+import org.luaj.vm2.parser.LuaParser;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
-
-import org.luaj.vm2.ast.Chunk;
-import org.luaj.vm2.parser.LuaParser;
+import java.io.FileInputStream;
+import java.io.FileReader;
 
 @SuppressWarnings("restriction")
 public class LuajEngineWithoutRestrictions {

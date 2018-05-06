@@ -18,6 +18,8 @@ public class ScriptRunner implements Runnable {
 		this.runner = runner;
 	}
 
+	//TODO: Add observable to track time and end of the execution
+
 	@Override
 	public void run() {
 		Thread.currentThread().setName("ScriptRunner-Thread-GameComponentID-" + runner.getGameComponent().getId());

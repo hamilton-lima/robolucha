@@ -1,18 +1,13 @@
 package com.robolucha.support;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintStream;
-
-import org.junit.Test;
-
 import com.google.gson.Gson;
 import com.robolucha.models.GameDefinition;
+import org.junit.Test;
+
+import java.io.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class DefaultGameDefinitionFileCreatorTest {
 

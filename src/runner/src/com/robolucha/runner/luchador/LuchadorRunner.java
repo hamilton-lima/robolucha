@@ -1,34 +1,21 @@
 package com.robolucha.runner.luchador;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.Queue;
-
-import org.apache.log4j.Logger;
-
 import com.robolucha.event.GeneralEventHandler;
 import com.robolucha.event.GeneralEventManager;
 import com.robolucha.event.GeneralEventNames;
 import com.robolucha.game.event.LuchadorEvent;
 import com.robolucha.game.event.OnHitWallEvent;
 import com.robolucha.game.vo.MessageVO;
-import com.robolucha.models.Bullet;
-import com.robolucha.models.Code;
-import com.robolucha.models.GameComponent;
-import com.robolucha.models.Luchador;
-import com.robolucha.models.LuchadorMatchState;
-import com.robolucha.models.LuchadorPublicState;
-import com.robolucha.models.MaskConfigVO;
-import com.robolucha.models.MatchStateProvider;
-import com.robolucha.models.ScoreVO;
+import com.robolucha.models.*;
 import com.robolucha.runner.Calc;
 import com.robolucha.runner.LuchadorCodeChangeListener;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.RespawnPoint;
 import com.robolucha.runner.luchador.lua.LuaFacade;
+import org.apache.log4j.Logger;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * Represents one play thread during the match
@@ -74,8 +61,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 	int exceptionCounter;
 
 	private LuchadorMatchState state;
-
-	private String currentJavascriptRunningName;
 
 	// TODO: remove this?
 	private String getCurrentRunningCodeName() {
@@ -287,6 +272,10 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 	void eval(String name, String script) throws Exception {
 		scriptDefinition.eval(script);
+	}
+
+	String getString(String script) throws Exception {
+		return scriptDefinition.getString(script);
 	}
 
 	private void updateInvalidCodes(List<Code> codes) throws Exception {
@@ -891,4 +880,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		this.scriptDefinition = scriptDefinition;
 	}
 
+	public ScriptRunner getCurrentRunner() {
+		return currentRunner;
+	}
 }

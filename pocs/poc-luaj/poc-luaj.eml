@@ -14,5 +14,6 @@
 	</lib>
 	<levels>
 		<level name="Maven: junit:junit:4.12" value="project"/>
+		<level name="Maven: org.hamcrest:hamcrest-core:1.3" value="project"/>
 	</levels>
 </component>

@@ -1,11 +1,11 @@
 package com.robolucha.runner.luchador.lua;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.luaj.vm2.Varargs;
 import org.luaj.vm2.ast.Chunk;
+
+import static org.junit.Assert.*;
 
 public class MaliciousCodeHandler {
 

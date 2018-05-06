@@ -1,13 +1,9 @@
 package com.robolucha.runner.luchador.lua;
 
-import static org.junit.Assert.assertEquals;
-
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * 

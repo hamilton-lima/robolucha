@@ -1,11 +1,19 @@
+#Todo
+* remove compilation errors from unit tests
+    * working on GeneralEventManagerTest
+    
+* remove duplicated calc
 
-MatchStatePublisher
+* MatchStatePublisher
     missing review of getMessages - probably will be resolved by the MatchEventHandler
     how the events are sent?
         MatchEventPublisher - receive all the events
     where statepublisher is assigned to the matchrunner?
 
-add redis configuration
-build redis docker locally to test
-keep score updates in the MatchRunner
+* add redis configuration
+* build redis docker locally to test
+* keep score updates in the MatchRunner
+
+# Done 
+* ok - copy unit tests from original project
 
