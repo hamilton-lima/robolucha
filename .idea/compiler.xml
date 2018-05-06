@@ -21,7 +21,6 @@
         <module name="java-pubsub" />
         <module name="poc-luaj" />
         <module name="runner" />
-        <module name="shared" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

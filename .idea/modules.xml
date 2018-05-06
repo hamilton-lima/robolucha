@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/pocs/redis/java-pubsub/java-pubsub.iml" filepath="$PROJECT_DIR$/pocs/redis/java-pubsub/java-pubsub.iml" />
       <module fileurl="file://$PROJECT_DIR$/pocs/poc-luaj/poc-luaj.iml" filepath="$PROJECT_DIR$/pocs/poc-luaj/poc-luaj.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/runner/runner.iml" filepath="$PROJECT_DIR$/src/runner/runner.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/shared/shared.iml" filepath="$PROJECT_DIR$/src/shared/shared.iml" />
     </modules>
   </component>
 </project>

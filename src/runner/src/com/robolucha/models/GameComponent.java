@@ -1,9 +1,9 @@
 package com.robolucha.models;
 
+import com.robolucha.shared.Const;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.robolucha.shared.Const;
 
 public class GameComponent {
 

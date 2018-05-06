@@ -3,7 +3,6 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/shared/pom.xml" />
         <option value="$PROJECT_DIR$/src/runner/pom.xml" />
         <option value="$PROJECT_DIR$/pocs/poc-luaj/pom.xml" />
         <option value="$PROJECT_DIR$/src/models/pom.xml" />

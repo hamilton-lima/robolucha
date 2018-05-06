@@ -46,12 +46,6 @@
             <systemPath>${project.basedir}/lib/luaj-jse-3.0.1.jar</systemPath>
         </dependency>
 
-        <dependency>
-            <groupId>shared</groupId>
-            <artifactId>shared</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>

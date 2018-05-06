@@ -2,34 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a7dcf67-8d1f-45b3-b73a-669d80f1f4c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnGunActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnGunActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnJuntoComTurnGunTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnJuntoComTurnGunTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/DebugJavascriptTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/JavascriptEventsCallTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorConstantsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorConstantsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorMatchStateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorMatchStateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorRunnerTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/FireAmountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MatchEventToPublishTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MethodBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MethodBuilderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/RespawnProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/RespawnProcessorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/vo/BulletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/models/BulletTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/vo/ScoreVOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/models/ScoreVOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/mask/MaskGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/mask/MaskGeneratorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugFire1Fire10Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugFire1Fire10Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugMoveComVelocidadesDiferentesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugMoveComVelocidadesDiferentesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugUsarMesmoCodePackageEmVariosMatchParticipant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorRunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorRunnerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/src/com/robolucha/models/Code.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/src/com/robolucha/models/Code.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/Bullet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/Code.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/CodeHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/GameComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/GameDefinition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/Luchador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorMask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorMatchState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorPublicState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/MaskConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/MaskConfigVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/Match.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchParticipant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchStateProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/Ranking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/RankingData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/SceneComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/ScoreVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/models.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/shared/Calc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/shared/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/models/bin/" />
     <ignored path="$PROJECT_DIR$/src/shared/target/" />
@@ -49,104 +47,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LuchadorRunnerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorRunnerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="MaskConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MaskConfig.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="CalcTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="37" column="46" lean-forward="true" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
-            </state>
-          </provider>
+      <file leaf-file-name="MatchParticipant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchParticipant.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="MockMatchRunner.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
+      <file leaf-file-name="LuchadorMatchState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorMatchState.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="RespawnProcessorTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/RespawnProcessorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-            </state>
-          </provider>
+      <file leaf-file-name="Const.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/shared/Const.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="MethodBuilderTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MethodBuilderTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-            </state>
-          </provider>
+      <file leaf-file-name="LuchadorPublicState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorPublicState.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="BugAcessoVariavelMeTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-            </state>
-          </provider>
+      <file leaf-file-name="LuchadorCoach.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorCoach.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="BugFire1Fire10Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugFire1Fire10Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="38" column="61" lean-forward="true" selection-start-line="38" selection-start-column="61" selection-end-line="38" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="SceneComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/SceneComponent.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="BugNaoRetornandoMatchRunnerAtivoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="62" column="52" lean-forward="true" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="RankingData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/RankingData.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="BugOnFoundPertoDemais.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="MaskConfigVO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MaskConfigVO.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="Code.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/src/com/robolucha/models/Code.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/runner/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+            <state relative-caret-position="187">
+              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -215,7 +165,6 @@
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/lua/ScriptReader.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/event/GeneralEventManagerTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" />
-        <option value="$PROJECT_DIR$/src/runner/pom.xml" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/GeneralEventManagerTest.java" />
         <option value="$PROJECT_DIR$/src/runner/NOTES.md" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/servlet/GameComponentBuilderTest.java" />
@@ -260,6 +209,7 @@
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorRunnerTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java" />
+        <option value="$PROJECT_DIR$/src/runner/pom.xml" />
       </list>
     </option>
   </component>
@@ -298,56 +248,17 @@
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src-test" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src-test" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src-test" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="MockMatchRunner" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
@@ -355,37 +266,6 @@
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="Code" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="GameDefinition" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="LuchadorMatchState" type="1a9f42e2:ClassTreeNode" />
             </path>
           </expand>
           <select />
@@ -410,6 +290,9 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.robolucha.runner.luchador" />
       <recent name="com.robolucha.runner" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/runner/src/com/robolucha" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -605,9 +488,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LuaScriptDefinitionTest_testLoadDefaultLibraries - 2018.04.27 at 15h 57m 55s.xml">
-      <configuration name="LuaScriptDefinitionTest.testLoadDefaultLibraries" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_runner - 2018.04.27 at 15h 58m 08s.xml">
       <configuration name="All in runner" configurationId="JUnit" />
     </history-entry>
@@ -635,6 +515,9 @@
     <history-entry file="All_in_runner - 2018.05.05 at 23h 44m 27s.xml">
       <configuration name="All in runner" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_runner - 2018.05.05 at 23h 45m 21s.xml">
+      <configuration name="All in runner" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="811" extended-state="6" />
@@ -649,11 +532,11 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50069445" side_tool="true" weight="0.32977304" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49930555" visible="true" weight="0.32971507" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49930555" visible="true" weight="0.32971507" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68326694" visible="true" weight="0.25833333" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.68326694" visible="true" weight="0.25833333" />
       <window_info anchor="bottom" id="Docker" order="8" weight="0.32977304" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977304" />
       <window_info id="Structure" order="1" sideWeight="0.31673306" side_tool="true" weight="0.24305555" />
@@ -678,106 +561,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/ScriptDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/SetColorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="64" column="21" lean-forward="true" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckPunchHitActionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="276" column="4" lean-forward="true" selection-start-line="276" selection-start-column="4" selection-end-line="276" selection-end-column="4" />
-          <folding>
-            <element signature="e#10928#10929#0" expanded="true" />
-            <element signature="e#10957#10958#0" expanded="true" />
-            <element signature="e#22488#22489#0" expanded="true" />
-            <element signature="e#22515#22516#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/game/action/RepeatAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/JavascriptSecurityTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="56" lean-forward="true" selection-start-line="6" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/src/com/robolucha/models/GameComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding>
-            <element signature="e#3109#3110#0" expanded="true" />
-            <element signature="e#3138#3139#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorCommandTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="55" column="80" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckFireCoolDownVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/mask/MaskGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1125,8 +908,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="210">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/CodeHistory.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MaskConfig.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchParticipant.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorMatchState.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/shared/Const.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorPublicState.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorCoach.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/SceneComponent.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/RankingData.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MaskConfigVO.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
         </state>
       </provider>
     </entry>
