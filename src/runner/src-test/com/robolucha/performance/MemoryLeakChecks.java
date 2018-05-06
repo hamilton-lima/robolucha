@@ -5,6 +5,7 @@ import com.robolucha.models.Luchador;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.test.MockLuchador;
+import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -66,7 +67,7 @@ public class MemoryLeakChecks {
 	 * @throws InterruptedException
 	 */
 	@Test
-	public void testRun() throws InterruptedException {
+	public void testRun() throws Exception {
 
 		int startThreads = ManagementFactory.getThreadMXBean().getThreadCount();
 		long startFreeMemory = Runtime.getRuntime().freeMemory();

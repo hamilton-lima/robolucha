@@ -1,10 +1,12 @@
 package com.robolucha.runner.luchador;
 
+import com.robolucha.models.Luchador;
 import com.robolucha.monitor.ThreadMonitor;
+import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.Server;
 import com.robolucha.test.MockLuchador;
-import org.apache.log4j.Level;
+import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNull;
@@ -15,14 +17,6 @@ public class BugNaoRetornandoMatchRunnerAtivoTest {
 	private static Logger logger = Logger
 			.getLogger(BugNaoRetornandoMatchRunnerAtivoTest.class);
 
-	@Before
-	public void setUp() throws Exception {
-
-
-		Logger.getLogger(BugNaoRetornandoMatchRunnerAtivoTest.class).setLevel(
-				Level.ALL);
-	}
-
 	/**
 	 * inicia uma partida e le do ThreadMonitor qual a partida atual, conclui a
 	 * primeira e inicia a segunda recuperando novamente a partida atual do
@@ -31,13 +25,11 @@ public class BugNaoRetornandoMatchRunnerAtivoTest {
 	 * @throws InterruptedException
 	 */
 	@Test
-	public void testRun() throws InterruptedException {
-
-		StartGame job = new StartGame();
+	public void testRun() throws Exception {
 
 		MatchRunner match = MockMatchRunner.build();
 		match.getGameDefinition().setMinParticipants(1);
-		match.getGameDefinition().setDuration(500.0);
+		match.getGameDefinition().setDuration(500);
 
 		Luchador a = MockLuchador.build();
 		a.setId(1L);
@@ -50,7 +42,7 @@ public class BugNaoRetornandoMatchRunnerAtivoTest {
 		}
 
 		// start the match
-		Thread t = job.buildRunner(match);
+		Thread t = Server.buildRunner(match);
 		t.start();
 
 		MatchRunner runner = ThreadMonitor.getInstance().getMatch();
@@ -66,9 +58,9 @@ public class BugNaoRetornandoMatchRunnerAtivoTest {
 		runner = ThreadMonitor.getInstance().getMatch();
 		assertNull(runner);
 
-		match = new MatchRunner();
+		match = MockMatchRunner.build();
 		match.getGameDefinition().setMinParticipants(1);
-		match.getGameDefinition().setDuration(500.0);
+		match.getGameDefinition().setDuration(500L);
 
 		match.add(a);
 
@@ -78,7 +70,7 @@ public class BugNaoRetornandoMatchRunnerAtivoTest {
 		}
 
 		// start the match
-		t = job.buildRunner(match);
+		t = Server.buildRunner(match);
 		t.start();
 
 		runner = ThreadMonitor.getInstance().getMatch();

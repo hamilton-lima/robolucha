@@ -1,6 +1,8 @@
-package com.robolucha.game.vo;
+package com.robolucha.models;
 
 import com.robolucha.models.Bullet;
+import com.robolucha.runner.MatchRunner;
+import com.robolucha.test.MockMatchRunner;
 import org.junit.Test;
 
 import static org.junit.Assert.fail;
@@ -27,9 +29,11 @@ public class BulletTest {
 	}
 
 	private Bullet[] getBulletArray() {
+		MatchRunner match = MockMatchRunner.build();
+
 		Bullet[] bullets = new Bullet[100];
 		for (int i = 0; i < bullets.length; i++) {
-			bullets[i] = new Bullet(null, 20, 10, 10, 20);
+			bullets[i] = new Bullet(match.getGameDefinition(), null, 20, 10, 10, 20);
 		}
 		return bullets;
 	}

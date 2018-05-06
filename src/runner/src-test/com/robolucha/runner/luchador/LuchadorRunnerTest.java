@@ -82,7 +82,7 @@ public class LuchadorRunnerTest {
     public void testNOCODE() throws Exception {
 
         String[] methods = {"repeat", "onHitWall", "onHitOther", "onFound", "onGotDamage", "onListen"};
-        MatchRunner runner = new MatchRunner();
+        MatchRunner runner = MockMatchRunner.build();
 
         for (int i = 0; i < methods.length; i++) {
             Luchador l1 = MockLuchador.build();

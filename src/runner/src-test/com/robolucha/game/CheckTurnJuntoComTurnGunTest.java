@@ -1,13 +1,15 @@
 package com.robolucha.game;
 
+import com.robolucha.models.Luchador;
+import com.robolucha.models.LuchadorPublicState;
+import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.test.MockLuchador;
+import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -22,22 +24,11 @@ public class CheckTurnJuntoComTurnGunTest {
 	}
 
 	@Test
-	public void testRun() throws InterruptedException, CloneNotSupportedException {
+	public void testRun() throws Exception {
 
 		MatchRunner match = MockMatchRunner.build();
 		match.getGameDefinition().setMinParticipants(1);
-		
-		Luchador a = MockLuchador.build();
-		a.setId(1L);
-
-		Code c = new Code();
-		c.setEvent(MethodNames.REPEAT);
-		c.setScript("move(10);turn(45);turnGun(-45);");
-
-		List<Code> codes = new ArrayList<Code>();
-		codes.add(c);
-
-		a.getCodePackage().setCodes(codes);
+		Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "move(10);turn(45);turnGun(-45);");
 
 		match.add(a);
 
@@ -54,7 +45,7 @@ public class CheckTurnJuntoComTurnGunTest {
 		runnerA.getState().setGunAngle(300);
 
 		logger.debug("--- A : " + runnerA.getState().getPublicState());
-		LuchadorPublicState start = (LuchadorPublicState) runnerA.getState().getPublicState().clone();	
+		LuchadorPublicState start = (LuchadorPublicState) runnerA.getState().getPublicState();
 
 		// start the match
 		Thread t = new Thread(match);
@@ -66,7 +57,7 @@ public class CheckTurnJuntoComTurnGunTest {
 		Thread.sleep(1500);
 
 		logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-		LuchadorPublicState end = (LuchadorPublicState) runnerA.getState().getPublicState().clone();	
+		LuchadorPublicState end = (LuchadorPublicState) runnerA.getState().getPublicState();
 
 		logger.debug(String.format("*** resultados angle : a[%s, %s]",
 				start.angle, end.angle));

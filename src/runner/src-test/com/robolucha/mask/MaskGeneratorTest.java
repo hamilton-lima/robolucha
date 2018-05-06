@@ -1,6 +1,8 @@
 package com.robolucha.mask;
 
-import com.robolucha.bean.MaskConfig;
+import com.robolucha.models.MaskConfig;
+import com.robolucha.runner.luchador.mask.MaskGenerator;
+import com.robolucha.runner.luchador.mask.NMSColor;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
@@ -13,20 +15,20 @@ public class MaskGeneratorTest {
 		for (int i = 0; i < 10000; i++) {
 
 			MaskConfig random = MaskGenerator.getInstance().random();
-			assertNotNull(random.getBackground());
-			assertNotNull(random.getBackgroundColor());
-			assertNotNull(random.getBackground2());
-			assertNotNull(random.getBackground2Color());
-			assertNotNull(random.getOrnamentTop());
-			assertNotNull(random.getOrnamentTopColor());
-			assertNotNull(random.getOrnamentBottom());
-			assertNotNull(random.getOrnamentBottomColor());
-			assertNotNull(random.getFace());
-			assertNotNull(random.getFaceColor());
-			assertNotNull(random.getMouth());
-			assertNotNull(random.getMouthColor());
-			assertNotNull(random.getEye());
-			assertNotNull(random.getEyeColor());
+			assertNotNull(random.background);
+			assertNotNull(random.backgroundColor);
+			assertNotNull(random.background2);
+			assertNotNull(random.background2Color);
+			assertNotNull(random.ornamentTop);
+			assertNotNull(random.ornamentTopColor);
+			assertNotNull(random.ornamentBottom);
+			assertNotNull(random.ornamentBottomColor);
+			assertNotNull(random.face);
+			assertNotNull(random.faceColor);
+			assertNotNull(random.mouth);
+			assertNotNull(random.mouthColor);
+			assertNotNull(random.eye);
+			assertNotNull(random.eyeColor);
 
 		}
 	}

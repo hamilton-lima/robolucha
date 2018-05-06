@@ -74,7 +74,7 @@ public class BugOnFoundPertoDemais {
 	}
 
 	@Test
-	public void testRun2() throws InterruptedException {
+	public void testRun2() throws Exception {
 		testWithPosition(100, 100, 0, 200, 100);
 		testWithPosition(100, 100, 45, 150, 150);
 	}

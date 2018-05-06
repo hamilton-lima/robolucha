@@ -1,13 +1,15 @@
 package com.robolucha.game;
 
+import com.robolucha.models.Luchador;
+import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
+import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.test.MockLuchador;
+import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -24,31 +26,12 @@ public class CheckTurnActionTest {
 	
 
 	@Test
-	public void testRun() throws InterruptedException {
+	public void testRun() throws Exception {
 
 		MatchRunner match = MockMatchRunner.build();
 
-		Luchador a = MockLuchador.build();
-		a.setId(1L);
-
-		Luchador b = MockLuchador.build();
-		b.setId(2L);
-
-		Code c = new Code();
-		c.setEvent("repeat");
-		c.setScript("turn(45);");
-		List<Code> codes = new ArrayList<Code>();
-		codes.add(c);
-
-		a.getCodePackage().setCodes(codes);
-
-		Code c1 = new Code();
-		c1.setEvent("repeat");
-		c1.setScript("turn(-45);");
-		List<Code> codes1 = new ArrayList<Code>();
-		codes1.add(c1);
-
-		b.getCodePackage().setCodes(codes1);
+		Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "turn(45);");
+		Luchador b = MockLuchador.build(2L, MethodNames.REPEAT, "turn(-45);");
 
 		match.add(a);
 		match.add(b);

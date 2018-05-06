@@ -1,14 +1,18 @@
 package com.robolucha.game;
 
+import com.robolucha.models.LuchadorMatchState;
 import org.junit.Test;
 
 import java.util.Random;
+
+import static org.junit.Assert.assertEquals;
+
 
 public class LuchadorMatchStateTest {
 
 	@Test
 	public void testSetLife() {
-		LuchadorMatchState state = new LuchadorMatchState(null);
+		LuchadorMatchState state = new LuchadorMatchState();
 		Random r = new Random();
 		double randomDouble = r.nextDouble();
 		state.setLife(randomDouble);
@@ -17,7 +21,7 @@ public class LuchadorMatchStateTest {
 
 	@Test
 	public void testSetAngle() {
-		LuchadorMatchState state = new LuchadorMatchState(null);
+		LuchadorMatchState state = new LuchadorMatchState();
 		Random r = new Random();
 		double randomDouble = r.nextDouble();
 		state.setAngle(randomDouble);
@@ -26,7 +30,7 @@ public class LuchadorMatchStateTest {
 
 	@Test
 	public void testSetGunAngle() {
-		LuchadorMatchState state = new LuchadorMatchState(null);
+		LuchadorMatchState state = new LuchadorMatchState();
 		Random r = new Random();
 		double randomDouble = r.nextDouble();
 		state.setGunAngle(randomDouble);
@@ -35,7 +39,7 @@ public class LuchadorMatchStateTest {
 
 	@Test
 	public void testSetX() {
-		LuchadorMatchState state = new LuchadorMatchState(null);
+		LuchadorMatchState state = new LuchadorMatchState();
 		Random r = new Random();
 		double randomDouble = r.nextDouble();
 		state.setX(randomDouble);
@@ -44,7 +48,7 @@ public class LuchadorMatchStateTest {
 
 	@Test
 	public void testSetY() {
-		LuchadorMatchState state = new LuchadorMatchState(null);
+		LuchadorMatchState state = new LuchadorMatchState();
 		Random r = new Random();
 		double randomDouble = r.nextDouble();
 		state.setY(randomDouble);

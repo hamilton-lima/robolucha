@@ -8,6 +8,7 @@ public class MockMatchRunner {
 
     public static MatchRunner build(){
         GameDefinition gameDefinition = new GameDefinition();
+
         Match match = new Match();
         MatchRunner runner = new MatchRunner(gameDefinition, match);
         return runner;

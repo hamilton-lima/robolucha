@@ -1,12 +1,12 @@
 package com.robolucha.runner.luchador;
 
+import com.robolucha.models.Luchador;
+import com.robolucha.runner.MatchRunner;
 import com.robolucha.test.MockLuchador;
+import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -26,21 +26,12 @@ public class BugAcessoVariavelMeTest {
 	}
 
 	@Test
-	public void testRun() throws InterruptedException {
+	public void testRun() throws Exception {
 
 		MatchRunner match = MockMatchRunner.build();
 		match.getGameDefinition().setMinParticipants(1);
 
-		Luchador a = MockLuchador.build();
-		a.setId(1L);
-
-		Code c = new Code();
-		c.setEvent(MethodNames.REPEAT);
-		c.setScript("me.x = 200;");
-		List<Code> codes = new ArrayList<Code>();
-		codes.add(c);
-
-		a.getCodePackage().setCodes(codes);
+		Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "me.x = 200;");
 
 		match.add(a);
 

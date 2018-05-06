@@ -1,4 +1,4 @@
-package com.robolucha.game.vo;
+package com.robolucha.models;
 
 import com.robolucha.publisher.ScoreBuilder;
 import org.apache.log4j.Logger;
@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class ScoreVOTest {
 

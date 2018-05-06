@@ -3,13 +3,16 @@ package com.robolucha.game;
 import com.robolucha.game.event.LuchadorEvent;
 import com.robolucha.game.event.LuchadorEventListener;
 import com.robolucha.game.event.OnGotDamageEvent;
+import com.robolucha.models.Luchador;
+import com.robolucha.runner.MatchRunner;
+import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.test.MockLuchador;
+import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class CheckBulletHitActionTest {
 
@@ -23,31 +26,12 @@ public class CheckBulletHitActionTest {
 	}
 
 	@Test
-	public void testRun() throws InterruptedException {
+	public void testRun() throws Exception {
 
 		MatchRunner match = MockMatchRunner.build();
 
-		Luchador a = MockLuchador.build();
-		a.setId(1L);
-
-		Luchador b = MockLuchador.build();
-		b.setId(2L);
-
-		Code c = new Code();
-		c.setEvent("repeat");
-		c.setScript("fire(1);");
-		List<Code> codes = new ArrayList<Code>();
-		codes.add(c);
-
-		a.getCodePackage().setCodes(codes);
-
-		Code c1 = new Code();
-		c1.setEvent("repeat");
-		c1.setScript("fire(10);");
-		List<Code> codes1 = new ArrayList<Code>();
-		codes1.add(c1);
-
-		b.getCodePackage().setCodes(codes1);
+		Luchador a = MockLuchador.build(1L, "repeat", "fire(1);");
+		Luchador b = MockLuchador.build(2L, "repeat", "fire(10);");
 
 		match.add(a);
 		match.add(b);
