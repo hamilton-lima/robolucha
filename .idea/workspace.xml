@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a7dcf67-8d1f-45b3-b73a-669d80f1f4c4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_stefanbirkner_system_rules_1_17_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_8_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_8_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_easymock_easymock_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_18_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/ConfigTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/runner.eml" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/runner.eml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/tasks.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/tasks.md" afterDir="false" />
-    </list>
+    <list default="true" id="4a7dcf67-8d1f-45b3-b73a-669d80f1f4c4" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/src/models/bin/" />
     <ignored path="$PROJECT_DIR$/src/shared/target/" />
     <ignored path="$PROJECT_DIR$/src/runner/target/" />
@@ -89,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Config.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="303">
-              <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
               <folding>
                 <element signature="e#533#534#0" expanded="true" />
                 <element signature="e#578#579#0" expanded="true" />
@@ -119,8 +105,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/runner/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+            <state relative-caret-position="291">
+              <caret line="80" column="21" lean-forward="true" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -347,15 +333,6 @@
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="Config" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -378,15 +355,6 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src-test" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="ConfigTest" type="1a9f42e2:ClassTreeNode" />
             </path>
           </expand>
           <select />
@@ -1077,7 +1045,7 @@
     <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
-          <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
           <folding>
             <element signature="e#533#534#0" expanded="true" />
             <element signature="e#578#579#0" expanded="true" />
@@ -1103,8 +1071,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+        <state relative-caret-position="291">
+          <caret line="80" column="21" lean-forward="true" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
         </state>
       </provider>
     </entry>
