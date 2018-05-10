@@ -11,8 +11,6 @@ public class RedisDockerHelper {
     private static final String DOCKER_REDIS_STOP = "docker stop test-redis";
     private Logger logger = Logger.getLogger(RedisDockerHelper.class);
 
-    private Thread processThread;
-
     public void start() throws IOException {
         run(DOCKER_REDIS_START);
     }

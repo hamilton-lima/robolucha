@@ -25,7 +25,7 @@ public class RemoteQueueTest {
         docker.stop();
         docker.start();
     }
-    
+
     @Test
     public void publishAndSubscribe() throws Exception {
 
