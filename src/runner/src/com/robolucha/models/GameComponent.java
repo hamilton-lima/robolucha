@@ -7,244 +7,274 @@ import java.util.List;
 
 public class GameComponent {
 
-	private long id;
-	private String name;
-	private String calculateRanking = Const.NO;
-	private List<Code> codes = new ArrayList<Code>();
+    private long id;
+    private String name;
+    private String calculateRanking = Const.NO;
+    private List<Code> codes = new ArrayList<Code>();
 
-	private int radarAngle = 45;
-	private int radarRadius = 200;
-	private int punchAngle = 90;
-	private int life = 20;
-	private int energy = 30;
-	private int punchDamage = 2;
-	private int punchCoolDown = 2;
-	private int moveSpeed = 50;
-	private int turnSpeed = 90;
-	private int turnGunSpeed = 60;
-	private int respawnCooldown = 10;
-	private int maxFireCooldown = 10;
-	
-	//TODO: should merge these?
-	private int minFireDamage = 1;
-	private int maxFireDamage = 10;
-	
-	private int minFireAmount = 1;
-	private int maxFireAmount = 10;
+    private int radarAngle = 45;
+    private int radarRadius = 200;
+    private int punchAngle = 90;
+    private int life = 20;
+    private int energy = 30;
+    private int punchDamage = 2;
+    private int punchCoolDown = 2;
+    private int moveSpeed = 50;
+    private int turnSpeed = 90;
+    private int turnGunSpeed = 60;
+    private int respawnCooldown = 10;
+    private int maxFireCooldown = 10;
 
-	// how fast energy is restored to the luchador
-	private int restoreEnergyperSecond = 3;
+    //TODO: should merge these?
+    private int minFireDamage = 1;
+    private int maxFireDamage = 10;
 
-	// how much energy is restored when collecting luchador parts
-	private int recycledLuchadorEnergyRestore = 6;
+    private int minFireAmount = 1;
+    private int maxFireAmount = 10;
 
-	// how much energy will cost to increase speed
-	private int increaseSpeedEnergyCost = 10;
+    // how fast energy is restored to the luchador
+    private int restoreEnergyperSecond = 3;
 
-	// percentage of speed increase
-	private int increaseSpeedPercentage = 20;
+    // how much energy is restored when collecting luchador parts
+    private int recycledLuchadorEnergyRestore = 6;
 
-	// how much energy cost to fire
-	private int fireEnergyCost = 2;
+    // how much energy will cost to increase speed
+    private int increaseSpeedEnergyCost = 10;
 
-	public long getId() {
-		return id;
-	}
+    // percentage of speed increase
+    private int increaseSpeedPercentage = 20;
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    // how much energy cost to fire
+    private int fireEnergyCost = 2;
 
-	public String getName() {
-		return name;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public String getCalculateRanking() {
-		return calculateRanking;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setCalculateRanking(String calculateRanking) {
-		this.calculateRanking = calculateRanking;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public List<Code> getCodes() {
-		return codes;
-	}
+    public String getCalculateRanking() {
+        return calculateRanking;
+    }
 
-	public void setCodes(List<Code> codes) {
-		this.codes = codes;
-	}
+    public void setCalculateRanking(String calculateRanking) {
+        this.calculateRanking = calculateRanking;
+    }
 
-	public int getRadarAngle() {
-		return radarAngle;
-	}
+    public List<Code> getCodes() {
+        return codes;
+    }
 
-	public void setRadarAngle(int radarAngle) {
-		this.radarAngle = radarAngle;
-	}
+    public void setCodes(List<Code> codes) {
+        this.codes = codes;
+    }
 
-	public int getRadarRadius() {
-		return radarRadius;
-	}
+    public int getRadarAngle() {
+        return radarAngle;
+    }
 
-	public void setRadarRadius(int radarRadius) {
-		this.radarRadius = radarRadius;
-	}
+    public void setRadarAngle(int radarAngle) {
+        this.radarAngle = radarAngle;
+    }
 
-	public int getPunchAngle() {
-		return punchAngle;
-	}
+    public int getRadarRadius() {
+        return radarRadius;
+    }
 
-	public void setPunchAngle(int punchAngle) {
-		this.punchAngle = punchAngle;
-	}
+    public void setRadarRadius(int radarRadius) {
+        this.radarRadius = radarRadius;
+    }
 
-	public int getLife() {
-		return life;
-	}
+    public int getPunchAngle() {
+        return punchAngle;
+    }
 
-	public void setLife(int life) {
-		this.life = life;
-	}
+    public void setPunchAngle(int punchAngle) {
+        this.punchAngle = punchAngle;
+    }
 
-	public int getEnergy() {
-		return energy;
-	}
+    public int getLife() {
+        return life;
+    }
 
-	public void setEnergy(int energy) {
-		this.energy = energy;
-	}
+    public void setLife(int life) {
+        this.life = life;
+    }
 
-	public int getPunchDamage() {
-		return punchDamage;
-	}
+    public int getEnergy() {
+        return energy;
+    }
 
-	public void setPunchDamage(int punchDamage) {
-		this.punchDamage = punchDamage;
-	}
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
 
-	public int getPunchCoolDown() {
-		return punchCoolDown;
-	}
+    public int getPunchDamage() {
+        return punchDamage;
+    }
 
-	public void setPunchCoolDown(int punchCoolDown) {
-		this.punchCoolDown = punchCoolDown;
-	}
+    public void setPunchDamage(int punchDamage) {
+        this.punchDamage = punchDamage;
+    }
 
-	public int getMoveSpeed() {
-		return moveSpeed;
-	}
+    public int getPunchCoolDown() {
+        return punchCoolDown;
+    }
 
-	public void setMoveSpeed(int moveSpeed) {
-		this.moveSpeed = moveSpeed;
-	}
+    public void setPunchCoolDown(int punchCoolDown) {
+        this.punchCoolDown = punchCoolDown;
+    }
 
-	public int getTurnSpeed() {
-		return turnSpeed;
-	}
+    public int getMoveSpeed() {
+        return moveSpeed;
+    }
 
-	public void setTurnSpeed(int turnSpeed) {
-		this.turnSpeed = turnSpeed;
-	}
+    public void setMoveSpeed(int moveSpeed) {
+        this.moveSpeed = moveSpeed;
+    }
 
-	public int getTurnGunSpeed() {
-		return turnGunSpeed;
-	}
+    public int getTurnSpeed() {
+        return turnSpeed;
+    }
 
-	public void setTurnGunSpeed(int turnGunSpeed) {
-		this.turnGunSpeed = turnGunSpeed;
-	}
+    public void setTurnSpeed(int turnSpeed) {
+        this.turnSpeed = turnSpeed;
+    }
 
-	public int getRespawnCooldown() {
-		return respawnCooldown;
-	}
+    public int getTurnGunSpeed() {
+        return turnGunSpeed;
+    }
 
-	public void setRespawnCooldown(int respawnCooldown) {
-		this.respawnCooldown = respawnCooldown;
-	}
+    public void setTurnGunSpeed(int turnGunSpeed) {
+        this.turnGunSpeed = turnGunSpeed;
+    }
 
-	public int getMaxFireCooldown() {
-		return maxFireCooldown;
-	}
+    public int getRespawnCooldown() {
+        return respawnCooldown;
+    }
 
-	public void setMaxFireCooldown(int maxFireCooldown) {
-		this.maxFireCooldown = maxFireCooldown;
-	}
+    public void setRespawnCooldown(int respawnCooldown) {
+        this.respawnCooldown = respawnCooldown;
+    }
 
-	public int getMinFireDamage() {
-		return minFireDamage;
-	}
+    public int getMaxFireCooldown() {
+        return maxFireCooldown;
+    }
 
-	public void setMinFireDamage(int minFireDamage) {
-		this.minFireDamage = minFireDamage;
-	}
+    public void setMaxFireCooldown(int maxFireCooldown) {
+        this.maxFireCooldown = maxFireCooldown;
+    }
 
-	public int getMaxFireDamage() {
-		return maxFireDamage;
-	}
+    public int getMinFireDamage() {
+        return minFireDamage;
+    }
 
-	public void setMaxFireDamage(int maxFireDamage) {
-		this.maxFireDamage = maxFireDamage;
-	}
+    public void setMinFireDamage(int minFireDamage) {
+        this.minFireDamage = minFireDamage;
+    }
 
-	public int getRestoreEnergyperSecond() {
-		return restoreEnergyperSecond;
-	}
+    public int getMaxFireDamage() {
+        return maxFireDamage;
+    }
 
-	public void setRestoreEnergyperSecond(int restoreEnergyperSecond) {
-		this.restoreEnergyperSecond = restoreEnergyperSecond;
-	}
+    public void setMaxFireDamage(int maxFireDamage) {
+        this.maxFireDamage = maxFireDamage;
+    }
 
-	public int getRecycledLuchadorEnergyRestore() {
-		return recycledLuchadorEnergyRestore;
-	}
+    public int getRestoreEnergyperSecond() {
+        return restoreEnergyperSecond;
+    }
 
-	public void setRecycledLuchadorEnergyRestore(int recycledLuchadorEnergyRestore) {
-		this.recycledLuchadorEnergyRestore = recycledLuchadorEnergyRestore;
-	}
+    public void setRestoreEnergyperSecond(int restoreEnergyperSecond) {
+        this.restoreEnergyperSecond = restoreEnergyperSecond;
+    }
 
-	public int getIncreaseSpeedEnergyCost() {
-		return increaseSpeedEnergyCost;
-	}
+    public int getRecycledLuchadorEnergyRestore() {
+        return recycledLuchadorEnergyRestore;
+    }
 
-	public void setIncreaseSpeedEnergyCost(int increaseSpeedEnergyCost) {
-		this.increaseSpeedEnergyCost = increaseSpeedEnergyCost;
-	}
+    public void setRecycledLuchadorEnergyRestore(int recycledLuchadorEnergyRestore) {
+        this.recycledLuchadorEnergyRestore = recycledLuchadorEnergyRestore;
+    }
 
-	public int getIncreaseSpeedPercentage() {
-		return increaseSpeedPercentage;
-	}
+    public int getIncreaseSpeedEnergyCost() {
+        return increaseSpeedEnergyCost;
+    }
 
-	public void setIncreaseSpeedPercentage(int increaseSpeedPercentage) {
-		this.increaseSpeedPercentage = increaseSpeedPercentage;
-	}
+    public void setIncreaseSpeedEnergyCost(int increaseSpeedEnergyCost) {
+        this.increaseSpeedEnergyCost = increaseSpeedEnergyCost;
+    }
 
-	public int getFireEnergyCost() {
-		return fireEnergyCost;
-	}
+    public int getIncreaseSpeedPercentage() {
+        return increaseSpeedPercentage;
+    }
 
-	public void setFireEnergyCost(int fireEnergyCost) {
-		this.fireEnergyCost = fireEnergyCost;
-	}
+    public void setIncreaseSpeedPercentage(int increaseSpeedPercentage) {
+        this.increaseSpeedPercentage = increaseSpeedPercentage;
+    }
 
-	public int getMinFireAmount() {
-		return minFireAmount;
-	}
+    public int getFireEnergyCost() {
+        return fireEnergyCost;
+    }
 
-	public void setMinFireAmount(int minFireAmount) {
-		this.minFireAmount = minFireAmount;
-	}
+    public void setFireEnergyCost(int fireEnergyCost) {
+        this.fireEnergyCost = fireEnergyCost;
+    }
 
-	public int getMaxFireAmount() {
-		return maxFireAmount;
-	}
+    public int getMinFireAmount() {
+        return minFireAmount;
+    }
 
-	public void setMaxFireAmount(int maxFireAmount) {
-		this.maxFireAmount = maxFireAmount;
-	}
+    public void setMinFireAmount(int minFireAmount) {
+        this.minFireAmount = minFireAmount;
+    }
 
+    public int getMaxFireAmount() {
+        return maxFireAmount;
+    }
+
+    public void setMaxFireAmount(int maxFireAmount) {
+        this.maxFireAmount = maxFireAmount;
+    }
+
+    @Override
+    public String toString() {
+        return "GameComponent{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", calculateRanking='" + calculateRanking + '\'' +
+                ", codes=" + codes +
+                ", radarAngle=" + radarAngle +
+                ", radarRadius=" + radarRadius +
+                ", punchAngle=" + punchAngle +
+                ", life=" + life +
+                ", energy=" + energy +
+                ", punchDamage=" + punchDamage +
+                ", punchCoolDown=" + punchCoolDown +
+                ", moveSpeed=" + moveSpeed +
+                ", turnSpeed=" + turnSpeed +
+                ", turnGunSpeed=" + turnGunSpeed +
+                ", respawnCooldown=" + respawnCooldown +
+                ", maxFireCooldown=" + maxFireCooldown +
+                ", minFireDamage=" + minFireDamage +
+                ", maxFireDamage=" + maxFireDamage +
+                ", minFireAmount=" + minFireAmount +
+                ", maxFireAmount=" + maxFireAmount +
+                ", restoreEnergyperSecond=" + restoreEnergyperSecond +
+                ", recycledLuchadorEnergyRestore=" + recycledLuchadorEnergyRestore +
+                ", increaseSpeedEnergyCost=" + increaseSpeedEnergyCost +
+                ", increaseSpeedPercentage=" + increaseSpeedPercentage +
+                ", fireEnergyCost=" + fireEnergyCost +
+                '}';
+    }
 }

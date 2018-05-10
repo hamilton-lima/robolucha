@@ -6,30 +6,39 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.subjects.BehaviorSubject;
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPubSub;
 
-public class RemoteQueue {
+public class RemoteQueue implements AutoCloseable {
 
-    Jedis redis;
+    JedisPool subscriberPool;
+    JedisPool publisherPool;
+
     private Gson gson;
 
     public RemoteQueue(Config config) {
-        GenericObjectPoolConfig redisConfig = new GenericObjectPoolConfig();
-        JedisPool redisPool = new JedisPool(redisConfig, config.getRedisHost());
-        this.redis = redisPool.getResource();
+        subscriberPool = new JedisPool(config.getRedisHost(), config.getRedisPort());
+        publisherPool = new JedisPool(config.getRedisHost(), config.getRedisPort());
 
         this.gson = new Gson();
+    }
+
+    @Override
+    public void close() {
+        subscriberPool.close();
+        publisherPool.close();
     }
 
     public Observable<Long> publish(Object subjectToPublish) {
         String channel = getChannelName(subjectToPublish);
         String data = getData(subjectToPublish);
-        this.redis.publish(channel, data);
 
-        return Observable.just(this.redis.publish(channel, data));
+        Jedis publisher = publisherPool.getResource();
+        Observable result = Observable.just(publisher.publish(channel, data));
+        publisher.close();
+
+        return result;
     }
 
     private String getData(Object subjectToPublish) {
@@ -52,44 +61,52 @@ public class RemoteQueue {
         Thread subscriber = new Thread(new Runnable() {
             public void run() {
 
-                redis.subscribe(new JedisPubSub() {
-                    @Override
+                Jedis subscriber = subscriberPool.getResource();
+
+                subscriber.subscribe(new JedisPubSub() {
+
                     public void onSubscribe(String channel, int subscribedChannels) {
                         super.onSubscribe(channel, subscribedChannels);
                     }
 
                     public void onMessage(String channel, String message) {
-                        T data = gson.fromJson( message, clazzToSubscribe);
-                        result.onNext( data );
+                        T data = gson.fromJson(message, clazzToSubscribe);
+                        result.onNext(data);
                     }
 
                 }, channel);
+
+                subscriber.close();
             }
         });
 
-        result.subscribe(new Observer<T>() {
-            @Override
-            public void onSubscribe(Disposable disposable) {
-
-            }
-
-            @Override
-            public void onNext(T t) {
-
-            }
-
-            @Override
-            public void onError(Throwable throwable) {
-
-            }
-
-            @Override
-            public void onComplete() {
-                subscriber.interrupt();
-            }
-        });
-
+        result.subscribe(new ThreadKiller<>(subscriber));
         subscriber.start();
+
         return result;
+    }
+
+
+    private static class ThreadKiller<T> implements Observer<T> {
+
+        private final Thread thread;
+
+        ThreadKiller(Thread thread) {
+            this.thread = thread;
+        }
+
+        public void onComplete() {
+            thread.interrupt();
+        }
+
+        public void onSubscribe(Disposable disposable) {
+        }
+
+        public void onNext(T t) {
+        }
+
+        public void onError(Throwable throwable) {
+        }
+
     }
 }

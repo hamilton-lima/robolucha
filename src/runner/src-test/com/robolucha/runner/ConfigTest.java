@@ -16,19 +16,26 @@ public class ConfigTest {
     }
 
     @Test
-    public void isValidHost() {
+    public void isValidString() {
         Config c = Config.getInstance();
-        assertTrue(c.isValidHost("localhost"));
-        assertTrue(c.isValidHost("a"));
-        assertFalse(c.isValidHost(" "));
-        assertFalse(c.isValidHost("  "));
-        assertFalse(c.isValidHost(null));
+        assertTrue(c.isValidString("localhost"));
+        assertTrue(c.isValidString("a"));
+        assertFalse(c.isValidString(" "));
+        assertFalse(c.isValidString("  "));
+        assertFalse(c.isValidString(null));
     }
 
     @Test
     public void getInstance() {
         Config c = Config.getInstance();
         assertTrue(c != null);
+    }
+
+    @Test
+    public void defaultValues(){
+        Config c = Config.getInstance();
+        assertEquals(Config.DEFAULT_REDIS_HOST, c.getRedisHost());
+        assertEquals(Config.DEFAULT_REDIS_PORT, c.getRedisPort());
     }
 
     @Test

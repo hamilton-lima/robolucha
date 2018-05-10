@@ -13,7 +13,10 @@ public class Luchador extends GameComponent {
 
 	@Override
 	public String toString() {
-		return "Luchador [coach=" + coach + "]";
+		return "Luchador{" +
+				super.toString() +
+				"coach=" + coach +
+				'}';
 	}
 
 	public LuchadorCoach getCoach() {

@@ -1,5 +1,13 @@
 #Todo
 
+* unit test RemoteQueue using redis docker 
+    * wrap command line to start and stop in a unit test class 
+
+```
+docker run --name test-redis -it --rm -p 6379:6379 redis 
+docker stop test-redis
+```
+
 * Add RemoteQueue
     * Generate queue names based on the class that is 
     subscribed
