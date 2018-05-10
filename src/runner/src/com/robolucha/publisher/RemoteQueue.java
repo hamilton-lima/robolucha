@@ -6,15 +6,17 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.subjects.BehaviorSubject;
+import org.apache.log4j.Logger;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPubSub;
 
 public class RemoteQueue implements AutoCloseable {
 
-    JedisPool subscriberPool;
-    JedisPool publisherPool;
+    private Logger logger = Logger.getLogger(RemoteQueue.class);
 
+    private JedisPool subscriberPool;
+    private JedisPool publisherPool;
     private Gson gson;
 
     public RemoteQueue(Config config) {
@@ -57,6 +59,7 @@ public class RemoteQueue implements AutoCloseable {
 
         BehaviorSubject<T> result = BehaviorSubject.create();
         String channel = getChannelName(clazzToSubscribe);
+        logger.debug("subscribing to " + channel );
 
         Thread subscriber = new Thread(new Runnable() {
             public void run() {
@@ -106,6 +109,7 @@ public class RemoteQueue implements AutoCloseable {
         }
 
         public void onError(Throwable throwable) {
+            thread.interrupt();
         }
 
     }
