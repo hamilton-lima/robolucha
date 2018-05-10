@@ -22,14 +22,10 @@ public class RemoteQueueTest {
 
     @Before
     public void setUp() throws Exception {
+        docker.stop();
         docker.start();
     }
-
-    @After
-    public void tearDown() throws Exception {
-        docker.stop();
-    }
-
+    
     @Test
     public void publishAndSubscribe() throws Exception {
 
