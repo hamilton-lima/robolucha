@@ -64,9 +64,12 @@ public class Server {
 
 		//add NPC to the match
 		runner.addListener(new OnInitAddNPC());
-		
+
 		// listener to record match events
 		runner.addListener(new MatchEventPublisher(runner.getMatch()));
+
+		// listener to update scores
+		runner.addListener(new ScoreUpdater(runner.getMatch()));
 
 		// listener to the match state
 		runner.setPublisher(MatchStatePublisher.getInstance());
