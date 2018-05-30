@@ -9,6 +9,7 @@
         
         - (!) validate how to check for errors 
         on match.getMatchStart().subscribe() 
+        use CalcTest as reference.
         
     - Send events to Redis using RemoteQueue
     

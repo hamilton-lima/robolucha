@@ -19,7 +19,6 @@ import com.robolucha.publisher.MatchStatePublisher;
 import com.robolucha.publisher.ScoreUpdater;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.LutchadorRunnerCreator;
-import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
 import org.apache.log4j.Logger;
 
