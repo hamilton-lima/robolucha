@@ -6,6 +6,7 @@ import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
+import io.reactivex.functions.Consumer;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -223,49 +224,50 @@ public class MemoryLeakChecks {
 		match.add(a);
 		match.add(b);
 
-		while (match.getRunners().size() < 2) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
+		match.getMatchStart().subscribe(new Consumer<Long>() {
+			public void accept(Long aLong) throws Exception {
+				LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+				LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-		LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+				runnerA.getState().setX(100);
+				runnerA.getState().setY(100);
+				runnerA.getState().setGunAngle(180);
 
-		runnerA.getState().setX(100);
-		runnerA.getState().setY(100);
-		runnerA.getState().setGunAngle(180);
+				runnerB.getState().setX(100);
+				runnerB.getState().setY(150);
+				runnerB.getState().setGunAngle(90);
 
-		runnerB.getState().setX(100);
-		runnerB.getState().setY(150);
-		runnerB.getState().setGunAngle(90);
+				logger.debug(String.format("=== memoria livre: [%s]", Runtime.getRuntime().freeMemory()));
+				logger.debug(String.format("/// threads : [%s]", ManagementFactory.getThreadMXBean().getThreadCount()));
 
-		logger.debug(String.format("=== memoria livre: [%s]", Runtime.getRuntime().freeMemory()));
-		logger.debug(String.format("/// threads : [%s]", ManagementFactory.getThreadMXBean().getThreadCount()));
+				double gunAngleA1 = runnerA.getState().getPublicState().gunAngle;
+				double gunAngleB1 = runnerB.getState().getPublicState().gunAngle;
 
-		double gunAngleA1 = runnerA.getState().getPublicState().gunAngle;
-		double gunAngleB1 = runnerB.getState().getPublicState().gunAngle;
+				logger.debug("--- A : " + runnerA.getState().getPublicState());
+				logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-		logger.debug("--- A : " + runnerA.getState().getPublicState());
-		logger.debug("--- B : " + runnerB.getState().getPublicState());
+				// start the match
+				Thread t = new Thread(match);
+				t.start();
 
-		// start the match
-		Thread t = new Thread(match);
-		t.start();
+				logger.debug("=== RUN THE MATCH FOR 15 seconds ");
+				logger.debug("=== RUN THE MATCH FOR 15 seconds ");
+				logger.debug("=== RUN THE MATCH FOR 15 seconds ");
 
-		logger.debug("=== RUN THE MATCH FOR 15 seconds ");
-		logger.debug("=== RUN THE MATCH FOR 15 seconds ");
-		logger.debug("=== RUN THE MATCH FOR 15 seconds ");
+				// stop the match
+				Thread.sleep(15000);
+				match.kill();
+				logger.debug(String.format("=== memoria livre: [%s]", Runtime.getRuntime().freeMemory()));
+				logger.debug(String.format("/// threads : [%s]", ManagementFactory.getThreadMXBean().getThreadCount()));
 
-		// stop the match
-		Thread.sleep(15000);
-		match.kill();
-		logger.debug(String.format("=== memoria livre: [%s]", Runtime.getRuntime().freeMemory()));
-		logger.debug(String.format("/// threads : [%s]", ManagementFactory.getThreadMXBean().getThreadCount()));
+				Thread.sleep(500);
 
-		Thread.sleep(500);
+				logger.debug(String.format("=== memoria livre: [%s]", Runtime.getRuntime().freeMemory()));
+				logger.debug(String.format("/// threads : [%s]", ManagementFactory.getThreadMXBean().getThreadCount()));
 
-		logger.debug(String.format("=== memoria livre: [%s]", Runtime.getRuntime().freeMemory()));
-		logger.debug(String.format("/// threads : [%s]", ManagementFactory.getThreadMXBean().getThreadCount()));
+			}
+		});
 
 	}
+
 }
