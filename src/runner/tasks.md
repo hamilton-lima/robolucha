@@ -1,8 +1,13 @@
 #Todo
 
+
 * MatchEventPublisher
     - Change ScoreUpdater to change the score in the LuchadorRunner
       or keep the score available to the statepublisher
+        - MatchRunner gameDefinition.getMinParticipants()
+        trigger event using observable to facilitate the test
+        of scoreupdater and others that check if the matchstarted 
+        
     - Send events to Redis using RemoteQueue
     
 * MatchStatePublisher
@@ -17,6 +22,8 @@ match updates
 * Update unit tests to use lua instead of javascript 
 
 * Rewrite API documentation with lua examples
+
+* Redesign listeners to use Promises and Observables
 
 # Done 
 

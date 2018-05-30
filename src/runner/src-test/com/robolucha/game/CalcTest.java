@@ -6,6 +6,7 @@ import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.shared.Calc;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
+import io.reactivex.functions.Consumer;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
@@ -43,30 +44,31 @@ public class CalcTest {
 		match.add(a);
 		match.add(b);
 
-		while (match.getRunners().size() < 2) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
+        match.getMatchStart().subscribe(new Consumer<Long>() {
+            public void accept(Long aLong) throws Exception {
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-		runnerA.getState().setX(100);
-		runnerA.getState().setY(100);
+                LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+                runnerA.getState().setX(100);
+                runnerA.getState().setY(100);
 
-		double newX = runnerA.getState().getX() + (2 * runnerA.getSize()) + 1;
+                double newX = runnerA.getState().getX() + (2 * runnerA.getSize()) + 1;
 
-		LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
-		runnerB.getState().setX(newX);
-		runnerB.getState().setY(100);
-		runnerB.getState().setAngle(180);
+                LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+                runnerB.getState().setX(newX);
+                runnerB.getState().setY(100);
+                runnerB.getState().setAngle(180);
 
-		logger.debug("--- A : " + runnerA.getState());
-		logger.debug("--- B : " + runnerB.getState());
+                logger.debug("--- A : " + runnerA.getState());
+                logger.debug("--- B : " + runnerB.getState());
 
-		// colide
-		assertTrue(Calc.intersectRobot(newX, 100, runnerA, runnerB));
+                // colide
+                assertTrue(Calc.intersectRobot(newX, 100, runnerA, runnerB));
 
-		// menos 1 nao colide
-		assertFalse(Calc.intersectRobot(newX - runnerA.getSize() -1, 100, runnerA, runnerB));
-	}
+                // menos 1 nao colide
+                assertFalse(Calc.intersectRobot(newX - runnerA.getSize() -1, 100, runnerA, runnerB));
+            }
+        });
+        
+    }
 
 }
