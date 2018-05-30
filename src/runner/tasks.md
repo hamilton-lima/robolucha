@@ -1,12 +1,14 @@
 #Todo
 
-
 * MatchEventPublisher
     - Change ScoreUpdater to change the score in the LuchadorRunner
       or keep the score available to the statepublisher
         - MatchRunner gameDefinition.getMinParticipants()
         trigger event using observable to facilitate the test
-        of scoreupdater and others that check if the matchstarted 
+        of scoreupdater and others that check if the matchstarted
+        
+        - (!) validate how to check for errors 
+        on match.getMatchStart().subscribe() 
         
     - Send events to Redis using RemoteQueue
     

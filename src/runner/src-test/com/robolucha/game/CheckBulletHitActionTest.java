@@ -8,6 +8,7 @@ import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
+import io.reactivex.functions.Consumer;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,43 +50,46 @@ public class CheckBulletHitActionTest {
 			}
 		});
 
-		while (match.getRunners().size() < 2) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-		LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+		match.getMatchStart().subscribe(new Consumer<Long>() {
+			public void accept(Long aLong) throws Exception {
 
-		runnerA.getState().setX(100);
-		runnerA.getState().setY(100);
-		runnerA.getState().setAngle(90);
-		runnerA.getState().setGunAngle(90);
+				LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+				LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-		runnerB.getState().setX(100);
-		runnerB.getState().setY(150);
-		runnerB.getState().setGunAngle(-90);
+				runnerA.getState().setX(100);
+				runnerA.getState().setY(100);
+				runnerA.getState().setAngle(90);
+				runnerA.getState().setGunAngle(90);
 
-		logger.debug("--- A : " + runnerA.getState().getPublicState());
-		logger.debug("--- B : " + runnerB.getState().getPublicState());
+				runnerB.getState().setX(100);
+				runnerB.getState().setY(150);
+				runnerB.getState().setGunAngle(-90);
 
-		// start the match
-		Thread t = new Thread(match);
-		t.start();
+				logger.debug("--- A : " + runnerA.getState().getPublicState());
+				logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-		// stop the match
-		Thread.sleep(500);
-		match.kill();
-		Thread.sleep(500);
+				// start the match
+				Thread t = new Thread(match);
+				t.start();
 
-		logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-		logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+				// stop the match
+				Thread.sleep(500);
+				match.kill();
+				Thread.sleep(500);
 
-		assertEquals("verifica se lutchador abaixo do outro recebeu o tiro",
-				19.0, runnerB.getState().getLife(), 0.001);
+				logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+				logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-		assertEquals("verifica se lutchador acima do outro recebeu o tiro", 10.0,
-				runnerA.getState().getLife(), 0.001);
+				assertEquals("verifica se lutchador abaixo do outro recebeu o tiro",
+						19.0, runnerB.getState().getLife(), 0.001);
+
+				assertEquals("verifica se lutchador acima do outro recebeu o tiro", 10.0,
+						runnerA.getState().getLife(), 0.001);
+			}
+		});
+
+
 
 	}
 }
