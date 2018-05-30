@@ -38,41 +38,40 @@ public class BugFire1Fire10Test {
 
         match.add(MockLuchador.build(2L, MethodNames.REPEAT, "turn(20);"));
 
-        while (match.getRunners().size() < 2) {
-            logger.debug("esperando lutchadores se preparem para o combate");
-            Thread.sleep(200);
-        }
+        match.getMatchStart()
+                .subscribe(onStart -> {
+                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+                    runnerA.getState().setX(100);
+                    runnerA.getState().setY(100);
 
-        runnerA.getState().setX(100);
-        runnerA.getState().setY(100);
+                    runnerB.getState().setX(200);
+                    runnerB.getState().setY(100);
 
-        runnerB.getState().setX(200);
-        runnerB.getState().setY(100);
+                    logger.debug("--- A : " + runnerA.getState().getPublicState());
+                    logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-        logger.debug("--- A : " + runnerA.getState().getPublicState());
-        logger.debug("--- B : " + runnerB.getState().getPublicState());
+                    // start the match
+                    Thread t = new Thread(match);
+                    t.start();
 
-        // start the match
-        Thread t = new Thread(match);
-        t.start();
+                    // stop the match
+                    Thread.sleep(3500);
+                    match.kill();
+                    Thread.sleep(500);
 
-        // stop the match
-        Thread.sleep(3500);
-        match.kill();
-        Thread.sleep(500);
+                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+                    logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-        logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+                    String foundIt = runnerA.getString("foundIt");
+                    logger.debug("*** foundIt = " + foundIt);
 
-        String foundIt = runnerA.getString("foundIt");
-        logger.debug("*** foundIt = " + foundIt);
+                    assertTrue("found foi executado ? ", foundIt.equals("1.0"));
+                    assertTrue("B recebeu o disparo de 10 ?", runnerB.getState()
+                            .getPublicState().life < 10);
 
-        assertTrue("found foi executado ? ", foundIt.equals("1.0"));
-        assertTrue("B recebeu o disparo de 10 ?", runnerB.getState()
-                .getPublicState().life < 10);
+                });
 
     }
 

@@ -40,38 +40,38 @@ public class CheckMoveGrudadoNaParedeTest {
 
         match.add(a);
 
-        while (match.getRunners().size() < 1) {
-            logger.debug("esperando lutchadores se preparem para o combate");
-            Thread.sleep(200);
-        }
+        match.getMatchStart()
+                .subscribe(onStart -> {
+                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+                    // quase grudado no limite superior do mapa
+                    runnerA.getState().setX((runnerA.getSize() / 2) + 2);
+                    runnerA.getState().setY((runnerA.getSize() / 2) + 2);
 
-        // quase grudado no limite superior do mapa
-        runnerA.getState().setX((runnerA.getSize() / 2) + 2);
-        runnerA.getState().setY((runnerA.getSize() / 2) + 2);
+                    logger.debug("--- A : " + runnerA.getState().getPublicState());
+                    double startAngle = runnerA.getState().getPublicState().angle;
 
-        logger.debug("--- A : " + runnerA.getState().getPublicState());
-        double startAngle = runnerA.getState().getPublicState().angle;
+                    // start the match
+                    Thread t = new Thread(match);
+                    t.start();
 
-        // start the match
-        Thread t = new Thread(match);
-        t.start();
+                    // stop the match
+                    Thread.sleep(2500);
+                    match.kill();
+                    Thread.sleep(1500);
 
-        // stop the match
-        Thread.sleep(2500);
-        match.kill();
-        Thread.sleep(1500);
+                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
 
-        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+                    double finalAngle = runnerA.getState().getPublicState().angle;
 
-        double finalAngle = runnerA.getState().getPublicState().angle;
+                    logger.debug(String.format("*** resultados : a[%s, %s]", startAngle,
+                            finalAngle));
 
-        logger.debug(String.format("*** resultados : a[%s, %s]", startAngle,
-                finalAngle));
+                    assertTrue("verifica se lutchador girou ao colidir com parede",
+                            finalAngle > startAngle);
 
-        assertTrue("verifica se lutchador girou ao colidir com parede",
-                finalAngle > startAngle);
+
+                });
 
     }
 }

@@ -33,36 +33,35 @@ public class LuchadorConstantsTest {
 
         match.add(a);
 
-        while (match.getRunners().size() < 1) {
-            logger.debug("esperando lutchadores se preparem para o combate");
-            Thread.sleep(200);
-        }
+        match.getMatchStart()
+                .subscribe(onStart -> {
+                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+                    logger.debug("--- A : " + runnerA.getState().getPublicState());
 
-        logger.debug("--- A : " + runnerA.getState().getPublicState());
+                    // start the match
+                    Thread t = new Thread(match);
+                    t.start();
 
-        // start the match
-        Thread t = new Thread(match);
-        t.start();
-
-        // stop the match
-        Thread.sleep(500);
-        match.kill();
-        Thread.sleep(500);
+                    // stop the match
+                    Thread.sleep(500);
+                    match.kill();
+                    Thread.sleep(500);
 
 
-        logger.debug("--- arena width = " + runnerA.getString("aw"));
+                    logger.debug("--- arena width = " + runnerA.getString("aw"));
 
-        assertEquals(match.getGameDefinition().getArenaWidth(),
-                runnerA.getString("aw"));
-        assertEquals(match.getGameDefinition().getArenaHeight(),
-                runnerA.getString("ah"));
+                    assertEquals(match.getGameDefinition().getArenaWidth(),
+                            runnerA.getString("aw"));
+                    assertEquals(match.getGameDefinition().getArenaHeight(),
+                            runnerA.getString("ah"));
 
-        assertEquals(Integer.toString(runnerA.getSize()),
-                runnerA.getString("lw"));
-        assertEquals(Integer.toString(runnerA.getSize()),
-                runnerA.getString("lh"));
+                    assertEquals(Integer.toString(runnerA.getSize()),
+                            runnerA.getString("lw"));
+                    assertEquals(Integer.toString(runnerA.getSize()),
+                            runnerA.getString("lh"));
+
+                });
 
     }
 }

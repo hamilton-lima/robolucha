@@ -30,30 +30,28 @@ public class RespawnProcessorTest {
 		match.add(a);
 		match.add(b);
 
-		while (match.getRunners().size() < 2) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
+		match.getMatchStart()
+				.subscribe(onStart -> {
+					LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+					RespawnProcessor p = new RespawnProcessor(match);
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-		RespawnProcessor p = new RespawnProcessor(match);
+					int size = runnerA.getSize();
+					int w = match.getGameDefinition().getArenaWidth();
+					int h = match.getGameDefinition().getArenaHeight();
 
-		int size = runnerA.getSize();
-		int w = match.getGameDefinition().getArenaWidth();
-		int h = match.getGameDefinition().getArenaHeight();
+					int border = size / 3;
 
-		int border = size / 3;
+					int lines = ((w - (2 * border)) / size) - 1;
+					int columns = ((h - (2 * border)) / size) - 1;
 
-		int lines = ((w - (2 * border)) / size) - 1;
-		int columns = ((h - (2 * border)) / size) - 1;
+					logger.debug("lines=" + lines);
+					logger.debug("columns=" + columns);
+					logger.debug("locations.length=" + p.getLocations().length);
+					logger.debug("tamanho esperado=" + (lines * columns));
 
-		logger.debug("lines=" + lines);
-		logger.debug("columns=" + columns);
-		logger.debug("locations.length=" + p.getLocations().length);
-		logger.debug("tamanho esperado=" + (lines * columns));
+					assertTrue(p.getLocations().length == (lines * columns));
 
-		assertTrue(p.getLocations().length == (lines * columns));
-
+				});
 	}
 
 }

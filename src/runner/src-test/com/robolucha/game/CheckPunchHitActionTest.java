@@ -46,48 +46,46 @@ public class CheckPunchHitActionTest {
             }
         });
 
-        while (match.getRunners().size() < 2) {
-            logger.debug("esperando lutchadores se preparem para o combate");
-            Thread.sleep(200);
-        }
+        match.getMatchStart()
+                .subscribe(onStart -> {
+                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+                    runnerA.getState().setX(100);
+                    runnerA.getState().setY(100);
+                    runnerA.getState().setAngle(90);
 
-        runnerA.getState().setX(100);
-        runnerA.getState().setY(100);
-        runnerA.getState().setAngle(90);
+                    runnerB.getState().setX(100);
 
-        runnerB.getState().setX(100);
+                    // coloca logo abaixo a distancia de meio corpo
+                    // suficicente para dar angulo para o soco !!
+                    int distance = (int) (runnerA.getSize() * 1.5);
+                    distance--;
 
-        // coloca logo abaixo a distancia de meio corpo
-        // suficicente para dar angulo para o soco !!
-        int distance = (int) (runnerA.getSize() * 1.5);
-        distance--;
+                    runnerB.getState().setY(100 + distance);
+                    runnerB.getState().setAngle(-90);
 
-        runnerB.getState().setY(100 + distance);
-        runnerB.getState().setAngle(-90);
+                    logger.debug("--- A : " + runnerA.getState().getPublicState());
+                    logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-        logger.debug("--- A : " + runnerA.getState().getPublicState());
-        logger.debug("--- B : " + runnerB.getState().getPublicState());
+                    // start the match
+                    Thread t = new Thread(match);
+                    t.start();
 
-        // start the match
-        Thread t = new Thread(match);
-        t.start();
+                    // stop the match
+                    Thread.sleep(500);
+                    match.kill();
+                    Thread.sleep(500);
 
-        // stop the match
-        Thread.sleep(500);
-        match.kill();
-        Thread.sleep(500);
+                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+                    logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-        logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+                    assertEquals("verifica se lutchador abaixo do outro recebeu o soco",
+                            18.0, runnerB.getState().getLife(), 0.001);
 
-        assertEquals("verifica se lutchador abaixo do outro recebeu o soco",
-                18.0, runnerB.getState().getLife(), 0.001);
+                    assertEquals("verifica se lutchador acima do outro recebeu o soco", 18.,
+                            runnerA.getState().getLife(), 0.001);
 
-        assertEquals("verifica se lutchador acima do outro recebeu o soco", 18.,
-                runnerA.getState().getLife(), 0.001);
-
+                });
     }
 }

@@ -35,48 +35,49 @@ public class CheckTurnGunActionTest {
 		match.add(a);
 		match.add(b);
 
-		while (match.getRunners().size() < 2) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
+		match.getMatchStart()
+				.subscribe(onStart -> {
+					LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+					LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-		LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+					runnerA.getState().setX(100);
+					runnerA.getState().setY(100);
+					runnerA.getState().setGunAngle(180);
 
-		runnerA.getState().setX(100);
-		runnerA.getState().setY(100);
-		runnerA.getState().setGunAngle(180);
+					runnerB.getState().setX(100);
+					runnerB.getState().setY(150);
+					runnerB.getState().setGunAngle(90);
 
-		runnerB.getState().setX(100);
-		runnerB.getState().setY(150);
-		runnerB.getState().setGunAngle(90);
+					double gunAngleA1 = runnerA.getState().getPublicState().gunAngle;
+					double gunAngleB1 = runnerB.getState().getPublicState().gunAngle;
 
-		double gunAngleA1 = runnerA.getState().getPublicState().gunAngle;
-		double gunAngleB1 = runnerB.getState().getPublicState().gunAngle;
+					logger.debug("--- A : " + runnerA.getState().getPublicState());
+					logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-		logger.debug("--- A : " + runnerA.getState().getPublicState());
-		logger.debug("--- B : " + runnerB.getState().getPublicState());
+					// start the match
+					Thread t = new Thread(match);
+					t.start();
 
-		// start the match
-		Thread t = new Thread(match);
-		t.start();
+					// stop the match
+					Thread.sleep(500);
+					match.kill();
+					Thread.sleep(500);
 
-		// stop the match
-		Thread.sleep(500);
-		match.kill();
-		Thread.sleep(500);
+					logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+					logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-		logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-		logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+					double gunAngleA2 = runnerA.getState().getPublicState().gunAngle;
+					double gunAngleB2 = runnerB.getState().getPublicState().gunAngle;
 
-		double gunAngleA2 = runnerA.getState().getPublicState().gunAngle;
-		double gunAngleB2 = runnerB.getState().getPublicState().gunAngle;
+					logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
+							gunAngleA1, gunAngleA2, gunAngleB1, gunAngleB2));
 
-		logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
-				gunAngleA1, gunAngleA2, gunAngleB1, gunAngleB2));
+					assertTrue("verifica se turnGun funcionou para A", gunAngleA1 < gunAngleA2);
+					assertTrue("verifica se turnGun funcionou para B", gunAngleB1 > gunAngleB2);
 
-		assertTrue("verifica se turnGun funcionou para A", gunAngleA1 < gunAngleA2);
-		assertTrue("verifica se turnGun funcionou para B", gunAngleB1 > gunAngleB2);
+				});
+
+
 
 	}
 }

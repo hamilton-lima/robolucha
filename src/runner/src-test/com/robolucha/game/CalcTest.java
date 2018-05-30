@@ -46,29 +46,26 @@ public class CalcTest {
         match.getMatchStart()
                 .subscribe(onStart -> {
 
-                            LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-                            runnerA.getState().setX(100);
-                            runnerA.getState().setY(100);
+                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+                    runnerA.getState().setX(100);
+                    runnerA.getState().setY(100);
 
-                            double newX = runnerA.getState().getX() + (2 * runnerA.getSize()) + 1;
+                    double newX = runnerA.getState().getX() + (2 * runnerA.getSize()) + 1;
 
-                            LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
-                            runnerB.getState().setX(newX);
-                            runnerB.getState().setY(100);
-                            runnerB.getState().setAngle(180);
+                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+                    runnerB.getState().setX(newX);
+                    runnerB.getState().setY(100);
+                    runnerB.getState().setAngle(180);
 
-                            logger.debug("--- A : " + runnerA.getState());
-                            logger.debug("--- B : " + runnerB.getState());
+                    logger.debug("--- A : " + runnerA.getState());
+                    logger.debug("--- B : " + runnerB.getState());
 
-                            // colide
-                            assertTrue(Calc.intersectRobot(newX, 100, runnerA, runnerB));
+                    // colide
+                    assertTrue(Calc.intersectRobot(newX, 100, runnerA, runnerB));
 
-                            // menos 1 nao colide
-                            assertFalse(Calc.intersectRobot(newX - runnerA.getSize() - 1, 100, runnerA, runnerB));
-                        },
-                        throwable -> {
-                            fail(throwable.getMessage());
-                        });
+                    // menos 1 nao colide
+                    assertFalse(Calc.intersectRobot(newX - runnerA.getSize() - 1, 100, runnerA, runnerB));
+                });
 
     }
 

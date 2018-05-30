@@ -36,60 +36,60 @@ public class CheckTurnActionTest {
 		match.add(a);
 		match.add(b);
 
-		while (match.getRunners().size() < 2) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
+		match.getMatchStart()
+				.subscribe(onStart -> {
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-		LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+					LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+					LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-		double startA = 20;
-		double startB = 350;
+					double startA = 20;
+					double startB = 350;
 
-		runnerA.getState().setX(100);
-		runnerA.getState().setY(100);
-		runnerA.getState().setAngle(startA);
+					runnerA.getState().setX(100);
+					runnerA.getState().setY(100);
+					runnerA.getState().setAngle(startA);
 
-		runnerB.getState().setX(100);
-		runnerB.getState().setY(250);
-		runnerB.getState().setAngle(startB);
+					runnerB.getState().setX(100);
+					runnerB.getState().setY(250);
+					runnerB.getState().setAngle(startB);
 
-		double angleA1 = runnerA.getState().getPublicState().angle;
-		double angleB1 = runnerB.getState().getPublicState().angle;
+					double angleA1 = runnerA.getState().getPublicState().angle;
+					double angleB1 = runnerB.getState().getPublicState().angle;
 
-		logger.debug("--- A : " + runnerA.getState().getPublicState());
-		logger.debug("--- B : " + runnerB.getState().getPublicState());
+					logger.debug("--- A : " + runnerA.getState().getPublicState());
+					logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-		// start the match
-		Thread t = new Thread(match);
-		t.start();
+					// start the match
+					Thread t = new Thread(match);
+					t.start();
 
-		// stop the match
-		Thread.sleep(1500);
-		match.kill();
-		Thread.sleep(1500);
+					// stop the match
+					Thread.sleep(1500);
+					match.kill();
+					Thread.sleep(1500);
 
-		logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-		logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+					logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+					logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-		double angleA2 = runnerA.getState().getPublicState().angle;
-		double angleB2 = runnerB.getState().getPublicState().angle;
+					double angleA2 = runnerA.getState().getPublicState().angle;
+					double angleB2 = runnerB.getState().getPublicState().angle;
 
-		logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
-				angleA1, angleA2, angleB1, angleB2));
+					logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
+							angleA1, angleA2, angleB1, angleB2));
 
-		assertTrue("verifica se turn funcionou para A", angleA1 < angleA2);
-		assertTrue("verifica se turn funcionou para B", angleB1 > angleB2);
+					assertTrue("verifica se turn funcionou para A", angleA1 < angleA2);
+					assertTrue("verifica se turn funcionou para B", angleB1 > angleB2);
 
-		double diffA = angleA2 - angleA1;
-		double diffB = angleB2 - angleB1;
+					double diffA = angleA2 - angleA1;
+					double diffB = angleB2 - angleB1;
 
-		logger.debug(String.format("*** resultados dif A: %s, dif B: %s",
-				diffA, diffB));
-		
-		// accept up to 1 degree as difference
-		assertEquals( diffA, diffB *-1, 1.0);
+					logger.debug(String.format("*** resultados dif A: %s, dif B: %s",
+							diffA, diffB));
+
+					// accept up to 1 degree as difference
+					assertEquals( diffA, diffB *-1, 1.0);
+
+				});
 
 	}
 }

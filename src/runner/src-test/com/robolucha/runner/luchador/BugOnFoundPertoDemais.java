@@ -13,125 +13,125 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * onFound não está achando se estiver muito perto?
- * 
- * @author rudnetto
  *
+ * @author rudnetto
  */
 public class BugOnFoundPertoDemais {
 
-	private static Logger logger = Logger
-			.getLogger(BugOnFoundPertoDemais.class);
+    private static Logger logger = Logger
+            .getLogger(BugOnFoundPertoDemais.class);
 
-	@Before
-	public void setUp() throws Exception {
-	}
+    @Before
+    public void setUp() throws Exception {
+    }
 
-	@Test
-	public void testRun() throws Exception {
+    @Test
+    public void testRun() throws Exception {
 
-		MatchRunner match = MockMatchRunner.build();
-		match.getGameDefinition().setMinParticipants(1);
+        MatchRunner match = MockMatchRunner.build();
+        match.getGameDefinition().setMinParticipants(1);
 
-		Luchador a = MockLuchador.build(1L, MethodNames.ON_FOUND,"move(-10);");
-		match.add(a);
+        Luchador a = MockLuchador.build(1L, MethodNames.ON_FOUND, "move(-10);");
+        match.add(a);
 
-		Luchador b = MockLuchador.build(2L);
+        Luchador b = MockLuchador.build(2L);
 
-		while (match.getRunners().size() < 2) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
+        match.getMatchStart()
+                .subscribe(onStart -> {
+                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+                    runnerA.getState().setX(200);
+                    runnerA.getState().setY(100);
+                    runnerA.getState().setAngle(90);
+                    runnerA.getState().setGunAngle(90);
 
-		runnerA.getState().setX(200);
-		runnerA.getState().setY(100);
-		runnerA.getState().setAngle(90);
-		runnerA.getState().setGunAngle(90);
+                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-		LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+                    runnerB.getState().setX(200);
+                    runnerB.getState().setY(299);
+                    runnerB.getState().setAngle(0);
+                    runnerB.getState().setGunAngle(0);
 
-		runnerB.getState().setX(200);
-		runnerB.getState().setY(299);
-		runnerB.getState().setAngle(0);
-		runnerB.getState().setGunAngle(0);
+                    logger.debug("--- A : " + runnerA.getState().getPublicState());
 
-		logger.debug("--- A : " + runnerA.getState().getPublicState());
+                    // start the match
+                    Thread t = new Thread(match);
+                    t.start();
 
-		// start the match
-		Thread t = new Thread(match);
-		t.start();
+                    // stop the match
+                    Thread.sleep(500);
+                    match.kill();
+                    Thread.sleep(500);
 
-		// stop the match
-		Thread.sleep(500);
-		match.kill();
-		Thread.sleep(500);
+                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
 
-		logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+                    assertTrue("verifica se o onFound do luchador A foi bem sucedido",
+                            runnerA.getState().getPublicState().y < 100);
+                });
 
-		assertTrue("verifica se o onFound do luchador A foi bem sucedido",
-				runnerA.getState().getPublicState().y < 100);
-	}
 
-	@Test
-	public void testRun2() throws Exception {
-		testWithPosition(100, 100, 0, 200, 100);
-		testWithPosition(100, 100, 45, 150, 150);
-	}
-	
-	
-	public void testWithPosition(int xa, int ya, int gunAngle, int xb, int yb) throws Exception {
+    }
 
-		logger.debug(String.format("******* testWithposition, A(%s,%s) gunangle=%s -> B(%s,%s)", xa, ya, gunAngle, xb, yb));
+    @Test
+    public void testRun2() throws Exception {
+        testWithPosition(100, 100, 0, 200, 100);
+        testWithPosition(100, 100, 45, 150, 150);
+    }
 
-		MatchRunner match = MockMatchRunner.build();
-		match.getGameDefinition().setMinParticipants(1);
 
-		Luchador a = MockLuchador.build(1L, MethodNames.START, "var found2 = 0;");
+    public void testWithPosition(int xa, int ya, int gunAngle, int xb, int yb) throws Exception {
 
-		Code c = new Code();
-		c.setEvent(MethodNames.ON_FOUND);
-		c.setScript("found2 = 1;");
-		a.getCodes().add( c );
+        logger.debug(String.format("******* testWithposition, A(%s,%s) gunangle=%s -> B(%s,%s)", xa, ya, gunAngle, xb, yb));
 
-		match.add(a);
+        MatchRunner match = MockMatchRunner.build();
+        match.getGameDefinition().setMinParticipants(1);
 
-		Luchador b = MockLuchador.build(2L);
-		match.add(b);
+        Luchador a = MockLuchador.build(1L, MethodNames.START, "var found2 = 0;");
 
-		while (match.getRunners().size() < 2) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
+        Code c = new Code();
+        c.setEvent(MethodNames.ON_FOUND);
+        c.setScript("found2 = 1;");
+        a.getCodes().add(c);
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        match.add(a);
 
-		runnerA.getState().setX(xa);
-		runnerA.getState().setY(ya);
-		runnerA.getState().setGunAngle(gunAngle);
+        Luchador b = MockLuchador.build(2L);
+        match.add(b);
 
-		LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+        match.getMatchStart()
+                .subscribe(onStart -> {
+                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-		runnerB.getState().setX(xb);
-		runnerB.getState().setY(yb);
+                    runnerA.getState().setX(xa);
+                    runnerA.getState().setY(ya);
+                    runnerA.getState().setGunAngle(gunAngle);
 
-		logger.debug("--- A : " + runnerA.getState().getPublicState());
+                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-		// start the match
-		Thread t = new Thread(match);
-		t.start();
+                    runnerB.getState().setX(xb);
+                    runnerB.getState().setY(yb);
 
-		// stop the match
-		Thread.sleep(500);
-		match.kill();
-		Thread.sleep(500);
+                    logger.debug("--- A : " + runnerA.getState().getPublicState());
 
-		logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-		String found2 = runnerA.getString("found2");
-		logger.debug("--- A found2 : " + found2);
+                    // start the match
+                    Thread t = new Thread(match);
+                    t.start();
 
-		assertTrue("verifica se o onFound do luchador A foi bem sucedido",
-				found2.equals("1.0"));
-	}
+                    // stop the match
+                    Thread.sleep(500);
+                    match.kill();
+                    Thread.sleep(500);
+
+                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+                    String found2 = runnerA.getString("found2");
+                    logger.debug("--- A found2 : " + found2);
+
+                    assertTrue("verifica se o onFound do luchador A foi bem sucedido",
+                            found2.equals("1.0"));
+
+                });
+
+
+    }
 
 }

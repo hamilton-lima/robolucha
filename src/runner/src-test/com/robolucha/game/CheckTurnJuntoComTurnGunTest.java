@@ -15,60 +15,60 @@ import static org.junit.Assert.assertTrue;
 
 public class CheckTurnJuntoComTurnGunTest {
 
-	private static Logger logger = Logger
-			.getLogger(CheckTurnJuntoComTurnGunTest.class);
+    private static Logger logger = Logger
+            .getLogger(CheckTurnJuntoComTurnGunTest.class);
 
-	@Before
-	public void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
 
-	}
+    }
 
-	@Test
-	public void testRun() throws Exception {
+    @Test
+    public void testRun() throws Exception {
 
-		MatchRunner match = MockMatchRunner.build();
-		match.getGameDefinition().setMinParticipants(1);
-		Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "move(10);turn(45);turnGun(-45);");
+        MatchRunner match = MockMatchRunner.build();
+        match.getGameDefinition().setMinParticipants(1);
+        Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "move(10);turn(45);turnGun(-45);");
 
-		match.add(a);
+        match.add(a);
 
-		while (match.getRunners().size() < 1) {
-			logger.debug("esperando lutchadores se preparem para o combate");
-			Thread.sleep(200);
-		}
+        match.getMatchStart()
+                .subscribe(onStart -> {
+                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-		LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+                    // quase grudado no limite superior do mapa
+                    runnerA.getState().setX((runnerA.getSize() / 2) + 2);
+                    runnerA.getState().setY((runnerA.getSize() / 2) + 2);
+                    runnerA.getState().setGunAngle(300);
 
-		// quase grudado no limite superior do mapa
-		runnerA.getState().setX((runnerA.getSize() / 2) + 2);
-		runnerA.getState().setY((runnerA.getSize() / 2) + 2);
-		runnerA.getState().setGunAngle(300);
+                    logger.debug("--- A : " + runnerA.getState().getPublicState());
+                    LuchadorPublicState start = (LuchadorPublicState) runnerA.getState().getPublicState();
 
-		logger.debug("--- A : " + runnerA.getState().getPublicState());
-		LuchadorPublicState start = (LuchadorPublicState) runnerA.getState().getPublicState();
+                    // start the match
+                    Thread t = new Thread(match);
+                    t.start();
 
-		// start the match
-		Thread t = new Thread(match);
-		t.start();
+                    // stop the match
+                    Thread.sleep(1500);
+                    match.kill();
+                    Thread.sleep(1500);
 
-		// stop the match
-		Thread.sleep(1500);
-		match.kill();
-		Thread.sleep(1500);
+                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+                    LuchadorPublicState end = (LuchadorPublicState) runnerA.getState().getPublicState();
 
-		logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-		LuchadorPublicState end = (LuchadorPublicState) runnerA.getState().getPublicState();
+                    logger.debug(String.format("*** resultados angle : a[%s, %s]",
+                            start.angle, end.angle));
 
-		logger.debug(String.format("*** resultados angle : a[%s, %s]",
-				start.angle, end.angle));
-		
-		logger.debug(String.format("*** resultados gun angle : a[%s, %s]",
-				start.gunAngle, end.gunAngle));
+                    logger.debug(String.format("*** resultados gun angle : a[%s, %s]",
+                            start.gunAngle, end.gunAngle));
 
-		assertTrue("verifica se lutchador girou ", end.angle > start.angle);
+                    assertTrue("verifica se lutchador girou ", end.angle > start.angle);
 
-		assertTrue("verifica se lutchador girou arma ",
-				end.gunAngle < start.gunAngle);
+                    assertTrue("verifica se lutchador girou arma ",
+                            end.gunAngle < start.gunAngle);
 
-	}
+                });
+
+
+    }
 }
