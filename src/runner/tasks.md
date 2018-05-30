@@ -1,20 +1,13 @@
 #Todo
 
-* Understand current state/events publising 
-    * MatchStatePublisher
-        - iterate over MatchRunner / LuchadorRunner to get the current match state
-        - method getMessages collects a list of events 
-         
-    - MatchEventPublisher 
-        - receive all the events
-        - is assigned to MatchRunner at Server.buildRunner()
-        - need to update the score!
-
-* Publish state/events using RemoteQueue
-
-* Change ScoreUpdater to change the score in the LuchadorRunner
-or keep the score available to the statepublisher
+* MatchEventPublisher
+    - Change ScoreUpdater to change the score in the LuchadorRunner
+      or keep the score available to the statepublisher
+    - Send events to Redis using RemoteQueue
     
+* MatchStatePublisher
+    - Send state to Redis using RemoteQueue?
+
 * Implement golang publisher that reads from matchstate and 
 updates the active clients with the state
 
@@ -26,6 +19,16 @@ match updates
 * Rewrite API documentation with lua examples
 
 # Done 
+
+* Understand current state/events publising 
+    * MatchStatePublisher
+        - iterate over MatchRunner / LuchadorRunner to get the current match state
+        - method getMessages collects a list of events 
+         
+    - MatchEventPublisher 
+        - receive all the events
+        - is assigned to MatchRunner at Server.buildRunner()
+        - need to update the score!
 
 * understand MatchEventHandler 
     - notifies matchEventListeners when any event happens 
