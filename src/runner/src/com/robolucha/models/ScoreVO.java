@@ -2,116 +2,115 @@ package com.robolucha.models;
 
 public class ScoreVO implements Comparable<ScoreVO> {
 
-	//TODO: validate if still need the id and name 
-	private Long id;
-	private String name;
-	private int k;
-	private int d;
-	private int score;
+    //TODO: validate if still need the id and name
+    private Long id;
+    private String name;
+    private int k;
+    private int d;
+    private int score;
 
-	public ScoreVO() {
-		this.k = 0;
-		this.d = 0;
-		this.score = 0;
-	}
+    public ScoreVO() {
+        this.k = 0;
+        this.d = 0;
+        this.score = 0;
+    }
 
-	/**
-	 * for renaming
-	 * 
-	 * @param previous
-	 * @param name
-	 */
-	public ScoreVO(ScoreVO previous, String name) {
-		this.id = previous.id;
-		this.name = name;
-		this.k = previous.k;
-		this.d = previous.d;
-		this.score = previous.score;
-	}
-	
-	public ScoreVO(Long id, String name) {
-		this();
-		this.id = id;
-		this.name = name;
-	}
+    /**
+     * for renaming
+     *
+     * @param previous
+     * @param name
+     */
+    public ScoreVO(ScoreVO previous, String name) {
+        this.id = previous.id;
+        this.name = name;
+        this.k = previous.k;
+        this.d = previous.d;
+        this.score = previous.score;
+    }
 
-	// for tests only
-	ScoreVO(Long id, String name, int k, int d, int score) {
-		this.id = id;
-		this.name = name;
-		this.k = k;
-		this.d = d;
-		this.score = score;
-	}
+    public ScoreVO(Long id, String name) {
+        this();
+        this.id = id;
+        this.name = name;
+    }
 
-	//TODO: move this to other class to sort the Score
-		public int compareTo(ScoreVO o) {
-		// TODO Auto-generated method stub
-		int sub = o.score - this.score;
+    // for tests only
+    ScoreVO(Long id, String name, int k, int d, int score) {
+        this.id = id;
+        this.name = name;
+        this.k = k;
+        this.d = d;
+        this.score = score;
+    }
 
-		// iguais realiza desempate
-		if (sub != 0) {
-			return sub;
-		} else {
+    //TODO: move this to other class to sort the Score
+    public int compareTo(ScoreVO o) {
+        int sub = o.score - this.score;
 
-			// desempate pelo numero de kill
-			sub = o.k - this.k;
-			if (sub != 0) {
-				return sub;
-			} else {
+        // iguais realiza desempate
+        if (sub != 0) {
+            return sub;
+        } else {
 
-				// desempate por quem morreu menos
-				sub = this.d - o.d;
-				if (sub != 0) {
-					return sub;
-				} else {
+            // desempate pelo numero de kill
+            sub = o.k - this.k;
+            if (sub != 0) {
+                return sub;
+            } else {
 
-					// se nada der certo o mais velhor tem prioridade :)
-					return (int) (this.id - o.id);
-				}
-			}
+                // desempate por quem morreu menos
+                sub = this.d - o.d;
+                if (sub != 0) {
+                    return sub;
+                } else {
 
-		}
-	}
+                    // se nada der certo o mais velhor tem prioridade :)
+                    return (int) (this.id - o.id);
+                }
+            }
 
-	public int getScore() {
-		return score;
-	}
+        }
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public int getScore() {
+        return score;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getK() {
-		return k;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setK(int k) {
-		this.k = k;
-	}
+    public int getK() {
+        return k;
+    }
 
-	public int getD() {
-		return d;
-	}
+    public void setK(int k) {
+        this.k = k;
+    }
 
-	public void setD(int d) {
-		this.d = d;
-	}
+    public int getD() {
+        return d;
+    }
 
-	public void setScore(int score) {
-		this.score = score;
-	}
+    public void setD(int d) {
+        this.d = d;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
 }

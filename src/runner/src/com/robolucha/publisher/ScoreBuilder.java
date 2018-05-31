@@ -5,7 +5,7 @@ import com.robolucha.models.ScoreVO;
 public class ScoreBuilder {
 
 	public static final int DAMAGE_POINTS = 5;
-	private static final int KILL_POINTS = 200;
+	public static final int KILL_POINTS = 200;
 
 	private static ScoreBuilder instance = new ScoreBuilder();
 
