@@ -69,14 +69,11 @@ public class Server {
 		runner.addListener(new MatchEventPublisher(runner.getMatch()));
 
 		// listener to update scores
-		runner.addListener(new ScoreUpdater(runner.getMatch()));
+		runner.addListener(new ScoreUpdater());
 
 		// listener to the match state
 		runner.setPublisher(MatchStatePublisher.getInstance());
 
-		ScoreUpdater eventPublisher = new ScoreUpdater(runner.getMatch());
-		runner.addListener(eventPublisher);
-		runner.setScoreUpdater(eventPublisher);
 
 		return new Thread(runner);
 	}
