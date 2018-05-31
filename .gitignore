@@ -6,3 +6,4 @@ xunit.xml
 *.lck
 package-lock.json
 pocs/redis/node-pubsub/.vscode
+.idea
