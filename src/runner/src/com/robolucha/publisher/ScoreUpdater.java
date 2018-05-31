@@ -2,7 +2,6 @@ package com.robolucha.publisher;
 
 import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.models.LuchadorMatchState;
-import com.robolucha.models.Match;
 import com.robolucha.runner.MatchRunner;
 import org.apache.log4j.Logger;
 
@@ -11,15 +10,8 @@ public class ScoreUpdater implements MatchEventListener {
 	public static final String KILL = "KILL";
 
 	private Logger logger = Logger.getLogger(ScoreUpdater.class);
-	private Match match;
 
-	public ScoreUpdater(Match match) {
-		this.match = match;
-	}
-
-	public void cleanup() {
-		this.match = null;
-	}
+	public ScoreUpdater() { }
 
 	public void onInit(MatchRunner runner) {
 		logger.debug("match INIT : " + runner.getThreadName());
