@@ -16,7 +16,6 @@ import com.robolucha.models.Match;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.monitor.ThreadStatus;
 import com.robolucha.publisher.MatchStatePublisher;
-import com.robolucha.publisher.ScoreUpdater;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.LutchadorRunnerCreator;
 import io.reactivex.subjects.PublishSubject;
@@ -50,7 +49,6 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
     private List<LuchadorEventListener> eventListeners;
     private List<MatchEventListener> matchEventListeners;
-    private ScoreUpdater scoreUpdater;
 
     static Logger logger = Logger.getLogger(MatchRunner.class);
 
@@ -346,7 +344,6 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
         eventListeners = null;
         matchEventListeners = null;
-        scoreUpdater = null;
         respawnProcessor = null;
 
         gameDefinition = null;
@@ -578,24 +575,9 @@ public class MatchRunner implements Runnable, ThreadStatus {
         alive = false;
     }
 
-    /**
-     * apos assinar execucao dos eventos adiciona objeto para ser recuperado no
-     * mecanismo de publicacao
-     *
-     * @param eventToPublish
-     */
-    public void setScoreUpdater(ScoreUpdater eventToPublish) {
-        this.scoreUpdater = eventToPublish;
-    }
-
-    public ScoreUpdater getScoreUpdater() {
-        return scoreUpdater;
-    }
-
     public long getTimeElapsed() {
         return timeElapsed;
     }
-
 
     private long lastTimeAlive;
 
