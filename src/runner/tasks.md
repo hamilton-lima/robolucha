@@ -1,19 +1,8 @@
 #Todo
 
 * MatchEventPublisher
-    - Change ScoreUpdater to change the score in the LuchadorRunner
-      or keep the score available to the statepublisher
+    - Test ScoreUpdater change the calculate in the LuchadorRunner
 
-        - MatchRunner gameDefinition.getMinParticipants()
-        trigger event using observable to facilitate the test
-        of scoreupdater and others that check if the matchstarted
-        
-        - (!) validate how to check for errors 
-        on match.getMatchStart().subscribe() 
-        use CalcTest as reference.
-        
-        add throwable -> {fail(throwable.getMessage());}
-        as second parameter to subscribe 
     - Send events to Redis using RemoteQueue
     
 * MatchStatePublisher
@@ -32,6 +21,21 @@ match updates
 * Redesign listeners to use Promises and Observables
 
 # Done 
+
+* MatchEventPublisher
+    - Change ScoreUpdater to change the score in the LuchadorRunner
+      or keep the score available to the statepublisher
+
+        - MatchRunner gameDefinition.getMinParticipants()
+        trigger event using observable to facilitate the test
+        of scoreupdater and others that check if the matchstarted
+        
+        - (!) validate how to check for errors 
+        on match.getMatchStart().subscribe() 
+        use CalcTest as reference.
+        
+        add throwable -> {fail(throwable.getMessage());}
+        as second parameter to subscribe 
 
 * Understand current state/events publising 
     * MatchStatePublisher
