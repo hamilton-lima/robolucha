@@ -37,7 +37,7 @@ public class BugOnFoundPertoDemais {
         Luchador b = MockLuchador.build(2L);
 
         match.getMatchStart()
-                .subscribe(onStart -> {
+                .blockingSubscribe(onStart -> {
                     LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
                     runnerA.getState().setX(200);
@@ -99,7 +99,7 @@ public class BugOnFoundPertoDemais {
         match.add(b);
 
         match.getMatchStart()
-                .subscribe(onStart -> {
+                .blockingSubscribe(onStart -> {
                     LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
                     runnerA.getState().setX(xa);

@@ -34,7 +34,7 @@ public class LuchadorConstantsTest {
         match.add(a);
 
         match.getMatchStart()
-                .subscribe(onStart -> {
+                .blockingSubscribe(onStart -> {
                     LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
                     logger.debug("--- A : " + runnerA.getState().getPublicState());

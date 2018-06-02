@@ -57,7 +57,7 @@ public class CheckRadarActionTest {
         });
 
         match.getMatchStart()
-                .subscribe(onStart -> {
+                .blockingSubscribe(onStart -> {
                     LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
                     LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 

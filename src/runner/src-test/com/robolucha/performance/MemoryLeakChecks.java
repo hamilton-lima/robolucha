@@ -224,7 +224,7 @@ public class MemoryLeakChecks {
 		match.add(a);
 		match.add(b);
 
-		match.getMatchStart().subscribe(new Consumer<Long>() {
+		match.getMatchStart().blockingSubscribe(new Consumer<Long>() {
 			public void accept(Long aLong) throws Exception {
 				LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 				LuchadorRunner runnerB = match.getRunners().get(new Long(2L));

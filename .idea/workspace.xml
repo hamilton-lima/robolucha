@@ -2,12 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a7dcf67-8d1f-45b3-b73a-669d80f1f4c4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/ScoreUpdaterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/ScoreVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/ScoreVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreUpdater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckFireCoolDownVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckFireCoolDownVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveGrudadoNaParedeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveGrudadoNaParedeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckPunchHitActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckPunchHitActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckRadarActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckRadarActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckRespawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckRespawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnGunActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnGunActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnJuntoComTurnGunTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnJuntoComTurnGunTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/RespawnProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/RespawnProcessorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/SetColorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/SetColorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugFire1Fire10Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugFire1Fire10Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugMoveComVelocidadesDiferentesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugMoveComVelocidadesDiferentesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorConstantsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorConstantsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/tasks.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/tasks.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/models/bin/" />
     <ignored path="$PROJECT_DIR$/src/shared/target/" />
@@ -16,7 +32,6 @@
     <ignored path="$PROJECT_DIR$/src/models/target/" />
     <ignored path="$PROJECT_DIR$/pocs/redis/java-pubsub/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,54 +42,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tasks.md" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/runner/tasks.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="45">
-                <caret line="3" column="23" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="23" />
+              <first_editor relative-caret-position="180">
+                <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RemoteQueueTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/RemoteQueueTest.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScoreUpdater.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreUpdater.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="32" column="61" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScoreUpdaterTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/ScoreUpdaterTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LuchadorMatchState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorMatchState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+            <state relative-caret-position="181">
+              <caret line="54" column="47" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="47" />
               <folding>
-                <element signature="e#1853#1854#0" expanded="true" />
-                <element signature="e#1871#1872#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="226" column="47" selection-start-line="226" selection-start-column="47" selection-end-line="226" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="95" column="21" lean-forward="true" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveGrudadoNaParedeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
             </state>
           </provider>
         </entry>
@@ -91,11 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>import com.robolucha.bean.Code;</find>
-      <find>import com.robolucha.bean.Luchador;</find>
-      <find>GenericDAO.startTestMode();</find>
-      <find>MatchRunner match = new MatchRunner();</find>
-      <find>match.runners.</find>
       <find>eval(</find>
       <find>getString</find>
       <find>import com.athanazio.saramago.test.BeanMockDataGenerator;</find>
@@ -121,6 +166,11 @@
       <find>match.getRunners().</find>
       <find>ScoreUpdater</find>
       <find>scoreUpdater</find>
+      <find>updateScore</find>
+      <find>setDefaultState</find>
+      <find>setLeve</find>
+      <find>match.getMatchStart().s</find>
+      <find>match.getMatchStart()</find>
     </findStrings>
     <replaceStrings>
       <replace>match.kill();</replace>
@@ -138,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorCommandTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/mask/MaskGeneratorTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MatchEventToPublishTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorMatchStateTest.java" />
@@ -161,12 +210,7 @@
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/RedisDockerHelper.java" />
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/RemoteQueue.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/RemoteQueueTest.java" />
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java" />
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/Foo.java" />
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java" />
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java" />
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnJuntoComTurnGunTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckRadarActionTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckFireCoolDownVariable.java" />
@@ -181,7 +225,6 @@
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckPunchHitActionTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/RespawnProcessorTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/SetColorTest.java" />
-        <option value="$PROJECT_DIR$/src/runner/tasks.md" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/GeneralEventManagerTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java" />
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreBuilder.java" />
@@ -189,6 +232,13 @@
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreUpdater.java" />
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/models/ScoreVO.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/ScoreUpdaterTest.java" />
+        <option value="$PROJECT_DIR$/src/runner/tasks.md" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java" />
+        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" />
+        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java" />
+        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java" />
+        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java" />
+        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java" />
       </list>
     </option>
   </component>
@@ -206,6 +256,311 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectUserFactors">
+    <factor id="binaryFeature:liftShorter">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:liftShorterClasses">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:middleMatching">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:nonGeneric">
+      <dailyData date="2-6-2018">
+        <observation name="0" value="1.0" />
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_inResolveScope">
+      <dailyData date="2-6-2018">
+        <observation name="true" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_openedInEditor">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="5.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sameDirectory">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="5.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sameLogicalRoot">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="5.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sdkOrLibrary">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="5.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:templates">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:accessible">
+      <dailyData date="2-6-2018">
+        <observation name="NORMAL" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:expectedType">
+      <dailyData date="2-6-2018">
+        <observation name="normal" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:kind">
+      <dailyData date="2-6-2018">
+        <observation name="classNameOrGlobalStatic" value="3.0" />
+        <observation name="normal" value="3.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
+      <dailyData date="2-6-2018">
+        <observation name="unknown" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_javaInheritance">
+      <dailyData date="2-6-2018">
+        <observation name="false" value="3.0" />
+        <observation name="null" value="3.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_referenceList">
+      <dailyData date="2-6-2018">
+        <observation name="unknown" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:recursion">
+      <dailyData date="2-6-2018">
+        <observation name="UNDEFINED" value="2.0" />
+        <observation name="normal" value="4.0" />
+      </dailyData>
+    </factor>
+    <factor id="completionFinishedType">
+      <dailyData date="2-6-2018">
+        <observation name="cancelled" value="43.0" />
+        <observation name="explicitSelect" value="3.0" />
+        <observation name="typedSelect" value="3.0" />
+      </dailyData>
+    </factor>
+    <factor id="completionType">
+      <dailyData date="2-6-2018">
+        <observation name="BASIC" value="13.0" />
+      </dailyData>
+    </factor>
+    <factor id="completionUsage">
+      <dailyData date="2-6-2018">
+        <observation name="count" value="49.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:explicitProximity">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:grouping">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:mostUsed">
+      <dailyData date="2-6-2018">
+        <observation name="UNDEFINED" value="6.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:nameEnd">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:position">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.363636" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.117357" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prefix">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="-1097.909091" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="-1052.0" />
+        <observation name="min" value="-1153.0" />
+        <observation name="variance" value="1298.588383" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:priority">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_explicitlyImported">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="72.727273" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="300.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="3563.652137" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_knownElement">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="1.090909" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="6.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="2.409917" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_sameModule">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.181818" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.170754" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_samePsiMember">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.090909" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.042688" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:query_length">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:result_length">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="6.363636" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="10.0" />
+        <observation name="min" value="4.0" />
+        <observation name="variance" value="2.431245" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:sameWords">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:shorter">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:simple">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:sorter">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="1.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:statics">
+      <dailyData date="2-6-2018">
+        <observation name="UNDEFINED" value="4.0" />
+        <observation name="average" value="-3.0" />
+        <observation name="count" value="3.0" />
+        <observation name="max" value="-3.0" />
+        <observation name="min" value="-3.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:stats">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="itemPosition">
+      <dailyData date="2-6-2018">
+        <observation name="0" value="1.0" />
+        <observation name="1" value="2.0" />
+      </dailyData>
+    </factor>
+    <factor id="mnemonicsUsage">
+      <dailyData date="2-6-2018">
+        <observation name="total" value="3.0" />
+        <observation name="withMnemonics" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="prefixLength">
+      <dailyData date="2-6-2018">
+        <observation name="2" value="1.0" />
+        <observation name="3" value="1.0" />
+        <observation name="7" value="1.0" />
+      </dailyData>
+    </factor>
+    <factor id="timeBetweenTyping">
+      <dailyData date="2-6-2018">
+        <observation name="average" value="449.545455" />
+        <observation name="count" value="22.0" />
+      </dailyData>
+    </factor>
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -249,94 +604,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="event" type="462c0819:PsiDirectoryNode" />
-              <item name="MatchEventListener" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="LuchadorMatchState" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="LuchadorPublicState" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="ScoreVO" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="publisher" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="publisher" type="462c0819:PsiDirectoryNode" />
-              <item name="ScoreBuilder" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="publisher" type="462c0819:PsiDirectoryNode" />
-              <item name="ScoreUpdater" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -346,7 +613,7 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="MatchEventHandler" type="1a9f42e2:ClassTreeNode" />
+              <item name="luchador" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -355,7 +622,8 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="MatchEventHandlerThread" type="1a9f42e2:ClassTreeNode" />
+              <item name="luchador" type="462c0819:PsiDirectoryNode" />
+              <item name="LuchadorRunner" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -369,15 +637,6 @@
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -399,7 +658,7 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -407,8 +666,8 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="ScoreVOTest" type="1a9f42e2:ClassTreeNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="CalcTest" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -416,7 +675,8 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="publisher" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="CheckBulletHitActionTest" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -424,8 +684,8 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="publisher" type="462c0819:PsiDirectoryNode" />
-              <item name="RedisDockerHelper" type="1a9f42e2:ClassTreeNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="CheckFireCoolDownVariable" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -433,8 +693,8 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="publisher" type="462c0819:PsiDirectoryNode" />
-              <item name="RemoteQueueTest" type="1a9f42e2:ClassTreeNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="CheckMoveGrudadoNaParedeTest" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -442,8 +702,43 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="publisher" type="462c0819:PsiDirectoryNode" />
-              <item name="ScoreUpdaterTest" type="1a9f42e2:ClassTreeNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="LuchadorCommandTest" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="LuchadorMatchStateTest" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="RespawnProcessorTest" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="performance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="performance" type="462c0819:PsiDirectoryNode" />
+              <item name="MemoryLeakChecks" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -459,7 +754,8 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="luchador" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -467,8 +763,19 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="MockLuchador" type="1a9f42e2:ClassTreeNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="luchador" type="462c0819:PsiDirectoryNode" />
+              <item name="BugAcessoVariavelMeTest" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="luchador" type="462c0819:PsiDirectoryNode" />
+              <item name="BugOnFoundPertoDemais" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -477,109 +784,65 @@
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.reactivex.rxjava2:rxjava:2.1.14-RC1" type="70bed36:NamedLibraryElementNode" />
+              <item name="junit4" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.reactivex.rxjava2:rxjava:2.1.14-RC1" type="70bed36:NamedLibraryElementNode" />
-              <item name="rxjava-2.1.14-RC1.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="junit4" type="70bed36:NamedLibraryElementNode" />
+              <item name="junit-4.12.jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.reactivex.rxjava2:rxjava:2.1.14-RC1" type="70bed36:NamedLibraryElementNode" />
-              <item name="rxjava-2.1.14-RC1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="junit4" type="70bed36:NamedLibraryElementNode" />
+              <item name="junit-4.12.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.reactivex.rxjava2:rxjava:2.1.14-RC1" type="70bed36:NamedLibraryElementNode" />
-              <item name="rxjava-2.1.14-RC1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="reactivex" type="462c0819:PsiDirectoryNode" />
+              <item name="junit4" type="70bed36:NamedLibraryElementNode" />
+              <item name="junit-4.12.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="junit" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.reactivex.rxjava2:rxjava:2.1.14-RC1" type="70bed36:NamedLibraryElementNode" />
-              <item name="rxjava-2.1.14-RC1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="reactivex" type="462c0819:PsiDirectoryNode" />
-              <item name="subjects" type="462c0819:PsiDirectoryNode" />
+              <item name="junit4" type="70bed36:NamedLibraryElementNode" />
+              <item name="junit-4.12.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="junit" type="462c0819:PsiDirectoryNode" />
+              <item name="runners" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.reactivex.rxjava2:rxjava:2.1.14-RC1" type="70bed36:NamedLibraryElementNode" />
-              <item name="rxjava-2.1.14-RC1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="reactivex" type="462c0819:PsiDirectoryNode" />
-              <item name="subjects" type="462c0819:PsiDirectoryNode" />
-              <item name="PublishSubject" type="1a9f42e2:ClassTreeNode" />
+              <item name="junit4" type="70bed36:NamedLibraryElementNode" />
+              <item name="junit-4.12.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="junit" type="462c0819:PsiDirectoryNode" />
+              <item name="runners" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.reactivex.rxjava2:rxjava:2.1.14-RC1" type="70bed36:NamedLibraryElementNode" />
-              <item name="rxjava-2.1.14-RC1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="reactivex" type="462c0819:PsiDirectoryNode" />
-              <item name="subjects" type="462c0819:PsiDirectoryNode" />
-              <item name="Subject" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: redis.clients:jedis:2.9.0" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: redis.clients:jedis:2.9.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="jedis-2.9.0.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: redis.clients:jedis:2.9.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="jedis-2.9.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: redis.clients:jedis:2.9.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="jedis-2.9.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-              <item name="clients" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: redis.clients:jedis:2.9.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="jedis-2.9.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-              <item name="clients" type="462c0819:PsiDirectoryNode" />
-              <item name="jedis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: redis.clients:jedis:2.9.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="jedis-2.9.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-              <item name="clients" type="462c0819:PsiDirectoryNode" />
-              <item name="jedis" type="462c0819:PsiDirectoryNode" />
-              <item name="JedisPool" type="1a9f42e2:ClassTreeNode" />
+              <item name="junit4" type="70bed36:NamedLibraryElementNode" />
+              <item name="junit-4.12.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="junit" type="462c0819:PsiDirectoryNode" />
+              <item name="runners" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="FrameworkMethod" type="1a9f42e2:ClassTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -622,28 +885,72 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ScoreUpdaterTest">
+  <component name="RunManager" selected="JUnit.CheckBulletHitActionTest.testRun">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <Java />
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527975853152" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <Java />
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527975853151" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="All in runner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="runner" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="CheckPunchHitActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CheckBulletHitActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="runner" />
       <extension name="coverage">
         <pattern>
@@ -651,20 +958,29 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.robolucha.game" />
-      <option name="MAIN_CLASS_NAME" value="com.robolucha.game.CheckPunchHitActionTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
+      <option name="MAIN_CLASS_NAME" value="com.robolucha.game.CheckBulletHitActionTest" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckBulletHitActionTest.testRun" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="runner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robolucha.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.robolucha.game" />
+      <option name="MAIN_CLASS_NAME" value="com.robolucha.game.CheckBulletHitActionTest" />
+      <option name="METHOD_NAME" value="testRun" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="GeneralEventManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="runner" />
@@ -674,43 +990,12 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.robolucha.runner" />
       <option name="MAIN_CLASS_NAME" value="com.robolucha.runner.GeneralEventManagerTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="RespawnProcessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="runner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.robolucha.game.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.robolucha.game" />
-      <option name="MAIN_CLASS_NAME" value="com.robolucha.game.RespawnProcessorTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="ScoreUpdaterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="runner" />
@@ -720,20 +1005,12 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.robolucha.publisher" />
       <option name="MAIN_CLASS_NAME" value="com.robolucha.publisher.ScoreUpdaterTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="SetColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="runner" />
@@ -743,74 +1020,42 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.robolucha.game" />
       <option name="MAIN_CLASS_NAME" value="com.robolucha.game.SetColorTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
       <item itemvalue="JUnit.All in runner" />
-      <item itemvalue="JUnit.CheckPunchHitActionTest" />
-      <item itemvalue="JUnit.RespawnProcessorTest" />
       <item itemvalue="JUnit.SetColorTest" />
       <item itemvalue="JUnit.GeneralEventManagerTest" />
       <item itemvalue="JUnit.ScoreUpdaterTest" />
+      <item itemvalue="JUnit.CheckBulletHitActionTest" />
+      <item itemvalue="JUnit.CheckBulletHitActionTest.testRun" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CheckBulletHitActionTest.testRun" />
+        <item itemvalue="JUnit.CheckBulletHitActionTest" />
         <item itemvalue="JUnit.ScoreUpdaterTest" />
         <item itemvalue="JUnit.GeneralEventManagerTest" />
         <item itemvalue="JUnit.SetColorTest" />
-        <item itemvalue="JUnit.RespawnProcessorTest" />
-        <item itemvalue="JUnit.CheckPunchHitActionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -828,24 +1073,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ScoreUpdaterTest - 2018.05.31 at 08h 52m 46s.xml">
-      <configuration name="ScoreUpdaterTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ScoreUpdaterTest - 2018.05.31 at 08h 54m 16s.xml">
-      <configuration name="ScoreUpdaterTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ScoreUpdaterTest - 2018.05.31 at 08h 54m 52s.xml">
-      <configuration name="ScoreUpdaterTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ScoreUpdaterTest - 2018.05.31 at 08h 55m 14s.xml">
-      <configuration name="ScoreUpdaterTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ScoreUpdaterTest - 2018.05.31 at 08h 56m 07s.xml">
-      <configuration name="ScoreUpdaterTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ScoreUpdaterTest - 2018.05.31 at 08h 56m 43s.xml">
-      <configuration name="ScoreUpdaterTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ScoreUpdaterTest - 2018.05.31 at 09h 14m 22s.xml">
       <configuration name="ScoreUpdaterTest" configurationId="JUnit" />
     </history-entry>
@@ -858,84 +1085,62 @@
     <history-entry file="ScoreUpdaterTest - 2018.05.31 at 09h 18m 09s.xml">
       <configuration name="ScoreUpdaterTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CheckBulletHitActionTest - 2018.06.02 at 17h 10m 20s.xml">
+      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.02 at 17h 22m 26s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest - 2018.06.02 at 17h 23m 36s.xml">
+      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest - 2018.06.02 at 17h 23m 58s.xml">
+      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.02 at 17h 25m 37s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.02 at 17h 36m 58s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="806" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.27459016" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50069445" side_tool="true" weight="0.32977304" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49930555" visible="true" weight="0.329235" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68326694" visible="true" weight="0.19722222" />
-      <window_info anchor="bottom" id="Docker" order="8" weight="0.32977304" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3306011" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68326694" visible="true" weight="0.30329043" />
       <window_info id="Structure" order="1" sideWeight="0.31673306" side_tool="true" weight="0.24305555" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3989071" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33053222" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49930555" visible="true" weight="0.32913166" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3977591" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50069445" side_tool="true" weight="0.32977304" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.27459016" />
+      <window_info anchor="bottom" id="Docker" order="11" weight="0.32977304" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="5" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pocs/redis/java-pubsub/src/com/robolucha/poc/pubsub/Subscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pocs/redis/java-pubsub/src/com/robolucha/poc/pubsub/Publisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pocs/redis/java-pubsub/src/com/robolucha/poc/pubsub/PublishRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pocs/redis/java-pubsub/src/com/robolucha/poc/pubsub/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/ConfigTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -985,20 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1362">
-          <caret line="271" selection-start-line="271" selection-end-line="271" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/reactivex/rxjava2/rxjava/2.1.14-RC1/rxjava-2.1.14-RC1.jar!/io/reactivex/subjects/Subject.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1013,41 +1204,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/Foo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="45" selection-start-line="45" selection-end-line="67" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="70" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/Foo.java" />
     <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckTurnJuntoComTurnGunTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="977">
           <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1058,24 +1219,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckFireCoolDownVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="49" column="38" lean-forward="true" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugMoveComVelocidadesDiferentesTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="617">
           <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveGrudadoNaParedeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="75" column="5" lean-forward="true" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1133,13 +1280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/RespawnProcessorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MethodBuilderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-744">
@@ -1158,26 +1298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="53" column="59" lean-forward="true" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/tasks.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="45">
-            <caret line="3" column="23" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="54" column="16" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1206,20 +1326,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="8" column="25" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/RemoteQueueTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreUpdater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="32" column="61" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -1255,10 +1361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
-          <folding>
-            <element signature="e#1853#1854#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1266,6 +1368,132 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreUpdater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="32" column="61" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/RemoteQueueTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/RespawnProcessorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckFireCoolDownVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="49" column="38" lean-forward="true" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorCommandTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/LuchadorMatchStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-146">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MatchRunnerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/tasks.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="180">
+            <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckMoveGrudadoNaParedeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="226" column="47" selection-start-line="226" selection-start-column="47" selection-end-line="226" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugAcessoVariavelMeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CalcTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugOnFoundPertoDemais.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="95" column="21" lean-forward="true" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
         </state>
       </provider>
     </entry>

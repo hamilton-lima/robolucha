@@ -34,7 +34,7 @@ public class BugAcessoVariavelMeTest {
         match.add(a);
 
         match.getMatchStart()
-                .subscribe(onStart -> {
+                .blockingSubscribe(onStart -> {
                     LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
                     runnerA.getState().setX(100);

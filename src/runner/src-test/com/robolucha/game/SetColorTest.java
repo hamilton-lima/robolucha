@@ -37,7 +37,7 @@ public class SetColorTest {
         match.add(createLuchadorNMS(6L, "NMSColor.DRAGON_FRUIT", "NMSColor.OKRA"));
 
         match.getMatchStart()
-                .subscribe(onStart -> {
+                .blockingSubscribe(onStart -> {
                     LuchadorRunner runner1 = match.getRunners().get(new Long(1L));
                     LuchadorRunner runner2 = match.getRunners().get(new Long(2L));
                     LuchadorRunner runner3 = match.getRunners().get(new Long(3L));

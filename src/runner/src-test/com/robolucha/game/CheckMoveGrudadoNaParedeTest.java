@@ -41,7 +41,7 @@ public class CheckMoveGrudadoNaParedeTest {
         match.add(a);
 
         match.getMatchStart()
-                .subscribe(onStart -> {
+                .blockingSubscribe(onStart -> {
                     LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
                     // quase grudado no limite superior do mapa

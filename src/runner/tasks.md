@@ -8,6 +8,9 @@
 * MatchStatePublisher
     - Send state to Redis using RemoteQueue?
 
+* check how to listen to the code change events 
+LuchadorCodeChangeListener
+
 * Implement golang publisher that reads from matchstate and 
 updates the active clients with the state
 

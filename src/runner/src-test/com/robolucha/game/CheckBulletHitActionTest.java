@@ -9,6 +9,7 @@ import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
 import io.reactivex.functions.Consumer;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class CheckBulletHitActionTest {
 
 	@Before
 	public void setUp() throws Exception {
-
+		logger.setLevel(Level.ALL);
 		counter = 0;
 	}
 
@@ -41,7 +42,7 @@ public class CheckBulletHitActionTest {
 		match.addListener(new LuchadorEventListener() {
 
 			public void listen(LuchadorEvent event) {
-				logger.debug(">>> event : " + event);
+				logger.info(">>> event : " + event);
 
 				if (event instanceof OnGotDamageEvent) {
 					logger.debug("GOT DAMAGE !! : " + event);
@@ -51,7 +52,7 @@ public class CheckBulletHitActionTest {
 		});
 
 
-		match.getMatchStart().subscribe(new Consumer<Long>() {
+		match.getMatchStart().blockingSubscribe(new Consumer<Long>() {
 			public void accept(Long aLong) throws Exception {
 
 				LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
@@ -88,8 +89,6 @@ public class CheckBulletHitActionTest {
 						runnerA.getState().getLife(), 0.001);
 			}
 		});
-
-
 
 	}
 }
