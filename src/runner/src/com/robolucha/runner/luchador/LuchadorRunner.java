@@ -96,8 +96,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		// TODO: add script type to the factory call to support multiple scripts
 		scriptDefinition = ScriptDefinitionFactory.getInstance().getDefault();
 
-		updateScore(gameComponent);
-
 		try {
 			setDefaultState(matchRunner.getRespawnPoint(this));
 			createCodeEngine(gameComponent.getCodes());
@@ -111,10 +109,6 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 		// listen to luchador name change
 		GeneralEventManager.getInstance().addHandler(GeneralEventNames.LUCHADOR_NAME_CHANGE, this);
-	}
-
-	private void updateScore(GameComponent gameComponent) {
-		this.state.score = new ScoreVO(gameComponent.getId(), gameComponent.getName());
 	}
 
 	// used for tests only
@@ -264,6 +258,8 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 		this.state.setAngle(0);
 		this.state.setGunAngle(0);
 		this.state.setFireCoolDown(0);
+
+		this.state.score = new ScoreVO(gameComponent.getId(), gameComponent.getName());
 
 		respawnCoolDown = 0.0;
 		fireCoolDown = 0.0;
