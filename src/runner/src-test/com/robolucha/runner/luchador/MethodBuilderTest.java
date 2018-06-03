@@ -14,14 +14,42 @@ public class MethodBuilderTest {
 
     private static Logger logger = Logger.getLogger(MethodBuilderTest.class);
 
-    // TODO: add test MethodNames.REPEAT, "var a = 1; var b = 2; if( a => b ) b = a;");
-    // TODO: add test MethodNames.REPEAT, "move(10);");
-    // TODO: add test MethodNames.REPEAT, "move(10);nheco;"); ==> expect error
-
     @Test
     public void buildAllWithLuaFunctionInCode() {
         MatchRunner match = MockMatchRunner.build();
         Luchador luchador = MockLuchador.build(1L, MethodNames.REPEAT, "print('1');");
+        LuchadorRunner runner = new LuchadorRunner(luchador, match, new MaskConfigVO());
+        MethodBuilder.getInstance().buildAll(runner, luchador.getCodes());
+
+        long errors = luchador.getCodes().stream().filter(code -> code.getException() != null).map(
+                code -> {
+                    logger.debug("code exception: >>> " + code.getException());
+                    return code;
+                }).count();
+
+        assertEquals(0, errors);
+    }
+
+    @Test
+    public void buildAllWithLuaVariables() {
+        MatchRunner match = MockMatchRunner.build();
+        Luchador luchador = MockLuchador.build(1L, MethodNames.REPEAT, "a = 1;b = 2 \n if a >= b then \n b = a \n end");
+        LuchadorRunner runner = new LuchadorRunner(luchador, match, new MaskConfigVO());
+        MethodBuilder.getInstance().buildAll(runner, luchador.getCodes());
+
+        long errors = luchador.getCodes().stream().filter(code -> code.getException() != null).map(
+                code -> {
+                    logger.debug("code exception: >>> " + code.getException());
+                    return code;
+                }).count();
+
+        assertEquals(0, errors);
+    }
+
+    @Test
+    public void buildAllCheckMoveMethod() {
+        MatchRunner match = MockMatchRunner.build();
+        Luchador luchador = MockLuchador.build(1L, MethodNames.REPEAT, "move(10)");
         LuchadorRunner runner = new LuchadorRunner(luchador, match, new MaskConfigVO());
         MethodBuilder.getInstance().buildAll(runner, luchador.getCodes());
 
@@ -51,6 +79,19 @@ public class MethodBuilderTest {
     }
 
     @Test
-    public void build() {
+    public void buildAllWithError() {
+        MatchRunner match = MockMatchRunner.build();
+        Luchador luchador = MockLuchador.build(1L, MethodNames.REPEAT, "fire(1); nheco");
+        LuchadorRunner runner = new LuchadorRunner(luchador, match, new MaskConfigVO());
+        MethodBuilder.getInstance().buildAll(runner, luchador.getCodes());
+
+        long errors = luchador.getCodes().stream().filter(code -> code.getException() != null).map(
+                code -> {
+                    logger.debug("code exception: >>> " + code.getException());
+                    return code;
+                }).count();
+
+        assertEquals(1, errors);
     }
+
 }
