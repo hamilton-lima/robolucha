@@ -29,18 +29,15 @@ public class MatchEventHandler {
 		logger.info("CLEAN-UP MatchEventHandler !!");
 
 		handlerThread.kill();
-		
-		// no interrupt do ur cleaning
-		//thread.interrupt();
-
 		handlerThread = null;
 		thread = null;
 	}
 
 	public void add(GeneralEvent event) {
 		logger.info("event add: " + event);
-		handlerThread.add(event);
-		// handlerThread.wakeup();
+		if( handlerThread != null ){
+			handlerThread.add(event);
+		}
 	}
 
 	public void init(RunAfterThisTask... runAfterThis) {

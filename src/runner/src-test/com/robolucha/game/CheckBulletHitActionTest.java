@@ -39,6 +39,8 @@ public class CheckBulletHitActionTest {
 		match.add(a);
 		match.add(b);
 
+		MockMatchRunner.start(match);
+
 		// adiciona listener para receber evento de onfound ...
 		match.addListener(new LuchadorEventListener() {
 
@@ -55,6 +57,8 @@ public class CheckBulletHitActionTest {
 
 		match.getMatchStart().blockingSubscribe(new Consumer<Long>() {
 			public void accept(Long aLong) throws Exception {
+
+				logger.debug("START >>>");
 
 				LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 				LuchadorRunner runnerB = match.getRunners().get(new Long(2L));

@@ -627,7 +627,9 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
 
 					// remove the fire from the command list, dont need to consume
 					// the command, the amount is aplied all at once
-					action.getCommands().removeFirst();
+					if (action.getCommands().size() > 0) {
+						action.getCommands().removeFirst();
+					}
 
 					// starts the timer for the firecooldown
 					fireCoolDown = gameComponent.getMaxFireCooldown()
