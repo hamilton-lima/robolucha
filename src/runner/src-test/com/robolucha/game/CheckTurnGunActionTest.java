@@ -14,70 +14,62 @@ import static org.junit.Assert.assertTrue;
 
 public class CheckTurnGunActionTest {
 
-	private static Logger logger = Logger
-			.getLogger(CheckTurnGunActionTest.class);
-	private static int counter = 0;
+    private static Logger logger = Logger
+            .getLogger(CheckTurnGunActionTest.class);
+    private static int counter = 0;
 
-	@Before
-	public void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
 
-		counter = 0;
-	}
+        counter = 0;
+    }
 
-	@Test
-	public void testRun() throws Exception {
+    @Test
+    public void testRun() throws Exception {
 
-		MatchRunner match = MockMatchRunner.build();
+        MatchRunner match = MockMatchRunner.build();
 
-		Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "turnGun(10);");
-		Luchador b = MockLuchador.build(2L, MethodNames.REPEAT, "turnGun(-10);");
+        Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "turnGun(10);");
+        Luchador b = MockLuchador.build(2L, MethodNames.REPEAT, "turnGun(-10);");
 
-		match.add(a);
-		match.add(b);
+        match.add(a);
+        match.add(b);
 
-		match.getMatchStart()
-				.blockingSubscribe(onStart -> {
-					LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-					LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+        MockMatchRunner.start(match);
 
-					runnerA.getState().setX(100);
-					runnerA.getState().setY(100);
-					runnerA.getState().setGunAngle(180);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-					runnerB.getState().setX(100);
-					runnerB.getState().setY(150);
-					runnerB.getState().setGunAngle(90);
+        runnerA.getState().setX(100);
+        runnerA.getState().setY(100);
+        runnerA.getState().setGunAngle(180);
 
-					double gunAngleA1 = runnerA.getState().getPublicState().gunAngle;
-					double gunAngleB1 = runnerB.getState().getPublicState().gunAngle;
+        runnerB.getState().setX(100);
+        runnerB.getState().setY(150);
+        runnerB.getState().setGunAngle(90);
 
-					logger.debug("--- A : " + runnerA.getState().getPublicState());
-					logger.debug("--- B : " + runnerB.getState().getPublicState());
+        double gunAngleA1 = runnerA.getState().getPublicState().gunAngle;
+        double gunAngleB1 = runnerB.getState().getPublicState().gunAngle;
 
-					// start the match
-					Thread t = new Thread(match);
-					t.start();
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
+        logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-					// stop the match
-					Thread.sleep(500);
-					match.kill();
-					Thread.sleep(500);
+        // stop the match
+        Thread.sleep(500);
+        match.kill();
+        Thread.sleep(500);
 
-					logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-					logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-					double gunAngleA2 = runnerA.getState().getPublicState().gunAngle;
-					double gunAngleB2 = runnerB.getState().getPublicState().gunAngle;
+        double gunAngleA2 = runnerA.getState().getPublicState().gunAngle;
+        double gunAngleB2 = runnerB.getState().getPublicState().gunAngle;
 
-					logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
-							gunAngleA1, gunAngleA2, gunAngleB1, gunAngleB2));
+        logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
+                gunAngleA1, gunAngleA2, gunAngleB1, gunAngleB2));
 
-					assertTrue("verifica se turnGun funcionou para A", gunAngleA1 < gunAngleA2);
-					assertTrue("verifica se turnGun funcionou para B", gunAngleB1 > gunAngleB2);
+        assertTrue("verifica se turnGun funcionou para A", gunAngleA1 < gunAngleA2);
+        assertTrue("verifica se turnGun funcionou para B", gunAngleB1 > gunAngleB2);
 
-				});
-
-
-
-	}
+    }
 }

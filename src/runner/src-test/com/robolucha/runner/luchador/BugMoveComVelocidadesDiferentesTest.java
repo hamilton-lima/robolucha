@@ -34,41 +34,34 @@ public class BugMoveComVelocidadesDiferentesTest {
         match.add(MockLuchador.build(1L, MethodNames.REPEAT, "move(160);"));
         match.add(MockLuchador.build(2L, MethodNames.REPEAT, "move(80);"));
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+        MockMatchRunner.start(match);
 
-                    runnerA.getState().setX(100);
-                    runnerA.getState().setY(100);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-                    runnerB.getState().setX(100);
-                    runnerB.getState().setY(300);
+        runnerA.getState().setX(100);
+        runnerA.getState().setY(100);
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
-                    logger.debug("--- B : " + runnerB.getState().getPublicState());
+        runnerB.getState().setX(100);
+        runnerB.getState().setY(300);
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
+        logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-                    // stop the match
-                    Thread.sleep(500);
-                    match.kill();
-                    Thread.sleep(500);
+        // stop the match
+        Thread.sleep(500);
+        match.kill();
+        Thread.sleep(500);
 
-                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-                    logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-                    int dif = runnerA.getState().getPublicState().x
-                            - runnerB.getState().getPublicState().x;
+        int dif = runnerA.getState().getPublicState().x
+                - runnerB.getState().getPublicState().x;
 
-                    logger.debug("---diferenca do X  : " + dif);
+        logger.debug("---diferenca do X  : " + dif);
 
-                    assertTrue("moveram o mesmo ?", dif == 0);
-
-                });
-
+        assertTrue("moveram o mesmo ?", dif == 0);
     }
 
 }

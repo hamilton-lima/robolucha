@@ -56,38 +56,31 @@ public class CheckRadarActionTest {
             }
         });
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+        MockMatchRunner.start(match);
 
-                    runnerA.getState().setX(100);
-                    runnerA.getState().setY(100);
-                    runnerA.getState().setAngle(90);
-                    runnerA.getState().setGunAngle(90);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-                    runnerB.getState().setX(100);
-                    runnerB.getState().setY(250);
+        runnerA.getState().setX(100);
+        runnerA.getState().setY(100);
+        runnerA.getState().setAngle(90);
+        runnerA.getState().setGunAngle(90);
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
-                    logger.debug("--- B : " + runnerB.getState().getPublicState());
+        runnerB.getState().setX(100);
+        runnerB.getState().setY(250);
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
+        logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-                    // stop the match
-                    Thread.sleep(500);
-                    match.kill();
-                    Thread.sleep(500);
+        // stop the match
+        Thread.sleep(500);
+        match.kill();
+        Thread.sleep(500);
 
-                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-                    logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-                    assertEquals("verifica se evento onfound foi disparado em A", "onFound.2", CheckRadarActionTest.state);
-
-                });
-
+        assertEquals("verifica se evento onfound foi disparado em A", "onFound.2", CheckRadarActionTest.state);
     }
 
 }

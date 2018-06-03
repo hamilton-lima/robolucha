@@ -32,43 +32,35 @@ public class CheckTurnJuntoComTurnGunTest {
 
         match.add(a);
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        MockMatchRunner.start(match);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-                    // quase grudado no limite superior do mapa
-                    runnerA.getState().setX((runnerA.getSize() / 2) + 2);
-                    runnerA.getState().setY((runnerA.getSize() / 2) + 2);
-                    runnerA.getState().setGunAngle(300);
+        // quase grudado no limite superior do mapa
+        runnerA.getState().setX((runnerA.getSize() / 2) + 2);
+        runnerA.getState().setY((runnerA.getSize() / 2) + 2);
+        runnerA.getState().setGunAngle(300);
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
-                    LuchadorPublicState start = (LuchadorPublicState) runnerA.getState().getPublicState();
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
+        LuchadorPublicState start = (LuchadorPublicState) runnerA.getState().getPublicState();
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        // stop the match
+        Thread.sleep(1500);
+        match.kill();
+        Thread.sleep(1500);
 
-                    // stop the match
-                    Thread.sleep(1500);
-                    match.kill();
-                    Thread.sleep(1500);
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        LuchadorPublicState end = (LuchadorPublicState) runnerA.getState().getPublicState();
 
-                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-                    LuchadorPublicState end = (LuchadorPublicState) runnerA.getState().getPublicState();
+        logger.debug(String.format("*** resultados angle : a[%s, %s]",
+                start.angle, end.angle));
 
-                    logger.debug(String.format("*** resultados angle : a[%s, %s]",
-                            start.angle, end.angle));
+        logger.debug(String.format("*** resultados gun angle : a[%s, %s]",
+                start.gunAngle, end.gunAngle));
 
-                    logger.debug(String.format("*** resultados gun angle : a[%s, %s]",
-                            start.gunAngle, end.gunAngle));
+        assertTrue("verifica se lutchador girou ", end.angle > start.angle);
 
-                    assertTrue("verifica se lutchador girou ", end.angle > start.angle);
-
-                    assertTrue("verifica se lutchador girou arma ",
-                            end.gunAngle < start.gunAngle);
-
-                });
-
+        assertTrue("verifica se lutchador girou arma ",
+                end.gunAngle < start.gunAngle);
 
     }
 }

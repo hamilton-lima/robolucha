@@ -589,8 +589,5 @@ public class MatchRunner implements Runnable, ThreadStatus {
         this.publisher = publisher;
     }
 
-    //TODO: remove this
-    public PublishSubject<Long> getMatchStart(){ return PublishSubject.create(); }
-
     public PublishSubject<MatchEventVO> getOnMatchStart(){ return onMatchStart; }
 }

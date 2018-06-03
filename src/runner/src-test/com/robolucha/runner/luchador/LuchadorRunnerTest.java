@@ -248,10 +248,7 @@ public class LuchadorRunnerTest {
         LuchadorRunner one = new LuchadorRunner(l1, runner, null);
         one.run("count", 42);
 
-        while (one.currentRunner != null) {
-            // wait for the runner to complete
-            Thread.sleep(50);
-        }
+        MockMatchRunner.start(runner);
 
         Double result = Double.parseDouble(one.getString("counter"));
         logger.debug("count call result = " + result);
@@ -287,10 +284,7 @@ public class LuchadorRunnerTest {
             one.run(methods[i]);
 
             String result = one.getString("counter");
-            while (one.currentRunner != null) {
-                // wait for the runner to complete
-                Thread.sleep(50);
-            }
+            MockMatchRunner.start(runner);
 
             logger.debug("===== method=" + methods[i] + ", count call result = " + result);
             Double expected = new Double(4);

@@ -7,6 +7,7 @@ import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class LuchadorConstantsTest {
@@ -22,46 +23,39 @@ public class LuchadorConstantsTest {
     public void testRun() throws Exception {
 
         MatchRunner match = MockMatchRunner.build();
-        String script = "var aw = ARENA_WIDTH; " +
-                "var ah = ARENA_HEIGHT; " +
-                "var ra = RADAR_ANGLE; " +
-                "var rr = RADAR_RADIUS; " +
-                "var lw = LUCHADOR_WIDTH; " +
-                "var lh = LUCHADOR_HEIGHT;";
+        String script = " aw = ARENA_WIDTH; " +
+                " ah = ARENA_HEIGHT; " +
+                " ra = RADAR_ANGLE; " +
+                " rr = RADAR_RADIUS; " +
+                " lw = LUCHADOR_WIDTH; " +
+                " lh = LUCHADOR_HEIGHT;";
 
         Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, script);
 
         match.add(a);
+        match.add(MockLuchador.build());
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        MockMatchRunner.start(match);
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        // stop the match
+        Thread.sleep(500);
+        match.kill();
+        Thread.sleep(500);
 
-                    // stop the match
-                    Thread.sleep(500);
-                    match.kill();
-                    Thread.sleep(500);
+        logger.debug("--- arena width = " + runnerA.getString("aw"));
 
+        assertEquals(match.getGameDefinition().getArenaWidth(),
+                runnerA.getString("aw"));
+        assertEquals(match.getGameDefinition().getArenaHeight(),
+                runnerA.getString("ah"));
 
-                    logger.debug("--- arena width = " + runnerA.getString("aw"));
-
-                    assertEquals(match.getGameDefinition().getArenaWidth(),
-                            runnerA.getString("aw"));
-                    assertEquals(match.getGameDefinition().getArenaHeight(),
-                            runnerA.getString("ah"));
-
-                    assertEquals(Integer.toString(runnerA.getSize()),
-                            runnerA.getString("lw"));
-                    assertEquals(Integer.toString(runnerA.getSize()),
-                            runnerA.getString("lh"));
-
-                });
+        assertEquals(Integer.toString(runnerA.getSize()),
+                runnerA.getString("lw"));
+        assertEquals(Integer.toString(runnerA.getSize()),
+                runnerA.getString("lh"));
 
     }
 }

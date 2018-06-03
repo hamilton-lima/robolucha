@@ -14,44 +14,42 @@ import static org.junit.Assert.assertTrue;
 
 public class RespawnProcessorTest {
 
-	private static Logger logger = Logger.getLogger(RespawnProcessorTest.class);
+    private static Logger logger = Logger.getLogger(RespawnProcessorTest.class);
 
-	@Before
-	public void setup() {
-	}
+    @Before
+    public void setup() {
+    }
 
-	@Test
-	public void testCalculateLocations() throws Exception {
+    @Test
+    public void testCalculateLocations() throws Exception {
 
-		MatchRunner match = MockMatchRunner.build();
-		Luchador a = MockLuchador.build(1L);
-		Luchador b = MockLuchador.build(2L);
+        MatchRunner match = MockMatchRunner.build();
+        Luchador a = MockLuchador.build(1L);
+        Luchador b = MockLuchador.build(2L);
 
-		match.add(a);
-		match.add(b);
+        match.add(a);
+        match.add(b);
 
-		match.getMatchStart()
-				.blockingSubscribe(onStart -> {
-					LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-					RespawnProcessor p = new RespawnProcessor(match);
+        MockMatchRunner.start(match);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        RespawnProcessor p = new RespawnProcessor(match);
 
-					int size = runnerA.getSize();
-					int w = match.getGameDefinition().getArenaWidth();
-					int h = match.getGameDefinition().getArenaHeight();
+        int size = runnerA.getSize();
+        int w = match.getGameDefinition().getArenaWidth();
+        int h = match.getGameDefinition().getArenaHeight();
 
-					int border = size / 3;
+        int border = size / 3;
 
-					int lines = ((w - (2 * border)) / size) - 1;
-					int columns = ((h - (2 * border)) / size) - 1;
+        int lines = ((w - (2 * border)) / size) - 1;
+        int columns = ((h - (2 * border)) / size) - 1;
 
-					logger.debug("lines=" + lines);
-					logger.debug("columns=" + columns);
-					logger.debug("locations.length=" + p.getLocations().length);
-					logger.debug("tamanho esperado=" + (lines * columns));
+        logger.debug("lines=" + lines);
+        logger.debug("columns=" + columns);
+        logger.debug("locations.length=" + p.getLocations().length);
+        logger.debug("tamanho esperado=" + (lines * columns));
 
-					assertTrue(p.getLocations().length == (lines * columns));
+        assertTrue(p.getLocations().length == (lines * columns));
 
-				});
-	}
+    }
 
 }

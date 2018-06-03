@@ -30,6 +30,7 @@ public class MemoryLeakChecks {
 
     private static Logger logger = Logger.getLogger(MemoryLeakChecks.class);
     private static int counter = 0;
+    private static long threshold = 1000;
 
     private HashMap<String, ThreadInfoExpanded> threadInfoExp;
 
@@ -82,7 +83,7 @@ public class MemoryLeakChecks {
         runMatch();
 
         // tempo para o GC atuar
-        Thread.sleep(15000);
+        Thread.sleep(threshold);
 
         long endFreeMemory = Runtime.getRuntime().freeMemory();
         int endThreads = ManagementFactory.getThreadMXBean().getThreadCount();
@@ -100,7 +101,7 @@ public class MemoryLeakChecks {
         runMatch();
 
         // tempo para o GC atuar
-        Thread.sleep(15000);
+        Thread.sleep(threshold);
 
         endFreeMemory = Runtime.getRuntime().freeMemory();
         endThreads = ManagementFactory.getThreadMXBean().getThreadCount();
@@ -251,7 +252,7 @@ public class MemoryLeakChecks {
         logger.debug("=== RUN THE MATCH FOR 15 seconds ");
 
         // stop the match
-        Thread.sleep(15000);
+        Thread.sleep(threshold);
         match.kill();
         logger.debug(String.format("=== memoria livre: [%s]", Runtime.getRuntime().freeMemory()));
         logger.debug(String.format("/// threads : [%s]", ManagementFactory.getThreadMXBean().getThreadCount()));

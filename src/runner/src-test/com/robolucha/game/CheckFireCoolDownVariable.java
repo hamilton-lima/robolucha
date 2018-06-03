@@ -25,7 +25,6 @@ public class CheckFireCoolDownVariable {
     public void setUp() throws Exception {
     }
 
-
     @Test
     public void testRun() throws Exception {
 
@@ -36,35 +35,30 @@ public class CheckFireCoolDownVariable {
                 "fire(3); if (me.fireCoolDown > 1) {move(10);}");
 
         match.add(a);
+        MockMatchRunner.start(match);
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-                    runnerA.getState().setX(100);
-                    runnerA.getState().setY(100);
+        runnerA.getState().setX(100);
+        runnerA.getState().setY(100);
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
-                    logger.debug("--- A : " + runnerA.getState());
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
+        logger.debug("--- A : " + runnerA.getState());
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        // start the match
+        Thread t = new Thread(match);
+        t.start();
 
-                    // stop the match
-                    Thread.sleep(4000);
-                    match.kill();
-                    Thread.sleep(500);
+        // stop the match
+        Thread.sleep(4000);
+        match.kill();
+        Thread.sleep(500);
 
-                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-                    logger.debug("--- A depois : " + runnerA.getState());
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        logger.debug("--- A depois : " + runnerA.getState());
 
-                    assertTrue("verifica se lutchador ficou no lugar certo ...", runnerA
-                            .getState().getX() > 100);
-
-
-                });
-
+        assertTrue("verifica se lutchador ficou no lugar certo ...", runnerA
+                .getState().getX() > 100);
 
     }
 }

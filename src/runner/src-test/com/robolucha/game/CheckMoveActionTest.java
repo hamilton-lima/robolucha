@@ -33,46 +33,39 @@ public class CheckMoveActionTest {
         match.add(a);
         match.add(b);
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+        MockMatchRunner.start(match);
 
-                    runnerA.getState().setX(100);
-                    runnerA.getState().setY(100);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-                    runnerB.getState().setX(100);
-                    runnerB.getState().setY(250);
+        runnerA.getState().setX(100);
+        runnerA.getState().setY(100);
 
-                    double aX1 = runnerA.getState().getPublicState().x;
-                    double bX1 = runnerB.getState().getPublicState().x;
+        runnerB.getState().setX(100);
+        runnerB.getState().setY(250);
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
-                    logger.debug("--- B : " + runnerB.getState().getPublicState());
+        double aX1 = runnerA.getState().getPublicState().x;
+        double bX1 = runnerB.getState().getPublicState().x;
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
+        logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-                    // stop the match
-                    Thread.sleep(1500);
-                    match.kill();
-                    Thread.sleep(500);
+        // stop the match
+        Thread.sleep(1500);
+        match.kill();
+        Thread.sleep(500);
 
-                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-                    logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-                    double aX2 = runnerA.getState().getPublicState().x;
-                    double bX2 = runnerB.getState().getPublicState().x;
+        double aX2 = runnerA.getState().getPublicState().x;
+        double bX2 = runnerB.getState().getPublicState().x;
 
-                    logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
-                            aX1, aX2, bX1, bX2));
+        logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
+                aX1, aX2, bX1, bX2));
 
-                    assertTrue("verifica se lutchador moveu A", aX2 > aX1);
-                    assertTrue("verifica se lutchador moveu B", bX2 < bX1);
-
-                });
-
+        assertTrue("verifica se lutchador moveu A", aX2 > aX1);
+        assertTrue("verifica se lutchador moveu B", bX2 < bX1);
 
     }
 }

@@ -33,31 +33,25 @@ public class BugAcessoVariavelMeTest {
         Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "me.x = 200;");
         match.add(a);
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        MockMatchRunner.start(match);
 
-                    runnerA.getState().setX(100);
-                    runnerA.getState().setY(100);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
-                    logger.debug("--- A : " + runnerA.getState());
+        runnerA.getState().setX(100);
+        runnerA.getState().setY(100);
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
+        logger.debug("--- A : " + runnerA.getState());
 
-                    // stop the match
-                    Thread.sleep(2500);
-                    match.kill();
-                    Thread.sleep(500);
+        // stop the match
+        Thread.sleep(2500);
+        match.kill();
+        Thread.sleep(500);
 
-                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-                    logger.debug("--- A depois : " + runnerA.getState());
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        logger.debug("--- A depois : " + runnerA.getState());
 
-                    assertTrue("verifica se lutchador ficou no lugar certo ...", runnerA.getState().getX() == 100);
-                });
-
+        assertTrue("verifica se lutchador ficou no lugar certo ...", runnerA.getState().getX() == 100);
 
     }
 }

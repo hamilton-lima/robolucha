@@ -36,40 +36,32 @@ public class BugOnFoundPertoDemais {
 
         Luchador b = MockLuchador.build(2L);
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        MockMatchRunner.start(match);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-                    runnerA.getState().setX(200);
-                    runnerA.getState().setY(100);
-                    runnerA.getState().setAngle(90);
-                    runnerA.getState().setGunAngle(90);
+        runnerA.getState().setX(200);
+        runnerA.getState().setY(100);
+        runnerA.getState().setAngle(90);
+        runnerA.getState().setGunAngle(90);
 
-                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-                    runnerB.getState().setX(200);
-                    runnerB.getState().setY(299);
-                    runnerB.getState().setAngle(0);
-                    runnerB.getState().setGunAngle(0);
+        runnerB.getState().setX(200);
+        runnerB.getState().setY(299);
+        runnerB.getState().setAngle(0);
+        runnerB.getState().setGunAngle(0);
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        // stop the match
+        Thread.sleep(500);
+        match.kill();
+        Thread.sleep(500);
 
-                    // stop the match
-                    Thread.sleep(500);
-                    match.kill();
-                    Thread.sleep(500);
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
 
-                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-
-                    assertTrue("verifica se o onFound do luchador A foi bem sucedido",
-                            runnerA.getState().getPublicState().y < 100);
-                });
-
-
+        assertTrue("verifica se o onFound do luchador A foi bem sucedido",
+                runnerA.getState().getPublicState().y < 100);
     }
 
     @Test
@@ -98,39 +90,32 @@ public class BugOnFoundPertoDemais {
         Luchador b = MockLuchador.build(2L);
         match.add(b);
 
-        match.getMatchStart()
-                .blockingSubscribe(onStart -> {
-                    LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        MockMatchRunner.start(match);
 
-                    runnerA.getState().setX(xa);
-                    runnerA.getState().setY(ya);
-                    runnerA.getState().setGunAngle(gunAngle);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
 
-                    LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+        runnerA.getState().setX(xa);
+        runnerA.getState().setY(ya);
+        runnerA.getState().setGunAngle(gunAngle);
 
-                    runnerB.getState().setX(xb);
-                    runnerB.getState().setY(yb);
+        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-                    logger.debug("--- A : " + runnerA.getState().getPublicState());
+        runnerB.getState().setX(xb);
+        runnerB.getState().setY(yb);
 
-                    // start the match
-                    Thread t = new Thread(match);
-                    t.start();
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
 
-                    // stop the match
-                    Thread.sleep(500);
-                    match.kill();
-                    Thread.sleep(500);
+        // stop the match
+        Thread.sleep(500);
+        match.kill();
+        Thread.sleep(500);
 
-                    logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-                    String found2 = runnerA.getString("found2");
-                    logger.debug("--- A found2 : " + found2);
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        String found2 = runnerA.getString("found2");
+        logger.debug("--- A found2 : " + found2);
 
-                    assertTrue("verifica se o onFound do luchador A foi bem sucedido",
-                            found2.equals("1.0"));
-
-                });
-
+        assertTrue("verifica se o onFound do luchador A foi bem sucedido",
+                found2.equals("1.0"));
 
     }
 

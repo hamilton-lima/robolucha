@@ -16,80 +16,74 @@ import static org.junit.Assert.assertTrue;
 
 public class CheckTurnActionTest {
 
-	private static Logger logger = Logger.getLogger(CheckTurnActionTest.class);
+    private static Logger logger = Logger.getLogger(CheckTurnActionTest.class);
 
-	@Before
-	public void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
 
-		logger.setLevel(Level.DEBUG);
-	}
-	
+        logger.setLevel(Level.DEBUG);
+    }
 
-	@Test
-	public void testRun() throws Exception {
 
-		MatchRunner match = MockMatchRunner.build();
+    @Test
+    public void testRun() throws Exception {
 
-		Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "turn(45);");
-		Luchador b = MockLuchador.build(2L, MethodNames.REPEAT, "turn(-45);");
+        MatchRunner match = MockMatchRunner.build();
 
-		match.add(a);
-		match.add(b);
+        Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "turn(45);");
+        Luchador b = MockLuchador.build(2L, MethodNames.REPEAT, "turn(-45);");
 
-		match.getMatchStart()
-				.blockingSubscribe(onStart -> {
+        match.add(a);
+        match.add(b);
 
-					LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
-					LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
+        MockMatchRunner.start(match);
 
-					double startA = 20;
-					double startB = 350;
 
-					runnerA.getState().setX(100);
-					runnerA.getState().setY(100);
-					runnerA.getState().setAngle(startA);
+        LuchadorRunner runnerA = match.getRunners().get(new Long(1L));
+        LuchadorRunner runnerB = match.getRunners().get(new Long(2L));
 
-					runnerB.getState().setX(100);
-					runnerB.getState().setY(250);
-					runnerB.getState().setAngle(startB);
+        double startA = 20;
+        double startB = 350;
 
-					double angleA1 = runnerA.getState().getPublicState().angle;
-					double angleB1 = runnerB.getState().getPublicState().angle;
+        runnerA.getState().setX(100);
+        runnerA.getState().setY(100);
+        runnerA.getState().setAngle(startA);
 
-					logger.debug("--- A : " + runnerA.getState().getPublicState());
-					logger.debug("--- B : " + runnerB.getState().getPublicState());
+        runnerB.getState().setX(100);
+        runnerB.getState().setY(250);
+        runnerB.getState().setAngle(startB);
 
-					// start the match
-					Thread t = new Thread(match);
-					t.start();
+        double angleA1 = runnerA.getState().getPublicState().angle;
+        double angleB1 = runnerB.getState().getPublicState().angle;
 
-					// stop the match
-					Thread.sleep(1500);
-					match.kill();
-					Thread.sleep(1500);
+        logger.debug("--- A : " + runnerA.getState().getPublicState());
+        logger.debug("--- B : " + runnerB.getState().getPublicState());
 
-					logger.debug("--- A depois : " + runnerA.getState().getPublicState());
-					logger.debug("--- B depois : " + runnerB.getState().getPublicState());
+        // stop the match
+        Thread.sleep(1500);
+        match.kill();
+        Thread.sleep(1500);
 
-					double angleA2 = runnerA.getState().getPublicState().angle;
-					double angleB2 = runnerB.getState().getPublicState().angle;
+        logger.debug("--- A depois : " + runnerA.getState().getPublicState());
+        logger.debug("--- B depois : " + runnerB.getState().getPublicState());
 
-					logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
-							angleA1, angleA2, angleB1, angleB2));
+        double angleA2 = runnerA.getState().getPublicState().angle;
+        double angleB2 = runnerB.getState().getPublicState().angle;
 
-					assertTrue("verifica se turn funcionou para A", angleA1 < angleA2);
-					assertTrue("verifica se turn funcionou para B", angleB1 > angleB2);
+        logger.debug(String.format("*** resultados : a[%s, %s], b[%s, %s]",
+                angleA1, angleA2, angleB1, angleB2));
 
-					double diffA = angleA2 - angleA1;
-					double diffB = angleB2 - angleB1;
+        assertTrue("verifica se turn funcionou para A", angleA1 < angleA2);
+        assertTrue("verifica se turn funcionou para B", angleB1 > angleB2);
 
-					logger.debug(String.format("*** resultados dif A: %s, dif B: %s",
-							diffA, diffB));
+        double diffA = angleA2 - angleA1;
+        double diffB = angleB2 - angleB1;
 
-					// accept up to 1 degree as difference
-					assertEquals( diffA, diffB *-1, 1.0);
+        logger.debug(String.format("*** resultados dif A: %s, dif B: %s",
+                diffA, diffB));
 
-				});
+        // accept up to 1 degree as difference
+        assertEquals(diffA, diffB * -1, 1.0);
 
-	}
+    }
 }

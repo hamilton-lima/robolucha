@@ -8,6 +8,7 @@ import com.robolucha.models.Luchador;
 import com.robolucha.models.Match;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.test.MockLuchador;
+import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
@@ -45,25 +46,23 @@ public class GeneralEventManagerTest {
         runner.add(a);
         runner.add(b);
 
-        runner.getMatchStart()
-                .subscribe(onStart -> {
-                    LuchadorRunner runnerA = runner.getRunners().get(new Long(1L));
-                    String name1 = runnerA.getScoreVO().getName();
-                    logger.debug("name1=" + name1);
+        MockMatchRunner.start(runner);
 
-                    Luchador newGuy = MockLuchador.build();
-                    newGuy.setId(1L);
-                    newGuy.setName("foo.bar");
+        LuchadorRunner runnerA = runner.getRunners().get(new Long(1L));
+        String name1 = runnerA.getScoreVO().getName();
+        logger.debug("name1=" + name1);
 
-                    GeneralEventManager.getInstance().handle(
-                            GeneralEventNames.LUCHADOR_NAME_CHANGE, newGuy);
+        Luchador newGuy = MockLuchador.build();
+        newGuy.setId(1L);
+        newGuy.setName("foo.bar");
 
-                    String name2 = runnerA.getScoreVO().getName();
-                    logger.debug("name2=" + name2);
+        GeneralEventManager.getInstance().handle(
+                GeneralEventNames.LUCHADOR_NAME_CHANGE, newGuy);
 
-                    assertFalse(name1.equals(name2));
-                });
+        String name2 = runnerA.getScoreVO().getName();
+        logger.debug("name2=" + name2);
 
+        assertFalse(name1.equals(name2));
 
     }
 
