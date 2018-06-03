@@ -11,6 +11,10 @@ updates the active clients with the state
 
 * Test ScoreUpdater change the calculate in the LuchadorRunner
 
+* Fix unit tests
+
+* Update TravisCI
+
 * Use CheckBulletHitActionTest as reference to fix unit tests 
 
 
