@@ -18,6 +18,7 @@ import com.robolucha.monitor.ThreadStatus;
 import com.robolucha.publisher.MatchStatePublisher;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.LutchadorRunnerCreator;
+import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
 import org.apache.log4j.Logger;
 
@@ -25,9 +26,6 @@ import java.util.*;
 
 /**
  * main game logic
- *
- * @author hamiltonlima
- * @see http://gameprogrammingpatterns.com/game-loop.html
  */
 public class MatchRunner implements Runnable, ThreadStatus {
 
@@ -41,7 +39,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
     private double delta;
 
     //TODO: replace all the listeners by Subjects
-    private PublishSubject<Long> matchStart;
+    private Observable<Long> matchStart;
 
     private GameDefinition gameDefinition;
 
@@ -178,25 +176,21 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
         logger.info("waiting for the minimum participants:" + gameDefinition.getMinParticipants());
 
-        while (alive) {
-
-            if (runners.size() >= gameDefinition.getMinParticipants()) {
-                break;
-            }
-
+        while (alive && runners.size() < gameDefinition.getMinParticipants()) {
             try {
                 Thread.sleep(SMALL_SLEEP);
             } catch (InterruptedException e) {
                 logger.error("Interrupted while waiting for participants", e);
             }
-
         }
 
-        matchStart.onNext( System.currentTimeMillis() );
-        getEventHandler().start();
+        //TODO: reduce to one single event
+        ((PublishSubject)matchStart).onNext( System.currentTimeMillis() );
 
-        // TODO: is this really deprecated?
-        // MatchRunStateKeeper.getInstance().start(this);
+        ((PublishSubject<Long>) matchStart).onComplete();
+
+        getEventHandler().start();
+        publisher.start(this);
 
         long timeStart = System.currentTimeMillis();
         this.timeElapsed = 0;
@@ -595,5 +589,5 @@ public class MatchRunner implements Runnable, ThreadStatus {
         this.publisher = publisher;
     }
 
-    public PublishSubject<Long> getMatchStart(){ return matchStart; }
+    public Observable<Long> getMatchStart(){ return matchStart; }
 }

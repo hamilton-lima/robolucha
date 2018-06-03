@@ -25,4 +25,22 @@ public class LuchadorPublicState {
 	public int d;
 	public int score;
 
+    @Override
+    public String toString() {
+        return "LuchadorPublicState{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", x=" + x +
+                ", y=" + y +
+                ", life=" + life +
+                ", angle=" + angle +
+                ", gunAngle=" + gunAngle +
+                ", fireCoolDown=" + fireCoolDown +
+                ", headColor='" + headColor + '\'' +
+                ", bodyColor='" + bodyColor + '\'' +
+                ", k=" + k +
+                ", d=" + d +
+                ", score=" + score +
+                '}';
+    }
 }
