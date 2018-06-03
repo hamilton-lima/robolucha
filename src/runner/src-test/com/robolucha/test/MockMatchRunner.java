@@ -43,7 +43,7 @@ public class MockMatchRunner {
     public static void start(MatchRunner runner) {
         Thread t = new Thread(runner);
         t.start();
-         runner.getOnMatchStart().blockingFirst();
+        runner.getOnMatchStart().blockingFirst();
     }
 
 }

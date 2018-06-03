@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a7dcf67-8d1f-45b3-b73a-669d80f1f4c4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/event/match/MatchEventVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/event/match/MatchEventVOStart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-support/com/robolucha/support/DefaultGameDefinitionFileCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-support/com/robolucha/support/DefaultGameDefinitionFileCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/JavascriptSecurityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/JavascriptSecurityTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorMatchState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/LuchadorMatchState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/SceneComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/models/SceneComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/models/bin/" />
     <ignored path="$PROJECT_DIR$/src/shared/target/" />
@@ -31,11 +23,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="82">
+              <caret line="72" column="21" lean-forward="true" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/game/action/CheckBulletHitAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="43" column="44" lean-forward="true" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,13 +62,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+            <state relative-caret-position="252">
+              <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -101,8 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>RemoteQueue</find>
-      <find>match.getRunners().size()</find>
       <find>match.getRunners().</find>
       <find>ScoreUpdater</find>
       <find>scoreUpdater</find>
@@ -131,6 +133,8 @@
       <find>START consumindo evento</find>
       <find>matchStart</find>
       <find>.create</find>
+      <find>OnGotDamageEvent</find>
+      <find>&gt;&gt;&gt; event</find>
     </findStrings>
     <replaceStrings>
       <replace>match.kill();</replace>
@@ -196,9 +200,9 @@
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/event/match/GameEventStart.java" />
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/event/match/MatchEventStart.java" />
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchEvent.java" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java" />
-        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java" />
       </list>
     </option>
   </component>
@@ -223,7 +227,7 @@
         <observation name="false" value="55.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="false" value="168.0" />
+        <observation name="false" value="178.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:liftShorterClasses">
@@ -233,7 +237,7 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="11.0" />
-        <observation name="false" value="157.0" />
+        <observation name="false" value="167.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:middleMatching">
@@ -242,7 +246,7 @@
         <observation name="true" value="1.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="false" value="167.0" />
+        <observation name="false" value="177.0" />
         <observation name="true" value="1.0" />
       </dailyData>
     </factor>
@@ -252,8 +256,8 @@
         <observation name="UNDEFINED" value="26.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="0" value="36.0" />
-        <observation name="UNDEFINED" value="132.0" />
+        <observation name="0" value="41.0" />
+        <observation name="UNDEFINED" value="137.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_inResolveScope">
@@ -265,7 +269,7 @@
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
         <observation name="false" value="56.0" />
-        <observation name="true" value="106.0" />
+        <observation name="true" value="116.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_openedInEditor">
@@ -276,8 +280,8 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="false" value="106.0" />
-        <observation name="true" value="56.0" />
+        <observation name="false" value="108.0" />
+        <observation name="true" value="64.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameDirectory">
@@ -288,8 +292,8 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="false" value="122.0" />
-        <observation name="true" value="40.0" />
+        <observation name="false" value="125.0" />
+        <observation name="true" value="47.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameLogicalRoot">
@@ -300,8 +304,8 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="false" value="116.0" />
-        <observation name="true" value="46.0" />
+        <observation name="false" value="118.0" />
+        <observation name="true" value="54.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sdkOrLibrary">
@@ -312,7 +316,7 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="false" value="141.0" />
+        <observation name="false" value="151.0" />
         <observation name="true" value="21.0" />
       </dailyData>
     </factor>
@@ -321,7 +325,7 @@
         <observation name="false" value="55.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="false" value="167.0" />
+        <observation name="false" value="177.0" />
         <observation name="true" value="1.0" />
       </dailyData>
     </factor>
@@ -331,7 +335,7 @@
         <observation name="UNDEFINED" value="3.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="NORMAL" value="162.0" />
+        <observation name="NORMAL" value="172.0" />
         <observation name="UNDEFINED" value="6.0" />
       </dailyData>
     </factor>
@@ -345,9 +349,9 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="expected" value="23.0" />
+        <observation name="expected" value="32.0" />
         <observation name="maybeExpected" value="7.0" />
-        <observation name="normal" value="131.0" />
+        <observation name="normal" value="132.0" />
         <observation name="unexpected" value="1.0" />
       </dailyData>
     </factor>
@@ -363,11 +367,11 @@
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
         <observation name="classNameOrGlobalStatic" value="37.0" />
-        <observation name="expectedTypeVariable" value="9.0" />
+        <observation name="expectedTypeVariable" value="11.0" />
         <observation name="improbableKeyword" value="1.0" />
-        <observation name="normal" value="88.0" />
+        <observation name="normal" value="92.0" />
         <observation name="probableKeyword" value="3.0" />
-        <observation name="variable" value="24.0" />
+        <observation name="variable" value="28.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
@@ -377,7 +381,7 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="unknown" value="162.0" />
+        <observation name="unknown" value="172.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_javaInheritance">
@@ -389,7 +393,7 @@
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
         <observation name="false" value="33.0" />
-        <observation name="null" value="125.0" />
+        <observation name="null" value="135.0" />
         <observation name="true" value="4.0" />
       </dailyData>
     </factor>
@@ -401,7 +405,7 @@
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
         <observation name="applicableByKind" value="1.0" />
-        <observation name="unknown" value="161.0" />
+        <observation name="unknown" value="171.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:recursion">
@@ -413,7 +417,7 @@
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="69.0" />
         <observation name="delegation" value="1.0" />
-        <observation name="normal" value="98.0" />
+        <observation name="normal" value="108.0" />
       </dailyData>
     </factor>
     <factor id="completionFinishedType">
@@ -423,9 +427,9 @@
         <observation name="typedSelect" value="30.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="cancelled" value="324.0" />
-        <observation name="explicitSelect" value="60.0" />
-        <observation name="typedSelect" value="108.0" />
+        <observation name="cancelled" value="378.0" />
+        <observation name="explicitSelect" value="64.0" />
+        <observation name="typedSelect" value="114.0" />
       </dailyData>
     </factor>
     <factor id="completionType">
@@ -433,7 +437,7 @@
         <observation name="BASIC" value="78.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="BASIC" value="221.0" />
+        <observation name="BASIC" value="231.0" />
       </dailyData>
     </factor>
     <factor id="completionUsage">
@@ -441,7 +445,7 @@
         <observation name="count" value="319.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="count" value="492.0" />
+        <observation name="count" value="556.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:explicitProximity">
@@ -453,11 +457,11 @@
         <observation name="variance" value="0.095476" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="average" value="0.107463" />
-        <observation name="count" value="335.0" />
+        <observation name="average" value="0.107042" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="1.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="0.084568" />
+        <observation name="variance" value="0.08472" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:grouping">
@@ -470,7 +474,7 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="average" value="0.0" />
-        <observation name="count" value="335.0" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -481,7 +485,7 @@
         <observation name="UNDEFINED" value="55.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="UNDEFINED" value="168.0" />
+        <observation name="UNDEFINED" value="178.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:nameEnd">
@@ -495,11 +499,11 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="average" value="-0.068111" />
-        <observation name="count" value="323.0" />
+        <observation name="average" value="-0.06414" />
+        <observation name="count" value="343.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-2.0" />
-        <observation name="variance" value="0.069178" />
+        <observation name="variance" value="0.067263" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:position">
@@ -511,11 +515,11 @@
         <observation name="variance" value="0.887139" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="average" value="0.447761" />
-        <observation name="count" value="335.0" />
+        <observation name="average" value="0.422535" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="40.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="6.859177" />
+        <observation name="variance" value="6.668825" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prefix">
@@ -527,11 +531,11 @@
         <observation name="variance" value="95596.883129" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="average" value="-1094.319403" />
-        <observation name="count" value="335.0" />
+        <observation name="average" value="-1091.394366" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-1253.0" />
-        <observation name="variance" value="29680.95724" />
+        <observation name="variance" value="32380.665238" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:priority">
@@ -543,11 +547,11 @@
         <observation name="variance" value="0.014291" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="average" value="5.934328" />
-        <observation name="count" value="335.0" />
+        <observation name="average" value="5.6" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="999.0" />
         <observation name="min" value="-1.0" />
-        <observation name="variance" value="8820.984556" />
+        <observation name="variance" value="8570.210337" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_explicitlyImported">
@@ -561,11 +565,11 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="average" value="88.854489" />
-        <observation name="count" value="323.0" />
+        <observation name="average" value="95.918367" />
+        <observation name="count" value="343.0" />
         <observation name="max" value="300.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="13889.190729" />
+        <observation name="variance" value="14440.859493" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_knownElement">
@@ -579,11 +583,11 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="average" value="0.798762" />
-        <observation name="count" value="323.0" />
+        <observation name="average" value="0.752187" />
+        <observation name="count" value="343.0" />
         <observation name="max" value="8.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="3.573054" />
+        <observation name="variance" value="3.485181" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_sameModule">
@@ -597,11 +601,11 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="average" value="0.724458" />
-        <observation name="count" value="323.0" />
+        <observation name="average" value="0.798834" />
+        <observation name="count" value="343.0" />
         <observation name="max" value="2.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="0.834816" />
+        <observation name="variance" value="0.855299" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_samePsiMember">
@@ -615,11 +619,11 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="average" value="0.349845" />
-        <observation name="count" value="323.0" />
+        <observation name="average" value="0.405248" />
+        <observation name="count" value="343.0" />
         <observation name="max" value="2.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="0.454796" />
+        <observation name="variance" value="0.49004" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:query_length">
@@ -632,7 +636,7 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="average" value="0.0" />
-        <observation name="count" value="335.0" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -647,11 +651,11 @@
         <observation name="variance" value="10.013765" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="average" value="7.068657" />
-        <observation name="count" value="335.0" />
+        <observation name="average" value="7.008451" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="22.0" />
         <observation name="min" value="1.0" />
-        <observation name="variance" value="13.063111" />
+        <observation name="variance" value="12.743816" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:sameWords">
@@ -665,11 +669,11 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="average" value="-0.068111" />
-        <observation name="count" value="323.0" />
+        <observation name="average" value="-0.06414" />
+        <observation name="count" value="343.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-2.0" />
-        <observation name="variance" value="0.069178" />
+        <observation name="variance" value="0.067263" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:shorter">
@@ -683,11 +687,11 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
-        <observation name="average" value="-49.4613" />
-        <observation name="count" value="323.0" />
+        <observation name="average" value="-46.577259" />
+        <observation name="count" value="343.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-999.0" />
-        <observation name="variance" value="29760.806988" />
+        <observation name="variance" value="28949.30621" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:simple">
@@ -702,7 +706,7 @@
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
         <observation name="average" value="0.0" />
-        <observation name="count" value="323.0" />
+        <observation name="count" value="343.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -718,7 +722,7 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="average" value="1.0" />
-        <observation name="count" value="335.0" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="1.0" />
         <observation name="min" value="1.0" />
         <observation name="variance" value="0.0" />
@@ -734,12 +738,12 @@
         <observation name="variance" value="0.477758" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="UNDEFINED" value="97.0" />
-        <observation name="average" value="-3.028369" />
-        <observation name="count" value="141.0" />
+        <observation name="UNDEFINED" value="104.0" />
+        <observation name="average" value="-3.108844" />
+        <observation name="count" value="147.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-5.0" />
-        <observation name="variance" value="0.780852" />
+        <observation name="variance" value="0.840907" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:stats">
@@ -751,11 +755,11 @@
         <observation name="variance" value="2437169.655639" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="average" value="1134.220896" />
-        <observation name="count" value="335.0" />
+        <observation name="average" value="1182.997183" />
+        <observation name="count" value="355.0" />
         <observation name="max" value="10000.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="6290858.744431" />
+        <observation name="variance" value="6588575.237973" />
       </dailyData>
     </factor>
     <factor id="itemPosition">
@@ -768,7 +772,7 @@
         <observation name="6" value="1.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="0" value="44.0" />
+        <observation name="0" value="48.0" />
         <observation name="1" value="4.0" />
         <observation name="2" value="7.0" />
         <observation name="3" value="1.0" />
@@ -783,7 +787,7 @@
         <observation name="withMnemonics" value="0.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="total" value="50.0" />
+        <observation name="total" value="53.0" />
         <observation name="withMnemonics" value="7.0" />
       </dailyData>
     </factor>
@@ -799,12 +803,12 @@
         <observation name="7" value="2.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="0" value="6.0" />
+        <observation name="0" value="7.0" />
         <observation name="1" value="4.0" />
         <observation name="10" value="1.0" />
         <observation name="18" value="1.0" />
-        <observation name="2" value="7.0" />
-        <observation name="3" value="13.0" />
+        <observation name="2" value="9.0" />
+        <observation name="3" value="14.0" />
         <observation name="4" value="9.0" />
         <observation name="5" value="6.0" />
         <observation name="6" value="8.0" />
@@ -818,8 +822,8 @@
         <observation name="count" value="138.0" />
       </dailyData>
       <dailyData date="3-6-2018">
-        <observation name="average" value="291.448617" />
-        <observation name="count" value="506.0" />
+        <observation name="average" value="289.559223" />
+        <observation name="count" value="515.0" />
       </dailyData>
     </factor>
   </component>
@@ -932,6 +936,25 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+              <item name="CheckBulletHitAction" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -1236,7 +1259,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528037004009" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528064450617" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -1260,7 +1283,7 @@
       </Profilers>
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528037004009" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528064450617" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1405,34 +1428,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CheckBulletHitActionTest - 2018.06.03 at 01h 36m 26s.xml">
-      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckBulletHitActionTest - 2018.06.03 at 01h 38m 14s.xml">
-      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckBulletHitActionTest - 2018.06.03 at 01h 39m 31s.xml">
-      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckBulletHitActionTest - 2018.06.03 at 01h 41m 21s.xml">
-      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckBulletHitActionTest - 2018.06.03 at 01h 43m 45s.xml">
-      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckBulletHitActionTest - 2018.06.03 at 01h 44m 05s.xml">
-      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckBulletHitActionTest - 2018.06.03 at 01h 44m 20s.xml">
-      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckBulletHitActionTest - 2018.06.03 at 01h 45m 43s.xml">
-      <configuration name="CheckBulletHitActionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 02h 14m 42s.xml">
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 34m 26s.xml">
       <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 02h 14m 58s.xml">
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 34m 41s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 36m 19s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 39m 39s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 39m 53s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 40m 33s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 41m 01s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 43m 17s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 12h 43m 39s.xml">
+      <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CheckBulletHitActionTest_testRun - 2018.06.03 at 18h 20m 01s.xml">
       <configuration name="CheckBulletHitActionTest.testRun" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1449,7 +1472,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33053222" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49930555" weight="0.4929972" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49930555" visible="true" weight="0.4929972" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3977591" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1457,7 +1480,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50069445" side_tool="true" weight="0.32977304" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.27450982" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.27450982" />
       <window_info anchor="bottom" id="Docker" order="11" weight="0.32977304" />
       <window_info anchor="right" id="LuaJ" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1744,13 +1767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/game/action/CheckBulletHitAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="57" column="21" lean-forward="true" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1839,27 +1855,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java">
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="289">
+          <caret line="592" column="80" selection-start-line="592" selection-start-column="80" selection-end-line="592" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java">
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/game/action/CheckBulletHitAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="592" column="80" selection-start-line="592" selection-start-column="80" selection-end-line="592" selection-end-column="80" />
+        <state relative-caret-position="322">
+          <caret line="43" column="44" lean-forward="true" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockMatchRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/CheckBulletHitActionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="72" column="21" lean-forward="true" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
