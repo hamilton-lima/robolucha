@@ -45,8 +45,7 @@ public class CheckBulletHitActionTest {
 
         match.add(a);
         match.add(b);
-
-
+        
         // adiciona listener para receber evento de onfound ...
         match.addListener(new LuchadorEventListener() {
 
@@ -93,6 +92,9 @@ public class CheckBulletHitActionTest {
 
         results.a = runnerA.getState();
         results.b = runnerB.getState();
+
+        assertEquals("check for damage counter, 2 from fire(1) and 1 from fire(10)",
+                2+1, counter);
 
         assertEquals("verifica se lutchador abaixo do outro recebeu o tiro",
                 19.0, results.b.getLife(), 0.001);
