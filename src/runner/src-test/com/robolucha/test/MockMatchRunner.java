@@ -40,10 +40,10 @@ public class MockMatchRunner {
         return runner;
     }
 
-    public static Thread start(MatchRunner runner) {
+    public static void start(MatchRunner runner) {
         Thread t = new Thread(runner);
         t.start();
-        return t;
+         runner.getOnMatchStart().blockingFirst();
     }
 
 }

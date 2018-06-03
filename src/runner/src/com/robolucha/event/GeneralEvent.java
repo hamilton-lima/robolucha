@@ -1,9 +1,9 @@
 package com.robolucha.event;
 
-import java.util.Arrays;
-
 import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.runner.RunAfterThisTask;
+
+import java.util.Arrays;
 
 public class GeneralEvent {
 
@@ -33,7 +33,7 @@ public class GeneralEvent {
 			b = Long.toString(lutchadorB.getId());
 		}
 
-		return "MatchEvent [action=" + action + ", amount=" + amount + ", lutchadorA=" + a + ", lutchadorB=" + b
+		return "MatchEventVO [action=" + action + ", amount=" + amount + ", lutchadorA=" + a + ", lutchadorB=" + b
 				+ ", runAfterThis=" + Arrays.toString(runAfterThis) + "]";
 	}
 

@@ -1,5 +1,7 @@
 package com.robolucha.runner;
 
+import com.robolucha.event.match.MatchEventVO;
+import com.robolucha.event.match.MatchEventVOStart;
 import com.robolucha.game.action.*;
 import com.robolucha.game.event.LuchadorEvent;
 import com.robolucha.game.event.LuchadorEventListener;
@@ -18,14 +20,13 @@ import com.robolucha.monitor.ThreadStatus;
 import com.robolucha.publisher.MatchStatePublisher;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.LutchadorRunnerCreator;
-import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
 import org.apache.log4j.Logger;
 
 import java.util.*;
 
 /**
- * main game logic
+ * main match logic
  */
 public class MatchRunner implements Runnable, ThreadStatus {
 
@@ -39,7 +40,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
     private double delta;
 
     //TODO: replace all the listeners by Subjects
-    private Observable<Long> matchStart;
+    private PublishSubject<MatchEventVO> onMatchStart;
 
     private GameDefinition gameDefinition;
 
@@ -99,7 +100,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
         eventHandler = new MatchEventHandler(this, threadName);
         luchadorCreator = new LutchadorRunnerCreator(this);
 
-        matchStart = PublishSubject.create();
+        onMatchStart = PublishSubject.create();
 
         logger.info("MatchRunner created:" + this);
     }
@@ -185,9 +186,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
         }
 
         //TODO: reduce to one single event
-        ((PublishSubject)matchStart).onNext( System.currentTimeMillis() );
-
-        ((PublishSubject<Long>) matchStart).onComplete();
+        onMatchStart.onNext( new MatchEventVOStart());
+        onMatchStart.onComplete();
 
         getEventHandler().start();
         publisher.start(this);
@@ -229,7 +229,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
                 break;
             }
 
-            // TODO: add scheduled end time for a game
+            // TODO: add scheduled end time for a match
             /*
              * if (match.getGame() != null) { Date endTime = match.getGame().getEndTime();
              * if (endTime != null) { Date now = DateUtil.nowSaoPaulo(); if
@@ -589,5 +589,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
         this.publisher = publisher;
     }
 
-    public Observable<Long> getMatchStart(){ return matchStart; }
+    //TODO: remove this
+    public PublishSubject<Long> getMatchStart(){ return PublishSubject.create(); }
+
+    public PublishSubject<MatchEventVO> getOnMatchStart(){ return onMatchStart; }
 }

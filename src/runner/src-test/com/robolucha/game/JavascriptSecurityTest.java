@@ -32,8 +32,8 @@ public class JavascriptSecurityTest {
 //
 //		String invalid[] = {
 //				"f = new java.io.File('test.txt')",
-//				"fo = new com.robolucha.game.LutchadorPublicState();o = fo.getClass().forName('java.io.File')",
-//				"o = new com.robolucha.game.LutchadorPublicState(); j = o.getClass().forName('java.lang.Thread').newInstance(); j.start();" };
+//				"fo = new com.robolucha.match.LutchadorPublicState();o = fo.getClass().forName('java.io.File')",
+//				"o = new com.robolucha.match.LutchadorPublicState(); j = o.getClass().forName('java.lang.Thread').newInstance(); j.start();" };
 //
 //		MatchRun match = (MatchRun) matchRunGen.mock();
 //		MatchRunner runner = new MatchRunner(match);
