@@ -81,7 +81,7 @@ public class LuchadorRunnerTest {
     @Test
     public void testNOCODE() throws Exception {
 
-        String[] methods = {"repeat", "onHitWall", "onHitOther", "onFound", "onGotDamage", "onListen"};
+        String[] methods = {"onRepeat", "onHitWall", "onHitOther", "onFound", "onGotDamage", "onListen"};
         MatchRunner runner = MockMatchRunner.build();
 
         for (int i = 0; i < methods.length; i++) {
@@ -190,7 +190,7 @@ public class LuchadorRunnerTest {
         assertTrue(expected.equals(result));
 
         one.damage(3);
-        one.run("repeat");
+        one.run(MethodNames.REPEAT);
 
         while (one.currentRunner != null) {
             // wait for the runner to complete
@@ -263,7 +263,7 @@ public class LuchadorRunnerTest {
     @Test
     public void testMethodsWithoutParameter() throws Exception, ScriptException {
 
-        String[] methods = {"repeat", "onHitWall"};
+        String[] methods = {MethodNames.REPEAT, MethodNames.ON_HIT_WALL};
         MatchRunner runner = MockMatchRunner.build();
 
         for (int i = 0; i < methods.length; i++) {

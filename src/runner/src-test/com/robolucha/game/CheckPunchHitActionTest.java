@@ -6,6 +6,7 @@ import com.robolucha.game.event.OnGotDamageEvent;
 import com.robolucha.models.Luchador;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
+import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
@@ -28,8 +29,8 @@ public class CheckPunchHitActionTest {
 
         MatchRunner match = MockMatchRunner.build();
 
-        Luchador a = MockLuchador.build(1L,"repeat","punch();" );
-        Luchador b = MockLuchador.build(2L,"repeat","punch();" );
+        Luchador a = MockLuchador.build(1L, MethodNames.REPEAT,"punch();" );
+        Luchador b = MockLuchador.build(2L,MethodNames.REPEAT,"punch();" );
 
         match.add(a);
         match.add(b);

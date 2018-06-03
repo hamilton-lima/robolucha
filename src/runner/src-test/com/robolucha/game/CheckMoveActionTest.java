@@ -3,6 +3,7 @@ package com.robolucha.game;
 import com.robolucha.models.Luchador;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
+import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
@@ -26,8 +27,8 @@ public class CheckMoveActionTest {
 
         MatchRunner match = MockMatchRunner.build();
 
-        Luchador a = MockLuchador.build(1L, "repeat", "move(10);");
-        Luchador b = MockLuchador.build(2L, "repeat", "move(-10);");
+        Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "move(10);");
+        Luchador b = MockLuchador.build(2L, MethodNames.REPEAT, "move(-10);");
 
         match.add(a);
         match.add(b);

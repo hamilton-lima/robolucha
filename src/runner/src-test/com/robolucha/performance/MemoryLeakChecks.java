@@ -4,6 +4,7 @@ import com.robolucha.models.Code;
 import com.robolucha.models.Luchador;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
+import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
 import io.reactivex.functions.Consumer;
@@ -206,7 +207,7 @@ public class MemoryLeakChecks {
 		b.setId(2L);
 
 		Code c = new Code();
-		c.setEvent("repeat");
+		c.setEvent(MethodNames.REPEAT);
 		c.setScript("turnGun(10);fire(1);turn(12);move(-10);");
 		List<Code> codes = new ArrayList<Code>();
 		codes.add(c);
@@ -214,7 +215,7 @@ public class MemoryLeakChecks {
 		a.getCodes().addAll(codes);
 
 		Code c1 = new Code();
-		c1.setEvent("repeat");
+		c1.setEvent(MethodNames.REPEAT);
 		c1.setScript("turnGun(-10);fire(2);turn(12);move(10);");
 		List<Code> codes1 = new ArrayList<Code>();
 		codes1.add(c1);

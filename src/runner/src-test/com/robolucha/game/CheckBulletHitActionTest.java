@@ -6,6 +6,7 @@ import com.robolucha.game.event.OnGotDamageEvent;
 import com.robolucha.models.Luchador;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
+import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
 import io.reactivex.functions.Consumer;
@@ -32,8 +33,8 @@ public class CheckBulletHitActionTest {
 
 		MatchRunner match = MockMatchRunner.build();
 
-		Luchador a = MockLuchador.build(1L, "repeat", "fire(1);");
-		Luchador b = MockLuchador.build(2L, "repeat", "fire(10);");
+		Luchador a = MockLuchador.build(1L, MethodNames.REPEAT, "fire(1)");
+		Luchador b = MockLuchador.build(2L, MethodNames.REPEAT, "fire(10)");
 
 		match.add(a);
 		match.add(b);

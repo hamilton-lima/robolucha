@@ -1,12 +1,11 @@
 package com.robolucha.runner.luchador;
 
+import com.robolucha.models.Code;
+import org.apache.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-
-import org.apache.log4j.Logger;
-
-import com.robolucha.models.Code;
 
 /**
  * 
@@ -50,8 +49,9 @@ public class MethodBuilder {
 
 			logger.debug("defining code: key=" + key + ", script=" + script);
 			MethodDefinition definition = methods.get(key);
+            logger.debug("Using method definition: " + definition);
 
-			buffer.append(definition.getStart());
+            buffer.append(definition.getStart());
 			buffer.append(script);
 			buffer.append(definition.getEnd());
 
@@ -116,6 +116,8 @@ public class MethodBuilder {
 		HashMap<String, MethodDefinition> methods = scriptDef.getDefaultMethods();
 
 		MethodDefinition definition = methods.get(key);
+		logger.debug("Using method definition: " + definition);
+
 		StringBuffer buffer = new StringBuffer();
 		buffer.append(definition.getStart());
 		buffer.append(script);

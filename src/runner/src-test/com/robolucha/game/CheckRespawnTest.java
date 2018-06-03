@@ -4,6 +4,7 @@ import com.robolucha.models.Code;
 import com.robolucha.models.Luchador;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.luchador.LuchadorRunner;
+import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
 import org.apache.log4j.Logger;
@@ -28,7 +29,7 @@ public class CheckRespawnTest {
 		b.setId(2L);
 
 		Code c = new Code();
-		c.setEvent("repeat");
+		c.setEvent(MethodNames.REPEAT);
 		c.setScript("fire(2);");
 		a.getCodes().add(c);
 

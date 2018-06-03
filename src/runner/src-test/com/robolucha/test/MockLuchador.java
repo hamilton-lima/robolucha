@@ -3,6 +3,7 @@ package com.robolucha.test;
 import com.github.javafaker.Faker;
 import com.robolucha.models.Code;
 import com.robolucha.models.Luchador;
+import com.robolucha.runner.luchador.MethodNames;
 
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class MockLuchador {
 		a.setName(faker.name().username());
 
 		Code c = new Code();
-		c.setEvent("repeat");
+		c.setEvent(MethodNames.REPEAT);
 		c.setScript(repeatCode);
 
 		a.getCodes().add(c);
@@ -54,7 +55,7 @@ public class MockLuchador {
 	}
 
 	public static Code getRepeatCode(List<Code> codes) {
-		return getCode(codes, "repeat");
+		return getCode(codes, MethodNames.REPEAT);
 	}
 
 	public static Code getCode(List<Code> codes, String event) {

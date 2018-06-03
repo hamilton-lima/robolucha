@@ -7,7 +7,7 @@ public interface MethodNames {
 	public static final String ON_FOUND = "onFound";
 	public static final String ON_HIT_OTHER = "onHitOther";
 	public static final String ON_HIT_WALL = "onHitWall";
-	public static final String REPEAT = "repeat";
+	public static final String REPEAT = "onRepeat";
 	public static final String START = "start";
 
 }

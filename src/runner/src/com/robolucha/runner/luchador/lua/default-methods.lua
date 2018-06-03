@@ -1,55 +1,55 @@
-function move(amount)
+move = function (amount)
 	__internal:move(amount)
 end
 
-function stop()
+stop = function ()
 	__internal:stop()
 end
 
-function reset()
+reset = function ()
 	__internal:reset()
 end
 
-function turn(amount)
+turn = function (amount)
 	__internal:turn(amount)
 end
 
-function turnGun(amount)
+turnGun = function (amount)
 	__internal:turnGun(amount)
 end
 
-function fire(amount)
+fire = function (amount)
 	__internal:fire(amount)
 end
 
-function punch()
+punch = function ()
 	__internal:punch()
 end
 
--- function fix(lutchador)
+-- fix = function (lutchador)
 -- 	__internal:fix(lutchador)
 -- end
 
-function say(message)
+say = function (message)
 	__internal:say(message)
 end
 
-function debug(message)
+debug = function (message)
 	__internal:debug(message)
 end
 
-function warning(message)
+warning = function (message)
 	__internal:warning(message)
 end
 
-function danger(message)
+danger = function (message)
 	__internal:danger(message)
 end
 
-function setHeadColor(color)
+setHeadColor = function (color)
 	__internal:setHeadColor(color)
 end
 
-function setBodyColor(color)
+setBodyColor = function (color)
 	__internal:setBodyColor(color)
 end

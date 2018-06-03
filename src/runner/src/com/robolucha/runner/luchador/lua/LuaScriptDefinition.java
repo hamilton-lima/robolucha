@@ -1,17 +1,16 @@
 package com.robolucha.runner.luchador.lua;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.luaj.vm2.LuaFunction;
-import org.luaj.vm2.lib.jse.CoerceJavaToLua;
-
 import com.robolucha.models.Code;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import com.robolucha.runner.luchador.MethodDefinition;
 import com.robolucha.runner.luchador.MethodNames;
 import com.robolucha.runner.luchador.ScriptDefinition;
+import org.luaj.vm2.LuaFunction;
+import org.luaj.vm2.lib.jse.CoerceJavaToLua;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class LuaScriptDefinition implements ScriptDefinition {
 
@@ -28,12 +27,12 @@ public class LuaScriptDefinition implements ScriptDefinition {
 		methods = new HashMap<String, MethodDefinition>();
 
 		addMethod(MethodNames.START, "", "");
-		addMethod(MethodNames.REPEAT, "function repeat()\n   //empty\n", "\nend");
-		addMethod(MethodNames.ON_HIT_WALL, "function onHitWall()\n   //empty\n", "\nend");
-		addMethod(MethodNames.ON_HIT_OTHER, "function onHitOther(other)\n   //empty\n", "\nend");
-		addMethod(MethodNames.ON_FOUND, "function onFound(other,chance)\n   //empty\n", "\nend");
-		addMethod(MethodNames.ON_GOT_DAMAGE, "function onGotDamage(other,amount)\n   //empty \n", "\nend");
-		addMethod(MethodNames.ON_LISTEN, "function onListen(other,message)\n   //empty \n", "\nend");
+		addMethod(MethodNames.REPEAT, "function onRepeat()\n", "\nend");
+		addMethod(MethodNames.ON_HIT_WALL, "function onHitWall()\n", "\nend");
+		addMethod(MethodNames.ON_HIT_OTHER, "function onHitOther(other)\n", "\nend");
+		addMethod(MethodNames.ON_FOUND, "function onFound(other,chance)\n", "\nend");
+		addMethod(MethodNames.ON_GOT_DAMAGE, "function onGotDamage(other,amount)\n", "\nend");
+		addMethod(MethodNames.ON_LISTEN, "function onListen(other,message)\n", "\nend");
 
 		lua = new LuaVM();
 	}
