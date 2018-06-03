@@ -1,18 +1,21 @@
 #Todo
 
 * MatchEventPublisher
-    - Test ScoreUpdater change the calculate in the LuchadorRunner
-
     - Send events to Redis using RemoteQueue
     
 * MatchStatePublisher
-    - Send state to Redis using RemoteQueue?
-
-* check how to listen to the code change events 
-LuchadorCodeChangeListener
+    - Send state to Redis using RemoteQueue
 
 * Implement golang publisher that reads from matchstate and 
 updates the active clients with the state
+
+* Test ScoreUpdater change the calculate in the LuchadorRunner
+
+* Use CheckBulletHitActionTest as reference to fix unit tests 
+
+
+* check how to listen to the code change events 
+LuchadorCodeChangeListener
 
 * Implement angular client connected to publisher to listen to the 
 match updates

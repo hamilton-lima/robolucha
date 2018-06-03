@@ -1,12 +1,11 @@
 package com.robolucha.runner;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
-import org.apache.log4j.Logger;
-
 import com.robolucha.event.GeneralEvent;
 import com.robolucha.game.event.MatchEventListener;
+import org.apache.log4j.Logger;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class MatchEventHandlerThread implements Runnable {
 
@@ -43,13 +42,6 @@ public class MatchEventHandlerThread implements Runnable {
 		}
 	}
 
-	// public void wakeup() {
-	// synchronized (this) {
-	// MatchEventHandler.logger.info("WAKE UP !!!");
-	// this.notify();
-	// }
-	// }
-	//
 	public void run() {
 		MatchEventHandler.logger.info("START MatchEventHandlerThread : " + name);
 		Thread.currentThread().setName(name);
@@ -67,15 +59,6 @@ public class MatchEventHandlerThread implements Runnable {
 				MatchEventHandler.logger.info("--- novo evento : " + event);
 				consume(event);
 			}
-
-			// try {
-			// synchronized (this) {
-			// MatchEventHandler.logger.info("zzzzzzzz");
-			// this.wait();
-			// }
-			// } catch (InterruptedException e) {
-			// MatchEventHandler.logger.info("erro esperando com o thread", e);
-			// }
 
 			if ((System.currentTimeMillis() - logStart) > logThreshold) {
 				logStart = System.currentTimeMillis();

@@ -100,11 +100,6 @@ public class CheckBulletHitActionTest {
             }
         });
 
-        // TODO: event beeing processed more than one time?
-        // event add: MatchEvent [action=3, amount=1.0, lutchadorA=1, lutchadorB=2, runAfterThis=[]]
-        // START consumindo evento
-        // dano aplicado = 1.0
-
         assertEquals("verifica se lutchador abaixo do outro recebeu o tiro",
                 19.0, results.b.getLife(), 0.001);
 
