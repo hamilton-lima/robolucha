@@ -16,13 +16,15 @@ import java.util.Iterator;
 
 public class MatchEventPublisher implements MatchEventListener {
     private final RemoteQueue publisher;
+    private final ThreadMonitor threadMonitor;
 
     private Logger logger = Logger.getLogger(MatchEventPublisher.class);
     private Match match;
 
-    public MatchEventPublisher(Match match, RemoteQueue publisher) {
+    public MatchEventPublisher(Match match, RemoteQueue publisher, ThreadMonitor threadMonitor) {
         this.match = match;
         this.publisher = publisher;
+        this.threadMonitor = threadMonitor;
     }
 
     public void onInit(MatchRunner runner) {
@@ -64,6 +66,8 @@ public class MatchEventPublisher implements MatchEventListener {
             updateScore(runner, luchadorRunner);
         }
 
+        addEvent(runner, ConstEvents.END);
+
     }
 
     private void updateScore(MatchRunner runner, LuchadorRunner luchadorRunner) {
@@ -100,7 +104,7 @@ public class MatchEventPublisher implements MatchEventListener {
 
     private void reportErrors(MatchRunner runner, String message, Exception e) {
         logger.error(message, e);
-        ThreadMonitor.getInstance().addException(runner.getThreadName(), message);
+        threadMonitor.addException(runner.getThreadName(), message);
     }
 
     public void onAlive(MatchRunner runner) {
@@ -108,8 +112,7 @@ public class MatchEventPublisher implements MatchEventListener {
         match.setLastTimeAlive(System.currentTimeMillis());
 
         try {
-            MatchRunnerAPI.getInstance().updateMatch(match);
-            ThreadMonitor.getInstance().alive(runner.getThreadName());
+            threadMonitor.alive(runner.getThreadName());
         } catch (Exception e) {
             reportErrors(runner, "ERROR, updating match last alive time:", e);
         }
@@ -141,14 +144,12 @@ public class MatchEventPublisher implements MatchEventListener {
                                  Double amount, String name) {
 
 
-        logger.debug("match onKill : " + runner.getThreadName());
-
-        Match match = (Match) MatchRunnerAPI.getInstance().findMatchById(runner.getMatch().getId());
+        logger.debug("match addLuchadorEvent : " + runner.getThreadName());
 
         MatchEvent event = new MatchEvent();
-        event.setMatch(match);
-        event.setComponentA(luchadorA.id);
-        event.setComponentB(luchadorB.id);
+        event.setMatch(runner.getMatch());
+        event.setComponentA(luchadorA == null ? 0 : luchadorA.id);
+        event.setComponentB(luchadorB == null ? 0 : luchadorB.id);
         event.setAmount(amount);
         event.setTimeStart(System.currentTimeMillis());
         event.setEvent(name);

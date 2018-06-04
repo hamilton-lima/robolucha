@@ -3,6 +3,7 @@ package com.robolucha.test;
 import com.github.javafaker.Faker;
 import com.robolucha.models.Code;
 import com.robolucha.models.Luchador;
+import com.robolucha.models.LuchadorMatchState;
 import com.robolucha.runner.luchador.MethodNames;
 
 import java.util.List;
@@ -68,4 +69,10 @@ public class MockLuchador {
 		return null;
 	}
 
+	public static LuchadorMatchState buildLuchadorMatchState(long id) {
+		LuchadorMatchState result = new LuchadorMatchState();
+		result.setId(id);
+		result.setName(faker.name().username());
+		return result;
+	}
 }

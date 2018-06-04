@@ -28,9 +28,11 @@ public class Server {
 		RemoteQueue queue = new RemoteQueue(Config.getInstance());
 
 		GameDefinition gameDefinition = loadGameDefinition(args[0]);
+		ThreadMonitor threadMonitor = ThreadMonitor.getInstance();
+
 		Match match = MatchRunnerAPI.getInstance().createMatch(gameDefinition);
 		MatchRunner runner = new MatchRunner(gameDefinition, match);
-		Thread thread = buildRunner(runner, queue);
+		Thread thread = buildRunner(runner, queue, threadMonitor);
 		thread.start();
 
 	}
@@ -62,14 +64,14 @@ public class Server {
 		return buffer.toString();
 	}
 
-	public static Thread buildRunner(MatchRunner runner, RemoteQueue queue) {
+	public static Thread buildRunner(MatchRunner runner, RemoteQueue queue, ThreadMonitor threadMonitor) {
 		ThreadMonitor.getInstance().register(runner);
 
 		//add NPC to the match
 		runner.addListener(new OnInitAddNPC());
 
 		// listener to record match events
-		runner.addListener(new MatchEventPublisher(runner.getMatch(), queue));
+		runner.addListener(new MatchEventPublisher(runner.getMatch(), queue, threadMonitor));
 
 		// listener to update scores
 		runner.addListener(new ScoreUpdater());

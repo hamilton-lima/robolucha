@@ -14,4 +14,5 @@ public interface ConstEvents {
     String KILL = "KILL";
     String INIT = "INIT";
     String START = "START";
+    String END = "END";
 }

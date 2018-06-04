@@ -27,6 +27,8 @@ public class RemoteQueue implements AutoCloseable {
         this.gson = new Gson();
     }
 
+    protected RemoteQueue(){}
+
     @Override
     public void close() {
         subscriberPool.close();
