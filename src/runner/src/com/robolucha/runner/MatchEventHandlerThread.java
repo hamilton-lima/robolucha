@@ -1,5 +1,6 @@
 package com.robolucha.runner;
 
+import com.robolucha.event.ConstEvents;
 import com.robolucha.event.GeneralEvent;
 import com.robolucha.game.event.MatchEventListener;
 import org.apache.log4j.Logger;
@@ -92,28 +93,28 @@ public class MatchEventHandlerThread implements Runnable {
 		for (int i = 0; i < eventListeners.length; i++) {
 			MatchEventListener listener = (MatchEventListener) eventListeners[i];
 
-			if (event.getAction() == GeneralEvent.ACTION_DAMAGE) {
+			if (event.getAction() == ConstEvents.ACTION_DAMAGE) {
 				listener.onDamage(this.matchEventHandler.runner, event.getLutchadorA(), event.getLutchadorB(),
 						event.getAmount());
 			}
 
-			if (event.getAction() == GeneralEvent.ACTION_KILL) {
+			if (event.getAction() == ConstEvents.ACTION_KILL) {
 				listener.onKill(this.matchEventHandler.runner, event.getLutchadorA(), event.getLutchadorB());
 			}
 
-			if (event.getAction() == GeneralEvent.ACTION_INIT) {
+			if (event.getAction() == ConstEvents.ACTION_INIT) {
 				listener.onInit(this.matchEventHandler.runner);
 			}
 
-			if (event.getAction() == GeneralEvent.ACTION_START) {
+			if (event.getAction() == ConstEvents.ACTION_START) {
 				listener.onStart(this.matchEventHandler.runner);
 			}
 
-			if (event.getAction() == GeneralEvent.ACTION_END) {
+			if (event.getAction() == ConstEvents.ACTION_END) {
 				listener.onEnd(this.matchEventHandler.runner);
 			}
 
-			if (event.getAction() == GeneralEvent.ACTION_ALIVE) {
+			if (event.getAction() == ConstEvents.ACTION_ALIVE) {
 				listener.onAlive(this.matchEventHandler.runner);
 			}
 		}

@@ -7,13 +7,6 @@ import java.util.Arrays;
 
 public class GeneralEvent {
 
-	public static final int ACTION_INIT = 0;
-	public static final int ACTION_START = 1;
-	public static final int ACTION_END = 2;
-	public static final int ACTION_DAMAGE = 3;
-	public static final int ACTION_KILL = 4;
-	public static final int ACTION_ALIVE = 5;
-
 	private int action;
 	private Double amount;
 	private LuchadorMatchState lutchadorA;

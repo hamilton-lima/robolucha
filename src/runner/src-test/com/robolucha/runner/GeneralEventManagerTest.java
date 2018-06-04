@@ -1,7 +1,7 @@
 package com.robolucha.runner;
 
+import com.robolucha.event.ConstEvents;
 import com.robolucha.event.GeneralEventManager;
-import com.robolucha.event.GeneralEventNames;
 import com.robolucha.models.Code;
 import com.robolucha.models.GameDefinition;
 import com.robolucha.models.Luchador;
@@ -57,7 +57,7 @@ public class GeneralEventManagerTest {
         newGuy.setName("foo.bar");
 
         GeneralEventManager.getInstance().handle(
-                GeneralEventNames.LUCHADOR_NAME_CHANGE, newGuy);
+                ConstEvents.LUCHADOR_NAME_CHANGE, newGuy);
 
         String name2 = runnerA.getScoreVO().getName();
         logger.debug("name2=" + name2);

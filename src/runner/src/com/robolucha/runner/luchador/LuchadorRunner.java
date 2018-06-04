@@ -1,8 +1,8 @@
 package com.robolucha.runner.luchador;
 
+import com.robolucha.event.ConstEvents;
 import com.robolucha.event.GeneralEventHandler;
 import com.robolucha.event.GeneralEventManager;
-import com.robolucha.event.GeneralEventNames;
 import com.robolucha.game.event.LuchadorEvent;
 import com.robolucha.game.event.OnHitWallEvent;
 import com.robolucha.game.vo.MessageVO;
@@ -107,7 +107,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
         }
 
         // listen to luchador name change
-        GeneralEventManager.getInstance().addHandler(GeneralEventNames.LUCHADOR_NAME_CHANGE, this);
+        GeneralEventManager.getInstance().addHandler(ConstEvents.LUCHADOR_NAME_CHANGE, this);
     }
 
     // used for tests only
@@ -149,7 +149,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
             logger.debug("gameComponent=" + this.gameComponent);
         }
 
-        if (GeneralEventNames.LUCHADOR_NAME_CHANGE.equals(event)) {
+        if (ConstEvents.LUCHADOR_NAME_CHANGE.equals(event)) {
 
             if (data != null && this.gameComponent != null) {
                 Luchador changed = (Luchador) data;

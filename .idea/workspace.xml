@@ -2,6 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a7dcf67-8d1f-45b3-b73a-669d80f1f4c4" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/event/ConstEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/GeneralEventManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/GeneralEventManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEventNames.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/MatchEventPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/MatchEventPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/RemoteQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/RemoteQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchEventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchEventHandlerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchEventHandlerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunnerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunnerAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/runner/tasks.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/tasks.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/models/bin/" />
@@ -21,14 +34,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/MatchEventPublisher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4874#4875#0" expanded="true" />
+                <element signature="e#4938#4939#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/runner/tasks.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="225">
-                <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+              <first_editor relative-caret-position="296">
+                <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEventManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-190">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/RemoteQueue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+              <folding>
+                <element signature="e#1534#1535#0" expanded="true" />
+                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1643#1644#0" expanded="true" />
+                <element signature="e#1709#1710#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="30" column="66" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/RemoteQueueTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -39,15 +117,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ScoreUpdater</find>
-      <find>scoreUpdater</find>
       <find>updateScore</find>
       <find>setDefaultState</find>
       <find>setLeve</find>
@@ -76,6 +152,8 @@
       <find>.create</find>
       <find>OnGotDamageEvent</find>
       <find>15000</find>
+      <find>KILL</find>
+      <find>onAlive</find>
     </findStrings>
     <replaceStrings>
       <replace>match.kill();</replace>
@@ -93,14 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/RemoteQueue.java" />
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/RemoteQueueTest.java" />
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/Foo.java" />
-        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java" />
-        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreBuilder.java" />
-        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" />
-        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/ScoreUpdater.java" />
-        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/models/ScoreVO.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/ScoreUpdaterTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/MethodBuilder.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MethodBuilderTest.java" />
@@ -143,7 +213,15 @@
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorConstantsTest.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/performance/MemoryLeakChecks.java" />
         <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/LuchadorRunnerTest.java" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/event/EventNames.java" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunnerAPI.java" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/event/ConstEvents.java" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/game/event/MatchEventListener.java" />
         <option value="$PROJECT_DIR$/src/runner/tasks.md" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/MatchEventPublisher.java" />
+        <option value="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/RemoteQueue.java" />
+        <option value="$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java" />
       </list>
     </option>
   </component>
@@ -170,6 +248,9 @@
       <dailyData date="3-6-2018">
         <observation name="false" value="190.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="false" value="30.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:liftShorterClasses">
       <dailyData date="2-6-2018">
@@ -179,6 +260,10 @@
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="11.0" />
         <observation name="false" value="179.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="false" value="29.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:middleMatching">
@@ -190,6 +275,9 @@
         <observation name="false" value="189.0" />
         <observation name="true" value="1.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="false" value="30.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:nonGeneric">
       <dailyData date="2-6-2018">
@@ -199,6 +287,10 @@
       <dailyData date="3-6-2018">
         <observation name="0" value="48.0" />
         <observation name="UNDEFINED" value="142.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="0" value="14.0" />
+        <observation name="UNDEFINED" value="16.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_inResolveScope">
@@ -212,6 +304,11 @@
         <observation name="false" value="59.0" />
         <observation name="true" value="125.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="false" value="6.0" />
+        <observation name="true" value="21.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:prox_openedInEditor">
       <dailyData date="2-6-2018">
@@ -223,6 +320,11 @@
         <observation name="UNDEFINED" value="6.0" />
         <observation name="false" value="115.0" />
         <observation name="true" value="69.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="false" value="9.0" />
+        <observation name="true" value="18.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameDirectory">
@@ -236,6 +338,11 @@
         <observation name="false" value="132.0" />
         <observation name="true" value="52.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="false" value="9.0" />
+        <observation name="true" value="18.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameLogicalRoot">
       <dailyData date="2-6-2018">
@@ -247,6 +354,11 @@
         <observation name="UNDEFINED" value="6.0" />
         <observation name="false" value="121.0" />
         <observation name="true" value="63.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="false" value="8.0" />
+        <observation name="true" value="19.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sdkOrLibrary">
@@ -260,6 +372,11 @@
         <observation name="false" value="163.0" />
         <observation name="true" value="21.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="false" value="25.0" />
+        <observation name="true" value="2.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:templates">
       <dailyData date="2-6-2018">
@@ -268,6 +385,9 @@
       <dailyData date="3-6-2018">
         <observation name="false" value="189.0" />
         <observation name="true" value="1.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="false" value="30.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:accessible">
@@ -278,6 +398,10 @@
       <dailyData date="3-6-2018">
         <observation name="NORMAL" value="184.0" />
         <observation name="UNDEFINED" value="6.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="NORMAL" value="29.0" />
+        <observation name="UNDEFINED" value="1.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:expectedType">
@@ -294,6 +418,13 @@
         <observation name="maybeExpected" value="7.0" />
         <observation name="normal" value="138.0" />
         <observation name="unexpected" value="1.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="expected" value="9.0" />
+        <observation name="maybeExpected" value="2.0" />
+        <observation name="normal" value="16.0" />
+        <observation name="ofDefaultType" value="2.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:kind">
@@ -314,6 +445,14 @@
         <observation name="probableKeyword" value="3.0" />
         <observation name="variable" value="28.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="classNameOrGlobalStatic" value="6.0" />
+        <observation name="expectedTypeVariable" value="6.0" />
+        <observation name="normal" value="9.0" />
+        <observation name="probableKeyword" value="1.0" />
+        <observation name="variable" value="7.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
       <dailyData date="2-6-2018">
@@ -323,6 +462,10 @@
       <dailyData date="3-6-2018">
         <observation name="UNDEFINED" value="6.0" />
         <observation name="unknown" value="184.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="unknown" value="27.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_javaInheritance">
@@ -337,6 +480,11 @@
         <observation name="null" value="145.0" />
         <observation name="true" value="4.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="false" value="4.0" />
+        <observation name="null" value="23.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_referenceList">
       <dailyData date="2-6-2018">
@@ -347,6 +495,10 @@
         <observation name="UNDEFINED" value="6.0" />
         <observation name="applicableByKind" value="1.0" />
         <observation name="unknown" value="183.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="unknown" value="27.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:recursion">
@@ -360,6 +512,11 @@
         <observation name="delegation" value="1.0" />
         <observation name="normal" value="117.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="7.0" />
+        <observation name="delegation" value="1.0" />
+        <observation name="normal" value="22.0" />
+      </dailyData>
     </factor>
     <factor id="completionFinishedType">
       <dailyData date="2-6-2018">
@@ -372,6 +529,11 @@
         <observation name="explicitSelect" value="71.0" />
         <observation name="typedSelect" value="119.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="cancelled" value="151.0" />
+        <observation name="explicitSelect" value="11.0" />
+        <observation name="typedSelect" value="20.0" />
+      </dailyData>
     </factor>
     <factor id="completionType">
       <dailyData date="2-6-2018">
@@ -380,6 +542,9 @@
       <dailyData date="3-6-2018">
         <observation name="BASIC" value="244.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="BASIC" value="44.0" />
+      </dailyData>
     </factor>
     <factor id="completionUsage">
       <dailyData date="2-6-2018">
@@ -387,6 +552,9 @@
       </dailyData>
       <dailyData date="3-6-2018">
         <observation name="count" value="617.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="count" value="182.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:explicitProximity">
@@ -404,6 +572,13 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.08655" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="0.135593" />
+        <observation name="count" value="59.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.093734" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:grouping">
       <dailyData date="2-6-2018">
@@ -420,6 +595,13 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="59.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:mostUsed">
       <dailyData date="2-6-2018">
@@ -432,6 +614,14 @@
         <observation name="max" value="-22.0" />
         <observation name="min" value="-86.0" />
         <observation name="variance" value="405.017687" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="29.0" />
+        <observation name="average" value="-4.0" />
+        <observation name="count" value="1.0" />
+        <observation name="max" value="-4.0" />
+        <observation name="min" value="-4.0" />
+        <observation name="variance" value="0.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:nameEnd">
@@ -451,6 +641,14 @@
         <observation name="min" value="-2.0" />
         <observation name="variance" value="0.069955" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="average" value="-0.280702" />
+        <observation name="count" value="57.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-3.0" />
+        <observation name="variance" value="0.247177" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:position">
       <dailyData date="2-6-2018">
@@ -466,6 +664,13 @@
         <observation name="max" value="40.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="6.462303" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="0.152542" />
+        <observation name="count" value="59.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.193355" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prefix">
@@ -483,6 +688,13 @@
         <observation name="min" value="-1253.0" />
         <observation name="variance" value="31444.087736" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="-1096.677966" />
+        <observation name="count" value="59.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-1202.0" />
+        <observation name="variance" value="47202.89267" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:priority">
       <dailyData date="2-6-2018">
@@ -498,6 +710,13 @@
         <observation name="max" value="999.0" />
         <observation name="min" value="-1.0" />
         <observation name="variance" value="8295.732213" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="59.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_explicitlyImported">
@@ -517,6 +736,14 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="14657.298505" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="average" value="203.773585" />
+        <observation name="count" value="53.0" />
+        <observation name="max" value="300.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="11745.809699" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:prox_knownElement">
       <dailyData date="2-6-2018">
@@ -534,6 +761,14 @@
         <observation name="max" value="8.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="3.384666" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="average" value="0.603774" />
+        <observation name="count" value="53.0" />
+        <observation name="max" value="8.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="2.298193" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_sameModule">
@@ -553,6 +788,14 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.866928" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="average" value="1.396226" />
+        <observation name="count" value="53.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.585998" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:prox_samePsiMember">
       <dailyData date="2-6-2018">
@@ -571,6 +814,14 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.493831" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="3.0" />
+        <observation name="average" value="1.018868" />
+        <observation name="count" value="53.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.589155" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:query_length">
       <dailyData date="2-6-2018">
@@ -583,6 +834,13 @@
       <dailyData date="3-6-2018">
         <observation name="average" value="0.0" />
         <observation name="count" value="379.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="59.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -603,6 +861,13 @@
         <observation name="min" value="1.0" />
         <observation name="variance" value="12.655001" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="6.898305" />
+        <observation name="count" value="59.0" />
+        <observation name="max" value="16.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="8.345056" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:sameWords">
       <dailyData date="2-6-2018">
@@ -620,6 +885,14 @@
         <observation name="max" value="0.0" />
         <observation name="min" value="-2.0" />
         <observation name="variance" value="0.069955" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="average" value="-0.280702" />
+        <observation name="count" value="57.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-3.0" />
+        <observation name="variance" value="0.247177" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:shorter">
@@ -639,6 +912,14 @@
         <observation name="min" value="-999.0" />
         <observation name="variance" value="33023.902736" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="average" value="-210.245614" />
+        <observation name="count" value="57.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-999.0" />
+        <observation name="variance" value="108777.841458" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:simple">
       <dailyData date="2-6-2018">
@@ -657,6 +938,14 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="average" value="0.0" />
+        <observation name="count" value="57.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:sorter">
       <dailyData date="2-6-2018">
@@ -669,6 +958,13 @@
       <dailyData date="3-6-2018">
         <observation name="average" value="1.0" />
         <observation name="count" value="379.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="1.0" />
+        <observation name="count" value="59.0" />
         <observation name="max" value="1.0" />
         <observation name="min" value="1.0" />
         <observation name="variance" value="0.0" />
@@ -691,6 +987,14 @@
         <observation name="min" value="-5.0" />
         <observation name="variance" value="0.858894" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="UNDEFINED" value="24.0" />
+        <observation name="average" value="-3.0" />
+        <observation name="count" value="11.0" />
+        <observation name="max" value="-3.0" />
+        <observation name="min" value="-3.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:stats">
       <dailyData date="2-6-2018">
@@ -706,6 +1010,13 @@
         <observation name="max" value="10000.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="7220525.633956" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="338.983051" />
+        <observation name="count" value="59.0" />
+        <observation name="max" value="10000.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="2063708.754295" />
       </dailyData>
     </factor>
     <factor id="itemPosition">
@@ -726,6 +1037,11 @@
         <observation name="40" value="1.0" />
         <observation name="6" value="1.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="0" value="7.0" />
+        <observation name="1" value="3.0" />
+        <observation name="2" value="1.0" />
+      </dailyData>
     </factor>
     <factor id="mnemonicsUsage">
       <dailyData date="2-6-2018">
@@ -735,6 +1051,10 @@
       <dailyData date="3-6-2018">
         <observation name="total" value="60.0" />
         <observation name="withMnemonics" value="7.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="total" value="8.0" />
+        <observation name="withMnemonics" value="0.0" />
       </dailyData>
     </factor>
     <factor id="prefixLength">
@@ -761,6 +1081,14 @@
         <observation name="7" value="2.0" />
         <observation name="8" value="3.0" />
       </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="0" value="2.0" />
+        <observation name="1" value="1.0" />
+        <observation name="3" value="2.0" />
+        <observation name="4" value="4.0" />
+        <observation name="5" value="1.0" />
+        <observation name="6" value="1.0" />
+      </dailyData>
     </factor>
     <factor id="timeBetweenTyping">
       <dailyData date="2-6-2018">
@@ -770,6 +1098,10 @@
       <dailyData date="3-6-2018">
         <observation name="average" value="293.422868" />
         <observation name="count" value="551.0" />
+      </dailyData>
+      <dailyData date="4-6-2018">
+        <observation name="average" value="204.048077" />
+        <observation name="count" value="104.0" />
       </dailyData>
     </factor>
   </component>
@@ -784,7 +1116,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -792,6 +1123,173 @@
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+              <item name="match" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+              <item name="ConstEvents" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+              <item name="GeneralEvent" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+              <item name="GeneralEventManager" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+              <item name="MatchEventListener" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="MatchEvent" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="publisher" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="publisher" type="462c0819:PsiDirectoryNode" />
+              <item name="MatchEventPublisher" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="publisher" type="462c0819:PsiDirectoryNode" />
+              <item name="RemoteQueue" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="MatchRunnerAPI" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -834,6 +1332,23 @@
               <item name="src-test" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="publisher" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="publisher" type="462c0819:PsiDirectoryNode" />
+              <item name="RemoteQueueTest" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -844,6 +1359,16 @@
               <item name="robolucha" type="462c0819:PsiDirectoryNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
               <item name="luchador" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="src-test" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="robolucha" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="luchador" type="462c0819:PsiDirectoryNode" />
+              <item name="BugNaoRetornandoMatchRunnerAtivoTest" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="robolucha" type="b2602c69:ProjectViewProjectNode" />
@@ -859,6 +1384,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -871,13 +1397,17 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.33678162" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.robolucha.runner.luchador" />
       <recent name="com.robolucha.publisher" />
       <recent name="com.robolucha.runner" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.robolucha.event.ConstEvents" />
+      <recent name="com.robolucha.event.EventNames" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.robolucha.runner.luchador" />
@@ -925,7 +1455,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528068419429" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528152772523" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -949,7 +1479,7 @@
       </Profilers>
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528068419430" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528152772523" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1129,7 +1659,7 @@
     <frame x="0" y="23" width="1440" height="806" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68326694" visible="true" weight="0.2160229" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68326694" visible="true" weight="0.21888413" />
       <window_info id="Structure" order="1" sideWeight="0.31673306" side_tool="true" weight="0.24305555" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1138,7 +1668,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33053222" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49930555" visible="true" weight="0.4929972" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49930555" weight="0.4929972" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3977591" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1146,9 +1676,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50069445" side_tool="true" weight="0.32977304" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.27450982" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.27450982" />
       <window_info anchor="bottom" id="Docker" order="11" weight="0.32977304" />
-      <window_info anchor="right" id="LuaJ" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1157,78 +1686,13 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="LuaJ" order="8" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/ScriptDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/ScriptDefinitionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/lua/nmscolor.lua">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/game/MethodBuilderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src-test/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="78" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/MethodBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="45" column="42" lean-forward="true" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/lua/default-methods.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/lua/LuaScriptDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/MethodNames.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/test/MockLuchador.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1244,13 +1708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="14" column="83" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
         </state>
       </provider>
     </entry>
@@ -1296,13 +1753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/match/MatchEventVO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1314,27 +1764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEventNames.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-787">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1543,16 +1972,119 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEventNames.java" />
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/models/MatchEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/game/event/MatchEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunnerAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/ConstEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/tasks.md">
+      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="225">
-            <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <first_editor relative-caret-position="296">
+            <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/event/GeneralEventManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/MatchEventPublisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4874#4875#0" expanded="true" />
+            <element signature="e#4938#4939#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/RemoteQueueTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/RemoteQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+          <folding>
+            <element signature="e#1534#1535#0" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1643#1644#0" expanded="true" />
+            <element signature="e#1709#1710#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/runner/luchador/BugNaoRetornandoMatchRunnerAtivoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="30" column="66" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

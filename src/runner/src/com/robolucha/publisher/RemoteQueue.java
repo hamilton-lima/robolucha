@@ -11,6 +11,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPubSub;
 
+// TODO: create interface Publisher
 public class RemoteQueue implements AutoCloseable {
 
     private Logger logger = Logger.getLogger(RemoteQueue.class);
@@ -32,8 +33,17 @@ public class RemoteQueue implements AutoCloseable {
         publisherPool.close();
     }
 
+    public Observable<Long> publishWithSuffix(String suffix, Object subjectToPublish) {
+        String channel = getChannelName(subjectToPublish);
+        return publish(channel + suffix, subjectToPublish);
+    }
+
     public Observable<Long> publish(Object subjectToPublish) {
         String channel = getChannelName(subjectToPublish);
+        return publish(channel, subjectToPublish);
+    }
+
+    public Observable<Long> publish(String channel, Object subjectToPublish) {
         String data = getData(subjectToPublish);
 
         Jedis publisher = publisherPool.getResource();
@@ -59,7 +69,7 @@ public class RemoteQueue implements AutoCloseable {
 
         BehaviorSubject<T> result = BehaviorSubject.create();
         String channel = getChannelName(clazzToSubscribe);
-        logger.debug("subscribing to " + channel );
+        logger.debug("subscribing to " + channel);
 
         Thread subscriber = new Thread(new Runnable() {
             public void run() {

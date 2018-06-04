@@ -7,6 +7,7 @@ import com.robolucha.models.Match;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.publisher.MatchEventPublisher;
 import com.robolucha.publisher.MatchStatePublisher;
+import com.robolucha.publisher.RemoteQueue;
 import com.robolucha.publisher.ScoreUpdater;
 
 import java.io.BufferedReader;
@@ -24,10 +25,12 @@ public class Server {
 			throw new RuntimeException("Invalid use, must provide GameDefinition json file name");
 		}
 
+		RemoteQueue queue = new RemoteQueue(Config.getInstance());
+
 		GameDefinition gameDefinition = loadGameDefinition(args[0]);
 		Match match = MatchRunnerAPI.getInstance().createMatch(gameDefinition);
 		MatchRunner runner = new MatchRunner(gameDefinition, match);
-		Thread thread = buildRunner(runner);
+		Thread thread = buildRunner(runner, queue);
 		thread.start();
 
 	}
@@ -59,21 +62,20 @@ public class Server {
 		return buffer.toString();
 	}
 
-	public static Thread buildRunner(MatchRunner runner) {
+	public static Thread buildRunner(MatchRunner runner, RemoteQueue queue) {
 		ThreadMonitor.getInstance().register(runner);
 
 		//add NPC to the match
 		runner.addListener(new OnInitAddNPC());
 
 		// listener to record match events
-		runner.addListener(new MatchEventPublisher(runner.getMatch()));
+		runner.addListener(new MatchEventPublisher(runner.getMatch(), queue));
 
 		// listener to update scores
 		runner.addListener(new ScoreUpdater());
 
 		// listener to the match state
 		runner.setPublisher(MatchStatePublisher.getInstance());
-
 
 		return new Thread(runner);
 	}

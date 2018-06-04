@@ -1,5 +1,6 @@
 package com.robolucha.runner;
 
+import com.robolucha.event.ConstEvents;
 import org.apache.log4j.Logger;
 
 import com.robolucha.event.GeneralEvent;
@@ -41,33 +42,33 @@ public class MatchEventHandler {
     }
 
     public void init(RunAfterThisTask... runAfterThis) {
-        GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_INIT, runAfterThis);
+        GeneralEvent event = new GeneralEvent(ConstEvents.ACTION_INIT, runAfterThis);
         add(event);
     }
 
     public void start(RunAfterThisTask... runAfterThis) {
-        GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_START, runAfterThis);
+        GeneralEvent event = new GeneralEvent(ConstEvents.ACTION_START, runAfterThis);
         add(event);
     }
 
     public void alive(RunAfterThisTask... runAfterThis) {
-        GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_ALIVE, runAfterThis);
+        GeneralEvent event = new GeneralEvent(ConstEvents.ACTION_ALIVE, runAfterThis);
         add(event);
     }
 
     public void end(RunAfterThisTask... runAfterThis) {
-        GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_END, runAfterThis);
+        GeneralEvent event = new GeneralEvent(ConstEvents.ACTION_END, runAfterThis);
         add(event);
     }
 
     public void damage(LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, double amount,
                        RunAfterThisTask... runAfterThis) {
-        GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_DAMAGE, lutchadorA, lutchadorB, amount, runAfterThis);
+        GeneralEvent event = new GeneralEvent(ConstEvents.ACTION_DAMAGE, lutchadorA, lutchadorB, amount, runAfterThis);
         add(event);
     }
 
     public void kill(LuchadorMatchState lutchadorA, LuchadorMatchState lutchadorB, RunAfterThisTask... runAfterThis) {
-        GeneralEvent event = new GeneralEvent(GeneralEvent.ACTION_KILL, lutchadorA, lutchadorB, runAfterThis);
+        GeneralEvent event = new GeneralEvent(ConstEvents.ACTION_KILL, lutchadorA, lutchadorB, runAfterThis);
         add(event);
     }
 

@@ -30,6 +30,11 @@ match updates
 
 * Redesign listeners to use Promises and Observables
 
+* implement MatchRunnerAPI
+
+* remove toString methods
+
+
 # Done 
 
 * MatchEventPublisher
