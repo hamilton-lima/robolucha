@@ -1,10 +1,8 @@
 #Todo
 
-* MatchEventPublisher
-    - Send events to Redis using RemoteQueue
-    
 * MatchStatePublisher
     - Send state to Redis using RemoteQueue
+    - how the messages are sent to the queue?
 
 * Implement golang publisher that reads from matchstate and 
 updates the active clients with the state
@@ -36,6 +34,8 @@ match updates
 
 
 # Done 
+* MatchEventPublisher
+    - Send events to Redis using RemoteQueue
 
 * MatchEventPublisher
     - Change ScoreUpdater to change the score in the LuchadorRunner
