@@ -10,6 +10,9 @@
 * Implement golang publisher that reads from matchstate and 
 updates the active clients with the state
 
+* Update sonarcloud automation to publish unit test coverage 
+https://docs.sonarqube.org/display/PLUG/Code+Coverage+by+Unit+Tests+for+Java+Project
+
 * Test ScoreUpdater change the calculate in the LuchadorRunner
 
 * Fix unit tests
