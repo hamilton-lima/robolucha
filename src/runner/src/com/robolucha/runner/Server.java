@@ -18,67 +18,68 @@ import java.io.FileReader;
  */
 public class Server {
 
-	public static void main(String[] args) throws Exception {
-		addRunTimeHook();
+    public static void main(String[] args) throws Exception {
+        addRunTimeHook();
 
-		if (args.length < 1) {
-			throw new RuntimeException("Invalid use, must provide GameDefinition json file name");
-		}
+        if (args.length < 1) {
+            throw new RuntimeException("Invalid use, must provide GameDefinition json file name");
+        }
 
-		RemoteQueue queue = new RemoteQueue(Config.getInstance());
+        RemoteQueue queue = new RemoteQueue(Config.getInstance());
+        MatchStatePublisher publisher = new MatchStatePublisher(queue);
 
-		GameDefinition gameDefinition = loadGameDefinition(args[0]);
-		ThreadMonitor threadMonitor = ThreadMonitor.getInstance();
+        GameDefinition gameDefinition = loadGameDefinition(args[0]);
+        ThreadMonitor threadMonitor = ThreadMonitor.getInstance();
 
-		Match match = MatchRunnerAPI.getInstance().createMatch(gameDefinition);
-		MatchRunner runner = new MatchRunner(gameDefinition, match);
-		Thread thread = buildRunner(runner, queue, threadMonitor);
-		thread.start();
+        Match match = MatchRunnerAPI.getInstance().createMatch(gameDefinition);
+        MatchRunner runner = new MatchRunner(gameDefinition, match);
+        Thread thread = buildRunner(runner, queue, threadMonitor, publisher);
+        thread.start();
 
-	}
+    }
 
-	private static void addRunTimeHook() {
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			public void run() {
-				ThreadMonitor.getInstance().contextDestroyed();
-			}
-		});
-	}
+    private static void addRunTimeHook() {
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                ThreadMonitor.getInstance().contextDestroyed();
+            }
+        });
+    }
 
-	static GameDefinition loadGameDefinition(String filename) throws Exception {
-		Gson gson = new Gson();
-		String fileContent = readFile(filename);
-		GameDefinition definition = gson.fromJson(fileContent, GameDefinition.class);
-		return definition;
-	}
+    static GameDefinition loadGameDefinition(String filename) throws Exception {
+        Gson gson = new Gson();
+        String fileContent = readFile(filename);
+        GameDefinition definition = gson.fromJson(fileContent, GameDefinition.class);
+        return definition;
+    }
 
-	private static String readFile(String filename) throws Exception {
-		BufferedReader reader = new BufferedReader(new FileReader(filename));
-		StringBuffer buffer = new StringBuffer();
+    private static String readFile(String filename) throws Exception {
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        StringBuffer buffer = new StringBuffer();
 
-		String line = reader.readLine();
-		while (line != null) {
-			buffer.append(line);
-			line = reader.readLine();
-		}
-		return buffer.toString();
-	}
+        String line = reader.readLine();
+        while (line != null) {
+            buffer.append(line);
+            line = reader.readLine();
+        }
+        return buffer.toString();
+    }
 
-	public static Thread buildRunner(MatchRunner runner, RemoteQueue queue, ThreadMonitor threadMonitor) {
-		ThreadMonitor.getInstance().register(runner);
+    public static Thread buildRunner(MatchRunner runner, RemoteQueue queue, ThreadMonitor threadMonitor, MatchStatePublisher publisher) {
+        ThreadMonitor.getInstance().register(runner);
 
-		//add NPC to the match
-		runner.addListener(new OnInitAddNPC());
+        //add NPC to the match
+        runner.addListener(new OnInitAddNPC());
 
-		// listener to record match events
-		runner.addListener(new MatchEventPublisher(runner.getMatch(), queue, threadMonitor));
+        // listener to record match events
+        runner.addListener(new MatchEventPublisher(runner.getMatch(), queue, threadMonitor));
 
-		// listener to update scores
-		runner.addListener(new ScoreUpdater());
+        // listener to update scores
+        runner.addListener(new ScoreUpdater());
 
-		// listener to the match state
-		runner.setPublisher(MatchStatePublisher.getInstance());
+        // listener to the match state
+        runner.setPublisher(publisher);
 
-		return new Thread(runner);
-	}
+        return new Thread(runner);
+    }
 }

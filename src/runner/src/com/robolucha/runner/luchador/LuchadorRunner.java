@@ -285,7 +285,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
             Code code = (Code) iterator.next();
             if (code.getException() != null && code.getException().trim().length() > 0) {
 
-                addMessage(MessageVO.DANGER, code.getEvent(), code.getException());
+                onMessage(MessageVO.DANGER, code.getEvent(), code.getException());
 
                 // TODO: add call to save the code errors< or trigger events?
                 /*
@@ -308,7 +308,7 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
             logger.debug("save exception to " + name + " exception=" + exception);
         }
 
-        addMessage(MessageVO.DANGER, name, exception);
+        onMessage(MessageVO.DANGER, name, exception);
 
         for (Code code : getGameComponent().getCodes()) {
             if (code.getEvent().equals(name)) {
@@ -784,28 +784,20 @@ public class LuchadorRunner implements GeneralEventHandler, MatchStateProvider {
         return null;
     }
 
-    public void addMessage(String type, String event, String message) {
+    public void onMessage(String type, String event, String message) {
         if (logger.isDebugEnabled()) {
             logger.debug(String.format("---- add message, type=%s, event=%s, message=%s", type, event, message));
         }
 
-        messages.add(new MessageVO(type, event, message));
+        matchRunner.getOnMessage().onNext(new MessageVO(type, event, message));
     }
 
-    public void addMessage(String type, String message) {
+    public void onMessage(String type, String message) {
         if (logger.isDebugEnabled()) {
             logger.debug(String.format("---- add message, type=%s, message=%s", type, message));
         }
 
-        messages.add(new MessageVO(type, message));
-    }
-
-    public MessageVO getMessage() {
-        MessageVO message = messages.poll();
-        if (logger.isDebugEnabled()) {
-            logger.debug(String.format("---- getMessage(), message=%s", message));
-        }
-        return message;
+        matchRunner.getOnMessage().onNext(new MessageVO(type, message));
     }
 
     public void setHeadColor(String color) {

@@ -42,6 +42,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
     //TODO: replace all the listeners by Subjects
     private PublishSubject<MatchEventVO> onMatchStart;
 
+    private PublishSubject<MessageVO> onMessage;
+
     private GameDefinition gameDefinition;
 
     private MatchStatePublisher publisher;
@@ -101,6 +103,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
         luchadorCreator = new LutchadorRunnerCreator(this);
 
         onMatchStart = PublishSubject.create();
+        onMessage = PublishSubject.create();
 
         logger.info("MatchRunner created:" + this);
     }
@@ -190,7 +193,6 @@ public class MatchRunner implements Runnable, ThreadStatus {
         onMatchStart.onComplete();
 
         getEventHandler().start();
-        publisher.start(this);
 
         long timeStart = System.currentTimeMillis();
         this.timeElapsed = 0;
@@ -285,15 +287,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
         eventHandler.cleanup();
         luchadorCreator.cleanup();
-
-        logger.info("matchrun shutdown (4)");
-
-        publisher.end(this, new RunAfterThisTask(this) {
-            public void run() {
-                logger.info("matchrun shutdown (5)");
-                ((MatchRunner) data).cleanup();
-            }
-        });
+        cleanup();
     }
 
     public void cleanup() {
@@ -375,7 +369,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
                     action.run(runners, runner);
                 } catch (Exception e) {
                     runner.deactivate(action.getName());
-                    runner.addMessage(MessageVO.DANGER, action.getName(), e.getMessage());
+                    runner.onMessage(MessageVO.DANGER, action.getName(), e.getMessage());
 
                     logger.error("error executing action: " + action.getName() + " on luchador: "
                             + runner.getGameComponent().getId(), e);
@@ -414,7 +408,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
                 } catch (Exception e) {
                     runner.deactivate(action.getName());
-                    runner.addMessage(MessageVO.DANGER, action.getName(), e.getMessage());
+                    runner.onMessage(MessageVO.DANGER, action.getName(), e.getMessage());
 
                     logger.error("erro executando acao :" + action.getName() + " no lutchador : "
                             + runner.getGameComponent().getId(), e);
@@ -590,4 +584,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
     }
 
     public PublishSubject<MatchEventVO> getOnMatchStart(){ return onMatchStart; }
+
+    public PublishSubject<MessageVO> getOnMessage() {
+        return onMessage;
+    }
 }

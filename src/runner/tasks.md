@@ -2,7 +2,10 @@
 
 * MatchStatePublisher
     - Send state to Redis using RemoteQueue
-    - how the messages are sent to the queue?
+
+* Subscribe to matchRunner.getOnMessage() to send luchadorRunner messages
+    - clone MatchEventPublisher
+    - Fix unit tests related to onMessage from LuchadorRunner 
 
 * Implement golang publisher that reads from matchstate and 
 updates the active clients with the state
@@ -34,6 +37,14 @@ match updates
 
 
 # Done 
+* Document listeners
+- MatchEventHandler 
+    - no interface, init, start, alive, damage, end
+    - send the event for each of the MatchEventListener
+        - ScoreUpdater (onkill, ondamage) = internal update
+        - MatchEventPublisher = send data to remotequeue
+        
+
 * MatchEventPublisher
     - Send events to Redis using RemoteQueue
 

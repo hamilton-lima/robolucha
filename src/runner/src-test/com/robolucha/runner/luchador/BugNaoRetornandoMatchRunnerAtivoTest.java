@@ -44,7 +44,7 @@ public class BugNaoRetornandoMatchRunnerAtivoTest {
 		}
 
 		// start the match
-		Thread t = Server.buildRunner(match, queue, ThreadMonitor.getInstance());
+		Thread t = Server.buildRunner(match, queue, ThreadMonitor.getInstance(), publisher);
 		t.start();
 
 		MatchRunner runner = ThreadMonitor.getInstance().getMatch();
@@ -72,7 +72,7 @@ public class BugNaoRetornandoMatchRunnerAtivoTest {
 		}
 
 		// start the match
-		t = Server.buildRunner(match, queue, ThreadMonitor.getInstance());
+		t = Server.buildRunner(match, queue, ThreadMonitor.getInstance(), publisher);
 		t.start();
 
 		runner = ThreadMonitor.getInstance().getMatch();

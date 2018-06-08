@@ -63,14 +63,14 @@ public class MatchEventPublisher implements MatchEventListener {
         while (iterator.hasNext()) {
             Object key = (Object) iterator.next();
             LuchadorRunner luchadorRunner = runner.getRunners().get(key);
-            updateScore(runner, luchadorRunner);
+            saveFinalScore(runner, luchadorRunner);
         }
 
         addEvent(runner, ConstEvents.END);
 
     }
 
-    private void updateScore(MatchRunner runner, LuchadorRunner luchadorRunner) {
+    private void saveFinalScore(MatchRunner runner, LuchadorRunner luchadorRunner) {
 
         if (logger.isInfoEnabled()) {
             logger.info("update score=" + luchadorRunner.getScoreVO());

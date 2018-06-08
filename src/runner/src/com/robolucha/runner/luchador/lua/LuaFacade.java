@@ -83,21 +83,21 @@ public class LuaFacade {
 	public void debug(String message) {
 		lastCall = "debug(" + message + ")";
 		logger.debug(lastCall);
-		owner.addMessage(MessageVO.DEBUG, message);
+		owner.onMessage(MessageVO.DEBUG, message);
 	}
 
 	//TODO: restrict String size
 	public void warning(String message) {
 		lastCall = "warning(" + message + ")";
 		logger.debug(lastCall);
-		owner.addMessage(MessageVO.WARNING, message);
+		owner.onMessage(MessageVO.WARNING, message);
 	}
 
 	//TODO: restrict String size
 	public void danger(String message) {
 		lastCall = "danger(" + message + ")";
 		logger.debug(lastCall);
-		owner.addMessage(MessageVO.DANGER, message);
+		owner.onMessage(MessageVO.DANGER, message);
 	}
 
 	//TODO: restrict String size

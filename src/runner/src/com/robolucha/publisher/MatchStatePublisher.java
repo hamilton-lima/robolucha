@@ -18,19 +18,15 @@ public class MatchStatePublisher {
     private static Logger logger = Logger.getLogger(MatchStatePublisher.class);
 
     private static MatchStatePublisher instance;
+    private final RemoteQueue publisher;
+
     private Map<Long, MatchRunStateVO> matchStates;
     private Map<Long, MatchRunner> matchRunners;
 
-    protected MatchStatePublisher() {
+    public MatchStatePublisher(RemoteQueue publisher) {
         matchStates = Collections.synchronizedMap(new HashMap<Long, MatchRunStateVO>());
         matchRunners = Collections.synchronizedMap(new HashMap<Long, MatchRunner>());
-    }
-
-    public static MatchStatePublisher getInstance() {
-        if (instance == null) {
-            instance = new MatchStatePublisher();
-        }
-        return instance;
+        this.publisher = publisher;
     }
 
     public void update(MatchRunner matchRunner) throws Exception {
@@ -115,10 +111,6 @@ public class MatchStatePublisher {
         //TODO: MUST DO - send updates to REDIS
     }
 
-    public void start(MatchRunner matchRunner) {
-        logger.debug("START " + matchRunner);
-        //TODO: MUST DO - send the start to REDIS
-    }
 
     public void end(MatchRunner matchRunner, RunAfterThisTask... runAfterThis) {
         logger.debug("END " + matchRunner);
@@ -138,37 +130,37 @@ public class MatchStatePublisher {
      * @param luchadorId
      * @return
      */
-    public MatchRunStateVO getMessages(MatchRunStateVO state, Long matchId, Long luchadorId) {
-
-        if (logger.isDebugEnabled()) {
-            logger.debug(String.format("getMessages() matchId=%s, luchadorId=%s", matchId, luchadorId));
-        }
-
-        state.messages = new ArrayList<MessageVO>();
-        MatchRunner matchRunner = matchRunners.get(matchId);
-        LuchadorRunner luchadorRunner = matchRunner.getRunner(luchadorId);
-
-        if (logger.isDebugEnabled()) {
-            String matchRunnerId = matchRunner == null ? "NULL" : matchRunner.getMatch().getId().toString();
-            String luchadorRunnerId = luchadorRunner == null ? "NULL"
-                    : Long.toString(luchadorRunner.getGameComponent().getId());
-            logger.debug(String.format("matchrunner=%s, luchadorrunner=%s", matchRunnerId, luchadorRunnerId));
-        }
-
-        // luchador ainda nao consta na lista do MatchRunner
-        if (luchadorRunner != null) {
-            MessageVO message = luchadorRunner.getMessage();
-
-            if (logger.isDebugEnabled()) {
-                logger.debug(String.format("message=%s", message));
-            }
-
-            if (message != null) {
-                state.messages.add(message);
-            }
-        }
-
-        return state;
-    }
+//    public MatchRunStateVO getMessages(MatchRunStateVO state, Long matchId, Long luchadorId) {
+//
+//        if (logger.isDebugEnabled()) {
+//            logger.debug(String.format("getMessages() matchId=%s, luchadorId=%s", matchId, luchadorId));
+//        }
+//
+//        state.messages = new ArrayList<MessageVO>();
+//        MatchRunner matchRunner = matchRunners.get(matchId);
+//        LuchadorRunner luchadorRunner = matchRunner.getRunner(luchadorId);
+//
+//        if (logger.isDebugEnabled()) {
+//            String matchRunnerId = matchRunner == null ? "NULL" : matchRunner.getMatch().getId().toString();
+//            String luchadorRunnerId = luchadorRunner == null ? "NULL"
+//                    : Long.toString(luchadorRunner.getGameComponent().getId());
+//            logger.debug(String.format("matchrunner=%s, luchadorrunner=%s", matchRunnerId, luchadorRunnerId));
+//        }
+//
+//        // luchador ainda nao consta na lista do MatchRunner
+//        if (luchadorRunner != null) {
+//            MessageVO message = luchadorRunner.getMessage();
+//
+//            if (logger.isDebugEnabled()) {
+//                logger.debug(String.format("message=%s", message));
+//            }
+//
+//            if (message != null) {
+//                state.messages.add(message);
+//            }
+//        }
+//
+//        return state;
+//    }
 
 }
