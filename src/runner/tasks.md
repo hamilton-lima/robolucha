@@ -1,8 +1,5 @@
 #Todo
 
-* MatchStatePublisher
-    - Send state to Redis using RemoteQueue
-
 * Subscribe to matchRunner.getOnMessage() to send luchadorRunner messages
     - clone MatchEventPublisher
     - Fix unit tests related to onMessage from LuchadorRunner 
@@ -15,6 +12,9 @@ updates the active clients with the state
     - Update sonarcloud automation to publish unit test coverage 
     https://docs.sonarqube.org/display/PLUG/Code+Coverage+by+Unit+Tests+for+Java+Project
 
+* Implement e2e test of MatchStatePublisher
+    - run match with events to check for the matchstate to be published
+    
 * Test ScoreUpdater change the calculate in the LuchadorRunner
 
 * Fix unit tests
@@ -42,6 +42,10 @@ match updates
 
 
 # Done 
+* MatchStatePublisher
+    - Send state to Redis using RemoteQueue
+    - Test it 
+
 * Document listeners
 - MatchEventHandler 
     - no interface, init, start, alive, damage, end

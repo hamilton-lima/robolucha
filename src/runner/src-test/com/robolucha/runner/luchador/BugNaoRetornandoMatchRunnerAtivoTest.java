@@ -2,6 +2,7 @@ package com.robolucha.runner.luchador;
 
 import com.robolucha.models.Luchador;
 import com.robolucha.monitor.ThreadMonitor;
+import com.robolucha.publisher.MatchStatePublisher;
 import com.robolucha.publisher.RemoteQueue;
 import com.robolucha.runner.Config;
 import com.robolucha.runner.MatchRunner;
@@ -18,6 +19,9 @@ public class BugNaoRetornandoMatchRunnerAtivoTest {
 
 	private static Logger logger = Logger
 			.getLogger(BugNaoRetornandoMatchRunnerAtivoTest.class);
+
+	RemoteQueue queue = new RemoteQueue(Config.getInstance());
+	MatchStatePublisher publisher = new MatchStatePublisher(queue);
 
 	/**
 	 * inicia uma partida e le do ThreadMonitor qual a partida atual, conclui a

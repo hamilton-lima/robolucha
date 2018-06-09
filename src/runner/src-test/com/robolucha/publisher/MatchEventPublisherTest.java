@@ -8,7 +8,6 @@ import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.test.MockLuchador;
 import com.robolucha.test.MockMatchRunner;
-import io.reactivex.Observable;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,19 +18,6 @@ import static junit.framework.TestCase.assertTrue;
 public class MatchEventPublisherTest {
 
     private static Logger logger = Logger.getLogger(MatchEventPublisherTest.class);
-
-    private static class MockRemoteQueue extends RemoteQueue {
-        public MatchEvent lastPublished;
-
-        MockRemoteQueue() {
-        }
-
-        @Override
-        public Observable<Long> publish(String channel, Object subjectToPublish) {
-            lastPublished = (MatchEvent) subjectToPublish;
-            return Observable.just(0L);
-        }
-    }
 
     private static class MockThreadMonitor extends ThreadMonitor {
 
@@ -65,7 +51,7 @@ public class MatchEventPublisherTest {
     @Test
     public void onInit() {
         publisher.onInit(runner);
-        MatchEvent event = queue.lastPublished;
+        MatchEvent event = (MatchEvent) queue.lastPublished;
         logger.debug("last published " + event);
 
         assertTrue(event.getTimeStart() >= start);
@@ -79,7 +65,7 @@ public class MatchEventPublisherTest {
     @Test
     public void onStart() {
         publisher.onStart(runner);
-        MatchEvent event = queue.lastPublished;
+        MatchEvent event = (MatchEvent) queue.lastPublished;
         logger.debug("last published " + event);
 
         assertTrue(event.getTimeStart() >= start);
@@ -93,7 +79,7 @@ public class MatchEventPublisherTest {
     @Test
     public void onEnd() {
         publisher.onEnd(runner);
-        MatchEvent event = queue.lastPublished;
+        MatchEvent event = (MatchEvent) queue.lastPublished;
         logger.debug("last published " + event);
 
         assertTrue(event.getTimeStart() >= start);
@@ -117,7 +103,7 @@ public class MatchEventPublisherTest {
         LuchadorMatchState luchador2 = MockLuchador.buildLuchadorMatchState(2L);
 
         publisher.onKill(runner, luchador1, luchador2);
-        MatchEvent event = queue.lastPublished;
+        MatchEvent event = (MatchEvent) queue.lastPublished;
         logger.debug("last published " + event);
 
         assertTrue(event.getTimeStart() >= start);
@@ -135,7 +121,7 @@ public class MatchEventPublisherTest {
         LuchadorMatchState luchador2 = MockLuchador.buildLuchadorMatchState(2L);
 
         publisher.onDamage(runner, luchador2, luchador1, 54.3);
-        MatchEvent event = queue.lastPublished;
+        MatchEvent event = (MatchEvent) queue.lastPublished;
         logger.debug("last published " + event);
 
         assertTrue(event.getTimeStart() >= start);

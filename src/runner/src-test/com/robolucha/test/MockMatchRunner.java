@@ -4,13 +4,15 @@ import com.robolucha.game.vo.MatchRunStateVO;
 import com.robolucha.models.GameDefinition;
 import com.robolucha.models.Match;
 import com.robolucha.publisher.MatchStatePublisher;
+import com.robolucha.publisher.RemoteQueue;
+import com.robolucha.runner.Config;
 import com.robolucha.runner.MatchRunner;
-import com.robolucha.runner.RunAfterThisTask;
 
 public class MockMatchRunner {
 
     static class MatchStatePublisherSilent extends MatchStatePublisher {
         public MatchStatePublisherSilent() {
+            super(new RemoteQueue(Config.getInstance()));
         }
 
         @Override
@@ -21,13 +23,6 @@ public class MockMatchRunner {
         public void publish(MatchRunStateVO vo) {
         }
 
-        @Override
-        public void start(MatchRunner matchRunner) {
-        }
-
-        @Override
-        public void end(MatchRunner matchRunner, RunAfterThisTask... runAfterThis) {
-        }
     }
 
     public static MatchRunner build() {

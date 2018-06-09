@@ -1,17 +1,22 @@
 package com.robolucha.publisher;
 
-import com.robolucha.game.vo.*;
+import com.robolucha.game.vo.BulletVO;
+import com.robolucha.game.vo.LuchadorPublicStateVO;
+import com.robolucha.game.vo.MatchRunStateVO;
+import com.robolucha.game.vo.PunchVO;
 import com.robolucha.models.Bullet;
 import com.robolucha.models.Luchador;
 import com.robolucha.models.LuchadorPublicState;
 import com.robolucha.models.MaskConfigVO;
 import com.robolucha.runner.MatchRunner;
 import com.robolucha.runner.Punch;
-import com.robolucha.runner.RunAfterThisTask;
 import com.robolucha.runner.luchador.LuchadorRunner;
 import org.apache.log4j.Logger;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class MatchStatePublisher {
 
@@ -107,60 +112,9 @@ public class MatchStatePublisher {
 
     }
 
-    public void publish(MatchRunStateVO vo) {
-        //TODO: MUST DO - send updates to REDIS
+    public void publish(MatchRunStateVO state) {
+        publisher.publish(state);
     }
 
-
-    public void end(MatchRunner matchRunner, RunAfterThisTask... runAfterThis) {
-        logger.debug("END " + matchRunner);
-
-        if (runAfterThis != null) {
-            for (int i = 0; i < runAfterThis.length; i++) {
-                runAfterThis[i].run();
-            }
-        }
-    }
-
-    /**
-     * adiciona as mensagens ao MatchRunStateVO
-     *
-     * @param state
-     * @param matchId
-     * @param luchadorId
-     * @return
-     */
-//    public MatchRunStateVO getMessages(MatchRunStateVO state, Long matchId, Long luchadorId) {
-//
-//        if (logger.isDebugEnabled()) {
-//            logger.debug(String.format("getMessages() matchId=%s, luchadorId=%s", matchId, luchadorId));
-//        }
-//
-//        state.messages = new ArrayList<MessageVO>();
-//        MatchRunner matchRunner = matchRunners.get(matchId);
-//        LuchadorRunner luchadorRunner = matchRunner.getRunner(luchadorId);
-//
-//        if (logger.isDebugEnabled()) {
-//            String matchRunnerId = matchRunner == null ? "NULL" : matchRunner.getMatch().getId().toString();
-//            String luchadorRunnerId = luchadorRunner == null ? "NULL"
-//                    : Long.toString(luchadorRunner.getGameComponent().getId());
-//            logger.debug(String.format("matchrunner=%s, luchadorrunner=%s", matchRunnerId, luchadorRunnerId));
-//        }
-//
-//        // luchador ainda nao consta na lista do MatchRunner
-//        if (luchadorRunner != null) {
-//            MessageVO message = luchadorRunner.getMessage();
-//
-//            if (logger.isDebugEnabled()) {
-//                logger.debug(String.format("message=%s", message));
-//            }
-//
-//            if (message != null) {
-//                state.messages.add(message);
-//            }
-//        }
-//
-//        return state;
-//    }
 
 }

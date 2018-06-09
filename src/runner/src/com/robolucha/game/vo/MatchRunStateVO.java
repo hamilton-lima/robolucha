@@ -1,9 +1,9 @@
 package com.robolucha.game.vo;
 
+import com.robolucha.models.ScoreVO;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.robolucha.models.ScoreVO;
 
 public class MatchRunStateVO {
 	
@@ -15,16 +15,13 @@ public class MatchRunStateVO {
 	public List<LuchadorPublicStateVO> luchadores;
 	public List<ScoreVO> scores;
 	public long clock;
-	public ArrayList<MessageVO> messages;
-	public String state;
-	
+
 	public MatchRunStateVO() {
 		luchadores = new ArrayList<LuchadorPublicStateVO>();
 		bullets = new ArrayList<BulletVO>();
 		punches = new ArrayList<PunchVO>();
 		events = new ArrayList<EventVO>();
 		scores = new ArrayList<ScoreVO>();
-		messages = new ArrayList<MessageVO>(); 
 	}
 
 }
