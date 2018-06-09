@@ -44,6 +44,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
     private PublishSubject<MessageVO> onMessage;
 
+    private List<MatchRunnerListener> listeners;
+
     private GameDefinition gameDefinition;
 
     private MatchStatePublisher publisher;
@@ -82,6 +84,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
         this.match = match;
 
+        listeners = new LinkedList<MatchRunnerListener>();
+
         runOnActive = new LinkedList<GameAction>();
         runOnActive.add(new RepeatAction());
         runOnActive.add(new CheckRadarAction(this));
@@ -89,6 +93,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
         runOnActive.add(new ChangeStateAction());
 
         runners = new LinkedHashMap<Long, LuchadorRunner>();
+
+        respawnProcessor = new RespawnProcessor(this);
 
         bullets = new SafeList(new LinkedList<Bullet>());
         punches = new SafeList(new LinkedList<Punch>());
@@ -110,6 +116,11 @@ public class MatchRunner implements Runnable, ThreadStatus {
 
     public Match getMatch() {
         return match;
+    }
+
+    public void addListener( MatchRunnerListener listener){
+        listeners.add( listener );
+        listener.subscribe(this);
     }
 
     public void add(final GameComponent component) throws Exception {
@@ -313,6 +324,8 @@ public class MatchRunner implements Runnable, ThreadStatus {
             // runners.put(runner.getGameComponent().getId(), null);
         }
 
+        listeners.stream().forEach( disposable -> disposable.dispose() );
+
         // cleanup
         runners.clear();
         bullets.clear();
@@ -323,6 +336,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
         eventListeners.clear();
         matchEventListeners.clear();
         respawnProcessor.cleanup();
+        listeners.clear();
 
         runners = null;
         bullets = null;
@@ -333,6 +347,7 @@ public class MatchRunner implements Runnable, ThreadStatus {
         eventListeners = null;
         matchEventListeners = null;
         respawnProcessor = null;
+        listeners = null;
 
         gameDefinition = null;
 
@@ -513,10 +528,6 @@ public class MatchRunner implements Runnable, ThreadStatus {
     }
 
     public RespawnPoint getRespawnPoint(LuchadorRunner runner) {
-        if (respawnProcessor == null) {
-            this.respawnProcessor = new RespawnProcessor(this);
-        }
-
         return respawnProcessor.getRespawnPoint(runner, runners);
     }
 

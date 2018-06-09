@@ -6,6 +6,7 @@ import com.robolucha.models.GameDefinition;
 import com.robolucha.models.Match;
 import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.publisher.MatchEventPublisher;
+import com.robolucha.publisher.MatchMessagePublisher;
 import com.robolucha.publisher.MatchStatePublisher;
 import com.robolucha.publisher.RemoteQueue;
 import com.robolucha.score.ScoreUpdater;
@@ -17,6 +18,8 @@ import java.io.FileReader;
  * Runs a Match based on the input MatchDefinition ID
  */
 public class Server {
+
+    MatchMessagePublisher matchMessagePublisher;
 
     public static void main(String[] args) throws Exception {
         addRunTimeHook();
@@ -33,6 +36,7 @@ public class Server {
 
         Match match = MatchRunnerAPI.getInstance().createMatch(gameDefinition);
         MatchRunner runner = new MatchRunner(gameDefinition, match);
+
         Thread thread = buildRunner(runner, queue, threadMonitor, publisher);
         thread.start();
 
@@ -79,6 +83,10 @@ public class Server {
 
         // listener to the match state
         runner.setPublisher(publisher);
+
+        // message listener TODO: convert all listeners to this format
+        runner.addListener(new MatchMessagePublisher(queue));
+
 
         return new Thread(runner);
     }
