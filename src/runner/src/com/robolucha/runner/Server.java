@@ -8,7 +8,7 @@ import com.robolucha.monitor.ThreadMonitor;
 import com.robolucha.publisher.MatchEventPublisher;
 import com.robolucha.publisher.MatchStatePublisher;
 import com.robolucha.publisher.RemoteQueue;
-import com.robolucha.publisher.ScoreUpdater;
+import com.robolucha.score.ScoreUpdater;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

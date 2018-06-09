@@ -1,4 +1,4 @@
-package com.robolucha.publisher;
+package com.robolucha.score;
 
 import com.robolucha.models.ScoreVO;
 

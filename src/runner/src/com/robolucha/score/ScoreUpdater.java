@@ -1,4 +1,4 @@
-package com.robolucha.publisher;
+package com.robolucha.score;
 
 import com.robolucha.game.event.MatchEventListener;
 import com.robolucha.models.LuchadorMatchState;

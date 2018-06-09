@@ -1,6 +1,6 @@
 package com.robolucha.models;
 
-import com.robolucha.publisher.ScoreBuilder;
+import com.robolucha.score.ScoreBuilder;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
