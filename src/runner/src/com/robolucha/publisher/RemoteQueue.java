@@ -59,11 +59,11 @@ public class RemoteQueue implements AutoCloseable {
         return this.gson.toJson(subjectToPublish);
     }
 
-    private String getChannelName(Class clazz) {
+    public static String getChannelName(Class clazz) {
         return clazz.getCanonicalName();
     }
 
-    private String getChannelName(Object subjectToPublish) {
+    public static String getChannelName(Object subjectToPublish) {
         return getChannelName(subjectToPublish.getClass());
     }
 

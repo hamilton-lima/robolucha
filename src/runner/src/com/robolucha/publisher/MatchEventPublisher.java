@@ -158,7 +158,7 @@ public class MatchEventPublisher implements MatchEventListener {
             logger.debug("matchrunner.id=" + runner.getMatch().getId() + " " + name + " event=" + event);
         }
 
-        publisher.publishWithSuffix(name, event);
+        publisher.publish(event);
     }
 
 }
