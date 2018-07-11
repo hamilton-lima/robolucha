@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a7dcf67-8d1f-45b3-b73a-669d80f1f4c4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/MatchMessagePublisherTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/MatchMessagePublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunnerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/Honor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/Honor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/src/com/robolucha/runner/Server.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a7dcf67-8d1f-45b3-b73a-669d80f1f4c4" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/src/models/bin/" />
     <ignored path="$PROJECT_DIR$/src/shared/target/" />
     <ignored path="$PROJECT_DIR$/src/runner/target/" />
@@ -27,99 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/publisher/MatchMessagePublisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#564#565#0" expanded="true" />
-                <element signature="e#610#611#0" expanded="true" />
-                <element signature="e#946#947#0" expanded="true" />
-                <element signature="e#1004#1005#0" expanded="true" />
-                <element signature="e#950#951#0" expanded="true" />
-                <element signature="e#991#992#0" expanded="true" />
-                <element signature="e#1040#1041#0" expanded="true" />
-                <element signature="e#1078#1079#0" expanded="true" />
-                <element signature="e#1440#1441#0" expanded="true" />
-                <element signature="e#1507#1508#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/MatchMessagePublisherTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/MatchRunner.java">
+        <entry file="file://$PROJECT_DIR$/src/runner/src-support/com/robolucha/support/QueueModel2JSON.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="96" column="54" lean-forward="true" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#13948#13949#0" expanded="true" />
-                <element signature="e#13976#13977#0" expanded="true" />
-                <element signature="e#14025#14026#0" expanded="true" />
-                <element signature="e#14062#14063#0" expanded="true" />
-                <element signature="e#16811#16812#0" expanded="true" />
-                <element signature="e#16855#16856#0" expanded="true" />
-                <element signature="e#16915#16916#0" expanded="true" />
-                <element signature="e#16964#16965#0" expanded="true" />
-                <element signature="e#17422#17423#0" expanded="true" />
-                <element signature="e#17451#17452#0" expanded="true" />
-                <element signature="e#17488#17489#0" expanded="true" />
-                <element signature="e#17521#17522#0" expanded="true" />
-                <element signature="e#17561#17562#0" expanded="true" />
-                <element signature="e#17593#17594#0" expanded="true" />
-                <element signature="e#17657#17658#0" expanded="true" />
-                <element signature="e#17699#17700#0" expanded="true" />
-                <element signature="e#17735#17736#0" expanded="true" />
-                <element signature="e#17765#17766#0" expanded="true" />
-                <element signature="e#17801#17802#0" expanded="true" />
-                <element signature="e#17831#17832#0" expanded="true" />
-                <element signature="e#17894#17895#0" expanded="true" />
-                <element signature="e#17924#17925#0" expanded="true" />
-                <element signature="e#18124#18125#0" expanded="true" />
-                <element signature="e#18152#18153#0" expanded="true" />
-                <element signature="e#18178#18179#0" expanded="true" />
-                <element signature="e#18207#18208#0" expanded="true" />
-                <element signature="e#18243#18244#0" expanded="true" />
-                <element signature="e#18277#18278#0" expanded="true" />
-                <element signature="e#18376#18377#0" expanded="true" />
-                <element signature="e#18426#18427#0" expanded="true" />
-                <element signature="e#18474#18475#0" expanded="true" />
-                <element signature="e#18510#18511#0" expanded="true" />
-                <element signature="e#18573#18574#0" expanded="true" />
-                <element signature="e#18615#18616#0" expanded="true" />
-                <element signature="e#18753#18754#0" expanded="true" />
-                <element signature="e#18785#18786#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src/com/robolucha/runner/luchador/LuchadorRunner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="791" selection-start-line="791" selection-end-line="791" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/MatchEventPublisherTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1490">
-              <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
+            <state relative-caret-position="143">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,10 +32,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/runner/src-test/com/robolucha/publisher/MatchStatePublisherTest.java">
+        <entry file="file://$PROJECT_DIR$/src/runner/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="12" selection-start-line="12" selection-end-line="18" selection-end-column="5" />
+            <state relative-caret-position="135">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -2104,8 +2008,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2325,6 +2227,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -2403,7 +2307,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528554077748" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531318653912" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2427,7 +2331,7 @@
       </Profilers>
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528554077748" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531318653913" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2601,9 +2505,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="806" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68326694" visible="true" weight="0.25679544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.68326694" visible="true" weight="0.31473532" />
       <window_info id="Structure" order="1" sideWeight="0.31673306" side_tool="true" weight="0.24305555" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -2612,7 +2515,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33053222" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49930555" visible="true" weight="0.4187675" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49930555" visible="true" weight="0.4187675" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3977591" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -2841,10 +2744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding>
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2880,9 +2779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2904,9 +2800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="62" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2967,9 +2860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1490">
           <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2991,19 +2881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
           <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#1004#1005#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#991#992#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-            <element signature="e#1078#1079#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1507#1508#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3018,45 +2895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="96" column="54" lean-forward="true" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#13948#13949#0" expanded="true" />
-            <element signature="e#13976#13977#0" expanded="true" />
-            <element signature="e#14025#14026#0" expanded="true" />
-            <element signature="e#14062#14063#0" expanded="true" />
-            <element signature="e#16811#16812#0" expanded="true" />
-            <element signature="e#16855#16856#0" expanded="true" />
-            <element signature="e#16915#16916#0" expanded="true" />
-            <element signature="e#16964#16965#0" expanded="true" />
-            <element signature="e#17422#17423#0" expanded="true" />
-            <element signature="e#17451#17452#0" expanded="true" />
-            <element signature="e#17488#17489#0" expanded="true" />
-            <element signature="e#17521#17522#0" expanded="true" />
-            <element signature="e#17561#17562#0" expanded="true" />
-            <element signature="e#17593#17594#0" expanded="true" />
-            <element signature="e#17657#17658#0" expanded="true" />
-            <element signature="e#17699#17700#0" expanded="true" />
-            <element signature="e#17735#17736#0" expanded="true" />
-            <element signature="e#17765#17766#0" expanded="true" />
-            <element signature="e#17801#17802#0" expanded="true" />
-            <element signature="e#17831#17832#0" expanded="true" />
-            <element signature="e#17894#17895#0" expanded="true" />
-            <element signature="e#17924#17925#0" expanded="true" />
-            <element signature="e#18124#18125#0" expanded="true" />
-            <element signature="e#18152#18153#0" expanded="true" />
-            <element signature="e#18178#18179#0" expanded="true" />
-            <element signature="e#18207#18208#0" expanded="true" />
-            <element signature="e#18243#18244#0" expanded="true" />
-            <element signature="e#18277#18278#0" expanded="true" />
-            <element signature="e#18376#18377#0" expanded="true" />
-            <element signature="e#18426#18427#0" expanded="true" />
-            <element signature="e#18474#18475#0" expanded="true" />
-            <element signature="e#18510#18511#0" expanded="true" />
-            <element signature="e#18573#18574#0" expanded="true" />
-            <element signature="e#18615#18616#0" expanded="true" />
-            <element signature="e#18753#18754#0" expanded="true" />
-            <element signature="e#18785#18786#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
