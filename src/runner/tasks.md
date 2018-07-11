@@ -1,11 +1,12 @@
 #Todo
 
-* Subscribe to matchRunner.getOnMessage() to send luchadorRunner messages
-    - clone MatchEventPublisher
-    - Fix unit tests related to onMessage from LuchadorRunner 
-
 * Implement golang publisher that reads from matchstate and 
 updates the active clients with the state
+    - broadcast the matchstate from redis to the active connections
+
+    - add logging to golang app
+        - https://github.com/sirupsen/logrus
+    
 
 * Evaluate code analysis
     - Codacy vs sonarcloud
@@ -42,6 +43,23 @@ match updates
 
 
 # Done 
+
+* Implement golang publisher that reads from matchstate and 
+updates the active clients with the state
+    - start redis 
+        - docker run -it --rm --name=robolucha-redis -p 6379:6379 -d redis
+        - docker exec -it robolucha-redis redis-cli
+        - PUBLISH c1 "some data"
+
+    - go routine that read from Redis 
+
+    - track active connections, use struct to save the game id
+        - Fix RemoveSession() from SessionManager - unit test it
+
+* Subscribe to matchRunner.getOnMessage() to send luchadorRunner messages
+    - clone MatchEventPublisher
+    - Fix unit tests related to onMessage from LuchadorRunner 
+
 * MatchStatePublisher
     - Send state to Redis using RemoteQueue
     - Test it 
