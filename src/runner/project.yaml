@@ -1,0 +1,22 @@
+group: com.robolucha
+artifact: runner
+version: 0.0.1
+
+repositories:
+  - http://central.maven.org/maven2/
+
+dependencies:
+  - log4j:log4j:1.2.12
+  - com.google.code.gson:gson:2.8.1
+  - org.luaj:luaj-jse:3.0.1
+  - com.github.javafaker:javafaker:0.15
+  - redis.clients:jedis:2.9.0
+  - org.apache.commons:commons-pool2:2.4.2
+  - io.reactivex.rxjava2:rxjava:2.1.14-RC1
+  - com.google.code.gson:gson:2.8.1
+
+test-dependencies:
+  - junit:junit:4.12
+  - com.github.stefanbirkner:system-rules:1.17.0
+
+main-class: com.robolucha.runner.Server

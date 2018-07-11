@@ -7,3 +7,7 @@ xunit.xml
 package-lock.json
 pocs/redis/node-pubsub/.vscode
 .idea
+src/runner/.gradle
+src/runner/.vscode
+src/runner/.settings
+.idea
