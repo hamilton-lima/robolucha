@@ -9,7 +9,9 @@ See here how all started: [The birth of robolucha @Medium](https://medium.com/@a
 
 ### Implementation overview 
 
-![overview](https://raw.githubusercontent.com/hamilton-lima/robolucha/master/docs/robolucha-overview.png)
+![Robolucha Overview][overview]
+
+[overview]: https://raw.githubusercontent.com/hamilton-lima/robolucha/master/docs/robolucha-overview.png
 
 ## Projects
 
