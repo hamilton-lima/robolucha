@@ -55,7 +55,7 @@ Todo
 - Game interface
     - Login page
     - List of active matches with option to join
-    - Arena display matchstate, using 3D cubes
+    - Arena display matchstate, using 3D cubes, use robolucha-sandbox/client/src/app/game-arena as reference
     - Score updated by matchstate
     - Display End game when matchstate indicates
 - Runner
