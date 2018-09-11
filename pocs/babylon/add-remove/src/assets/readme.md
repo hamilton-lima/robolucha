@@ -1,2 +1,0 @@
-- Model downloaded from https://free3d.com/3d-model/tank-68936.html
-- Exported from blender to Babylon format using instructions found at https://doc.babylonjs.com/exporters/installing__the_babylon_exporter
