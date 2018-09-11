@@ -1,7 +1,5 @@
 # Robolucha
 
-![travis CI](https://travis-ci.org/hamilton-lima/robolucha.svg?branch=master)
-
 ## Overview
 Robolucha is a game where you define how your virtual robots, a.k.a. LUCHADORES, will behave in a virtual arena, while playing you learn how to code. Have fun. 
 
@@ -21,10 +19,13 @@ To be updated
 
 ### Release 1
 
+Done
 - Cleanup actions
     - Move runner to separated project
     - create api project
     - move pocs to robolucha-sandbox
+
+Todo    
 - Docker images
     - www, main page before login
     - game, page after login with the game details
