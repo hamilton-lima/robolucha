@@ -1,1 +1,0 @@
-FROM oracle-java8
