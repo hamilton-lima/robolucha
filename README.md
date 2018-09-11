@@ -1,5 +1,7 @@
 # Robolucha
 
+[![Build Status](https://travis-ci.org/hamilton-lima/robolucha-deploy.svg?branch=master)](https://travis-ci.org/hamilton-lima/robolucha-deploy)
+
 ## Overview
 Robolucha is a game where you define how your virtual robots, a.k.a. LUCHADORES, will behave in a virtual arena, while playing you learn how to code. Have fun. 
 
