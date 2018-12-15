@@ -80,5 +80,3 @@ Todo
 - Map API 
 - Upload custom 3D models
 - Increase unit test coverage
-
-touch
